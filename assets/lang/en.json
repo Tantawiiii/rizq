@@ -1,0 +1,30 @@
+{
+  "Auth": {
+
+    "Login": {
+      "welcomeBack": "Welcome back!",
+      "loginAndExploreApp": "Log in to explore our app",
+
+      "googleSignIn": "Google",
+      "or": "Or",
+      "facebookSignIn": "Facebook",
+      "login": "Log In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up"
+    },
+
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?"
+  },
+  "Home": {},
+  "myAds": {},
+  "createAd": {},
+  "Settings": {},
+  "Notifications": {},
+  "Chatting": {},
+  "Languages": {
+    "arabic": "Arabic",
+    "english": "English"
+  }
+}

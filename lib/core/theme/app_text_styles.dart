@@ -5,21 +5,12 @@ import 'package:flutter/material.dart';
 
 final class AppTextStyles{
 
-  static TextStyle cairoTextStyle({Color color = AppColors.blackTextColor, double size = 16, FontWeight fontWeight = FontWeight.normal})=>
+  static TextStyle poppinsTextStyle({Color color = AppColors.blackTextColor, double size = 16, FontWeight fontWeight = FontWeight.normal})=>
       TextStyle(
         color: color,
         fontSize: size.sp,
         fontWeight: fontWeight,
-        fontFamily: 'Cairo',
+        fontFamily: 'Poppins',
+        fontFamilyFallback: ['NotoSansArabic'],
       );
-
-  static TextStyle interTextStyle({Color color = AppColors.blackTextColor, double size = 16, FontWeight fontWeight = FontWeight.normal})=>
-      TextStyle(
-        color: color,
-        fontSize: size.sp,
-        fontWeight: fontWeight,
-        fontFamily: 'Inter',
-      );
-
-
 }

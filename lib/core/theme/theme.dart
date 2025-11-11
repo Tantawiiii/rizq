@@ -21,7 +21,7 @@ final class AppTheme{
       elevation: 0,
       scrolledUnderElevation: 0,
       surfaceTintColor: Color(0xffFEFEFE),
-      titleTextStyle: AppTextStyles.cairoTextStyle(
+      titleTextStyle: AppTextStyles.poppinsTextStyle(
         fontWeight: FontWeight.w500,
         color: AppColors.primaryColor,
       ),

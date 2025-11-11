@@ -51,7 +51,7 @@ class PrimaryButton extends StatelessWidget {
                   )
                 : Text(
                     title,
-                    style: AppTextStyles.cairoTextStyle(
+                    style: AppTextStyles.poppinsTextStyle(
                       size: 18,
                       color: AppColors.white,
                       fontWeight: FontWeight.w600,

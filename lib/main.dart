@@ -1,31 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter/services.dart';
+import 'package:rizq/rizq_app.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async{
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  await EasyLocalization.ensureInitialized();
 
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      builder: (context, child) {
-        return MaterialApp(
-          title: 'Flutter Demo',
-          home: Scaffold(
-            appBar: AppBar(
-              title: Text('Flutter Demo', style: TextStyle(fontSize: 20.sp)),
-            ),
-            body: Center(
-              child: Text('Hello, World!', style: TextStyle(fontSize: 18.sp)),
-            ),
-          ),
-        );
-      },
-    );
-  }
+
+  runApp(const RizqApp());
 }
