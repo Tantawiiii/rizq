@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/features/home/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +16,9 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp(
-          title: 'Flutter Demo',
-          home: Scaffold(
-            body: Center(
-              child: Text("ُTantawii's is here!", style: TextStyle(fontSize: 18.sp)),
-            ),
-          ),
+          debugShowCheckedModeBanner: false,
+          title: 'Rizq.sa',
+          home: MainScreen(),
         );
       },
     );

@@ -1,5 +1,34 @@
 final class AppAssets {
-  static const String appLogoImg = 'assets/pngs/app_logo.jpeg';
 
 
+  /// ---> Pngs
+  static const String rizqLogoPng = 'assets/pngs/rizq_logo.png';
+  static const String buildingCatPng = 'assets/pngs/building_cat.png';
+  static const String carsCatPng = 'assets/pngs/cars_cat.png';
+  static const String clothesCatPng = 'assets/pngs/clothes_cat.png';
+  static const String electronicCatPng = 'assets/pngs/electronic_cat.png';
+  static const String productOnePng = 'assets/pngs/prod1.png';
+  static const String productTwoPng = 'assets/pngs/prod2.png';
+  static const String sliderImgPng = 'assets/pngs/slider-img.png';
+
+
+
+  /// ---> Svgs
+  static const String addCircleSvg = 'assets/svgs/add-circle.svg';
+  static const String adsSvg = 'assets/svgs/ads.svg';
+  static const String chatSvg = 'assets/svgs/chat.svg';
+  static const String checkReadSvg = 'assets/svgs/check-read.svg';
+  static const String closeCircleSvg = 'assets/svgs/close-circle.svg';
+  static const String filterSvg = 'assets/svgs/filter.svg';
+  static const String heartSlashSvg = 'assets/svgs/heart-slash.svg';
+  static const String heartSvg = 'assets/svgs/heart.svg';
+  static const String homeSvg = 'assets/svgs/home.svg';
+  static const String menuDotsSvg = 'assets/svgs/menu-dots.svg';
+  static const String minusCircleSvg = 'assets/svgs/minus-cirlce.svg';
+  static const String noNotifySvg = 'assets/svgs/no-notify.svg';
+  static const String notificationSvg = 'assets/svgs/notification.svg';
+  static const String searchNormalSvg = 'assets/svgs/search-normal.svg';
+  static const String sendSvg = 'assets/svgs/send.svg';
+  static const String uniceSvg = 'assets/svgs/Unice.svg';
+  static const String userSvg = 'assets/svgs/user.svg';
 }
