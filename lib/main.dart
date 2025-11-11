@@ -17,11 +17,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           home: Scaffold(
-            appBar: AppBar(
-              title: Text('Flutter Demo', style: TextStyle(fontSize: 20.sp)),
-            ),
             body: Center(
-              child: Text('Hello, World!', style: TextStyle(fontSize: 18.sp)),
+              child: Text("ُTantawii's is here!", style: TextStyle(fontSize: 18.sp)),
             ),
           ),
         );
