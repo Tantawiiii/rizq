@@ -1,14 +1,19 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/services.dart';
 import 'package:rizq/rizq_app.dart';
 
-void main() async{
+void main() {
+  runApp(const RizqApp());
 
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  await EasyLocalization.ensureInitialized();
+  EasyLocalization.ensureInitialized();
 
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-  runApp(const RizqApp());
+  runApp(RizqApp());
+
 }

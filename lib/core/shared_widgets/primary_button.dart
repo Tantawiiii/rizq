@@ -12,16 +12,36 @@ class PrimaryButton extends StatelessWidget {
     this.onPressed,
     this.isLoading = false,
     this.height,
+    this.icon,
+    this.iconLeading = true,
+    this.iconSpacing = 12,
+    this.backgroundColor,
+    this.disabledColor,
+    this.backgroundGradient,
+    this.borderRadius,
+    this.padding,
   });
 
   final String title;
   final VoidCallback? onPressed;
   final bool isLoading;
   final double? height;
+  final Widget? icon;
+  final bool iconLeading;
+  final double iconSpacing;
+  final Color? backgroundColor;
+  final Color? disabledColor;
+  final Gradient? backgroundGradient;
+  final BorderRadiusGeometry? borderRadius;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     final bool isDisabled = isLoading || onPressed == null;
+    final Color fallbackColor = backgroundColor ?? AppColors.primaryColor;
+    final Color effectiveDisabledColor =
+        disabledColor ?? fallbackColor.withOpacity(0.6);
+    final Gradient? effectiveGradient = isDisabled ? null : backgroundGradient;
 
     return Bounce(
       onTap: isDisabled ? null : onPressed,
@@ -32,34 +52,68 @@ class PrimaryButton extends StatelessWidget {
         height: height ?? 56.h,
         child: DecoratedBox(
           decoration: BoxDecoration(
-            color: isDisabled
-                ? AppColors.primaryColor.withOpacity(0.6)
-                : AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(28.r),
+            color: effectiveGradient == null
+                ? (isDisabled ? effectiveDisabledColor : fallbackColor)
+                : null,
+            gradient: effectiveGradient,
+            borderRadius: borderRadius ?? BorderRadius.circular(28.r),
           ),
-          child: Center(
-            child: isLoading
-                ? SizedBox(
-                    height: 20.w,
-                    width: 20.w,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2.4,
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        AppColors.white,
-                      ),
-                    ),
-                  )
-                : Text(
-                    title,
-                    style: AppTextStyles.poppinsTextStyle(
-                      size: 18,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w600,
-                    ),
+          child: Padding(
+            padding: padding ?? EdgeInsets.symmetric(horizontal: 20.w),
+            child: Center(
+              child: isLoading
+                  ? SizedBox(
+                height: 20.w,
+                width: 20.w,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.4,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    AppColors.white,
                   ),
+                ),
+              )
+                  : _buildLabel(),
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildLabel() {
+    final textWidget = Text(
+      title,
+      style: AppTextStyles.poppinsTextStyle(
+        size: 18,
+        color: AppColors.white,
+        fontWeight: FontWeight.w600,
+      ),
+      textAlign: TextAlign.center,
+    );
+
+    if (icon == null) {
+      return textWidget;
+    }
+
+    final spacingWidget = SizedBox(width: iconSpacing.w);
+
+    final children = iconLeading
+        ? <Widget>[
+      Flexible(child: icon!),
+      spacingWidget,
+      Flexible(child: textWidget),
+    ]
+        : <Widget>[
+      Flexible(child: textWidget),
+      spacingWidget,
+      Flexible(child: icon!),
+    ];
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: children,
     );
   }
 }

@@ -12,7 +12,7 @@ final class AppColors{
   static const Color fieldHintColor = Color(0xff7F94B1);
   static const Color fieldErrorColor = Color(0xffDE3024);
 
-
+static const Color accentColor = Color(0xffEEF8FF);
 
   static const Color blackTextColor =  Colors.black;
   static const Color greyTextColor =  Color(0xff626262);
