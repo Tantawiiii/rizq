@@ -13,9 +13,27 @@
       "signUp": "Sign Up"
     },
 
+    "register": {
+      "chooseYourAccountType": "Choose your account type",
+      "personalAccount": "Personal account",
+      "sellerAccount": "Seller account",
+      "companyAccount": "Company account",
+      "alreadyHaveAccount": "Already have an account?",
+      "chooseRegisterWay": "Choose your registration method",
+      "createYourAccountAndExplore": "Create your account now to explore our app"
+
+    },
+
     "email": "Email",
+    "shortEmail": "Email",
     "password": "Password",
-    "forgotPassword": "Forgot Password?"
+    "phone": "Phone number",
+    "state": "Governorate",
+    "confirmPassword": "Confirm password",
+    "userName": "Username",
+    "name": "Name",
+    "forgotPassword": "Forgot password?",
+    "next": "Next"
   },
   "Home": {},
   "myAds": {},
@@ -26,5 +44,23 @@
   "Languages": {
     "arabic": "Arabic",
     "english": "English"
+  },
+
+  "governorates": {
+    "damascus": "Damascus",
+    "rif_dimashq": "Rif Dimashq",
+    "aleppo": "Aleppo",
+    "homs": "Homs",
+    "hama": "Hama",
+    "latakia": "Latakia",
+    "tartous": "Tartous",
+    "idlib": "Idlib",
+    "deir_ez_zor": "Deir ez-Zor",
+    "hasakah": "Al-Hasakah",
+    "raqqa": "Al-Raqqa",
+    "daraa": "Daraa",
+    "as_suwayda": "As-Suwayda",
+    "quneitra": "Quneitra"
   }
+
 }

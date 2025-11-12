@@ -12,13 +12,21 @@ final class AppColors{
   static const Color fieldHintColor = Color(0xff7F94B1);
   static const Color fieldErrorColor = Color(0xffDE3024);
 
-static const Color accentColor = Color(0xffEEF8FF);
+  static const Color socialLoginButtonColor = Color(0xffDCF1FF);
+  static const Color borderGrayColor = Color(0xffACB9CD);
+
+  static const Color disabledColor = Color(0xffEBEEF3);
+
+
+
+
+  static const Color accentColor = Color(0xffEEF8FF);
 
   static const Color blackTextColor =  Colors.black;
   static const Color greyTextColor =  Color(0xff626262);
   static const Color shadowColor = Color(0x26000000);
 
-  static const Color errorBorderColor =  Colors.redAccent;
+  static const Color errorBorderColor =  Color(0xffDE3024);
   static const Color textFieldBorderColor = Color(0xffACB9CD);
   static const Color whiteBackground = Color(0xffFEFEFE);
 

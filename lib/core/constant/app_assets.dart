@@ -9,6 +9,15 @@ final class AppAssets {
   static const String facebookLogoSvg =  'assets/images/svg/facebook.svg';
   static const String emailIconSvg =  'assets/images/svg/email.svg';
   static const String passwordIconSvg =  'assets/images/svg/lock.svg';
+  static const String userIconSvg =  'assets/images/svg/user.svg';
+  static const String sellerIconSvg =  'assets/images/svg/seller.svg';
+  static const String companyIconSvg =  'assets/images/svg/company.svg';
+
+  static const String phoneIconSvg =  'assets/images/svg/phone.svg';
+  static const String stateIconSvg =  'assets/images/svg/state.svg';
+
+
+
 
 
 

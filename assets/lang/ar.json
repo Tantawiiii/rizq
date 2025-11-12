@@ -12,10 +12,29 @@
       "noAccount": "ليس لديك حساب؟",
       "signUp": "إنشاء حساب"
     },
+    "register" : {
+      "chooseYourAccountType" : "قم باختيار طبيعة عملك",
+      "personalAccount" : "حساب شخصي",
+      "sellerAccount" : "حساب مشتري",
+      "companyAccount" : "حساب شركة",
+      "alreadyHaveAccount" : "لديك حساب بالفعل",
+      "chooseRegisterWay" : "قم باختيار طريقة التسجيل",
+
+      "createYourAccountAndExplore" : "قم بإنشاء حسابك الآن لإستكشاف تطبيقنا"
+
+
+    },
 
     "email": "البريد الإلكتروني",
+    "shortEmail" : "البريد",
     "password": "كلمة المرور",
-    "forgotPassword": "نسيت كلمة المرور؟"
+    "phone" : "رقم الهاتف",
+    "state" : "المحافظة",
+    "confirmPassword" : "تأكيد كلمة المرور",
+    "userName" : "اسم المستخدم",
+    "name" : "الاسم",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "next" : "التالي"
   },
   "Home": {},
   "myAds": {},
@@ -26,5 +45,23 @@
   "Languages": {
     "arabic" : "العربية",
     "english" : "الإنجليزية"
+  },
+
+  "governorates": {
+    "damascus": "دمشق",
+    "rif_dimashq": "ريف دمشق",
+    "aleppo": "حلب",
+    "homs": "حمص",
+    "hama": "حماة",
+    "latakia": "اللاذقية",
+    "tartous": "طرطوس",
+    "idlib": "إدلب",
+    "deir_ez_zor": "دير الزور",
+    "hasakah": "الحسكة",
+    "raqqa": "الرقة",
+    "daraa": "درعا",
+    "as_suwayda": "السويداء",
+    "quneitra": "القنيطرة"
   }
+
 }

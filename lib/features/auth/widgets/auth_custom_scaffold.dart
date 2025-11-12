@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/shared_widgets/svg_image.dart';
@@ -13,16 +14,18 @@ class AuthCustomScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.scaffoldCyanColor,
       body: SafeArea(
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Positioned(
-                top: 0,
-                right: 0,
-
-                child: SvgImage(svgPath: AppAssets.authPatternSvg, width: double.maxFinite, height: context.screenHeight *.33,)),
-            body??SizedBox.shrink(),
-          ],
+        child: SingleChildScrollView(
+          child: Stack(
+            //fit: StackFit.expand,
+            children: [
+              Positioned(
+                  top: -50.r,
+                  right: 0,
+                
+                  child: SvgImage(svgPath: AppAssets.authPatternSvg, width: double.maxFinite, height: context.screenHeight *.33,)),
+              body??SizedBox.shrink(),
+            ],
+          ),
         ),
       ),
     );

@@ -30,6 +30,7 @@ dependencies:
   bloc: ^9.0.1
   flutter_bloc: ^9.1.1
   easy_localization: ^3.0.8
+  dropdown_button2: ^2.3.9
 
 
 dev_dependencies:
@@ -50,6 +51,7 @@ flutter:
     - assets/lang/
     - assets/images/svg/
     - assets/pngs/
+    - assets/svgs/
 
   fonts:
 
@@ -59,6 +61,15 @@ flutter:
 
     - family: NotoSansArabic
       fonts:
-        - asset: assets/fonts/NotoSansArabic-VariableFont.ttf
+
+        - asset: assets/fonts/NotoSansArabic-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/NotoSansArabic-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/NotoSansArabic-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/NotoSansArabic-Bold.ttf
+          weight: 700
+
 
 

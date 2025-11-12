@@ -84,9 +84,9 @@ class PrimaryButton extends StatelessWidget {
     final textWidget = Text(
       title,
       style: AppTextStyles.poppinsTextStyle(
-        size: 18,
-        color: AppColors.white,
-        fontWeight: FontWeight.w600,
+        size: 16,
+        color:  isLoading || onPressed == null ? Color(0xff7F94B1) : AppColors.white,
+        fontWeight: FontWeight.w500,
       ),
       textAlign: TextAlign.center,
     );

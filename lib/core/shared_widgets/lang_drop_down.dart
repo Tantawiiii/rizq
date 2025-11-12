@@ -1,0 +1,106 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/core/utils/lang_helper.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
+
+class LangDropDown extends StatefulWidget {
+
+  const LangDropDown({super.key});
+
+  @override
+  State<LangDropDown> createState() => _LangDropDownState();
+}
+
+class _LangDropDownState extends State<LangDropDown> {
+
+  @override
+  void didChangeDependencies(){
+    selectedValue = LangHelper.getLanguageNameFromCode(context: context,);
+    super.didChangeDependencies();
+  }
+
+  String? selectedValue;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: context.screenWidth/3,
+      child: DropdownButtonFormField2<String>(
+        items:[
+          LocaleKeys.Languages_arabic.tr(context: context),
+          LocaleKeys.Languages_english.tr(context: context), ].map((e)=>DropdownMenuItem<String>(
+
+          value: e,
+          child: Text(
+            e,
+            style: AppTextStyles.poppinsTextStyle(
+              size: 13,
+              color: AppColors.primaryColor,
+            ),
+          ),
+        )).toList(),
+        onChanged: (s){
+          setState(() {
+            selectedValue = s;
+          });
+          context.setLocale(context.locale.languageCode == LangHelper.arabicCode ? LangHelper.englishLocale : LangHelper.arabicLocale);
+
+        },
+
+        //isExpanded: true,
+        value: selectedValue,
+
+
+        menuItemStyleData: MenuItemStyleData(
+          overlayColor: WidgetStatePropertyAll(AppColors.disabledColor),
+        ),
+        isDense: true,
+        buttonStyleData: ButtonStyleData(
+          width: context.screenWidth/3,
+        ),
+
+        dropdownStyleData: DropdownStyleData(
+            isOverButton: false,
+            width: context.screenWidth / 3,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(8.r)),
+            )
+        ),
+
+        selectedItemBuilder: (context) {
+          return [
+            LocaleKeys.Languages_arabic.tr(context: context),
+            LocaleKeys.Languages_english.tr(context: context), ].map((e) => Text(
+            e,
+            style: AppTextStyles.poppinsTextStyle(
+              size: 14,
+              color: AppColors.primaryColor,
+            ),
+          )).toList();
+        },
+
+          decoration: InputDecoration(
+
+            hintStyle: AppTextStyles.poppinsTextStyle(
+              size: 13,
+              color: AppColors.fieldHintColor,
+            ),
+            filled: true,
+            fillColor: Colors.transparent,
+            border: InputBorder.none,
+            enabledBorder: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            errorBorder: InputBorder.none,
+            focusedErrorBorder: InputBorder.none,
+
+          )
+
+      ),
+    );
+  }
+}
