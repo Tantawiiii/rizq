@@ -15,6 +15,7 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> _en = {
+  "appName": "Rizq",
   "Auth": {
     "Login": {
       "welcomeBack": "Welcome back!",
@@ -33,7 +34,34 @@ class CodegenLoader extends AssetLoader{
       "companyAccount": "Company account",
       "alreadyHaveAccount": "Already have an account?",
       "chooseRegisterWay": "Choose your registration method",
-      "createYourAccountAndExplore": "Create your account now to explore our app"
+      "createYourAccountAndExplore": "Create your account now to explore our app",
+      "createSellerAccountInRizq": "Create your store account in",
+      "now": "now",
+      "personalInfo": "Personal Information",
+      "commercialInfo": "Commercial Information",
+      "additionalInfo": "Additional Information",
+      "sellerLogo": "Store Logo",
+      "logoRqs": "Profile picture requirements:",
+      "logoCapacityReqs": "Minimum dimensions: 400px * 400px",
+      "logoSizeReqs": "File size must not exceed 2MB",
+      "shopName": "Store Name",
+      "commercialActivityType": "Type of Commercial Activity",
+      "commercialAddress": "Commercial Address",
+      "addressOnMap": "Address link on the map",
+      "commercialRegistrationNumber": "Tax Registration Number",
+      "websiteLink": "Website Link",
+      "activityDescription": "Short Description of Activity",
+      "idImage": "ID Image",
+      "proveOfOwnership": "Proof of Ownership Document",
+      "shortCommercialActivity": "Activity type",
+      "shortAddressOnMap": "Address link",
+      "shortRegistrationNumber": "Registration number",
+      "shortWebsiteLink": "Link",
+      "shortActivityDescription": "Write the description...",
+      "chooseFileFromDevice": "Select file from the device",
+      "congrats": "Congratulations!",
+      "successfulRegistration": "Account created successfully",
+      "goHome": "Go to Home"
     },
     "email": "Email",
     "shortEmail": "Email",
@@ -71,9 +99,16 @@ class CodegenLoader extends AssetLoader{
     "daraa": "Daraa",
     "as_suwayda": "As-Suwayda",
     "quneitra": "Quneitra"
+  },
+  "commercialActivity": {
+    "cars": "Cars",
+    "buildings": "Real Estate",
+    "electronics": "Electronics",
+    "clothes": "Clothes"
   }
 };
 static const Map<String,dynamic> _ar = {
+  "appName": "رزق",
   "Auth": {
     "Login": {
       "welcomeBack": "مرحبا بعودتك!",
@@ -92,7 +127,34 @@ static const Map<String,dynamic> _ar = {
       "companyAccount": "حساب شركة",
       "alreadyHaveAccount": "لديك حساب بالفعل",
       "chooseRegisterWay": "قم باختيار طريقة التسجيل",
-      "createYourAccountAndExplore": "قم بإنشاء حسابك الآن لإستكشاف تطبيقنا"
+      "createYourAccountAndExplore": "قم بإنشاء حسابك الآن لإستكشاف تطبيقنا",
+      "createSellerAccountInRizq": "قم بإنشاء حساب متجرك في",
+      "now": "الآن",
+      "personalInfo": "معلومات شخصية",
+      "commercialInfo": "معلومات تجارية",
+      "additionalInfo": "معلومات اضافية",
+      "sellerLogo": "شعار المتجر",
+      "logoRqs": "متطلبات الصورة الشخصية:",
+      "logoCapacityReqs": "حجمها علي الاقل 400px * 400px",
+      "logoSizeReqs": "مساحتها لا تتعدي  2MB",
+      "shopName": "اسم المتجر ",
+      "commercialActivityType": "نوع النشاط التجاري",
+      "commercialAddress": "العنوان التجاري",
+      "addressOnMap": "رابط العنوان علي الخريظة",
+      "commercialRegistrationNumber": "رقم التسجيل الضريبي",
+      "websiteLink": "رابط الموقع الإلكتروني",
+      "activityDescription": "وصف قصير عن النشاط",
+      "idImage": "صورة الهوية الشخصية",
+      "proveOfOwnership": "وثيقة إثبات ملكية",
+      "shortCommercialActivity": "نوع النشاط",
+      "shortAddressOnMap": "رابط العنوان",
+      "shortRegistrationNumber": "رقم التسجيل",
+      "shortWebsiteLink": "رابط",
+      "shortActivityDescription": "اكتب الوصف...",
+      "chooseFileFromDevice": "اختر الملف من الجهاز",
+      "congrats": "تهانينا!",
+      "successfulRegistration": "تم إنشاء الحساب بنجاح",
+      "goHome": "التوجه إلى الرئيسية"
     },
     "email": "البريد الإلكتروني",
     "shortEmail": "البريد",
@@ -130,6 +192,12 @@ static const Map<String,dynamic> _ar = {
     "daraa": "درعا",
     "as_suwayda": "السويداء",
     "quneitra": "القنيطرة"
+  },
+  "commercialActivity": {
+    "cars": "سيارات",
+    "buildings": "عقارات",
+    "electronics": "الكترونيات",
+    "clothes": "ملايس"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

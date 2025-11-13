@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:rizq/features/auth/register/personal/logic/personal_register_states.dart';
+import 'package:rizq/features/auth/register/seller/logic/seller_register_states.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-final class PersonalRegisterCubit extends Cubit<PersonalRegisterStates>{
+final class SellerRegisterCubit extends Cubit<SellerRegisterStates>{
 
   List<String> syriaStatesKeys = [
     LocaleKeys.governorates_damascus,
@@ -21,14 +20,24 @@ final class PersonalRegisterCubit extends Cubit<PersonalRegisterStates>{
     LocaleKeys.governorates_rif_dimashq,
     LocaleKeys.governorates_tartous,
   ];
-
   String? selectedState;
 
-  PersonalRegisterCubit():super(PersonalRegisterInitialState());
+  List<String> commercialActivityKeys=[
+    LocaleKeys.commercialActivity_buildings,
+    LocaleKeys.commercialActivity_cars,
+    LocaleKeys.commercialActivity_clothes,
+    LocaleKeys.commercialActivity_electronics,
+  ];
+  String? selectedCommercialActivity;
+
+  SellerRegisterCubit():super(SellerRegisterInitialState());
 
   void stateChanged(String key){
     selectedState = key;
-    emit(PersonalRegisterStateChanged());
+  }
+
+  void commercialActivityChanged(String key){
+    selectedCommercialActivity = key;
   }
 
 }

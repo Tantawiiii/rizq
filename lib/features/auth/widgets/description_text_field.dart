@@ -1,44 +1,25 @@
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
 
-import '../constant/app_colors.dart';
-import '../theme/app_text_styles.dart';
-
-class AppTextField extends StatelessWidget {
-  const AppTextField({
-    super.key,
-    this.controller,
-    this.focusNode,
-    required this.hint,
-    this.keyboardType,
-    this.textInputAction,
-    this.obscureText = false,
-    this.validator,
-    this.onChanged,
-    this.suffixIcon,
-    this.prefixIcon,
-    this.onFieldSubmitted,
-    required this.title,
-  });
-
+class DescriptionTextField extends StatelessWidget {
   final TextEditingController? controller;
-  final FocusNode? focusNode;
-  final String hint;
   final String title;
-  final TextInputType? keyboardType;
-  final TextInputAction? textInputAction;
-  final bool obscureText;
-  final FormFieldValidator<String>? validator;
-  final ValueChanged<String>? onChanged;
-  final Widget? suffixIcon;
-  final Widget? prefixIcon;
-  final ValueChanged<String>? onFieldSubmitted;
+  final String hint;
+  final TextInputAction textInputAction;
+
+  const DescriptionTextField({super.key, this.controller, required this.title, required this.hint, this.textInputAction = TextInputAction.done});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+
       children: [
 
         Text(
@@ -50,25 +31,32 @@ class AppTextField extends StatelessWidget {
           ),
         ),
         10.vGap,
+
         TextFormField(
           controller: controller,
-          focusNode: focusNode,
-          keyboardType: keyboardType,
-          textInputAction: textInputAction,
-          obscureText: obscureText,
-          validator: validator,
-          onChanged: onChanged,
-          onFieldSubmitted: onFieldSubmitted,
-          style: AppTextStyles.poppinsTextStyle(
-            size: 14,
-            color: AppColors.greyTextColor,
-          ),
-
+          minLines: 4,
+          maxLines: null,
           scrollPhysics: BouncingScrollPhysics(),
           cursorColor: AppColors.primaryColor,
           cursorErrorColor: AppColors.errorBorderColor,
           cursorWidth: 2,
           cursorRadius: Radius.circular(3),
+          keyboardType: TextInputType.text,
+          style: AppTextStyles.poppinsTextStyle(
+            size: 14,
+            color: AppColors.greyTextColor,
+          ),
+          textInputAction: textInputAction,
+          validator: (s){
+            if(s == null || s.isEmpty){
+              return 'required';
+            }
+            if(s.length < 25){
+              return 'too short';
+            }
+            return null;
+          },
+
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: AppTextStyles.poppinsTextStyle(
@@ -79,18 +67,7 @@ class AppTextField extends StatelessWidget {
             filled: true,
             fillColor: AppColors.white,
             isDense: true,
-            prefixIcon: Padding(
-              padding:  EdgeInsetsGeometry.directional(start: 10.r),
-              child: prefixIcon,
-            ),
-           // prefix: prefixIcon,
-            prefixIconConstraints: BoxConstraints(
-              minWidth: 33.r,
-              minHeight: 33.r,
 
-            ),
-
-            suffixIcon: suffixIcon,
             contentPadding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 13.r),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
@@ -121,9 +98,9 @@ class AppTextField extends StatelessWidget {
               ),
             ),
           ),
+
         ),
       ],
     );
   }
 }
-

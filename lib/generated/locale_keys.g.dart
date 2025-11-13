@@ -3,6 +3,7 @@
 // ignore_for_file: constant_identifier_names
 
 abstract class  LocaleKeys {
+  static const appName = 'appName';
   static const Auth_Login_welcomeBack = 'Auth.Login.welcomeBack';
   static const Auth_Login_loginAndExploreApp = 'Auth.Login.loginAndExploreApp';
   static const Auth_Login_googleSignIn = 'Auth.Login.googleSignIn';
@@ -19,6 +20,33 @@ abstract class  LocaleKeys {
   static const Auth_register_alreadyHaveAccount = 'Auth.register.alreadyHaveAccount';
   static const Auth_register_chooseRegisterWay = 'Auth.register.chooseRegisterWay';
   static const Auth_register_createYourAccountAndExplore = 'Auth.register.createYourAccountAndExplore';
+  static const Auth_register_createSellerAccountInRizq = 'Auth.register.createSellerAccountInRizq';
+  static const Auth_register_now = 'Auth.register.now';
+  static const Auth_register_personalInfo = 'Auth.register.personalInfo';
+  static const Auth_register_commercialInfo = 'Auth.register.commercialInfo';
+  static const Auth_register_additionalInfo = 'Auth.register.additionalInfo';
+  static const Auth_register_sellerLogo = 'Auth.register.sellerLogo';
+  static const Auth_register_logoRqs = 'Auth.register.logoRqs';
+  static const Auth_register_logoCapacityReqs = 'Auth.register.logoCapacityReqs';
+  static const Auth_register_logoSizeReqs = 'Auth.register.logoSizeReqs';
+  static const Auth_register_shopName = 'Auth.register.shopName';
+  static const Auth_register_commercialActivityType = 'Auth.register.commercialActivityType';
+  static const Auth_register_commercialAddress = 'Auth.register.commercialAddress';
+  static const Auth_register_addressOnMap = 'Auth.register.addressOnMap';
+  static const Auth_register_commercialRegistrationNumber = 'Auth.register.commercialRegistrationNumber';
+  static const Auth_register_websiteLink = 'Auth.register.websiteLink';
+  static const Auth_register_activityDescription = 'Auth.register.activityDescription';
+  static const Auth_register_idImage = 'Auth.register.idImage';
+  static const Auth_register_proveOfOwnership = 'Auth.register.proveOfOwnership';
+  static const Auth_register_shortCommercialActivity = 'Auth.register.shortCommercialActivity';
+  static const Auth_register_shortAddressOnMap = 'Auth.register.shortAddressOnMap';
+  static const Auth_register_shortRegistrationNumber = 'Auth.register.shortRegistrationNumber';
+  static const Auth_register_shortWebsiteLink = 'Auth.register.shortWebsiteLink';
+  static const Auth_register_shortActivityDescription = 'Auth.register.shortActivityDescription';
+  static const Auth_register_chooseFileFromDevice = 'Auth.register.chooseFileFromDevice';
+  static const Auth_register_congrats = 'Auth.register.congrats';
+  static const Auth_register_successfulRegistration = 'Auth.register.successfulRegistration';
+  static const Auth_register_goHome = 'Auth.register.goHome';
   static const Auth_register = 'Auth.register';
   static const Auth_email = 'Auth.email';
   static const Auth_shortEmail = 'Auth.shortEmail';
@@ -55,5 +83,10 @@ abstract class  LocaleKeys {
   static const governorates_as_suwayda = 'governorates.as_suwayda';
   static const governorates_quneitra = 'governorates.quneitra';
   static const governorates = 'governorates';
+  static const commercialActivity_cars = 'commercialActivity.cars';
+  static const commercialActivity_buildings = 'commercialActivity.buildings';
+  static const commercialActivity_electronics = 'commercialActivity.electronics';
+  static const commercialActivity_clothes = 'commercialActivity.clothes';
+  static const commercialActivity = 'commercialActivity';
 
 }

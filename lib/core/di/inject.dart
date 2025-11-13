@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:rizq/features/auth/register/outer_screens/cubit/general_register_cubit.dart';
 import 'package:rizq/features/auth/register/personal/logic/personal_register_cubit.dart';
+import 'package:rizq/features/auth/register/seller/logic/seller_register_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -15,6 +16,7 @@ Future<void> init() async {
   // cubits
   sl.registerFactory(() => GeneralRegisterCubit());
   sl.registerFactory(() => PersonalRegisterCubit());
+  sl.registerFactory(() => SellerRegisterCubit());
 
   //repos
 

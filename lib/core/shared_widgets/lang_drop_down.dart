@@ -20,7 +20,7 @@ class _LangDropDownState extends State<LangDropDown> {
 
   @override
   void didChangeDependencies(){
-    selectedValue = LangHelper.getLanguageNameFromCode(context: context,);
+    selectedValue = LangHelper.getLanguageKeyFromCode(context: context,);
     super.didChangeDependencies();
   }
 
@@ -31,24 +31,28 @@ class _LangDropDownState extends State<LangDropDown> {
       width: context.screenWidth/3,
       child: DropdownButtonFormField2<String>(
         items:[
-          LocaleKeys.Languages_arabic.tr(context: context),
-          LocaleKeys.Languages_english.tr(context: context), ].map((e)=>DropdownMenuItem<String>(
+          LocaleKeys.Languages_arabic,
+          LocaleKeys.Languages_english ].map((key)=>DropdownMenuItem<String>(
 
-          value: e,
+          value: key,
           child: Text(
-            e,
+            tr(key, context: context),
             style: AppTextStyles.poppinsTextStyle(
               size: 13,
               color: AppColors.primaryColor,
             ),
           ),
         )).toList(),
-        onChanged: (s){
+        onChanged: (key){
           setState(() {
-            selectedValue = s;
+            selectedValue = key;
           });
-          context.setLocale(context.locale.languageCode == LangHelper.arabicCode ? LangHelper.englishLocale : LangHelper.arabicLocale);
-
+          if(context.locale.languageCode == LangHelper.arabicCode && key != LocaleKeys.Languages_arabic){
+            context.setLocale(LangHelper.englishLocale);
+          }
+          if(context.locale.languageCode == LangHelper.englishCode && key != LocaleKeys.Languages_english){
+            context.setLocale(LangHelper.arabicLocale);
+          }
         },
 
         //isExpanded: true,
@@ -59,6 +63,9 @@ class _LangDropDownState extends State<LangDropDown> {
           overlayColor: WidgetStatePropertyAll(AppColors.disabledColor),
         ),
         isDense: true,
+          iconStyleData: IconStyleData(
+            icon: Icon(Icons.keyboard_arrow_down, color: AppColors.primaryColor,)
+          ),
         buttonStyleData: ButtonStyleData(
           width: context.screenWidth/3,
         ),
@@ -74,11 +81,12 @@ class _LangDropDownState extends State<LangDropDown> {
 
         selectedItemBuilder: (context) {
           return [
-            LocaleKeys.Languages_arabic.tr(context: context),
-            LocaleKeys.Languages_english.tr(context: context), ].map((e) => Text(
-            e,
+            LocaleKeys.Languages_arabic,
+            LocaleKeys.Languages_english ].map((key) => Text(
+            tr(key, context: context),
             style: AppTextStyles.poppinsTextStyle(
-              size: 14,
+              size: 16,
+              fontWeight: FontWeight.w500,
               color: AppColors.primaryColor,
             ),
           )).toList();

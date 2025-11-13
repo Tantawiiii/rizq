@@ -1,4 +1,5 @@
 {
+  "appName" : "Rizq",
   "Auth": {
 
     "Login": {
@@ -20,8 +21,39 @@
       "companyAccount": "Company account",
       "alreadyHaveAccount": "Already have an account?",
       "chooseRegisterWay": "Choose your registration method",
-      "createYourAccountAndExplore": "Create your account now to explore our app"
+      "createYourAccountAndExplore": "Create your account now to explore our app",
 
+      "createSellerAccountInRizq" : "Create your store account in",
+      "now" : "now",
+      "personalInfo" : "Personal Information",
+      "commercialInfo" : "Commercial Information",
+      "additionalInfo": "Additional Information",
+      "sellerLogo" : "Store Logo",
+      "logoRqs": "Profile picture requirements:",
+      "logoCapacityReqs": "Minimum dimensions: 400px * 400px",
+      "logoSizeReqs": "File size must not exceed 2MB",
+      "shopName": "Store Name",
+      "commercialActivityType" : "Type of Commercial Activity",
+      "commercialAddress" : "Commercial Address",
+      "addressOnMap" : "Address link on the map",
+      "commercialRegistrationNumber" : "Tax Registration Number",
+      "websiteLink" : "Website Link",
+      "activityDescription": "Short Description of Activity",
+      "idImage" : "ID Image",
+      "proveOfOwnership": "Proof of Ownership Document",
+
+      "shortCommercialActivity": "Activity type",
+      "shortAddressOnMap": "Address link",
+      "shortRegistrationNumber": "Registration number",
+      "shortWebsiteLink": "Link",
+      "shortActivityDescription": "Write the description...",
+
+
+      "chooseFileFromDevice": "Select file from the device",
+
+      "congrats": "Congratulations!",
+      "successfulRegistration": "Account created successfully",
+      "goHome": "Go to Home"
     },
 
     "email": "Email",
@@ -61,6 +93,13 @@
     "daraa": "Daraa",
     "as_suwayda": "As-Suwayda",
     "quneitra": "Quneitra"
+  },
+  "commercialActivity": {
+    "cars": "Cars",
+    "buildings": "Real Estate",
+    "electronics": "Electronics",
+    "clothes": "Clothes"
   }
+
 
 }

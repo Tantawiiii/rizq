@@ -49,6 +49,7 @@ class PersonalRegisterScreen extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                       color: AppColors.titleColor,
                     ),
+                    textAlign: TextAlign.center,
                   ),
 
                   35.vGap,
@@ -86,7 +87,8 @@ class PersonalRegisterScreen extends StatelessWidget {
                         title: LocaleKeys.Auth_state.tr(context: context),
                         hint: LocaleKeys.Auth_state.tr(context: context),
                         onSaved: (s){},
-                        value: cubit.selectedState == null ? null : tr(cubit.selectedState!),
+
+                        value: cubit.selectedState,
                         onChanged: (s){
                           if(s != null && s.isNotEmpty){
                             cubit.stateChanged(s);
@@ -94,7 +96,7 @@ class PersonalRegisterScreen extends StatelessWidget {
 
                         },
                         prefixIcon: SvgImage(svgPath: AppAssets.stateIconSvg,  color: AppColors.fieldHintColor, ),
-                        items: cubit.syriaStatesKeys.map((e)=>tr(e)).toList(),
+                        items: cubit.syriaStatesKeys,
                         validator: (s){
                           if(s == null || s.isEmpty){
                             return 'State is requried';

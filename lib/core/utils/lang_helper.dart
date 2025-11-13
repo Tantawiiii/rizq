@@ -11,13 +11,13 @@ final class LangHelper {
 
   static const translationsPath = 'assets/lang';
 
-  static String getLanguageNameFromCode({required BuildContext context}){
+  static String getLanguageKeyFromCode({required BuildContext context}){
     var langCode = context.locale.languageCode;
 
     return switch(langCode){
-      arabicCode => LocaleKeys.Languages_arabic.tr(context: context),
-     englishCode => LocaleKeys.Languages_english.tr(context: context),
-     _ => LocaleKeys.Languages_arabic.tr(context: context),
+      arabicCode => LocaleKeys.Languages_arabic,
+     englishCode => LocaleKeys.Languages_english,
+     _ => LocaleKeys.Languages_arabic,
     };
   }
 

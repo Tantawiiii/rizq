@@ -2,6 +2,10 @@ final class AppAssets {
 
   static const String splashLogoImage = 'assets/images/splash_logo.png';
   static const String appLogoImage =  'assets/images/app_logo1.png';
+  static const String editIconPng =  'assets/images/edit.png';
+
+  static const String successfulRegistrationGif = 'assets/images/success_register.gif';
+
 
   // svg
   static const String authPatternSvg =  'assets/images/svg/auth_pattern.svg';
@@ -15,6 +19,18 @@ final class AppAssets {
 
   static const String phoneIconSvg =  'assets/images/svg/phone.svg';
   static const String stateIconSvg =  'assets/images/svg/state.svg';
+
+  static const String locationIconSvg =  'assets/images/svg/location.svg';
+  static const String linkIconSvg =  'assets/images/svg/link.svg';
+  static const String webIconSvg =  'assets/images/svg/web.svg';
+  static const String jobIconSvg =  'assets/images/svg/job.svg';
+  static const String commercialNumberIconSvg =  'assets/images/svg/commercial_number.svg';
+  static const String shopIconSvg =  'assets/images/svg/shop_name.svg';
+  static const String imagePickerIconSvg =  'assets/images/svg/add_image.svg';
+  static const String uploadIconSvg =  'assets/images/svg/upload.svg';
+
+
+
 
 
 

@@ -1,4 +1,5 @@
 {
+  "appName" : "رزق",
   "Auth": {
 
     "Login": {
@@ -20,7 +21,39 @@
       "alreadyHaveAccount" : "لديك حساب بالفعل",
       "chooseRegisterWay" : "قم باختيار طريقة التسجيل",
 
-      "createYourAccountAndExplore" : "قم بإنشاء حسابك الآن لإستكشاف تطبيقنا"
+      "createYourAccountAndExplore" : "قم بإنشاء حسابك الآن لإستكشاف تطبيقنا",
+
+      "createSellerAccountInRizq" : "قم بإنشاء حساب متجرك في",
+      "now" : "الآن",
+      "personalInfo" : "معلومات شخصية",
+      "commercialInfo" : "معلومات تجارية",
+      "additionalInfo": "معلومات اضافية",
+      "sellerLogo" : "شعار المتجر",
+      "logoRqs": "متطلبات الصورة الشخصية:",
+      "logoCapacityReqs": "حجمها علي الاقل 400px * 400px",
+      "logoSizeReqs": "مساحتها لا تتعدي  2MB",
+      "shopName": "اسم المتجر ",
+      "commercialActivityType" : "نوع النشاط التجاري",
+      "commercialAddress" : "العنوان التجاري",
+      "addressOnMap" : "رابط العنوان علي الخريظة",
+      "commercialRegistrationNumber" : "رقم التسجيل الضريبي",
+      "websiteLink" : "رابط الموقع الإلكتروني",
+      "activityDescription": "وصف قصير عن النشاط",
+      "idImage" : "صورة الهوية الشخصية",
+      "proveOfOwnership": "وثيقة إثبات ملكية",
+
+      "shortCommercialActivity": "نوع النشاط",
+      "shortAddressOnMap" : "رابط العنوان",
+      "shortRegistrationNumber" : "رقم التسجيل",
+      "shortWebsiteLink": "رابط",
+      "shortActivityDescription" : "اكتب الوصف...",
+
+      "chooseFileFromDevice": "اختر الملف من الجهاز",
+
+      "congrats": "تهانينا!",
+      "successfulRegistration": "تم إنشاء الحساب بنجاح",
+      "goHome": "التوجه إلى الرئيسية"
+
 
 
     },
@@ -62,6 +95,13 @@
     "daraa": "درعا",
     "as_suwayda": "السويداء",
     "quneitra": "القنيطرة"
+  },
+  "commercialActivity": {
+    "cars" : "سيارات",
+    "buildings" : "عقارات",
+    "electronics" : "الكترونيات",
+    "clothes": "ملايس"
+
   }
 
 }

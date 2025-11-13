@@ -1,4 +1,5 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
@@ -50,8 +51,8 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
         DropdownButtonFormField2<String>(
           items: widget.items
               .map(
-                (e) => DropdownMenuItem<String>(
-                  value: e,
+                (key) => DropdownMenuItem<String>(
+                  value: key,
                   child: Container(
                     padding: EdgeInsets.all(8.r),
                     width: double.maxFinite,
@@ -62,7 +63,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                       ),
                     ),
                     child: Text(
-                      e,
+                      tr(key, context:context),
                       style: AppTextStyles.poppinsTextStyle(
                         size: 14,
                         color: AppColors.primaryColor,
@@ -77,6 +78,8 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
             widget.onSaved(s);
           },
           isExpanded: true,
+          isDense: true,
+          alignment: AlignmentDirectional.centerStart,
           value: widget.value,
           validator: widget.validator,
 
@@ -84,6 +87,9 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
             overlayColor: WidgetStatePropertyAll(AppColors.disabledColor),
           ),
 
+          iconStyleData: IconStyleData(
+              icon: Icon(Icons.keyboard_arrow_down, color: AppColors.fieldHintColor,)
+          ),
           dropdownStyleData: DropdownStyleData(
             isOverButton: false,
             decoration: BoxDecoration(
@@ -95,8 +101,8 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           selectedItemBuilder: (context) {
             return widget.items
                 .map(
-                  (e) => Text(
-                    e,
+                  (key) => Text(
+                    tr(key),
                     style: AppTextStyles.poppinsTextStyle(
                       size: 14,
                       color: AppColors.primaryColor,
@@ -106,12 +112,20 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 .toList();
           },
           decoration: InputDecoration(
-            hintText: widget.hint,
-            hintStyle: AppTextStyles.poppinsTextStyle(
-              size: 13,
-              color: AppColors.fieldHintColor,
-              fontWeight: FontWeight.w400,
+
+
+            hint: Align(
+              alignment: AlignmentDirectional.topStart,
+              child: Text(
+                widget.hint,
+                style: AppTextStyles.poppinsTextStyle(
+                  size: 13,
+                  color: AppColors.fieldHintColor,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
             ),
+
             filled: true,
             fillColor: AppColors.white,
             isDense: true,
@@ -127,7 +141,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
 
             contentPadding: EdgeInsets.symmetric(
               horizontal: 15.r,
-              vertical: 13.r,
+              vertical: 11.r,
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
