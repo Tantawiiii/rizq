@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 
 import '../../../core/constant/app_assets.dart';
 import '../../../core/constant/app_colors.dart';
-import '../../../core/theme/app_text_styles.dart';
 import 'nav_icon.dart';
 
 class HomeBottomNavigation extends StatelessWidget {
@@ -28,12 +28,16 @@ class HomeBottomNavigation extends StatelessWidget {
       switchInCurve: Curves.easeOut,
       switchOutCurve: Curves.easeIn,
       child: isCollapsed
-          ? PrimaryButton(
-              key: const ValueKey('collapsed_bottom_nav'),
-              backgroundColor: AppColors.accentColor,
-              onPressed: onAddPressed ?? () => onItemSelected?.call(1), title: "إضافة إعلان",
-
-            )
+          ? Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            child: PrimaryButton(
+                key: const ValueKey('collapsed_bottom_nav'),
+                backgroundColor: AppColors.sconderyColor,
+                onPressed: onAddPressed ?? () => onItemSelected?.call(1),
+                title: AppTexts.addAd,
+              icon: Icon( Icons.add_circle_outline_outlined,color: AppColors.white,),
+              ),
+          )
           : _ExpandedBottomNav(
               key: const ValueKey('expanded_bottom_nav'),
               selectedIndex: selectedIndex,
@@ -73,15 +77,9 @@ class _ExpandedBottomNav extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             NavIconButton(
-              icon: AppAssets.userSvg,
-              isActive: selectedIndex == 0,
-              onTap: () => onItemSelected?.call(0),
-              enlargeWhenSelected: true,
-            ),
-            NavIconButton(
-              icon: AppAssets.addCircleSvg,
-              isActive: selectedIndex == 1,
-              onTap: () => onItemSelected?.call(1),
+              icon: AppAssets.homeSvg,
+              isActive: selectedIndex == 3,
+              onTap: () => onItemSelected?.call(3),
               enlargeWhenSelected: true,
             ),
             NavIconButton(
@@ -90,9 +88,15 @@ class _ExpandedBottomNav extends StatelessWidget {
               onTap: () => onItemSelected?.call(2),
             ),
             NavIconButton(
-              icon: AppAssets.homeSvg,
-              isActive: selectedIndex == 3,
-              onTap: () => onItemSelected?.call(3),
+              icon: AppAssets.addCircleSvg,
+              isActive: selectedIndex == 1,
+              onTap: () => onItemSelected?.call(1),
+              enlargeWhenSelected: true,
+            ),
+            NavIconButton(
+              icon: AppAssets.userSvg,
+              isActive: selectedIndex == 0,
+              onTap: () => onItemSelected?.call(0),
               enlargeWhenSelected: true,
             ),
           ],
@@ -101,4 +105,3 @@ class _ExpandedBottomNav extends StatelessWidget {
     );
   }
 }
-
