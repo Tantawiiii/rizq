@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       ),
     ]).animate(_controller);
 
-    _controller.forward().whenComplete(()=>RouteManager.navigateAndPopAll(const LoginScreen()));
+    _controller.forward().whenComplete(()=>RouteManager.navigateAndPopAll( LoginScreen()));
   }
 
   @override

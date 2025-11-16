@@ -49,7 +49,7 @@ class PrimaryButton extends StatelessWidget {
       tilt: false,
       child: SizedBox(
         width: double.infinity,
-        height: height ?? 56.h,
+        height: height ?? 45.h,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: effectiveGradient == null
@@ -63,8 +63,8 @@ class PrimaryButton extends StatelessWidget {
             child: Center(
               child: isLoading
                   ? SizedBox(
-                height: 20.w,
-                width: 20.w,
+                height: 35.w,
+                width: 35.w,
                 child: CircularProgressIndicator(
                   strokeWidth: 2.4,
                   valueColor: AlwaysStoppedAnimation<Color>(

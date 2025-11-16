@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,10 +8,8 @@ import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -17,17 +17,15 @@ import 'package:rizq/features/auth/register/outer_screens/ui/successful_register
 import 'package:rizq/features/auth/register/seller/logic/seller_register_cubit.dart';
 import 'package:rizq/features/auth/register/seller/logic/seller_register_states.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
-import 'package:rizq/features/auth/widgets/description_text_field.dart';
 import 'package:rizq/features/auth/widgets/media_picking/file_picking_widget.dart';
-import 'package:rizq/features/auth/widgets/media_picking/image_pick_widget.dart';
-import 'package:rizq/features/auth/widgets/media_picking/media_constraints_text.dart';
 import 'package:rizq/features/auth/widgets/register_progrss_circles/register_progress_circles.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 
 class RegisterSellerAdditionalInfoScreen extends StatelessWidget {
-  const RegisterSellerAdditionalInfoScreen({super.key});
-
+   RegisterSellerAdditionalInfoScreen({super.key});
+   File? idFile;
+   File? ownerShipFile;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -91,8 +89,13 @@ class RegisterSellerAdditionalInfoScreen extends StatelessWidget {
                     Column(
                       spacing: 10.h,
                       children: [
-                        FilePickingWidget(title: LocaleKeys.Auth_register_idImage.tr(context: context), onFileSelected: (f){}),
-                        FilePickingWidget(title: LocaleKeys.Auth_register_proveOfOwnership.tr(context: context).tr(context: context), onFileSelected: (f){}),
+                        FilePickingWidget(title: LocaleKeys.Auth_register_idImage.tr(context: context), onFileSelected: (f){
+                          idFile = f;
+                        }),
+                        FilePickingWidget(title: LocaleKeys.Auth_register_proveOfOwnership.tr(context: context).tr(context: context),
+                            onFileSelected: (f){
+                          ownerShipFile = f;
+                            }),
                       ],
                     ),
                     30.vGap,
@@ -101,7 +104,11 @@ class RegisterSellerAdditionalInfoScreen extends StatelessWidget {
                       title: LocaleKeys.Auth_Login_signUp.tr(context: context),
                       disabledColor: AppColors.disabledColor,
                       onPressed: (){
-                        RouteManager.navigateTo(SuccessfulRegisterScreen());
+                        if(idFile == null){
+                          showCustomSnackBar(message: LocaleKeys.formErrors_idFileRequired.tr(context: context));
+                        }else{
+                          RouteManager.navigateTo(SuccessfulRegisterScreen());
+                        }
                       },
                     ),
                     25.vGap,

@@ -28,6 +28,10 @@ final class AppAssets {
   static const String shopIconSvg =  'assets/images/svg/shop_name.svg';
   static const String imagePickerIconSvg =  'assets/images/svg/add_image.svg';
   static const String uploadIconSvg =  'assets/images/svg/upload.svg';
+  static const String whatsAppIconSvg =  'assets/images/svg/whats.svg';
+  static const String linkedinIconSvg =  'assets/images/svg/linkedin.svg';
+  static const String instagramIconSvg =  'assets/images/svg/instagram.svg';
+
 
 
 

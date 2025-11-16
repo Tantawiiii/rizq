@@ -6,9 +6,9 @@ import 'general_register_states.dart';
 final class GeneralRegisterCubit extends Cubit<GeneralRegisterStates> {
   GeneralRegisterCubit() : super(GeneralRegisterInitialState());
 
-  UserRole? userRole;
+  UserRole? _userRole;
   void changeUserRole(UserRole role) {
-    userRole = role;
+    _userRole = role;
     emit(GeneralRegisterUserRoleChangedState());
     role.cacheUserRole();
   }
@@ -18,4 +18,8 @@ final class GeneralRegisterCubit extends Cubit<GeneralRegisterStates> {
     registerMethod = method;
     emit(GeneralRegisterMethodChanged());
   }
+
+  UserRole get userRole => _userRole??= UserRole.getCachedUserRole();
+
+
 }

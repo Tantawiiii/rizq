@@ -5,7 +5,7 @@ import 'package:rizq/core/utils/extension_methods.dart';
 import '../constant/app_colors.dart';
 import '../theme/app_text_styles.dart';
 
-class AppTextField extends StatelessWidget {
+class AppTextField extends StatefulWidget {
   const AppTextField({
     super.key,
     this.controller,
@@ -36,13 +36,26 @@ class AppTextField extends StatelessWidget {
   final ValueChanged<String>? onFieldSubmitted;
 
   @override
+  State<AppTextField> createState() => _AppTextFieldState();
+}
+
+class _AppTextFieldState extends State<AppTextField> {
+
+  bool isPasswordShown = false;
+
+  @override
+  void initState(){
+    super.initState();
+    isPasswordShown = widget.obscureText;
+  }
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
         Text(
-          title,
+          widget.title,
           style: AppTextStyles.poppinsTextStyle(
             size: 14,
             color: AppColors.fieldTitleColor,
@@ -51,14 +64,14 @@ class AppTextField extends StatelessWidget {
         ),
         10.vGap,
         TextFormField(
-          controller: controller,
-          focusNode: focusNode,
-          keyboardType: keyboardType,
-          textInputAction: textInputAction,
-          obscureText: obscureText,
-          validator: validator,
-          onChanged: onChanged,
-          onFieldSubmitted: onFieldSubmitted,
+          controller: widget.controller,
+          focusNode: widget.focusNode,
+          keyboardType: widget.keyboardType,
+          textInputAction: widget.textInputAction,
+          obscureText: isPasswordShown,
+          validator: widget.validator,
+          onChanged: widget.onChanged,
+          onFieldSubmitted: widget.onFieldSubmitted,
           style: AppTextStyles.poppinsTextStyle(
             size: 14,
             color: AppColors.greyTextColor,
@@ -70,7 +83,7 @@ class AppTextField extends StatelessWidget {
           cursorWidth: 2,
           cursorRadius: Radius.circular(3),
           decoration: InputDecoration(
-            hintText: hint,
+            hintText: widget.hint,
             hintStyle: AppTextStyles.poppinsTextStyle(
               size: 13,
               color: AppColors.fieldHintColor,
@@ -81,7 +94,7 @@ class AppTextField extends StatelessWidget {
             isDense: true,
             prefixIcon: Padding(
               padding:  EdgeInsetsGeometry.directional(start: 10.r),
-              child: prefixIcon,
+              child: widget.prefixIcon,
             ),
            // prefix: prefixIcon,
             prefixIconConstraints: BoxConstraints(
@@ -89,8 +102,24 @@ class AppTextField extends StatelessWidget {
               minHeight: 33.r,
 
             ),
-
-            suffixIcon: suffixIcon,
+             suffixIconConstraints: BoxConstraints(
+                maxWidth: 50.r,
+                maxHeight: 40.r,
+             ),
+            suffixIcon: widget.obscureText? Padding(
+              padding:  EdgeInsetsDirectional.only(end: 5.r),
+              child: IconButton(
+                style: ButtonStyle(
+                  padding: WidgetStatePropertyAll(EdgeInsets.zero),
+                ),
+                onPressed: (){
+                setState(() {
+                  isPasswordShown = !isPasswordShown;
+                });
+              }, icon:Icon( isPasswordShown? Icons.visibility_off_outlined : Icons.visibility_outlined, color: AppColors.fieldHintColor,),
+              ),
+            )
+                : widget.suffixIcon,
             contentPadding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 13.r),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),

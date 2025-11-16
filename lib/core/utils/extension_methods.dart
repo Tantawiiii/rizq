@@ -35,6 +35,17 @@ extension StringUtils on String{
     return false;
   }
 
+  bool get isMixNumbersChars{
+    bool isMix = false;
+    for(int i =0 ; i < length; i++){
+      if(int.tryParse(this[i]) != null){
+        if(i != 0){
+          isMix = true;
+        }
+      }
+    }
+    return isMix;
+}
   bool get isImage => endsWith('jpg') || endsWith('jpeg') || endsWith('png') ;
   bool get isPDF => endsWith('pdf');
 

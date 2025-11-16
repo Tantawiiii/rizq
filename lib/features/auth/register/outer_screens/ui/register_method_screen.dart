@@ -7,15 +7,17 @@ import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
+import 'package:rizq/features/auth/register/company/ui/screens/company_owner_data.dart';
 import 'package:rizq/features/auth/register/outer_screens/cubit/general_register_cubit.dart';
 import 'package:rizq/features/auth/register/outer_screens/cubit/general_register_states.dart';
 import 'package:rizq/features/auth/register/outer_screens/ui/widgets/selectable_container.dart';
 import 'package:rizq/features/auth/register/personal/ui/personal_register_screen.dart';
+import 'package:rizq/features/auth/register/seller/ui/screens/seller_persoal_info.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
@@ -86,7 +88,16 @@ class RegisterMethodSelectionScreen extends StatelessWidget {
                       disabledColor: AppColors.disabledColor,
                       onPressed: cubit.registerMethod == null? null:
                           (){
-                        RouteManager.navigateTo(PersonalRegisterScreen());
+                        if(cubit.registerMethod != null && cubit.registerMethod != RegisterMethod.email){
+                          showCustomSnackBar(message: 'this feature is still under development');
+                        }
+                        if(cubit.registerMethod == RegisterMethod.email){
+                          switch(cubit.userRole){
+                            case UserRole.personal: RouteManager.navigateTo(PersonalRegisterScreen()); break;
+                            case UserRole.seller: RouteManager.navigateTo(RegisterSellerPersonalInfoScreen()); break;
+                            case UserRole.company: RouteManager.navigateTo(RegisterCompanyOwnerData()); break;
+                          }
+                        }
                       }
                       ,
                     ),

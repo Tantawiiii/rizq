@@ -52,10 +52,35 @@
 
       "congrats": "تهانينا!",
       "successfulRegistration": "تم إنشاء الحساب بنجاح",
-      "goHome": "التوجه إلى الرئيسية"
+      "goHome": "التوجه إلى الرئيسية",
 
+      "createCompanyAccountIn": "قم بإنشاء حساب شركتك في",
+      "companyOwnerData" : "بيانات صاحب الشركة",
+      "companyData" : "بيانات الشركة",
+      "verificationFiles" : "ملفات التوثيق",
+      "socialMediaAccounts":  "حسابات التواصل الإجتماعي",
+      "facebookLink": "رابط حساب الفيسبوك",
+      "instagramLink": "رابط حساب إنستجرام",
+      "linkedinLink": "رابط حساب لينكد إن",
+      "whatsAppLink": "رقم الواتساب",
+      "theLink" : "الرابط",
 
+      "commercialName" : "الاسم التجارى"
 
+    },
+    "otp": {
+      "weHaveSentCode" : "لقد قمنا بإرسال رمز إلي بريدك الإلكتروني برجاء ادخاله حتي تتمكن من تأكيد حسابك" ,
+      "resendCode" : "إعادة الإرسال"
+    },
+    "forgetPassword": {
+      "enterEmailToSendCode" : "قم بإدخال بريدك الإلكتروني حتي تتمكن من إنشاء كلمة مرور جديدة",
+      "sendCode" : "إرسال الكود",
+      "createNewPassword" : "قم بإنشاء كلمة مرور جديدة",
+      "newPassword" : "كلمة المرور الجديدة",
+      "confirmNewPassword" : "تأكيد كلمة المرور الجديدة",
+      "successfulPasswordReset" : "تم تغيير كلمة المرور بنجاح",
+      "backToAuth" : "العودة إلي تسجيل الدخول",
+      "confirmPassword" : "تأكيد كلمة المرور"
     },
 
     "email": "البريد الإلكتروني",
@@ -68,6 +93,7 @@
     "name" : "الاسم",
     "forgotPassword": "نسيت كلمة المرور؟",
     "next" : "التالي"
+
   },
   "Home": {},
   "myAds": {},
@@ -102,6 +128,41 @@
     "electronics" : "الكترونيات",
     "clothes": "ملايس"
 
-  }
+  },
+
+  "apiErrors": {
+    "connectionTimeout": "انتهت مهلة الاتصال بالخادم. يرجى التأكد من جودة الاتصال بالانترنت !",
+    "noInternetConnection": "أنت غير متصل بالإنترنت !",
+
+    "api404Error": "طلبك غير موجود. يرجى المحاولة لاحقاً !",
+    "api4xxError": "",
+    "api5xxError": "الخادم متعطل. يرجى المحاولة لاحقاً !",
+    "apiGeneralError": "حدث خطأ غير متوقع. يرجى المحاولة لاحقاً !"
+  },
+
+ "formErrors" : {
+   "nameRequired" : "يرجى ادخال الاسم !",
+   "nameTooShort" : "الاسم قصير جدا !",
+   "emailRequired" : "يرجى ادخال البريد الالكترونى !",
+   "emailInvalidFormat" : "صيغة البريد الالكترونى غير صحيحة",
+
+   "phoneRequired" : "يرجى ادخال رقم الهاتف !",
+   "passwordRequired" : "يرجى ادخال كلمة المرور !",
+   "passwordTooShort" : "كلمة المرور قصيرة جدا !",
+   "mixNumbersCharsPassword" : "يرجى اختيار حروف وارقام لكلمة المرور !",
+   "stateRequired" : "يرجى اختيار المحافظة !",
+   "shopNameRequired" : "يرجى ادخال اسم المتجر !",
+   "commercialActivityRequired" : "يرجى اختيار نوع النشاط التجارى !",
+   "idRequired" : "يرجى اختيار صورة الهوية الشخصية",
+
+   "otpRequired" : "يرجى ادخال الكود المرسل لك !",
+   "otpMissedDigits" : "يرجى ادخال 6 أرقام التى يتكون منها الكود !",
+   "otpNotCorrect" : "الكود الذى ادخلتة غير صحيح !",
+   "commercialActivityAddressRequired" : "يرجى ادخال عنوانك التجارى !",
+
+   "passwordAreNotIdentical" : "كلمتا المرور غير متطابقتين !",
+
+   "idFileRequired" : "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF"
+ }
 
 }

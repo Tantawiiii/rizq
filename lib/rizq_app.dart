@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/features/auth/forget_password/ui/forget_password_screen.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
+import 'package:rizq/features/auth/otp/ui/otp_screen.dart';
+import 'package:rizq/features/auth/register/company/ui/screens/company_owner_data.dart';
 import 'package:rizq/features/auth/register/personal/ui/personal_register_screen.dart';
 import 'package:rizq/features/auth/register/seller/ui/screens/seller_persoal_info.dart';
 import 'package:rizq/features/splash/splash_screen.dart';
@@ -46,7 +49,7 @@ class RizqApp extends StatelessWidget {
               localizationsDelegates: context.localizationDelegates,
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
-              home: RegisterSellerPersonalInfoScreen(),
+              home: SplashScreen(),
             ),
           );
         },

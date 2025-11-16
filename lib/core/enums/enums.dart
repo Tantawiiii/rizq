@@ -18,3 +18,4 @@ enum UserRole{
 
 // register method
 enum RegisterMethod{email, google, facebook}
+enum AlertState {success,warning, error}

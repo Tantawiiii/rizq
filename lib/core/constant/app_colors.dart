@@ -14,8 +14,11 @@ final class AppColors{
 
   static const Color socialLoginButtonColor = Color(0xffDCF1FF);
   static const Color borderGrayColor = Color(0xffACB9CD);
-
   static const Color disabledColor = Color(0xffEBEEF3);
+  static const Color orangeColor = Color(0xffFA843C);
+
+
+
 
 
 

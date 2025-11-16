@@ -2,11 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/register/outer_screens/ui/widgets/gif_player_widget.dart';
+import 'package:rizq/features/home/main_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class SuccessfulRegisterScreen extends StatelessWidget {
@@ -15,6 +17,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding:  EdgeInsets.symmetric(horizontal: AppTheme.defaultEdgePadding),
@@ -54,7 +57,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                     PrimaryButton(
                       title: LocaleKeys.Auth_register_goHome.tr(),
                       onPressed: (){
-
+                        RouteManager.navigateAndPopAll(MainScreen());
                       },
                     )
 

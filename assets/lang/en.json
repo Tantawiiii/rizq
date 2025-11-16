@@ -53,7 +53,35 @@
 
       "congrats": "Congratulations!",
       "successfulRegistration": "Account created successfully",
-      "goHome": "Go to Home"
+      "goHome": "Go to Home",
+
+      "createCompanyAccountIn": "Create your company account in",
+      "companyOwnerData": "Company owner information",
+      "companyData": "Company information",
+      "verificationFiles": "Verification documents",
+      "socialMediaAccounts": "Social media accounts",
+      "facebookLink": "Facebook account link",
+      "instagramLink": "Instagram account link",
+      "linkedinLink": "LinkedIn account link",
+      "whatsAppLink": "WhatsApp number",
+      "theLink": "The link",
+      "commercialName" : "commercial Name"
+    },
+
+    "otp": {
+      "weHaveSentCode": "We have sent a code to your email. Please enter it to verify your account.",
+      "resendCode": "Resend code"
+    },
+
+    "forgetPassword": {
+      "enterEmailToSendCode": "Enter your email to be able to create a new password",
+      "sendCode": "Send code",
+      "createNewPassword": "Create a new password",
+      "newPassword": "New password",
+      "confirmNewPassword": "Confirm the new password",
+      "successfulPasswordReset": "Password changed successfully",
+      "backToAuth": "Back to login",
+      "confirmPassword": "Confirm password"
     },
 
     "email": "Email",
@@ -99,7 +127,46 @@
     "buildings": "Real Estate",
     "electronics": "Electronics",
     "clothes": "Clothes"
+  },
+
+  "apiErrors": {
+    "connectionTimeout": "The connection to the server has timed out. Please check your internet connection!",
+    "noInternetConnection": "You are not connected to the internet!",
+
+    "api404Error": "Your request could not be found. Please try again later!",
+    "api4xxError": "",
+    "api5xxError": "The server is currently unavailable. Please try again later!",
+    "apiGeneralError": "An unexpected error occurred. Please try again later!"
+  },
+
+  "formErrors": {
+    "nameRequired": "Please enter the name!",
+    "nameTooShort": "The name is too short!",
+    "emailRequired": "Please enter your email!",
+    "emailInvalidFormat": "Invalid email format!",
+
+    "phoneRequired": "Please enter your phone number!",
+    "passwordRequired": "Please enter your password!",
+    "passwordTooShort": "The password is too short!",
+    "mixNumbersCharsPassword": "Please choose a password that contains letters and numbers!",
+    "stateRequired": "Please select the governorate!",
+    "shopNameRequired": "Please enter the shop name!",
+    "commercialActivityRequired": "Please select the type of commercial activity!",
+    "idRequired": "Please upload your ID photo!",
+
+    "otpRequired": "Please enter the verification code!",
+    "otpMissedDigits": "Please enter the 6 digits of the verification code!",
+    "otpNotCorrect": "The code you entered is incorrect!",
+
+    "commercialActivityAddressRequired" : "Please enter your commecial address !",
+
+    "passwordAreNotIdentical" : "Password are not identical !",
+
+    "idFileRequired" : "ID is required! choose an image or PDF"
+
   }
+
+
 
 
 }
