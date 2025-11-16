@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/constant/app_colors.dart';
 import 'widgets/home_bottom_navigation.dart';
+import 'tabs/home_tap/widgets/filter_drawer.dart';
 import 'tabs/add_ad_tab.dart';
-import 'tabs/home_tab.dart';
+import 'tabs/home_tap/screens/home_tab.dart';
 import 'tabs/profile_tab.dart';
 import 'tabs/tasks_tab.dart';
 
@@ -59,12 +60,11 @@ class _MainScreenState extends State<MainScreen> {
 
   void _onAddPressed() => _onItemSelected(1);
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteBackground,
+      endDrawer: const FilterDrawer(),
       body: SafeArea(
         child: Stack(
           children: [
@@ -104,9 +104,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Widget _buildHomeTab() {
-    return HomeTab(
-      scrollController: _scrollController,
-    );
+    return HomeTab(scrollController: _scrollController);
   }
 
   Widget _buildProfileTab() {

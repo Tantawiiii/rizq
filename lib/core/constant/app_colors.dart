@@ -6,6 +6,8 @@ final class AppColors{
   //
 
   static const Color primaryColor = Color(0xff002E54);
+  static const Color sconderyColor = Color(0xffFA843C);
+  static const Color discountCardColor = Color(0xffFFEAD5);
   static const Color scaffoldCyanColor = Color(0xffEEF8FF);
   static const Color titleColor = Color(0xff005695);
   static const Color fieldTitleColor = Color(0xff4B5F7E);

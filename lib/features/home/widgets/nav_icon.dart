@@ -32,13 +32,13 @@ class NavIconButton extends StatelessWidget {
         width: isActive ? selectedSize : baseSize,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: isActive ? AppColors.accentColor : Colors.transparent,
+          color: isActive ? AppColors.sconderyColor : Colors.transparent,
           // border: isActive
           //     ? null
           //     : Border.all(color: AppColors.white, width: 2.r),
         ),
         child: Padding(
-          padding: isActive ? const EdgeInsets.all(14.0): const EdgeInsets.all(8.0),
+          padding: isActive ? const EdgeInsets.all(16.0): const EdgeInsets.all(8.0),
           child: SvgPicture.asset(
             icon,
             height: iconSize,
