@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_texts.dart';
 
 import '../../../../../core/constant/app_assets.dart';
 import '../../../../../core/constant/app_colors.dart';
@@ -168,7 +169,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   @override
   void initState() {
     super.initState();
-    _filters = _filtersByCategory[widget.initialCategory] ?? const ['الكل'];
+    _filters = _filtersByCategory[widget.initialCategory] ?? const [AppTexts.all];
     _selectedFilter = _filters.first;
     _allProducts = _productsByCategory[widget.initialCategory] ?? const [];
   }
@@ -209,7 +210,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                           padding: EdgeInsets.only(top: 48.h),
                           child: Center(
                             child: Text(
-                              'لا توجد منتجات مطابقة للبحث',
+                              AppTexts.noProductsInSearch,
                               style: AppTextStyles.poppinsTextStyle(
                                 color: AppColors.greyTextColor,
                                 size: 14,
@@ -330,7 +331,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   List<AdItem> get _filteredProducts {
     return _allProducts
         .where(
-          (item) => _selectedFilter == 'الكل' || item.filter == _selectedFilter,
+          (item) => _selectedFilter == AppTexts.all || item.filter == _selectedFilter,
         )
         .where(
           (item) =>

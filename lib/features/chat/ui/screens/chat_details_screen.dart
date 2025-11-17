@@ -6,9 +6,9 @@ import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/features/chat/models/chat.dart';
-import 'package:rizq/features/chat/widgets/message_bubble.dart';
+import 'package:rizq/features/chat/ui/widgets/message_bubble.dart';
+import 'package:rizq/features/chat/ui/widgets/product_tip_card.dart';
 
-import 'widgets/product_tip_card.dart';
 
 class ChatDetailsScreen extends StatelessWidget {
   const ChatDetailsScreen({

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/features/home/tabs/profile_tap/widgets/profile_menu_card.dart';
 
 import '../../../../../core/constant/app_colors.dart';
@@ -20,25 +21,25 @@ class ProfileTab extends StatelessWidget {
           children: [
 
             ProfileMenuCard(
-              title: 'معلومات الملف الشخصي',
+              title: AppTexts.infoProfileUser,
               leadingIcon: Icons.person_outline,
               onTap: () => RouteManager.navigateTo(const PersonalInfoScreen()),
             ),
             12.verticalSpace,
             ProfileMenuCard(
-              title: 'بيانات المتجر',
+              title: AppTexts.infoStore,
               leadingIcon: Icons.store_outlined,
               onTap: () {},
             ),
             12.verticalSpace,
             ProfileMenuCard(
-              title: 'المحفظة',
+              title: AppTexts.wallet,
               leadingIcon: Icons.account_balance_wallet_outlined,
               onTap: () {},
             ),
             12.verticalSpace,
             ProfileMenuCard(
-              title: 'الإشتراكات',
+              title: AppTexts.subscribtions,
               leadingIcon: Icons.location_on_outlined,
               onTap: () {},
             ),
@@ -97,120 +98,6 @@ class ProfileTab extends StatelessWidget {
     );
   }
 
-  Widget _buildProfileCard(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.overlayColor,
-        borderRadius: BorderRadius.circular(16.r),
-      ),
-      padding: EdgeInsets.all(16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 28.w,
-                backgroundImage: const AssetImage('assets/pngs/rizq_logo.png'),
-              ),
-              12.horizontalSpace,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'أحمد علي',
-                      style: AppTextStyles.poppinsTextStyle(
-                        color: AppColors.primaryColor,
-                        size: 16,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    4.verticalSpace,
-                    Text(
-                      'example@gmail.com',
-                      style: AppTextStyles.poppinsTextStyle(
-                        color: AppColors.greyTextColor,
-                        size: 14,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'تعديل',
-                  style: AppTextStyles.poppinsTextStyle(
-                    color: AppColors.primaryColor,
-                    size: 14,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          16.verticalSpace,
-          Container(
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(12.r),
-            ),
-            padding: EdgeInsets.all(12.w),
-            child: Column(
-              children: [
-                _kvRow('الاسم كامل', 'أحمد علي'),
-                8.verticalSpace,
-                _kvRow('رقم الهاتف', '055000000'),
-                8.verticalSpace,
-                _kvRow('نوع النشاط', 'بائع'),
-                8.verticalSpace,
-                _kvRow('المحافظة', 'الرياض'),
-                8.verticalSpace,
-                _kvRow('العنوان', 'الملز - الرياض'),
-              ],
-            ),
-          ),
-          12.verticalSpace,
-          Align(
-            alignment: AlignmentDirectional.centerStart,
-            child: Text(
-              'تغيير كلمة المرور',
-              style: AppTextStyles.poppinsTextStyle(
-                color: Colors.red,
-                size: 14,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _kvRow(String k, String v) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          k,
-          style: AppTextStyles.poppinsTextStyle(
-            color: AppColors.fieldTitleColor,
-            size: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        Text(
-          v,
-          style: AppTextStyles.poppinsTextStyle(
-            color: AppColors.primaryColor,
-            size: 14,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ],
-    );
-  }
 
   Widget _buildNotificationRow() {
     return Container(

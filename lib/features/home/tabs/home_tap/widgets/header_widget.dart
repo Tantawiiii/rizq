@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/features/chat/chat_list_screen.dart';
+import 'package:rizq/features/chat/ui/screens/chat_list_screen.dart';
 
 Widget HeaderWidget() {
   return Row(
@@ -27,9 +27,7 @@ Widget HeaderWidget() {
             ),
           ),
           Bounce(
-            onTap: () {
-              RouteManager.navigateTo(const ChatListScreen());
-            },
+            onTap: () => RouteManager.navigateTo(const ChatListScreen()),
             child: SvgPicture.asset(
               AppAssets.chatSvg,
               width: 24.w,

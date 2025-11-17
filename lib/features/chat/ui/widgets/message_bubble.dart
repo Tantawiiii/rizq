@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/constant/app_assets.dart';
-import '../../../core/constant/app_colors.dart';
-import '../models/chat.dart';
+import '../../../../core/constant/app_assets.dart';
+import '../../../../core/constant/app_colors.dart';
+import '../../models/chat.dart';
+
+
 
 class MessageBubble extends StatelessWidget {
   const MessageBubble({super.key, required this.message});

@@ -4,8 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/constant/app_colors.dart';
-import '../models/chat.dart';
+import '../../../../core/constant/app_colors.dart';
+import '../../models/chat.dart';
+
 
 class ProductTipsCard extends StatelessWidget {
   const ProductTipsCard({super.key, required this.chat});

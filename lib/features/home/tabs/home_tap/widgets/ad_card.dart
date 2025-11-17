@@ -5,8 +5,11 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constant/app_assets.dart';
 import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/router/route_manager.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../model/adItem.dart';
+import '../model/product_details.dart';
+import '../screens/product_details_screen.dart';
 
 class AdCard extends StatelessWidget {
   const AdCard({super.key, required this.item});
@@ -16,6 +19,10 @@ class AdCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Bounce(
+      onTap: () {
+        final productDetails = _convertToProductDetails(item);
+        RouteManager.navigateTo(ProductDetailsScreen(product: productDetails));
+      },
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(28.r),
@@ -104,7 +111,7 @@ class AdCard extends StatelessWidget {
                   bottomRight: Radius.circular(28.r),
                 ),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -148,6 +155,90 @@ class AdCard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  ProductDetails _convertToProductDetails(AdItem item) {
+    // Convert AdItem to ProductDetails with sample data
+    // In a real app, this would come from an API
+    return ProductDetails(
+      id: item.title.hashCode.toString(),
+      title: item.title,
+      images: [item.imageAsset, item.imageAsset, item.imageAsset],
+      currentPrice: item.price,
+      oldPrice: item.oldPrice,
+      description:
+          'يأتي بشاشة Super Retina XDR بحجم 6.1 بوصة، مع معالج A15 Bionic. نظام كاميرا مزدوجة بدقة 12 ميجابكسل يدعم تقنية 5G لتجربة اتصال أسرع. لون الأسود بطارية 91% ووتر بروف مش مغير اجزاء ضمان شهر مع البوكس.',
+      seller: const SellerInfo(
+        name: 'محمد محمود',
+        role: 'بائع',
+        memberSince: '2025-7-25',
+        rating: 4.0,
+        profileImage: AppAssets.productOnePng, // Using placeholder
+      ),
+      location: const LocationInfo(
+        city: 'دمشق',
+        neighborhood: 'الحسينية',
+        latitude: 33.5138,
+        longitude: 36.2765,
+      ),
+      specifications: const ProductSpecifications(
+        model: '13 برو ماكس',
+        brand: 'ايفون',
+        color: 'وردي',
+        storageCapacity: '128 GB',
+        batteryHealth: '91%',
+        condition: 'كسر زيرو',
+        subCategory: 'هاتف محمول',
+        mainCategory: 'الكترونيات',
+        neighborhood: 'الحسينية',
+        city: 'دمشق',
+        accessories: 'كرتونة / شاحن',
+      ),
+      relatedAds: const [
+        RelatedAd(
+          title: 'فستان بني قصير',
+          image: AppAssets.productOnePng,
+          price: '100 ل.س',
+          oldPrice: '250 ل.س',
+          discount: '-65%',
+        ),
+        RelatedAd(
+          title: 'فستان بني قصير',
+          image: AppAssets.productTwoPng,
+          price: '100 ل.س',
+          oldPrice: '250 ل.س',
+          discount: '-65%',
+        ),
+        RelatedAd(
+          title: 'فستان بني قصير',
+          image: AppAssets.productOnePng,
+          price: '100 ل.س',
+          oldPrice: '250 ل.س',
+          discount: '-65%',
+        ),
+        RelatedAd(
+          title: 'فستان بني قصير',
+          image: AppAssets.productTwoPng,
+          price: '100 ل.س',
+          oldPrice: '250 ل.س',
+          discount: '-65%',
+        ),
+        RelatedAd(
+          title: 'فستان بني قصير',
+          image: AppAssets.productOnePng,
+          price: '100 ل.س',
+          oldPrice: '250 ل.س',
+          discount: '-65%',
+        ),
+        RelatedAd(
+          title: 'فستان بني قصير',
+          image: AppAssets.productTwoPng,
+          price: '100 ل.س',
+          oldPrice: '250 ل.س',
+          discount: '-65%',
+        ),
+      ],
     );
   }
 }

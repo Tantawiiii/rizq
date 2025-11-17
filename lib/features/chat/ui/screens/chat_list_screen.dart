@@ -3,9 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/features/chat/chat_details_screen.dart';
+import 'package:rizq/features/chat/ui/screens/chat_details_screen.dart';
 import 'package:rizq/features/chat/models/chat.dart';
-import 'package:rizq/features/chat/widgets/chat_card.dart';
+import 'package:rizq/features/chat/ui/widgets/chat_card.dart';
 
 class ChatListScreen extends StatefulWidget {
   const ChatListScreen({super.key});
@@ -205,5 +205,8 @@ class _FilterRow extends StatelessWidget {
     }
   }
 }
+
+
+
 
 

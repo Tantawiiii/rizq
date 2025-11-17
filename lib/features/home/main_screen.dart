@@ -7,7 +7,7 @@ import 'tabs/home_tap/widgets/filter_drawer.dart';
 import 'tabs/add_ad_tab.dart';
 import 'tabs/home_tap/screens/home_tab.dart';
 import 'tabs/profile_tap/screens/profile_tab.dart';
-import 'tabs/tasks_tab.dart';
+import 'tabs/my_ads_tap/my_ads_tab.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
