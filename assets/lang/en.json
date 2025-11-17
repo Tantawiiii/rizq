@@ -97,7 +97,80 @@
   },
   "Home": {},
   "myAds": {},
-  "createAd": {},
+  "createAd": {
+    "addNewAd": "Add New Ad",
+    "chooseCategory": "Choose a Category:",
+    "addingAdImages": "Add Ad Images:",
+    "addTo6Images": "You can add up to 6 images",
+    "image": "Image",
+    "adInfo": "Ad Information:",
+    "adTitle": "Ad Title",
+    "adSubCategory": "Subcategory",
+    "marka": "Brand",
+    "model": "Model",
+    "color": "Color",
+    "status": "Condition",
+    "storageCapacity": "Storage Capacity",
+    "attatchements": "Accessories",
+    "state": "Governorate / City",
+    "city": "District",
+
+    "typeOfPrice": "Select Price Type",
+    "price": "Price",
+    "staticPrice": "Fixed Price",
+    "negotiatablePrice": "Negotiable Price",
+    "auctionPrice": "Auction",
+
+    "contactWay": "Contact Method",
+    "phoneCall": "Phone Calls",
+    "smsMessages": "SMS Messages",
+
+    "contactNumber": "Contact Number",
+    "adDescription": "Ad Description",
+    "publishAd": "Publish Ad",
+
+    "wannaIncreaseAdMonthlyNo": "Do you want to increase your monthly number of ads?",
+    "subscribeInBouquetTitle": "Subscribe to our premium packages now, or upgrade your ad to reach more customers.",
+    "subscribeInBouquet": "Subscribe to Package",
+    "distinguishAd": "Highlight Ad",
+    "subscribeInThisBouquet": "Subscribe to this Package",
+    "skip": "Skip",
+    "confirmPayment": "Confirm Payment",
+    "paymentSummary": "Purchase Summary",
+    "bouquetPrice": "Package Price",
+    "serviceMargin": "Service Fee",
+    "totalPrice": "Total",
+    "yourAdUnderSystemReview": "Your ad has been submitted. It will be reviewed by our team and you will be notified shortly.",
+    "backToMyAdds": "Back to My Ads",
+
+  "adsPerMonth": "{} ads during",
+  "distinguishableAdsPerMonth": "{} featured ads during",
+  "marketAdFor": "Promote the ad for",
+  "distinguishAdPrice": "{} SYP",
+  "adIncreaseFactor": "Views up to x{} times",
+
+"time": {
+    "day": {
+      "zero": "0 days",
+      "one": "1 day",
+      "two": "2 days",
+      "few": "{} days",
+      "many": "{} days",
+      "other": "{} days"
+    },
+    "month": {
+      "zero": "0 months",
+      "one": "1 month",
+      "two": "2 months",
+      "few": "{} months",
+      "many": "{} months",
+      "other": "{} months"
+    }
+  }
+
+
+},
+
   "Settings": {},
   "Notifications": {},
   "Chatting": {},

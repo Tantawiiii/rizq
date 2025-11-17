@@ -44,7 +44,7 @@ class _OtpScreenState extends State<OtpScreen> {
               20.vGap,
               Text(
                 LocaleKeys.Auth_otp_weHaveSentCode.tr(context: context),
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                   color: AppColors.titleColor ,
                   fontWeight: FontWeight.w500,
                   size: 16
@@ -68,7 +68,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   animationCurve: Curves.easeInOut,
                   errorText: errorMessage,
                   forceErrorState: errorMessage != null,
-                  errorTextStyle: AppTextStyles.poppinsTextStyle(color: AppColors.errorBorderColor, size: 14),
+                  errorTextStyle: AppTextStyles.cairoTextStyle(color: AppColors.errorBorderColor, size: 14),
 
                   animationDuration: Duration(milliseconds: 300),
                   closeKeyboardWhenCompleted: true,
@@ -77,7 +77,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   defaultPinTheme: PinTheme(
                       width: 50.w,
                       height: 50.w,
-                      textStyle: AppTextStyles.poppinsTextStyle(
+                      textStyle: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 22,
                       ),
@@ -91,7 +91,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   focusedPinTheme: PinTheme(
                       width: 50.w,
                       height: 50.w,
-                      textStyle: AppTextStyles.poppinsTextStyle(
+                      textStyle: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 22,
                       ),
@@ -105,7 +105,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   errorPinTheme: PinTheme(
                       width: 50.w,
                       height: 50.w,
-                      textStyle: AppTextStyles.poppinsTextStyle(
+                      textStyle: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 24,
                       ),
@@ -147,7 +147,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   pinContentAlignment: Alignment.center,
                   preFilledWidget: Text(
                     '-',
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.fieldHintColor,
                       size: 14,
                     ),

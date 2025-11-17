@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,15 +18,16 @@ final class AppTheme{
       endIndent: 10.sp,
     ),
     appBarTheme: AppBarTheme(
-      backgroundColor: Color(0xffFEFEFE),
+      backgroundColor: Colors.white,
       elevation: 0,
       scrolledUnderElevation: 0,
-      surfaceTintColor: Color(0xffFEFEFE),
-      titleTextStyle: AppTextStyles.poppinsTextStyle(
-        fontWeight: FontWeight.w500,
+      surfaceTintColor: Colors.white,
+      titleTextStyle: AppTextStyles.cairoTextStyle(
+        fontWeight: FontWeight.w600,
         color: AppColors.primaryColor,
+        size: 18,
       ),
-      centerTitle: true,
+      centerTitle: false,
     ),
 
     progressIndicatorTheme: ProgressIndicatorThemeData(

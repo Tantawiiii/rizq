@@ -3,15 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/features/auth/forget_password/ui/forget_password_screen.dart';
-import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
-import 'package:rizq/features/auth/otp/ui/otp_screen.dart';
-import 'package:rizq/features/auth/register/company/ui/screens/company_owner_data.dart';
-import 'package:rizq/features/auth/register/personal/ui/personal_register_screen.dart';
-import 'package:rizq/features/auth/register/seller/ui/screens/seller_persoal_info.dart';
-import 'package:rizq/features/splash/splash_screen.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/categories_screen.dart';
 
-import 'core/constant/app_colors.dart';
+import 'core/theme/theme.dart';
 import 'core/utils/lang_helper.dart';
 
 class RizqApp extends StatelessWidget {
@@ -43,13 +37,14 @@ class RizqApp extends StatelessWidget {
             ),
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'Rizq',
+              theme: AppTheme.lightTheme,
+              title: 'رزق | Rizq',
               locale: context.locale,
               supportedLocales: context.supportedLocales,
               localizationsDelegates: context.localizationDelegates,
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
-              home: SplashScreen(),
+              home: CategoriesScreen(),
             ),
           );
         },

@@ -35,7 +35,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               20.vGap,
               Text(
                 LocaleKeys.Auth_forgetPassword_enterEmailToSendCode.tr(context: context),
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                     color: AppColors.titleColor ,
                     fontWeight: FontWeight.w500,
                     size: 16

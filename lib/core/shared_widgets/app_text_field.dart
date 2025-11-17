@@ -56,7 +56,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
         Text(
           widget.title,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 14,
             color: AppColors.fieldTitleColor,
             fontWeight: FontWeight.w500,
@@ -72,7 +72,7 @@ class _AppTextFieldState extends State<AppTextField> {
           validator: widget.validator,
           onChanged: widget.onChanged,
           onFieldSubmitted: widget.onFieldSubmitted,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 14,
             color: AppColors.greyTextColor,
           ),
@@ -84,7 +84,7 @@ class _AppTextFieldState extends State<AppTextField> {
           cursorRadius: Radius.circular(3),
           decoration: InputDecoration(
             hintText: widget.hint,
-            hintStyle: AppTextStyles.poppinsTextStyle(
+            hintStyle: AppTextStyles.cairoTextStyle(
               size: 13,
               color: AppColors.fieldHintColor,
               fontWeight: FontWeight.w400,

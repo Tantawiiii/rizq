@@ -43,7 +43,7 @@ class UserRoleSelectionScreen extends StatelessWidget {
                   10.vGap,
                   Text(
                     LocaleKeys.Auth_register_chooseYourAccountType.tr(context: context),
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       size: 16,
                       fontWeight: FontWeight.w500,
                       color: AppColors.titleColor,
@@ -97,7 +97,7 @@ class UserRoleSelectionScreen extends StatelessWidget {
                     children: [
                       Text(
                         LocaleKeys.Auth_register_alreadyHaveAccount.tr(),
-                        style: AppTextStyles.poppinsTextStyle(
+                        style: AppTextStyles.cairoTextStyle(
                           size: 14,
                           color: AppColors.primaryColor,
                           fontWeight: FontWeight.w500,
@@ -111,7 +111,7 @@ class UserRoleSelectionScreen extends StatelessWidget {
                         },
                         child: Text(
                           LocaleKeys.Auth_Login_login.tr(),
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             size: 14,
                             color: AppColors.titleColor,
                             fontWeight: FontWeight.w500,

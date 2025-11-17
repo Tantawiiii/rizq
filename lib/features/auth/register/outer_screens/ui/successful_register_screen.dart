@@ -37,7 +37,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
 
                     Text(
                       LocaleKeys.Auth_register_congrats.tr(context: context),
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         size: 18,
                         fontWeight: FontWeight.w600,
                         color: AppColors.primaryColor,
@@ -45,7 +45,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                     ),
                     Text(
                       LocaleKeys.Auth_register_successfulRegistration.tr(context: context),
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         size: 18,
                         fontWeight: FontWeight.w600,
                         color: AppColors.primaryColor,

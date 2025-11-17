@@ -42,7 +42,7 @@ class FeaturedAdsScreen extends StatelessWidget {
                 Text(
                   AppTexts.noFeaturedAdsYet,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.poppinsTextStyle(
+                  style: AppTextStyles.cairoTextStyle(
                     color: AppColors.primaryColor,
                     size: 18.sp,
                     fontWeight: FontWeight.w700,

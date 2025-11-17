@@ -42,7 +42,7 @@ class _Header extends StatelessWidget {
           child: Text(
             'معلومات الملف الشخصي',
             textAlign: TextAlign.center,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 20,
               fontWeight: FontWeight.w700,
@@ -80,7 +80,7 @@ class _ProfileCard extends StatelessWidget {
                   children: [
                     Text(
                       'أحمد علي',
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 16,
                         fontWeight: FontWeight.w700,
@@ -89,7 +89,7 @@ class _ProfileCard extends StatelessWidget {
                     4.verticalSpace,
                     Text(
                       'example@gmail.com',
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.greyTextColor,
                         size: 14,
                       ),
@@ -101,7 +101,7 @@ class _ProfileCard extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   'تعديل',
-                  style: AppTextStyles.poppinsTextStyle(
+                  style: AppTextStyles.cairoTextStyle(
                     color: AppColors.primaryColor,
                     size: 14,
                     fontWeight: FontWeight.w700,
@@ -136,7 +136,7 @@ class _ProfileCard extends StatelessWidget {
             alignment: AlignmentDirectional.centerStart,
             child: Text(
               'تغيير كلمة المرور',
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: Colors.red,
                 size: 14,
                 fontWeight: FontWeight.w700,
@@ -162,7 +162,7 @@ class _KVRow extends StatelessWidget {
       children: [
         Text(
           k,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             color: AppColors.fieldTitleColor,
             size: 14,
             fontWeight: FontWeight.w600,
@@ -170,7 +170,7 @@ class _KVRow extends StatelessWidget {
         ),
         Text(
           v,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             color: AppColors.primaryColor,
             size: 14,
             fontWeight: FontWeight.w700,

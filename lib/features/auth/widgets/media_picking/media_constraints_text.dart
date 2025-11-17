@@ -17,7 +17,7 @@ class MediaConstraintsText extends StatelessWidget {
 
         Text(
           title,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 14,
             fontWeight: FontWeight.w500,
             color: AppColors.primaryColor,
@@ -26,7 +26,7 @@ class MediaConstraintsText extends StatelessWidget {
         8.vGap,
         ...constraints.map((s)=>Text(
           '${constraints.indexOf(s) +1 }: ${s}',
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 12,
             color: AppColors.titleColor,
           ),

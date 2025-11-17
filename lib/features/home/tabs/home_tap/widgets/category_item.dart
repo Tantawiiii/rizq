@@ -38,7 +38,7 @@ class CategoryItem extends StatelessWidget {
           8.verticalSpace,
           Text(
             title,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.blackTextColor,
               size: 14,
               fontWeight: FontWeight.w600,

@@ -13,7 +13,7 @@ class CustomDropdownButton extends StatefulWidget {
   final void Function(String? value)? onChanged;
   final String? Function(String? s)? validator;
   final String hint;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   final String? value;
 
   const CustomDropdownButton({
@@ -23,7 +23,7 @@ class CustomDropdownButton extends StatefulWidget {
     required this.onSaved,
     this.validator,
     required this.hint,
-    required this.prefixIcon,
+    this.prefixIcon,
     this.value,
     this.onChanged,
   });
@@ -41,7 +41,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       children: [
         Text(
           widget.title,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 14,
             color: AppColors.fieldTitleColor,
             fontWeight: FontWeight.w500,
@@ -64,7 +64,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     ),
                     child: Text(
                       tr(key, context:context),
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         size: 14,
                         color: AppColors.primaryColor,
                       ),
@@ -103,7 +103,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 .map(
                   (key) => Text(
                     tr(key),
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       size: 14,
                       color: AppColors.primaryColor,
                     ),
@@ -118,7 +118,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
               alignment: AlignmentDirectional.topStart,
               child: Text(
                 widget.hint,
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                   size: 13,
                   color: AppColors.fieldHintColor,
                   fontWeight: FontWeight.w400,
@@ -129,10 +129,10 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
             filled: true,
             fillColor: AppColors.white,
             isDense: true,
-            prefixIcon: Padding(
+            prefixIcon: widget.prefixIcon != null ?Padding(
               padding: EdgeInsetsGeometry.directional(start: 10.r),
               child: widget.prefixIcon,
-            ),
+            ) : null,
             // prefix: prefixIcon,
             prefixIconConstraints: BoxConstraints(
               minWidth: 33.r,

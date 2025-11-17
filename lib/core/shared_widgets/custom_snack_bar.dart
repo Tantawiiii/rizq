@@ -12,7 +12,7 @@ void showCustomSnackBar({required String message, AlertState state = AlertState.
       padding: EdgeInsets.symmetric(horizontal: 8.r, vertical: 15.r),
       content: Row(
         children: [
-          Expanded(child: Center(child: Text(message, style: AppTextStyles.poppinsTextStyle(color: AppColors.white),))),
+          Expanded(child: Center(child: Text(message, style: AppTextStyles.cairoTextStyle(color: AppColors.white),))),
         ],
       ),
       backgroundColor: state == AlertState.success ? AppColors.successColor :state == AlertState.warning ? AppColors.warningColor : AppColors.errorBorderColor,

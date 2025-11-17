@@ -47,7 +47,7 @@ class _OtpResendButtonState extends State<OtpResendButton> {
       child: noSeconds < 120 ?
 
       Text(_formatTime(noSeconds),
-      style: AppTextStyles.poppinsTextStyle(
+      style: AppTextStyles.cairoTextStyle(
         color: AppColors.orangeColor,
         size: 14,
         fontWeight: FontWeight.w500,
@@ -55,7 +55,7 @@ class _OtpResendButtonState extends State<OtpResendButton> {
       )
           :Text(
         LocaleKeys.Auth_otp_resendCode.tr(context: context),
-        style: AppTextStyles.poppinsTextStyle(
+        style: AppTextStyles.cairoTextStyle(
           color: AppColors.titleColor,
           fontWeight: FontWeight.w600,
           size: 16,

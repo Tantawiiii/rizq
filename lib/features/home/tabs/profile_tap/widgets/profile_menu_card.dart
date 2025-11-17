@@ -51,7 +51,7 @@ class ProfileMenuCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         title,
-                        style: AppTextStyles.poppinsTextStyle(
+                        style: AppTextStyles.cairoTextStyle(
                           color: AppColors.primaryColor,
                           size: 16,
                           fontWeight: FontWeight.w600,

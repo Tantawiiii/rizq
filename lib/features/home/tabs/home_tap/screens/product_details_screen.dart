@@ -75,7 +75,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       centerTitle: true,
       title: Text(
         widget.product.title,
-        style: AppTextStyles.poppinsTextStyle(
+        style: AppTextStyles.cairoTextStyle(
           color: AppColors.primaryColor,
           size: 16,
           fontWeight: FontWeight.w700,
@@ -161,7 +161,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               widget.product.currentPrice,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 20,
                 fontWeight: FontWeight.w700,
@@ -174,7 +174,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               widget.product.oldPrice,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.sconderyColor,
                 size: 16,
                 fontWeight: FontWeight.w600,
@@ -218,7 +218,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             },
             child: Text(
               AppTexts.notifyWhenPriceDrops,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.errorBorderColor,
                 size: 14,
                 fontWeight: FontWeight.w600,
@@ -238,7 +238,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           Text(
             AppTexts.generalTips,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,
@@ -263,7 +263,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Expanded(
                     child: Text(
                       tip,
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.greyTextColor,
                         size: 14,
                         fontWeight: FontWeight.w500,
@@ -287,7 +287,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           Text(
             AppTexts.sellerInfo,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,
@@ -309,7 +309,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       widget.product.seller.name,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 16,
                         fontWeight: FontWeight.w700,
@@ -320,7 +320,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       widget.product.seller.role,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.greyTextColor,
                         size: 14,
                         fontWeight: FontWeight.w500,
@@ -331,7 +331,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       '${AppTexts.memberSince} ${widget.product.seller.memberSince}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.greyTextColor,
                         size: 12,
                         fontWeight: FontWeight.w400,
@@ -371,7 +371,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           Text(
             AppTexts.locationOnMap,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,
@@ -380,7 +380,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           12.verticalSpace,
           Text(
             '${widget.product.location.city} - ${widget.product.location.neighborhood}',
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.greyTextColor,
               size: 14,
               fontWeight: FontWeight.w500,
@@ -420,7 +420,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           Text(
             AppTexts.productDescription,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,
@@ -429,7 +429,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           12.verticalSpace,
           Text(
             widget.product.description,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.greyTextColor,
               size: 14,
               fontWeight: FontWeight.w400,
@@ -463,7 +463,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           Text(
             AppTexts.information,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,
@@ -502,7 +502,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.end,
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             color: AppColors.primaryColor,
                             size: 14,
                             fontWeight: FontWeight.w600,
@@ -516,7 +516,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.start,
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             color: AppColors.greyTextColor,
                             size: 14,
                             fontWeight: FontWeight.w500,
@@ -542,7 +542,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           Text(
             AppTexts.relatedAds,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,

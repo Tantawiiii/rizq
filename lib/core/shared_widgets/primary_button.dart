@@ -83,7 +83,7 @@ class PrimaryButton extends StatelessWidget {
   Widget _buildLabel() {
     final textWidget = Text(
       title,
-      style: AppTextStyles.poppinsTextStyle(
+      style: AppTextStyles.cairoTextStyle(
         size: 16,
         color:  isLoading || onPressed == null ? Color(0xff7F94B1) : AppColors.white,
         fontWeight: FontWeight.w500,

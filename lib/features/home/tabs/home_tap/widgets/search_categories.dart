@@ -43,7 +43,7 @@ class HomeSearchAndCategories extends StatelessWidget {
           children: [
             Text(
               AppTexts.categories,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 20,
                 fontWeight: FontWeight.w700,
@@ -54,7 +54,7 @@ class HomeSearchAndCategories extends StatelessWidget {
                 children: [
                   Text(
                     AppTexts.seeMore,
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 16,
                       fontWeight: FontWeight.w600,

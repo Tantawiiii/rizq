@@ -97,7 +97,79 @@
   },
   "Home": {},
   "myAds": {},
-  "createAd": {},
+  "createAd": {
+    "addNewAd" : "إضافة إعلان جديد",
+    "chooseCategory" : "إختر قسم :",
+    "addingAdImages" : "إضافة صور الإعلان:",
+    "addTo6Images" : "يمكنك إضافة حتي 6 صور",
+    "image" : "صورة ",
+    "adInfo" : "معلومات الإعلان:",
+    "adTitle" : "عنوان الاعلان",
+    "adSubCategory" : "الفئة الفرعية",
+    "marka" : "الماركة",
+    "model" : "الموديل",
+    "color" : "اللون",
+    "status" : "الحالة",
+    "storageCapacity" : "سعة التخزين",
+    "attatchements" : "الملحقات ",
+    "state": "المحافظة / المدينة",
+    "city" : "الحي",
+
+    "typeOfPrice" : "تحديد نوع السعر",
+    "price" : "السعر",
+    "staticPrice" : "سعر ثابت",
+    "negotiatablePrice" : "قابل للتفاوض",
+    "auctionPrice" : "مزايدة",
+
+    "contactWay": "وسيلة التواصل",
+    "phoneCall" : "مكالمات هاتفيه",
+    "smsMessages" : "رسائل نصية",
+
+    "contactNumber" : "رقم التواصل",
+    "adDescription": "وصف الإعلان",
+    "publishAd" : "نشر الإعلان",
+
+    "wannaIncreaseAdMonthlyNo" : "هل ترغب بزيادة عدد إعلاناتك الشهرية؟",
+    "subscribeInBouquetTitle" : "إشترك في باقاتنا المميزة الآن، أو قم بترقية إعلانك ليصل إلى عدد أكبر من العملاء.",
+    "subscribeInBouquet"  : "إشتراك في باقة",
+    "distinguishAd" : "تمييز الإعلان",
+    "subscribeInThisBouquet" : "الإشتراك في الباقة",
+    "skip" : "تخطي",
+    "confirmPayment" : "تأكيد الدفع",
+    "paymentSummary" : "ملخص الشراء",
+    "bouquetPrice" : "ثمن الباقة",
+    "serviceMargin" : "رسوم الخدمة",
+    "totalPrice" : "المجموع",
+    "yourAdUnderSystemReview" : "لقد وصل إعلانك للإدارة سيتم مراجعته وإبلاغك قريبا.",
+    "backToMyAdds" : "العودة إلي إعلاناتي",
+
+
+    "adsPerMonth" : "{} إعلانات خلال",
+    "distinguishableAdsPerMonth" : "{} إعلانات مميزة خلال",
+    "marketAdFor" : "ترويج للاعلان لمدة",
+    "distinguishAdPrice" : "{} ل.س",
+    "adIncreaseFactor" : "مشاهدات تصل إلى x{} أضعاف",
+
+    "time": {
+      "day": {
+        "zero": "٠ أيام",
+        "one": "يوم",
+        "two": "يومان",
+        "few": "{} أيام",
+        "many": "{} يومًا",
+        "other": "{} يوم"
+      },
+      "month": {
+        "zero": "٠ أشهر",
+        "one": "شهر",
+        "two": "شهران",
+        "few": "{} أشهر",
+        "many": "{} شهراً",
+        "other": "{} شهر"
+      }
+    }
+
+  },
   "Settings": {},
   "Notifications": {},
   "Chatting": {},

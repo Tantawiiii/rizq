@@ -24,7 +24,7 @@ class FeaturedAdsPromotionalCard extends StatelessWidget {
           Text(
             AppTexts.sellWhatYouDontNeed,
             textAlign: TextAlign.center,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
               fontWeight: FontWeight.w700,
@@ -72,7 +72,7 @@ class _DiscountBanner extends StatelessWidget {
               ),
               child: Text(
                 AppTexts.limitedOffer,
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                   color: AppColors.white,
                   size: 10,
                   fontWeight: FontWeight.w700,
@@ -83,7 +83,7 @@ class _DiscountBanner extends StatelessWidget {
           Center(
             child: Text(
               AppTexts.discountPercent,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.blackTextColor,
                 size: 48,
                 fontWeight: FontWeight.w900,
@@ -103,7 +103,7 @@ class _DiscountBanner extends StatelessWidget {
                 ),
                 child: Text(
                   AppTexts.sitewide,
-                  style: AppTextStyles.poppinsTextStyle(
+                  style: AppTextStyles.cairoTextStyle(
                     color: AppColors.white,
                     size: 12,
                     fontWeight: FontWeight.w700,
@@ -152,7 +152,7 @@ class _BenefitsList extends StatelessWidget {
                   Expanded(
                     child: Text(
                       benefit,
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 16,
                         fontWeight: FontWeight.w600,

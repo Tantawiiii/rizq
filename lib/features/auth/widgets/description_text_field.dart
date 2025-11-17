@@ -24,7 +24,7 @@ class DescriptionTextField extends StatelessWidget {
 
         Text(
           title,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 14,
             color: AppColors.fieldTitleColor,
             fontWeight: FontWeight.w500,
@@ -42,7 +42,7 @@ class DescriptionTextField extends StatelessWidget {
           cursorWidth: 2,
           cursorRadius: Radius.circular(3),
           keyboardType: TextInputType.text,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             size: 14,
             color: AppColors.greyTextColor,
           ),
@@ -59,7 +59,7 @@ class DescriptionTextField extends StatelessWidget {
 
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: AppTextStyles.poppinsTextStyle(
+            hintStyle: AppTextStyles.cairoTextStyle(
               size: 13,
               color: AppColors.fieldHintColor,
               fontWeight: FontWeight.w400,

@@ -19,8 +19,9 @@ class FilePickingWidget extends StatefulWidget {
   final String title;
   final void Function(File? file) onFileSelected;
   final String? initialImageOrPdfUrl;
+  final isForAd;
 
-  const FilePickingWidget({super.key, required this.title, required this.onFileSelected, this.initialImageOrPdfUrl});
+  const FilePickingWidget({super.key, required this.title, required this.onFileSelected, this.initialImageOrPdfUrl, this.isForAd = false});
 
   @override
   State<FilePickingWidget> createState() => _FilePickingWidgetState();
@@ -111,7 +112,7 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
                 children: [
                   Text(
                     widget.title,
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 14,
                       fontWeight: FontWeight.w600,
@@ -120,7 +121,7 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
                   20.vGap,
                   Text(
                     LocaleKeys.Auth_register_chooseFileFromDevice.tr(context: context),
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 12,
                     ),
@@ -138,7 +139,7 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
     try {
       final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
-        allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf',],
+        allowedExtensions:widget.isForAd? ['jpg', 'jpeg', 'png',]: ['jpg', 'jpeg', 'png', 'pdf',],
         allowMultiple: false,
       );
 

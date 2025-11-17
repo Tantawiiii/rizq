@@ -60,7 +60,7 @@ class RegisterSellerCommercialInfoScreen extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: LocaleKeys.Auth_register_createSellerAccountInRizq.tr(context: context),
-                                style: AppTextStyles.poppinsTextStyle(
+                                style: AppTextStyles.cairoTextStyle(
                                   size: 16,
                                   fontWeight: FontWeight.w500,
                                   color: AppColors.titleColor,
@@ -69,7 +69,7 @@ class RegisterSellerCommercialInfoScreen extends StatelessWidget {
                               TextSpan(text: ' '),
                               TextSpan(
                                 text: LocaleKeys.appName.tr(context: context),
-                                style: AppTextStyles.poppinsTextStyle(
+                                style: AppTextStyles.cairoTextStyle(
                                   size: 16,
                                   fontWeight: FontWeight.w500,
                                   color: Color(0xffFA843C),
@@ -78,7 +78,7 @@ class RegisterSellerCommercialInfoScreen extends StatelessWidget {
                               TextSpan(text: ' '),
                               TextSpan(
                                 text: '${LocaleKeys.Auth_register_now.tr(context: context)}...',
-                                style: AppTextStyles.poppinsTextStyle(
+                                style: AppTextStyles.cairoTextStyle(
                                   size: 16,
                                   fontWeight: FontWeight.w500,
                                   color: AppColors.titleColor,
@@ -102,7 +102,7 @@ class RegisterSellerCommercialInfoScreen extends StatelessWidget {
                         alignment: AlignmentDirectional.centerStart,
                         child: Text(
                           LocaleKeys.Auth_register_sellerLogo.tr(),
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             size: 14,
                             fontWeight: FontWeight.w500,
                             color: AppColors.fieldTitleColor,

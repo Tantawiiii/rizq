@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                     10.vGap,
                     Text(
                       LocaleKeys.Auth_Login_welcomeBack.tr(context: context),
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         size: 24,
                         fontWeight: FontWeight.w600,
                         color: AppColors.primaryColor,
@@ -67,7 +67,7 @@ class LoginScreen extends StatelessWidget {
 
                     Text(
                       LocaleKeys.Auth_Login_loginAndExploreApp.tr(context: context),
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         size: 14,
                         fontWeight: FontWeight.w500,
                         color: AppColors.titleColor,
@@ -103,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                       child: CustomTextButton(
                         child: Text(
                           LocaleKeys.Auth_forgotPassword.tr(),
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             size: 14,
                             color: AppColors.errorBorderColor,
                           ),
@@ -141,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 15.r),
                           child: Text(
                             LocaleKeys.Auth_Login_or.tr(),
-                            style: AppTextStyles.poppinsTextStyle(
+                            style: AppTextStyles.cairoTextStyle(
                               size: 16,
                               color: AppColors.titleColor,
                               fontWeight: FontWeight.w600,
@@ -167,7 +167,7 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         Text(
                           LocaleKeys.Auth_Login_noAccount.tr(),
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             size: 14,
                             color: AppColors.primaryColor,
                             fontWeight: FontWeight.w500,
@@ -179,7 +179,7 @@ class LoginScreen extends StatelessWidget {
                           child: Text(
                             LocaleKeys.Auth_Login_signUp.tr(),
                             style:
-                            AppTextStyles.poppinsTextStyle(
+                            AppTextStyles.cairoTextStyle(
                               size: 14,
                               color: AppColors.titleColor,
                               fontWeight: FontWeight.w500,

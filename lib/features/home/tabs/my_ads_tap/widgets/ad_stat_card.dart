@@ -30,7 +30,7 @@ class AdStatCard extends StatelessWidget {
               Text(
                 item.title,
                 textAlign: TextAlign.start,
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                   color: AppColors.primaryColor,
                   size: 16,
                   fontWeight: FontWeight.w700,
@@ -47,7 +47,7 @@ class AdStatCard extends StatelessWidget {
                   const Spacer(),
                   Text(
                     '${item.count}',
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 22,
                       fontWeight: FontWeight.w800,

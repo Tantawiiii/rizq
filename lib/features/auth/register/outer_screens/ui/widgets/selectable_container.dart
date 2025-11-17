@@ -35,7 +35,7 @@ class SelectableContainer extends StatelessWidget {
             12.hGap,
             Text(
               text,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 size: 14,
                 fontWeight: FontWeight.w500,
                 color:  AppColors.primaryColor,

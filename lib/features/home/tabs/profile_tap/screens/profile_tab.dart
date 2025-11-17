@@ -52,7 +52,7 @@ class ProfileTab extends StatelessWidget {
                 children: [
                   Text(
                     'العربية',
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.fieldTitleColor,
                       size: 14,
                       fontWeight: FontWeight.w600,
@@ -86,7 +86,7 @@ class ProfileTab extends StatelessWidget {
           child: Text(
             'الملف الشخصي',
             textAlign: TextAlign.center,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 20,
               fontWeight: FontWeight.w700,
@@ -111,7 +111,7 @@ class ProfileTab extends StatelessWidget {
           Expanded(
             child: Text(
               'الإشعارات',
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 16,
                 fontWeight: FontWeight.w600,
@@ -148,7 +148,7 @@ class ProfileTab extends StatelessWidget {
             Expanded(
               child: Text(
                 'تسجيل الخروج',
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                   color: Colors.red,
                   size: 16,
                   fontWeight: FontWeight.w700,

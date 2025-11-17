@@ -30,7 +30,7 @@ class SocialLoginButton extends StatelessWidget {
             12.hGap,
             Text(
               text,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.titleColor,
                 size: 16,
                 fontWeight: FontWeight.w500,

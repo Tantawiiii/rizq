@@ -56,7 +56,7 @@ class _ProgressContainerState extends State<ProgressContainer> {
       alignment: Alignment.center,
       child: widget.isCompleted? Icon(Icons.done, color: Colors.white, size: 20,): Text(
         widget.phaseNumber.toString(),
-        style: AppTextStyles.poppinsTextStyle(
+        style: AppTextStyles.cairoTextStyle(
           size: 12,
           color: AppColors.primaryColor,
           fontWeight: FontWeight.w500,

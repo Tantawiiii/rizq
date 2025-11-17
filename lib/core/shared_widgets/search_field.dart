@@ -27,7 +27,7 @@ class SearchField extends StatelessWidget {
           controller: controller,
           onChanged: onChanged,
           textAlignVertical: TextAlignVertical.center,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             color: AppColors.primaryColor,
             size: 16,
           ),
@@ -39,7 +39,7 @@ class SearchField extends StatelessWidget {
               fit: BoxFit.contain,
             ),
             hintText: AppTexts.search,
-            hintStyle: AppTextStyles.poppinsTextStyle(
+            hintStyle: AppTextStyles.cairoTextStyle(
               color: AppColors.greyTextColor,
               size: 16,
             ),

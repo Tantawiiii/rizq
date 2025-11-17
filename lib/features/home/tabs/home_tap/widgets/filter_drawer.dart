@@ -65,7 +65,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
                   children: [
                     Text(
                       'الفلترة',
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: AppColors.primaryColor,
                         size: 20,
                         fontWeight: FontWeight.w700,
@@ -91,7 +91,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
                 children: [
                   Text(
                     'تخفيض',
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.fieldTitleColor,
                       size: 16,
                       fontWeight: FontWeight.w600,
@@ -107,7 +107,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
               24.verticalSpace,
               Text(
                 'السعر',
-                style: AppTextStyles.poppinsTextStyle(
+                style: AppTextStyles.cairoTextStyle(
                   color: AppColors.fieldTitleColor,
                   size: 16,
                   fontWeight: FontWeight.w600,
@@ -213,7 +213,7 @@ class _FilterDrawerState extends State<FilterDrawer> {
                   },
                   child: Text(
                     'تطبيق',
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.white,
                       size: 18,
                       fontWeight: FontWeight.w600,
@@ -250,7 +250,7 @@ class _RangeChip extends StatelessWidget {
           children: [
             Text(
               label,
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.fieldHintColor,
                 size: 12,
                 fontWeight: FontWeight.w500,
@@ -259,7 +259,7 @@ class _RangeChip extends StatelessWidget {
             6.verticalSpace,
             Text(
               '$value ل.س',
-              style: AppTextStyles.poppinsTextStyle(
+              style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 14,
                 fontWeight: FontWeight.w600,
@@ -292,7 +292,7 @@ class _FilterDropdown extends StatelessWidget {
       children: [
         Text(
           label,
-          style: AppTextStyles.poppinsTextStyle(
+          style: AppTextStyles.cairoTextStyle(
             color: AppColors.fieldTitleColor,
             size: 16,
             fontWeight: FontWeight.w600,
@@ -321,7 +321,7 @@ class _FilterDropdown extends StatelessWidget {
                         value: item,
                         child: Text(
                           item,
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             color: AppColors.greyTextColor,
                             size: 14,
                           ),

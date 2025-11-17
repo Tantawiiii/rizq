@@ -91,7 +91,7 @@ class AdCard extends StatelessWidget {
                       child: Center(
                         child: Text(
                           item.discount,
-                          style: AppTextStyles.poppinsTextStyle(
+                          style: AppTextStyles.cairoTextStyle(
                             color: AppColors.sconderyColor,
                             size: 12,
                             fontWeight: FontWeight.w700,
@@ -120,7 +120,7 @@ class AdCard extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 12.sp,
                       fontWeight: FontWeight.w700,
@@ -132,7 +132,7 @@ class AdCard extends StatelessWidget {
                     children: [
                       Text(
                         item.oldPrice,
-                        style: AppTextStyles.poppinsTextStyle(
+                        style: AppTextStyles.cairoTextStyle(
                           color: AppColors.sconderyColor,
                           size: 12.sp,
                           fontWeight: FontWeight.w800,
@@ -141,7 +141,7 @@ class AdCard extends StatelessWidget {
                       8.horizontalSpace,
                       Text(
                         item.price,
-                        style: AppTextStyles.poppinsTextStyle(
+                        style: AppTextStyles.cairoTextStyle(
                           color: AppColors.greyTextColor,
                           size: 16,
                           fontWeight: FontWeight.w600,

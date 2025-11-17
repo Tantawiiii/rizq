@@ -211,7 +211,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                           child: Center(
                             child: Text(
                               AppTexts.noProductsInSearch,
-                              style: AppTextStyles.poppinsTextStyle(
+                              style: AppTextStyles.cairoTextStyle(
                                 color: AppColors.greyTextColor,
                                 size: 14,
                                 fontWeight: FontWeight.w500,
@@ -259,7 +259,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
           child: Text(
             widget.initialCategory,
             textAlign: TextAlign.center,
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 20,
               fontWeight: FontWeight.w700,
@@ -311,7 +311,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                     ),
                     child: Text(
                       filter,
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         color: _selectedFilter == filter
                             ? AppColors.white
                             : AppColors.primaryColor,

@@ -62,7 +62,7 @@ class RegisterProgressCircles extends StatelessWidget {
                 (phase) => Expanded(
                   child: Text(
                     phase,
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       size: 12,
                       color: AppColors.primaryColor,
                       fontWeight: FontWeight.w500,

@@ -37,7 +37,7 @@ class _LangDropDownState extends State<LangDropDown> {
           value: key,
           child: Text(
             tr(key, context: context),
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               size: 13,
               color: AppColors.primaryColor,
             ),
@@ -84,7 +84,7 @@ class _LangDropDownState extends State<LangDropDown> {
             LocaleKeys.Languages_arabic,
             LocaleKeys.Languages_english ].map((key) => Text(
             tr(key, context: context),
-            style: AppTextStyles.poppinsTextStyle(
+            style: AppTextStyles.cairoTextStyle(
               size: 16,
               fontWeight: FontWeight.w500,
               color: AppColors.primaryColor,
@@ -94,7 +94,7 @@ class _LangDropDownState extends State<LangDropDown> {
 
           decoration: InputDecoration(
 
-            hintStyle: AppTextStyles.poppinsTextStyle(
+            hintStyle: AppTextStyles.cairoTextStyle(
               size: 13,
               color: AppColors.fieldHintColor,
             ),

@@ -59,7 +59,7 @@ class PersonalRegisterScreen extends StatelessWidget {
                   10.vGap,
                   Text(
                     LocaleKeys.Auth_register_createYourAccountAndExplore.tr(context: context),
-                    style: AppTextStyles.poppinsTextStyle(
+                    style: AppTextStyles.cairoTextStyle(
                       size: 16,
                       fontWeight: FontWeight.w500,
                       color: AppColors.titleColor,

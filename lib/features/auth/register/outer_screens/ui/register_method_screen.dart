@@ -45,7 +45,7 @@ class RegisterMethodSelectionScreen extends StatelessWidget {
                     10.vGap,
                     Text(
                       LocaleKeys.Auth_register_chooseRegisterWay.tr(context: context),
-                      style: AppTextStyles.poppinsTextStyle(
+                      style: AppTextStyles.cairoTextStyle(
                         size: 16,
                         fontWeight: FontWeight.w500,
                         color: AppColors.titleColor,
