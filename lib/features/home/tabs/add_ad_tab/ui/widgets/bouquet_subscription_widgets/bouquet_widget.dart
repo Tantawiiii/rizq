@@ -8,6 +8,8 @@ import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/data/bouquet_model.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/data/payment_summary_model.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/payment_summary_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class BouquetWidget extends StatelessWidget {
@@ -18,6 +20,10 @@ class BouquetWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(AppTheme.defaultEdgePadding),
+      margin: EdgeInsets.symmetric(
+        horizontal: AppTheme.defaultEdgePadding,
+        vertical: AppTheme.defaultEdgePadding / 2,
+      ),
       decoration: BoxDecoration(
         color: Color(0xffEEF8FF),
         borderRadius: BorderRadius.circular(16.r),
@@ -106,7 +112,15 @@ class BouquetWidget extends StatelessWidget {
               context: context,
             ),
             onPressed: () {
-              //RouteManager.navigateTo(PaymentScreen());
+              RouteManager.navigateTo(
+                PaymentSummaryScreen(
+                  paymentSummaryModel: PaymentSummaryModel(
+                    whatHeBought: bouquet.bouquetName,
+                    price: bouquet.bouquetPrice,
+                    serviceFee: 100,
+                  ),
+                ),
+              );
             },
           ),
         ],

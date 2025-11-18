@@ -136,9 +136,10 @@ class CodegenLoader extends AssetLoader{
     "subscribeInThisBouquet": "Subscribe to this Package",
     "skip": "Skip",
     "confirmPayment": "Confirm Payment",
-    "paymentSummary": "Purchase Summary",
-    "bouquetPrice": "Package Price",
-    "serviceMargin": "Service Fee",
+    "paymentMethod": "Choose payment method",
+    "paymentSummary": "Purchase summary",
+    "bouquetPrice": "Price of {}",
+    "serviceMargin": "Service fee",
     "totalPrice": "Total",
     "yourAdUnderSystemReview": "Your ad has been submitted. It will be reviewed by our team and you will be notified shortly.",
     "backToMyAdds": "Back to My Ads",
@@ -147,6 +148,7 @@ class CodegenLoader extends AssetLoader{
     "marketAdFor": "Promote the ad for",
     "distinguishAdPrice": "{} SYP",
     "adIncreaseFactor": "Views up to x{} times",
+    "pricePerDay": "{} per day",
     "time": {
       "day": {
         "zero": "0 days",
@@ -346,8 +348,9 @@ static const Map<String,dynamic> _ar = {
     "subscribeInThisBouquet": "الإشتراك في الباقة",
     "skip": "تخطي",
     "confirmPayment": "تأكيد الدفع",
+    "paymentMethod": "اختر طريقة الدفع",
     "paymentSummary": "ملخص الشراء",
-    "bouquetPrice": "ثمن الباقة",
+    "bouquetPrice": "ثمن {}",
     "serviceMargin": "رسوم الخدمة",
     "totalPrice": "المجموع",
     "yourAdUnderSystemReview": "لقد وصل إعلانك للإدارة سيتم مراجعته وإبلاغك قريبا.",
@@ -357,6 +360,7 @@ static const Map<String,dynamic> _ar = {
     "marketAdFor": "ترويج للاعلان لمدة",
     "distinguishAdPrice": "{} ل.س",
     "adIncreaseFactor": "مشاهدات تصل إلى x{} أضعاف",
+    "pricePerDay": "{} باليوم",
     "time": {
       "day": {
         "zero": "٠ أيام",

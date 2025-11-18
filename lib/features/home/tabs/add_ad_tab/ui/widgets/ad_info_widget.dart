@@ -10,8 +10,8 @@ import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/utils/lang_helper.dart';
 import 'package:rizq/features/auth/widgets/description_text_field.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_states.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_states.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/bouquet_subscription_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 

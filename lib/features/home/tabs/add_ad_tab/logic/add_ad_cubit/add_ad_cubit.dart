@@ -1,11 +1,15 @@
 import 'package:bloc/bloc.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/data/distinguish_ad_model.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/ui/widgets/bouquet_subscription_widgets/sliding_button.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 import 'add_ad_states.dart';
 
+
 final class AddAdCubit extends Cubit<AddAdStates>{
   AddAdCubit():super(AddAdInitialState());
+
+  static bool isTopSliverShown = true;
 
   // all of this data will be fetched from the back but not now(just for testing)
   List<String> syriaStatesKeys = [
@@ -48,6 +52,17 @@ final class AddAdCubit extends Cubit<AddAdStates>{
   void changeAdAction(AdAction newAction){
     adAction = newAction;
     emit(AddAdActionChangedState());
+  }
+
+  DistinguishAdModel? selectedDistinguishAd;
+  void changedDistinguishAd(DistinguishAdModel? model){
+    selectedDistinguishAd = model;
+    emit(AddAdDistinguishAdChangedState());
+  }
+
+  void toggleSliverBarVisibility(bool isShown){
+    isTopSliverShown = isShown;
+    emit(AddAdToggleSliverBarState());
   }
 
 }

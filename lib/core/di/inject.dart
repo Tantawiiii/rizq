@@ -5,7 +5,8 @@ import 'package:rizq/features/auth/login/data/repo/login_repo.dart';
 import 'package:rizq/features/auth/register/outer_screens/cubit/general_register_cubit.dart';
 import 'package:rizq/features/auth/register/personal/logic/personal_register_cubit.dart';
 import 'package:rizq/features/auth/register/seller/logic/seller_register_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/logic/payment_cubit/payment_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -30,6 +31,7 @@ Future<void> init() async {
   sl.registerFactory(() => SellerRegisterCubit());
 
   sl.registerFactory(()=>AddAdCubit());
+  sl.registerFactory(()=>PaymentCubit());
 
   //repos
 

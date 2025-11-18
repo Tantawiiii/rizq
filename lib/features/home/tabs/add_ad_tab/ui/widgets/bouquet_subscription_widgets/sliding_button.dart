@@ -6,8 +6,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_states.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_states.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class SlidingButton extends StatelessWidget {
@@ -15,45 +15,42 @@ class SlidingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AddAdCubit>(
-      create: (context) => sl<AddAdCubit>(),
-      child: BlocBuilder<AddAdCubit, AddAdStates>(
-        builder: (context, state) {
-          var cubit  = context.read<AddAdCubit>();
+    return BlocBuilder<AddAdCubit, AddAdStates>(
+      builder: (context, state) {
+        var cubit  = context.read<AddAdCubit>();
 
-          return CupertinoSlidingSegmentedControl<AdAction>(
+        return CupertinoSlidingSegmentedControl<AdAction>(
 
-            onValueChanged: (AdAction? action) {
-              if(action != null){
-                print('called');
-                cubit.changeAdAction(action);
-              }
-            },
-            backgroundColor: Color(0xffDCF1FF),
-            groupValue: cubit.adAction,
-            thumbColor: AppColors.primaryColor,
-            children: {
-              AdAction.subscribeInBouquet: Container(
-                height: 40,
-                alignment: Alignment.center,
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  LocaleKeys.createAd_subscribeInBouquet.tr(context: context),
-                  style: cubit.adAction == AdAction.subscribeInBouquet ? cubit.adAction.selectedTextStyle : cubit.adAction.unSelectedTextStyle,
-                ),
+          onValueChanged: (AdAction? action) {
+            if(action != null){
+              print('called');
+              cubit.changeAdAction(action);
+            }
+          },
+          backgroundColor: Color(0xffDCF1FF),
+          groupValue: cubit.adAction,
+          thumbColor: AppColors.primaryColor,
+          children: {
+            AdAction.subscribeInBouquet: Container(
+              height: 40,
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
               ),
-              AdAction.distinguishAd: Text(
-                LocaleKeys.createAd_distinguishAd.tr(context: context),
-                style: cubit.adAction == AdAction.distinguishAd ? cubit.adAction.selectedTextStyle : cubit.adAction.unSelectedTextStyle,
-
+              child: Text(
+                LocaleKeys.createAd_subscribeInBouquet.tr(context: context),
+                style: cubit.adAction == AdAction.subscribeInBouquet ? cubit.adAction.selectedTextStyle : cubit.adAction.unSelectedTextStyle,
               ),
-            },
-          );
-        },
-      ),
+            ),
+            AdAction.distinguishAd: Text(
+              LocaleKeys.createAd_distinguishAd.tr(context: context),
+              style: cubit.adAction == AdAction.distinguishAd ? cubit.adAction.selectedTextStyle : cubit.adAction.unSelectedTextStyle,
+
+            ),
+          },
+        );
+      },
     );
   }
 }

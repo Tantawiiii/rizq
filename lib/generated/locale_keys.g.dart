@@ -118,6 +118,7 @@ abstract class  LocaleKeys {
   static const createAd_subscribeInThisBouquet = 'createAd.subscribeInThisBouquet';
   static const createAd_skip = 'createAd.skip';
   static const createAd_confirmPayment = 'createAd.confirmPayment';
+  static const createAd_paymentMethod = 'createAd.paymentMethod';
   static const createAd_paymentSummary = 'createAd.paymentSummary';
   static const createAd_bouquetPrice = 'createAd.bouquetPrice';
   static const createAd_serviceMargin = 'createAd.serviceMargin';
@@ -129,6 +130,7 @@ abstract class  LocaleKeys {
   static const createAd_marketAdFor = 'createAd.marketAdFor';
   static const createAd_distinguishAdPrice = 'createAd.distinguishAdPrice';
   static const createAd_adIncreaseFactor = 'createAd.adIncreaseFactor';
+  static const createAd_pricePerDay = 'createAd.pricePerDay';
   static const createAd_time_day = 'createAd.time.day';
   static const createAd_time_month = 'createAd.time.month';
   static const createAd_time = 'createAd.time';

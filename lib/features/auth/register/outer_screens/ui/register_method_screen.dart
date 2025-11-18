@@ -53,8 +53,7 @@ class RegisterMethodSelectionScreen extends StatelessWidget {
                     ),
                     30.vGap,
                     SelectableContainer(
-                        svgPath: AppAssets.emailIconSvg,
-                        svgColor: AppColors.primaryColor,
+                        svgPath: AppAssets.gmailIconSvg,
                         text: LocaleKeys.Auth_email.tr(context: context),
                         isSelected: cubit.registerMethod == RegisterMethod.email,
                         onPressed: (){
@@ -66,7 +65,6 @@ class RegisterMethodSelectionScreen extends StatelessWidget {
                         svgPath: AppAssets.googleLogoSvg,
                         text: LocaleKeys.Auth_Login_googleSignIn.tr(context: context),
                         isSelected: cubit.registerMethod == RegisterMethod.google,
-                        svgColor: AppColors.primaryColor,
                         onPressed: (){
                           cubit.changeRegisterMethod(RegisterMethod.google);
                         }
@@ -76,7 +74,6 @@ class RegisterMethodSelectionScreen extends StatelessWidget {
                         svgPath: AppAssets.facebookLogoSvg,
                         text: LocaleKeys.Auth_Login_facebookSignIn.tr(context: context),
                         isSelected: cubit.registerMethod == RegisterMethod.facebook,
-                        svgColor: AppColors.primaryColor,
                         onPressed: (){
                           cubit.changeRegisterMethod(RegisterMethod.facebook);
                         }

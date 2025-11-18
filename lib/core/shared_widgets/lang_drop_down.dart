@@ -2,7 +2,9 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/core/utils/lang_helper.dart';
@@ -35,13 +37,22 @@ class _LangDropDownState extends State<LangDropDown> {
           LocaleKeys.Languages_english ].map((key)=>DropdownMenuItem<String>(
 
           value: key,
-          child: Text(
-            tr(key, context: context),
-            style: AppTextStyles.cairoTextStyle(
-              size: 13,
-              color: AppColors.primaryColor,
-            ),
-          ),
+          child: Row(
+            spacing: 10.r,
+            children: [
+              SvgImage(svgPath: key == LocaleKeys.Languages_arabic ? AppAssets.arabicFlagIconSvg : AppAssets.englishFlagIconSvg,
+                width: key == LocaleKeys.Languages_arabic ? 21.r : 18.r,
+                height: key == LocaleKeys.Languages_arabic ? 21.r : 18.r,
+              ),
+              Text(
+                tr(key, context: context),
+                style: AppTextStyles.cairoTextStyle(
+                  size: 13,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+            ],
+          )
         )).toList(),
         onChanged: (key){
           setState(() {
@@ -99,6 +110,14 @@ class _LangDropDownState extends State<LangDropDown> {
               color: AppColors.fieldHintColor,
             ),
             filled: true,
+            prefixIcon:  SvgImage(svgPath: selectedValue == LocaleKeys.Languages_arabic ? AppAssets.arabicFlagIconSvg : AppAssets.englishFlagIconSvg,
+              width:  18.r,
+              height: 18.r,
+            ),
+            prefixIconConstraints: BoxConstraints(
+              maxHeight: 18.r,
+              maxWidth: 18.r,
+            ),
             fillColor: Colors.transparent,
             border: InputBorder.none,
             enabledBorder: InputBorder.none,

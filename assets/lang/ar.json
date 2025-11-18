@@ -16,7 +16,7 @@
     "register" : {
       "chooseYourAccountType" : "قم باختيار طبيعة عملك",
       "personalAccount" : "حساب شخصي",
-      "sellerAccount" : "حساب مشتري",
+      "sellerAccount" : "حساب تاجر",
       "companyAccount" : "حساب شركة",
       "alreadyHaveAccount" : "لديك حساب بالفعل",
       "chooseRegisterWay" : "قم باختيار طريقة التسجيل",
@@ -136,10 +136,13 @@
     "subscribeInThisBouquet" : "الإشتراك في الباقة",
     "skip" : "تخطي",
     "confirmPayment" : "تأكيد الدفع",
+
+    "paymentMethod" : "اختر طريقة الدفع",
     "paymentSummary" : "ملخص الشراء",
-    "bouquetPrice" : "ثمن الباقة",
+    "bouquetPrice" : "ثمن {}",
     "serviceMargin" : "رسوم الخدمة",
     "totalPrice" : "المجموع",
+
     "yourAdUnderSystemReview" : "لقد وصل إعلانك للإدارة سيتم مراجعته وإبلاغك قريبا.",
     "backToMyAdds" : "العودة إلي إعلاناتي",
 
@@ -149,6 +152,7 @@
     "marketAdFor" : "ترويج للاعلان لمدة",
     "distinguishAdPrice" : "{} ل.س",
     "adIncreaseFactor" : "مشاهدات تصل إلى x{} أضعاف",
+    "pricePerDay" : "{} باليوم",
 
     "time": {
       "day": {

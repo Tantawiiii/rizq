@@ -20,6 +20,7 @@ class PrimaryButton extends StatelessWidget {
     this.backgroundGradient,
     this.borderRadius,
     this.padding,
+    this.textStyle,
   });
 
   final String title;
@@ -27,6 +28,7 @@ class PrimaryButton extends StatelessWidget {
   final bool isLoading;
   final double? height;
   final Widget? icon;
+  final TextStyle? textStyle;
   final bool iconLeading;
   final double iconSpacing;
   final Color? backgroundColor;
@@ -83,7 +85,7 @@ class PrimaryButton extends StatelessWidget {
   Widget _buildLabel() {
     final textWidget = Text(
       title,
-      style: AppTextStyles.cairoTextStyle(
+      style: textStyle?? AppTextStyles.cairoTextStyle(
         size: 16,
         color:  isLoading || onPressed == null ? Color(0xff7F94B1) : AppColors.white,
         fontWeight: FontWeight.w500,

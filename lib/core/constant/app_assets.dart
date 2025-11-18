@@ -32,6 +32,15 @@ final class AppAssets {
   static const String linkedinIconSvg =  'assets/images/svg/linkedin.svg';
   static const String instagramIconSvg =  'assets/images/svg/instagram.svg';
 
+  static const String paypalIconSvg =  'assets/images/svg/paypal.svg';
+  static const String stripeIconSvg =  'assets/images/svg/stripe.svg';
+  static const String mastercardIconSvg =  'assets/images/svg/mastercard.svg';
+
+  static const String gmailIconSvg =  'assets/images/svg/gmail.svg';
+  static const String arabicFlagIconSvg =  'assets/images/svg/arabic_flag.svg';
+  static const String englishFlagIconSvg =  'assets/images/svg/english_flag.svg';
+
+
 
 
 

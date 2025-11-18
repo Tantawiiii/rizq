@@ -37,6 +37,8 @@ dependencies:
   pdfx: ^2.9.2
   pinput: ^5.0.2
   dartz: ^0.10.1
+  flutter_animate: ^4.5.2
+  equatable: ^2.0.7
 
 
 dev_dependencies:
