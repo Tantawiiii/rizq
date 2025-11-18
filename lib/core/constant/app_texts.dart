@@ -19,6 +19,25 @@ final class AppTexts {
   static const String infoStore = "بيانات المتجر";
   static const String wallet = "المحفظة";
   static const String subscribtions = "الإشتراكات";
+  static const String savedAlerts = "التنبيهات المحفوظة";
+  static const String appLanguage = "لغة التطبيق";
+  static const String notifications = "الإشعارات";
+  static const String logout = "تسجيل الخروج";
+  static const String profile = "الملف الشخصي";
+  
+  // Wallet Screen
+  static const String walletBalance = "رصيد المحفظة";
+  static const String rechargeWallet = "شحن المحفظة";
+  static const String enterChargeAmount = "أدخل المبلغ الذي تريد شحنه";
+  static const String choosePaymentMethod = "اختر طريقة الدفع";
+  static const String purchaseSummary = "ملخص الشراء";
+  static const String chargeAmount = "مبلغ الشحن";
+  static const String serviceFees = "رسوم الخدمة";
+  static const String total = "المجموع";
+  static const String confirmPayment = "تأكيد الدفع";
+  static const String mastercard = "Mastercard";
+  static const String stripe = "Stripe";
+  static const String paypal = "PayPal";
   
   // Featured Ads Screen
   static const String featuredAds = "الإعلانات المميزة";
