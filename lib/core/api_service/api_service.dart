@@ -107,9 +107,8 @@ class ChildApiService extends BaseApiService {
         Map<String, dynamic>? queryParameters,
       }) async {
 
-    //var response = await dio!.get(path, queryParameters: queryParameters);
-    await Future.delayed(Duration(seconds: 3));
-    return Response(requestOptions: RequestOptions());
+    var response = await dio!.get(path, queryParameters: queryParameters);
+    return response;
   }
 
   @override
@@ -118,39 +117,33 @@ class ChildApiService extends BaseApiService {
         dynamic body,
         ProgressCallback? onSendProgress,
       }) async {
-    // var response = await dio!.post(
-    //   path,
-    //   data: body,
-    //   onSendProgress: onSendProgress,
-    // );
-    // return response;
-    await Future.delayed(Duration(seconds: 3));
-    return Response(requestOptions: RequestOptions());
+    var response = await dio!.post(
+      path,
+      data: body,
+      onSendProgress: onSendProgress,
+    );
+    return response;
   }
 
   @override
   Future<Response> put(String path, {dynamic body}) async {
-    // var response = await dio!.put(path, data: body);
-    // return response;
-    await Future.delayed(Duration(seconds: 3));
-    return Response(requestOptions: RequestOptions());
+    var response = await dio!.put(path, data: body);
+    return response;
+
   }
 
 
   @override
   Future<Response> patch(String path, {dynamic body}) async {
-    // var response = await dio!.patch(path, data: body);
-    // return response;
-    await Future.delayed(Duration(seconds: 3));
-    return Response(requestOptions: RequestOptions());
+    var response = await dio!.patch(path, data: body);
+    return response;
   }
 
   @override
   Future<Response> delete(String path, {dynamic body}) async {
-    // var response = await dio!.delete(path, data: body);
-    // return response;
-    await Future.delayed(Duration(seconds: 3));
-    return Response(requestOptions: RequestOptions());
+    var response = await dio!.delete(path, data: body);
+    return response;
+
   }
 }
 

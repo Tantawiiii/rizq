@@ -35,5 +35,7 @@ final class CacheHelper{
 final class CacheKeys{
 
   static const String userRole = 'userRole';
+  static const String token = 'token';
+
 
 }
