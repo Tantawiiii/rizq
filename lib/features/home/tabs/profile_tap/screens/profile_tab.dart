@@ -7,6 +7,7 @@ import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/router/route_manager.dart';
 import 'personal_info_screen.dart';
+import 'wallet_screen.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
@@ -19,7 +20,8 @@ class ProfileTab extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           children: [
-
+            _buildHeader(context),
+            24.verticalSpace,
             ProfileMenuCard(
               title: AppTexts.infoProfileUser,
               leadingIcon: Icons.person_outline,
@@ -27,15 +29,9 @@ class ProfileTab extends StatelessWidget {
             ),
             12.verticalSpace,
             ProfileMenuCard(
-              title: AppTexts.infoStore,
-              leadingIcon: Icons.store_outlined,
-              onTap: () {},
-            ),
-            12.verticalSpace,
-            ProfileMenuCard(
               title: AppTexts.wallet,
               leadingIcon: Icons.account_balance_wallet_outlined,
-              onTap: () {},
+              onTap: () => RouteManager.navigateTo(const WalletScreen()),
             ),
             12.verticalSpace,
             ProfileMenuCard(
@@ -45,7 +41,13 @@ class ProfileTab extends StatelessWidget {
             ),
             12.verticalSpace,
             ProfileMenuCard(
-              title: 'لغة التطبيق',
+              title: AppTexts.savedAlerts,
+              leadingIcon: Icons.bookmark_border,
+              onTap: () {},
+            ),
+            12.verticalSpace,
+            ProfileMenuCard(
+              title: AppTexts.appLanguage,
               leadingIcon: Icons.public,
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -78,13 +80,20 @@ class ProfileTab extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader() {
+  Widget _buildHeader(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        IconButton(
+          onPressed: () => Navigator.of(context).maybePop(),
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            size: 20.w,
+            color: AppColors.primaryColor,
+          ),
+        ),
         Expanded(
           child: Text(
-            'الملف الشخصي',
+            AppTexts.profile,
             textAlign: TextAlign.center,
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
@@ -93,11 +102,10 @@ class ProfileTab extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 24.w),
+        SizedBox(width: 48.w),
       ],
     );
   }
-
 
   Widget _buildNotificationRow() {
     return Container(
@@ -108,9 +116,15 @@ class ProfileTab extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
       child: Row(
         children: [
+          Icon(
+            Icons.notifications_none,
+            color: AppColors.primaryColor,
+            size: 20.w,
+          ),
+          12.horizontalSpace,
           Expanded(
             child: Text(
-              'الإشعارات',
+              AppTexts.notifications,
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 16,
@@ -119,15 +133,9 @@ class ProfileTab extends StatelessWidget {
             ),
           ),
           Switch(
-            value: true,
+            value: false,
             onChanged: (_) {},
             activeColor: AppColors.primaryColor,
-          ),
-          8.horizontalSpace,
-          Icon(
-            Icons.notifications_none,
-            color: AppColors.primaryColor,
-            size: 20.w,
           ),
         ],
       ),
@@ -136,7 +144,9 @@ class ProfileTab extends StatelessWidget {
 
   Widget _buildLogoutCard(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        // Handle logout
+      },
       child: Container(
         decoration: BoxDecoration(
           color: const Color(0xFFFFE6E6),
@@ -144,18 +154,18 @@ class ProfileTab extends StatelessWidget {
         ),
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Text(
-                'تسجيل الخروج',
-                style: AppTextStyles.cairoTextStyle(
-                  color: Colors.red,
-                  size: 16,
-                  fontWeight: FontWeight.w700,
-                ),
+            Icon(Icons.logout, color: Colors.red, size: 20.w),
+            8.horizontalSpace,
+            Text(
+              AppTexts.logout,
+              style: AppTextStyles.cairoTextStyle(
+                color: Colors.red,
+                size: 16,
+                fontWeight: FontWeight.w700,
               ),
             ),
-            Icon(Icons.logout, color: Colors.red, size: 20.w),
           ],
         ),
       ),
