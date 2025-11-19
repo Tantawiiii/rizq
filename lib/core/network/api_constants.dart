@@ -7,7 +7,8 @@ final class ApiConstants {
   // API Endpoints
   static const loginEndpoint = 'login';
   static const registerEndpoint = 'register';
-  static const sendResetPasswordOtp = 'send-reset-password-otp';
+  static const sendResetPasswordOtpEndpoint = 'send-reset-password-otp';
+  static const resetPasswordEndpoint = 'reset-password';
   static const refreshToken = 'refresh';
 
   // static const String register = '/api/front/register';

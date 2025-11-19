@@ -50,4 +50,22 @@ extension StringUtils on String{
   bool get isPDF => endsWith('pdf');
 
   bool get isValidUrl => startsWith('http') || startsWith('https');
+
+  Map<String, double>? get extractCoordinates {
+    // Universal coordinates finder
+    final regex = RegExp(
+      r'(-?\d{1,3}\.\d+)[,\s]+(-?\d{1,3}\.\d+)', // Two decimal numbers separated by comma/space
+    );
+
+    final match = regex.firstMatch(this);
+    if (match == null) return null;
+
+    final lat = double.parse(match.group(1)!);
+    final lon = double.parse(match.group(2)!);
+
+    // Validate valid latitude/longitude ranges
+    if (lat.abs() > 90 || lon.abs() > 180) return null;
+
+    return {'lat': lat, 'lon': lon};
+  }
 }

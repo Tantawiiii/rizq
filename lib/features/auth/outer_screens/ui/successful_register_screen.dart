@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
@@ -11,8 +12,8 @@ import 'package:rizq/features/auth/outer_screens/ui/widgets/gif_player_widget.da
 import 'package:rizq/features/home/main_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-class SuccessfulPublishedAdScreen extends StatelessWidget {
-  const SuccessfulPublishedAdScreen({super.key});
+class SuccessfulRegisterScreen extends StatelessWidget {
+  const SuccessfulRegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class SuccessfulPublishedAdScreen extends StatelessWidget {
             children: [
               30.vGap,
               Expanded(
-                flex: 2,
-                child: GifPlayerWidget(gifPath: AppAssets.successfulRegistrationGif),),
+                  flex: 2,
+                  child: GifPlayerWidget(gifPath: AppAssets.successfulRegistrationGif),),
               30.vGap,
               Expanded(
                 flex: 3,
@@ -43,22 +44,30 @@ class SuccessfulPublishedAdScreen extends StatelessWidget {
                         color: AppColors.primaryColor,
                       ),
                     ),
+                    UserRole.getCachedUserRole().isNormal?
                     Text(
-                      LocaleKeys.createAd_yourAdUnderSystemReview.tr(context: context),
+                      LocaleKeys.Auth_register_successfulRegistration.tr(context: context),
                       style: AppTextStyles.cairoTextStyle(
                         size: 18,
                         fontWeight: FontWeight.w600,
                         color: AppColors.primaryColor,
                       ),
-                      textAlign: TextAlign.center,
-                    ),
+                    ) :
+                    Text(
+                      LocaleKeys.Auth_register_successfulRegistrationForSellerCompany.tr(context: context),
+                      style: AppTextStyles.cairoTextStyle(
+                        size: 18,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primaryColor,
+                      ),
+                    ) ,
 
                     25.vGap,
 
                     PrimaryButton(
-                      title: LocaleKeys.createAd_backToMyAdds.tr(),
+                      title: LocaleKeys.Auth_register_goHome.tr(),
                       onPressed: (){
-                        RouteManager.navigateTo(MainScreen());
+                        RouteManager.navigateAndPopAll(MainScreen());
                       },
                     )
 

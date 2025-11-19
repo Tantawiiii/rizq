@@ -71,5 +71,14 @@ final class FormValidators {
     return null;
   }
 
+  static String? addressLinkValidator(String?s){
+    if(s == null || s.isEmpty ){
+      return null;
+    }
+    if(s.extractCoordinates == null){ // if can't extract coordinates
+      return LocaleKeys.formErrors_addressLinkWrong.tr();
+    }
+    return null;
+  }
 
 }

@@ -51,7 +51,9 @@
       "chooseFileFromDevice": "اختر الملف من الجهاز",
 
       "congrats": "تهانينا!",
-      "successfulRegistration": "تم إنشاء الحساب بنجاح",
+      "successfulRegistrationForNormal": "تم إنشاء الحساب بنجاح",
+      "successfulRegistrationForSellerCompany": "تم إنشاء الحساب بنجاح. سيتم مراجعة بياناتك من قبل الإدارة والرد عليك في أقرب وقت ممكن.",
+
       "goHome": "التوجه إلى الرئيسية",
 
       "createCompanyAccountIn": "قم بإنشاء حساب شركتك في",
@@ -238,7 +240,9 @@
 
    "passwordAreNotIdentical" : "كلمتا المرور غير متطابقتين !",
 
-   "idFileRequired" : "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF"
+   "idFileRequired" : "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF",
+
+   "addressLinkWrong" : "رابط العنوان غير صحيح !"
  }
 
 }

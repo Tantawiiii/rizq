@@ -19,7 +19,7 @@ import 'package:rizq/features/auth/login/cubit/login_cubit.dart';
 import 'package:rizq/features/auth/login/cubit/login_states.dart';
 import 'package:rizq/features/auth/login/data/models/login_request_model.dart';
 import 'package:rizq/features/auth/login/ui/widgets/social_login_button.dart';
-import 'package:rizq/features/auth/register/outer_screens/ui/user_role_screen.dart';
+import 'package:rizq/features/auth/outer_screens/ui/user_role_screen.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
 import 'package:rizq/features/auth/widgets/form_validators.dart';
 import 'package:rizq/generated/locale_keys.g.dart';

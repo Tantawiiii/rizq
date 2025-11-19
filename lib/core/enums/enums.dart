@@ -1,7 +1,7 @@
 import 'package:rizq/core/utils/cache_helper.dart';
 
 enum UserRole{
-  personal,
+  normal,
   seller,
   company;
 
@@ -11,9 +11,11 @@ enum UserRole{
 
   static UserRole getCachedUserRole() {
 
-    String role = CacheHelper.getString(key: CacheKeys.userRole)?? personal.name;
+    String role = CacheHelper.getString(key: CacheKeys.userRole)?? normal.name;
     return UserRole.values.firstWhere((v)=>v.name == role);
   }
+
+  bool get isNormal => this == UserRole.normal;
 }
 
 // register method

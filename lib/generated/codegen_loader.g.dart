@@ -61,6 +61,7 @@ class CodegenLoader extends AssetLoader{
       "chooseFileFromDevice": "Select file from the device",
       "congrats": "Congratulations!",
       "successfulRegistration": "Account created successfully",
+      "successfulRegistrationForSellerCompany": "Your account has been created successfully. Your information will be reviewed by the administration and you will be contacted as soon as possible.",
       "goHome": "Go to Home",
       "createCompanyAccountIn": "Create your company account in",
       "companyOwnerData": "Company owner information",
@@ -223,7 +224,8 @@ class CodegenLoader extends AssetLoader{
     "otpNotCorrect": "The code you entered is incorrect!",
     "commercialActivityAddressRequired": "Please enter your commecial address !",
     "passwordAreNotIdentical": "Password are not identical !",
-    "idFileRequired": "ID is required! choose an image or PDF"
+    "idFileRequired": "ID is required! choose an image or PDF",
+    "addressLinkWrong": "The Address Link is not valid !"
   }
 };
 static const Map<String,dynamic> _ar = {
@@ -242,7 +244,7 @@ static const Map<String,dynamic> _ar = {
     "register": {
       "chooseYourAccountType": "قم باختيار طبيعة عملك",
       "personalAccount": "حساب شخصي",
-      "sellerAccount": "حساب مشتري",
+      "sellerAccount": "حساب تاجر",
       "companyAccount": "حساب شركة",
       "alreadyHaveAccount": "لديك حساب بالفعل",
       "chooseRegisterWay": "قم باختيار طريقة التسجيل",
@@ -272,7 +274,8 @@ static const Map<String,dynamic> _ar = {
       "shortActivityDescription": "اكتب الوصف...",
       "chooseFileFromDevice": "اختر الملف من الجهاز",
       "congrats": "تهانينا!",
-      "successfulRegistration": "تم إنشاء الحساب بنجاح",
+      "successfulRegistrationForNormal": "تم إنشاء الحساب بنجاح",
+      "successfulRegistrationForSellerCompany": "تم إنشاء الحساب بنجاح. سيتم مراجعة بياناتك من قبل الإدارة والرد عليك في أقرب وقت ممكن.",
       "goHome": "التوجه إلى الرئيسية",
       "createCompanyAccountIn": "قم بإنشاء حساب شركتك في",
       "companyOwnerData": "بيانات صاحب الشركة",
@@ -435,7 +438,8 @@ static const Map<String,dynamic> _ar = {
     "otpNotCorrect": "الكود الذى ادخلتة غير صحيح !",
     "commercialActivityAddressRequired": "يرجى ادخال عنوانك التجارى !",
     "passwordAreNotIdentical": "كلمتا المرور غير متطابقتين !",
-    "idFileRequired": "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF"
+    "idFileRequired": "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF",
+    "addressLinkWrong": "رابط العنوان غير صحيح !"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

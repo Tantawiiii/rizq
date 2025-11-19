@@ -11,7 +11,8 @@ import 'package:rizq/core/shared_widgets/svg_image.dart';
 
 class ImagePickWidget extends StatefulWidget {
   final String? initialImageUrl;
-  const ImagePickWidget({super.key, this.initialImageUrl});
+  final void Function(File?) onImagePicked;
+  const ImagePickWidget({super.key, this.initialImageUrl,required this.onImagePicked});
 
   @override
   State<ImagePickWidget> createState() => _ImagePickWidgetState();
@@ -81,6 +82,7 @@ class _ImagePickWidgetState extends State<ImagePickWidget> {
 
       setState(() {
         selectedFile = File(result.files.single.path!);
+        widget.onImagePicked(selectedFile);
         initialImgUrl = null;
       });
     } catch (e, s) {

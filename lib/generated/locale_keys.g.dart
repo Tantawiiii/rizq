@@ -46,6 +46,7 @@ abstract class  LocaleKeys {
   static const Auth_register_chooseFileFromDevice = 'Auth.register.chooseFileFromDevice';
   static const Auth_register_congrats = 'Auth.register.congrats';
   static const Auth_register_successfulRegistration = 'Auth.register.successfulRegistration';
+  static const Auth_register_successfulRegistrationForSellerCompany = 'Auth.register.successfulRegistrationForSellerCompany';
   static const Auth_register_goHome = 'Auth.register.goHome';
   static const Auth_register_createCompanyAccountIn = 'Auth.register.createCompanyAccountIn';
   static const Auth_register_companyOwnerData = 'Auth.register.companyOwnerData';
@@ -186,6 +187,7 @@ abstract class  LocaleKeys {
   static const formErrors_commercialActivityAddressRequired = 'formErrors.commercialActivityAddressRequired';
   static const formErrors_passwordAreNotIdentical = 'formErrors.passwordAreNotIdentical';
   static const formErrors_idFileRequired = 'formErrors.idFileRequired';
+  static const formErrors_addressLinkWrong = 'formErrors.addressLinkWrong';
   static const formErrors = 'formErrors';
 
 }

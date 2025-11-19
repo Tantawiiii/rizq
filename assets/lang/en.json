@@ -53,6 +53,8 @@
 
       "congrats": "Congratulations!",
       "successfulRegistration": "Account created successfully",
+      "successfulRegistrationForSellerCompany": "Your account has been created successfully. Your information will be reviewed by the administration and you will be contacted as soon as possible.",
+
       "goHome": "Go to Home",
 
       "createCompanyAccountIn": "Create your company account in",
@@ -239,7 +241,9 @@
 
     "passwordAreNotIdentical" : "Password are not identical !",
 
-    "idFileRequired" : "ID is required! choose an image or PDF"
+    "idFileRequired" : "ID is required! choose an image or PDF",
+
+    "addressLinkWrong" : "The Address Link is not valid !"
 
   }
 

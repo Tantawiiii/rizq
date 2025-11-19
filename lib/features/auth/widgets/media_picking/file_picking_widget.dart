@@ -39,7 +39,7 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    widget.onFileSelected(pickedFile);
+
     return Container(
       decoration: BoxDecoration(
 
@@ -148,6 +148,7 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
 
       setState(() {
         pickedFile = selectedFile;
+        widget.onFileSelected(pickedFile);
         initialUrl = null;
       });
     } catch (e, s) {
