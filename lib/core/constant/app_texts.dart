@@ -1,8 +1,5 @@
-
-
 final class AppTexts {
   AppTexts._();
-
 
   static const String seeMore = "المزيد";
   static const String addAd = "إضافة إعلان";
@@ -24,7 +21,7 @@ final class AppTexts {
   static const String notifications = "الإشعارات";
   static const String logout = "تسجيل الخروج";
   static const String profile = "الملف الشخصي";
-  
+
   // Wallet Screen
   static const String walletBalance = "رصيد المحفظة";
   static const String rechargeWallet = "شحن المحفظة";
@@ -38,7 +35,7 @@ final class AppTexts {
   static const String mastercard = "Mastercard";
   static const String stripe = "Stripe";
   static const String paypal = "PayPal";
-  
+
   // Featured Ads Screen
   static const String featuredAds = "الإعلانات المميزة";
   static const String noFeaturedAdsYet = "لم تقوم بتمييز أي إعلانات بعد!";
@@ -47,19 +44,21 @@ final class AppTexts {
   static const String limitedOffer = "LIMITED OFFER";
   static const String discountPercent = "15% OFF.";
   static const String sitewide = "SITEWIDE";
-  
+
   // Featured Ads Benefits
-  static const String benefitDiscountPackage = "احصل على خصم عند شراء مجموعة من الإعلانات";
-  static const String benefitMoreAdsFaster = "احصل على إعلانات أكثر و بيع بشكل أسرع";
+  static const String benefitDiscountPackage =
+      "احصل على خصم عند شراء مجموعة من الإعلانات";
+  static const String benefitMoreAdsFaster =
+      "احصل على إعلانات أكثر و بيع بشكل أسرع";
   static const String benefitMoreBuyers = "احصل علي المزيد من المشتريين";
   static const String benefitBestPrices = "بيع كل ما تريده بأفضل الأسعار";
-  
+
   // My Ads Tab
   static const String myAds = "إعلاناتي";
   static const String activeAds = "الإعلانات الفعالة";
   static const String drafts = "المسودات";
   static const String favoriteAds = "الإعلانات المفضلة";
-  
+
   // Product Details Screen
   static const String contactSeller = "تواصل مع البائع";
   static const String notifyWhenPriceDrops = "أخبرني عندما يقل السعر";
@@ -75,7 +74,7 @@ final class AppTexts {
   static const String productDescription = "وصف المنتج";
   static const String information = "المعلومات";
   static const String relatedAds = "اعلانات ذات صلة";
-  
+
   // Product Specifications
   static const String model = "الموديل";
   static const String brand = "الماركة";
@@ -89,4 +88,8 @@ final class AppTexts {
   static const String city = "المدينة";
   static const String accessories = "الملحقات";
 
+  // Map Filter Screen
+  static const String searchForRegion = "بحث عن منطقة";
+  static const String numberOfKilometers = "عدد الكيلومترات";
+  static const String km = "كم";
 }

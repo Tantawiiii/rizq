@@ -22,7 +22,7 @@ import 'package:rizq/generated/locale_keys.g.dart';
 class ForgetPasswordScreen extends StatelessWidget {
    ForgetPasswordScreen({super.key});
 
-   final emailController = TextEditingController(text: "ali@dev.com");
+   final emailController = TextEditingController();
    final formKey = GlobalKey<FormState>();
 
   @override

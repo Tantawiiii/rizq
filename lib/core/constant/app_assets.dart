@@ -80,4 +80,5 @@ final class AppAssets {
   static const String sendSvg = 'assets/svgs/send.svg';
   static const String uniceSvg = 'assets/svgs/Unice.svg';
   static const String userSvg = 'assets/svgs/user.svg';
+  static const String locationPinSvg = 'assets/svgs/location.svg';
 }

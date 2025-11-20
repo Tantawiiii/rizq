@@ -43,8 +43,8 @@ class DistinguishAdWidget extends StatelessWidget {
                     cubit.changedDistinguishAd(value);
                   },
                   fillColor: WidgetStatePropertyAll(AppColors.primaryColor),
-                  side:BorderSide(color: AppColors.primaryColor, width: 1),
-                  innerRadius: WidgetStatePropertyAll(6.r),
+                  // side:BorderSide(color: AppColors.primaryColor, width: 1),
+                  // innerRadius: WidgetStatePropertyAll(6.r),
 
                 ),
 

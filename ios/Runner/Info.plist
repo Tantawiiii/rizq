@@ -51,5 +51,9 @@
 	<string>This app needs photo library access to let you choose a profile photo.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs photo library access to save the cropped profile photo.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs location access to show your location on the map.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs location access to show your location on the map.</string>
 </dict>
 </plist>

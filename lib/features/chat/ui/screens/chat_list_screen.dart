@@ -24,9 +24,9 @@ class _ChatListScreenState extends State<ChatListScreen> {
     final filteredChats = _filters[_selectedFilter]!(List<Chat>.from(_chats));
 
     return Scaffold(
-      backgroundColor: AppColors.scaffoldCyanColor,
+      backgroundColor: AppColors.whiteBackground,
       appBar: AppBar(
-        backgroundColor: AppColors.scaffoldCyanColor,
+        backgroundColor: AppColors.whiteBackground,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -37,11 +37,11 @@ class _ChatListScreenState extends State<ChatListScreen> {
             fontSize: 20.sp,
           ),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded),
-          color: AppColors.primaryColor,
-          onPressed: RouteManager.pop,
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.arrow_back_ios_new_rounded),
+        //   color: AppColors.primaryColor,
+        //   onPressed: RouteManager.pop,
+        // ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
@@ -155,7 +155,7 @@ class _FilterRow extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(6.w),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.scaffoldCyanColor,
         borderRadius: BorderRadius.circular(24.r),
       ),
       child: Row(

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:rizq/features/chat/ui/screens/chat_list_screen.dart';
 
+import '../../core/constant/app_assets.dart';
 import '../../core/constant/app_colors.dart';
-import 'widgets/home_bottom_navigation.dart';
 import 'tabs/home_tap/widgets/filter_drawer.dart';
-import 'tabs/add_ad_tab.dart';
 import 'tabs/home_tap/screens/home_tab.dart';
 import 'tabs/profile_tap/screens/profile_tab.dart';
 import 'tabs/my_ads_tap/my_ads_tab.dart';
+import 'tabs/add_ad_tab/ui/screens/categories_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -17,105 +20,204 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  final PersistentTabController _controller = PersistentTabController(
+    initialIndex: 4,
+  );
   final ScrollController _scrollController = ScrollController();
-
-  bool _isNavCollapsed = false;
-  int _selectedIndex = 3;
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(_handleScroll);
+    _controller.addListener(_onTabChanged);
+  }
+
+  void _onTabChanged() {
+    setState(() {});
   }
 
   void _handleScroll() {
-    if (_selectedIndex != 3) {
+    if (_controller.index != 3) {
       return;
-    }
-    final hasClients = _scrollController.hasClients;
-    final bool shouldCollapse = hasClients && _scrollController.offset > 80.h;
-
-    if (shouldCollapse != _isNavCollapsed) {
-      setState(() {
-        _isNavCollapsed = shouldCollapse;
-      });
     }
   }
 
   @override
   void dispose() {
     _scrollController.removeListener(_handleScroll);
+    _controller.removeListener(_onTabChanged);
     _scrollController.dispose();
+    _controller.dispose();
     super.dispose();
   }
-
-  void _onItemSelected(int index) {
-    setState(() {
-      _selectedIndex = index;
-      if (index != 3) {
-        _isNavCollapsed = false;
-      }
-    });
-  }
-
-  void _onAddPressed() => _onItemSelected(1);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.whiteBackground,
+      backgroundColor: AppColors.white,
       endDrawer: const FilterDrawer(),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            AnimatedSwitcher(
-              duration: const Duration(milliseconds: 250),
-              child: _buildTabContent(),
-            ),
-            Positioned(
-              left: 24.w,
-              right: 24.w,
-              bottom: 16.h,
-              child: HomeBottomNavigation(
-                isCollapsed: _isNavCollapsed,
-                selectedIndex: _selectedIndex,
-                onItemSelected: _onItemSelected,
-                onAddPressed: _onAddPressed,
-              ),
-            ),
-          ],
+      body: PersistentTabView(
+        context,
+        controller: _controller,
+        screens: _buildScreens(),
+        items: _navBarsItems(),
+        backgroundColor: Colors.white,
+        handleAndroidBackButtonPress: true,
+        resizeToAvoidBottomInset: true,
+        stateManagement: true,
+        hideNavigationBarWhenKeyboardAppears: true,
+        decoration: NavBarDecoration(
+          borderRadius: BorderRadius.circular(24.r),
+          colorBehindNavBar: Colors.white,
         ),
+        popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
+        animationSettings: const NavBarAnimationSettings(),
+        navBarStyle: NavBarStyle.style16,
+        navBarHeight: 70.h,
+        margin: EdgeInsets.symmetric( vertical: 2.h),
       ),
     );
   }
 
-  Widget _buildTabContent() {
-    switch (_selectedIndex) {
-      case 0:
-        return _buildProfileTab();
-      case 1:
-        return _buildAddAdTab();
-      case 2:
-        return _buildTasksTab();
-      case 3:
-      default:
-        return _buildHomeTab();
-    }
+  List<Widget> _buildScreens() {
+    return [
+      const ProfileTab(),
+      const ChatListScreen(),
+      const CategoriesScreen(),
+      const TasksTab(),
+      HomeTab(scrollController: _scrollController),
+    ];
   }
 
-  Widget _buildHomeTab() {
-    return HomeTab(scrollController: _scrollController);
-  }
+  List<PersistentBottomNavBarItem> _navBarsItems() {
+    return [
 
-  Widget _buildProfileTab() {
-    return const ProfileTab(key: ValueKey('profile_tab'));
-  }
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.userSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 0
+                ? AppColors.primaryColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.userSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
 
-  Widget _buildAddAdTab() {
-    return const AddAdTab(key: ValueKey('add_tab'));
-  }
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.chatSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 1
+                ? AppColors.primaryColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.chatSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
 
-  Widget _buildTasksTab() {
-    return const TasksTab(key: ValueKey('tasks_tab'));
+      PersistentBottomNavBarItem(
+        icon: Center(
+          child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
+        ),
+        inactiveIcon: Center(
+          child: Container(
+            width: 40.w,
+            height: 40.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.sconderyColor,
+            ),
+            child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.sconderyColor,
+        inactiveColorPrimary: AppColors.sconderyColor,
+        onPressed: (context) {
+          _controller.jumpToTab(1);
+        },
+      ),
+
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.adsSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 3
+                ? AppColors.primaryColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.adsSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
+
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.homeSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 4
+                ? AppColors.sconderyColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.homeSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.sconderyColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
+    ];
   }
 }
