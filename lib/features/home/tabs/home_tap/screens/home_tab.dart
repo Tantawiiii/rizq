@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
 
 import 'package:rizq/features/home/tabs/home_tap/widgets/ads_sections.dart';
 import 'package:rizq/features/home/tabs/home_tap/widgets/header_widget.dart';
@@ -12,19 +13,22 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      key: const ValueKey('home_tab'),
-      controller: scrollController,
-      padding: EdgeInsets.symmetric(
-        horizontal: 12.w,
-      ).copyWith(top: 8.h, bottom: 60.h),
-      children: [
-        HeaderWidget(),
-        8.verticalSpace,
-        const HomeSearchAndCategories(),
-        24.verticalSpace,
-        const HomeAdsSections(),
-      ],
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      body: ListView(
+        key: const ValueKey('home_tab'),
+        controller: scrollController,
+        padding: EdgeInsets.symmetric(
+          horizontal: 14.w,
+        ).copyWith(top: 12.h, bottom: 60.h),
+        children: [
+          HeaderWidget(),
+          8.verticalSpace,
+          const HomeSearchAndCategories(),
+          24.verticalSpace,
+          const HomeAdsSections(),
+        ],
+      ),
     );
   }
 }

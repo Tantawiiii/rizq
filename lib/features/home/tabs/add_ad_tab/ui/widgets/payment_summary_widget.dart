@@ -182,8 +182,8 @@ class PaymentWidget extends StatelessWidget {
                 }
               },
               fillColor: WidgetStatePropertyAll(AppColors.primaryColor),
-              side:BorderSide(color: AppColors.primaryColor, width: 1),
-              innerRadius: WidgetStatePropertyAll(6.r),
+              // side:BorderSide(color: AppColors.primaryColor, width: 1),
+              // innerRadius: WidgetStatePropertyAll(6.r),
             ),
             SvgImage(svgPath: svgImagePath, width: 48.r, height: 36.r,),
           ],

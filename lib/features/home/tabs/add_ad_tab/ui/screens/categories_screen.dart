@@ -22,15 +22,13 @@ class CategoriesScreen extends StatelessWidget {
               pinned: false,
               floating: true,
             ),
-
             SliverAppBar(
               title: Text(LocaleKeys.createAd_chooseCategory.tr(context: context)),
               pinned: true,
               floating: false,
             ),
 
-        
-            // Grid inside CustomScrollView
+
             SliverPadding(
               padding: EdgeInsets.all(AppTheme.defaultEdgePadding),
               sliver: SliverGrid(

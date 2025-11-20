@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 
 import '../../../core/constant/app_assets.dart';
 import '../../../core/constant/app_colors.dart';
-import 'nav_icon.dart';
 
 class HomeBottomNavigation extends StatelessWidget {
   const HomeBottomNavigation({
@@ -34,14 +34,15 @@ class HomeBottomNavigation extends StatelessWidget {
                 key: const ValueKey('collapsed_bottom_nav'),
                 backgroundColor: AppColors.sconderyColor,
                 onPressed: onAddPressed ?? () => onItemSelected?.call(1),
-                title: AppTexts.addAd,
-              icon: Icon( Icons.add_circle_outline_outlined,color: AppColors.white,),
+                title: AppTexts.chats,
+              icon: Icon( Icons.chat_bubble_outline,color: AppColors.white,),
               ),
           )
           : _ExpandedBottomNav(
               key: const ValueKey('expanded_bottom_nav'),
               selectedIndex: selectedIndex,
               onItemSelected: onItemSelected,
+              onAddPressed: onAddPressed,
             ),
     );
   }
@@ -52,54 +53,137 @@ class _ExpandedBottomNav extends StatelessWidget {
     super.key,
     required this.selectedIndex,
     this.onItemSelected,
+    this.onAddPressed,
   });
 
   final int selectedIndex;
   final ValueChanged<int>? onItemSelected;
+  final VoidCallback? onAddPressed;
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(46.r),
+        color: AppColors.sconderyColor,
+        borderRadius: BorderRadius.circular(35.r),
         boxShadow: [
           BoxShadow(
-            color: AppColors.shadowColor.withOpacity(0.18),
+            color: AppColors.shadowColor.withOpacity(0.15),
             blurRadius: 20,
-            offset: const Offset(0, 12),
+            offset: const Offset(0, 8),
           ),
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            NavIconButton(
-              icon: AppAssets.homeSvg,
-              isActive: selectedIndex == 3,
-              onTap: () => onItemSelected?.call(3),
-              enlargeWhenSelected: true,
-            ),
-            NavIconButton(
-              icon: AppAssets.adsSvg,
-              isActive: selectedIndex == 2,
-              onTap: () => onItemSelected?.call(2),
-            ),
-            NavIconButton(
-              icon: AppAssets.addCircleSvg,
-              isActive: selectedIndex == 1,
-              onTap: () => onItemSelected?.call(1),
-              enlargeWhenSelected: true,
-            ),
-            NavIconButton(
+            _NavIcon(
               icon: AppAssets.userSvg,
               isActive: selectedIndex == 0,
               onTap: () => onItemSelected?.call(0),
-              enlargeWhenSelected: true,
+              activeColor: AppColors.primaryColor,
+              inactiveColor: AppColors.primaryColor,
+            ),
+            _NavIcon(
+              icon: AppAssets.chatSvg,
+              isActive: selectedIndex == 1,
+              onTap: () => onItemSelected?.call(1),
+              activeColor: AppColors.primaryColor,
+              inactiveColor: AppColors.primaryColor,
+            ),
+            _AddButton(
+              onTap: onAddPressed ?? () => onItemSelected?.call(1),
+            ),
+            _NavIcon(
+              icon: AppAssets.adsSvg,
+              isActive: selectedIndex == 2,
+              onTap: () => onItemSelected?.call(2),
+              activeColor: AppColors.primaryColor,
+              inactiveColor: AppColors.primaryColor,
+            ),
+            _NavIcon(
+              icon: AppAssets.homeSvg,
+              isActive: selectedIndex == 3,
+              onTap: () => onItemSelected?.call(3),
+              activeColor: AppColors.sconderyColor,
+              inactiveColor: AppColors.primaryColor,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _NavIcon extends StatelessWidget {
+  const _NavIcon({
+    required this.icon,
+    required this.isActive,
+    required this.onTap,
+    required this.activeColor,
+    required this.inactiveColor,
+  });
+
+  final String icon;
+  final bool isActive;
+  final VoidCallback onTap;
+  final Color activeColor;
+  final Color inactiveColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 40.w,
+        height: 40.h,
+        alignment: Alignment.center,
+        child: SvgPicture.asset(
+          icon,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            isActive ? activeColor : inactiveColor,
+            BlendMode.srcIn,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AddButton extends StatelessWidget {
+  const _AddButton({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 56.w,
+        height: 56.h,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: AppColors.white,
+        ),
+        child: Center(
+          child: Container(
+            width: 40.w,
+            height: 40.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.sconderyColor,
+            ),
+            child: Icon(
+              Icons.add,
+              color: AppColors.white,
+              size: 24.sp,
+            ),
+          ),
         ),
       ),
     );
