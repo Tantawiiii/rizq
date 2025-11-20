@@ -16,5 +16,6 @@ final class AppTextStyles {
     fontWeight: fontWeight,
     fontFamily: 'Poppins',
     fontFamilyFallback: ['Cairo'],
+    overflow: TextOverflow.ellipsis,
   );
 }

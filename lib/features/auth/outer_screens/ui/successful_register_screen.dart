@@ -47,6 +47,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                     UserRole.getCachedUserRole().isNormal?
                     Text(
                       LocaleKeys.Auth_register_successfulRegistration.tr(context: context),
+                      textAlign: TextAlign.center,
                       style: AppTextStyles.cairoTextStyle(
                         size: 18,
                         fontWeight: FontWeight.w600,
@@ -55,6 +56,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                     ) :
                     Text(
                       LocaleKeys.Auth_register_successfulRegistrationForSellerCompany.tr(context: context),
+                      textAlign: TextAlign.center,
                       style: AppTextStyles.cairoTextStyle(
                         size: 18,
                         fontWeight: FontWeight.w600,
@@ -65,7 +67,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                     25.vGap,
 
                     PrimaryButton(
-                      title: LocaleKeys.Auth_register_goHome.tr(),
+                      title: LocaleKeys.Auth_register_goLogin.tr(context: context),
                       onPressed: (){
                         RouteManager.navigateAndPopAll(MainScreen());
                       },

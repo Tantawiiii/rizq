@@ -67,7 +67,9 @@
       "whatsAppLink": "رقم الواتساب",
       "theLink" : "الرابط",
 
-      "commercialName" : "الاسم التجارى"
+      "commercialName" : "الاسم التجارى",
+
+      "goLogin" : "الذهاب لتسجيل الدخول"
 
     },
     "otp": {
@@ -242,7 +244,9 @@
 
    "idFileRequired" : "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF",
 
-   "addressLinkWrong" : "رابط العنوان غير صحيح !"
+   "addressLinkWrong" : "رابط العنوان غير صحيح !",
+
+   "retry" : "اعادة المحاولة"
  }
 
 }

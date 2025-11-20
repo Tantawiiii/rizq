@@ -5,6 +5,7 @@ import 'package:rizq/features/auth/forget_password/logic/forget_password_cubit.d
 import 'package:rizq/features/auth/login/cubit/login_cubit.dart';
 import 'package:rizq/features/auth/login/data/repo/login_repo.dart';
 import 'package:rizq/features/auth/outer_screens/cubit/general_register_cubit.dart';
+import 'package:rizq/features/auth/register/data/repo/gov_cat_repo/gov_cat_repo.dart';
 import 'package:rizq/features/auth/register/data/repo/register_repo.dart';
 import 'package:rizq/features/auth/register/logic/register_cubit.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
@@ -28,12 +29,13 @@ Future<void> init() async {
   sl.registerLazySingleton(()=>LoginRepo(apiService: sl<ChildApiService>()));
   sl.registerLazySingleton(()=>RegisterRepo(sl<ChildApiService>()));
   sl.registerLazySingleton(()=>ForgetPasswordRepo(sl<ChildApiService>()));
+  sl.registerLazySingleton(()=>GovCatRepo(sl<ChildApiService>()));
 
 
   // cubits
   sl.registerFactory(()=>LoginCubit(sl<LoginRepo>()));
   sl.registerFactory(() => GeneralRegisterCubit());
-  sl.registerFactory(() => RegisterCubit(sl<RegisterRepo>()));
+  sl.registerFactory(() => RegisterCubit(registerRepo: sl<RegisterRepo>(), govCatRepo: sl<GovCatRepo>()));
   sl.registerFactory(() => ForgetPasswordCubit(sl<ForgetPasswordRepo>()));
 
 

@@ -67,7 +67,8 @@
       "linkedinLink": "LinkedIn account link",
       "whatsAppLink": "WhatsApp number",
       "theLink": "The link",
-      "commercialName" : "commercial Name"
+      "commercialName" : "commercial Name",
+      "goLogin" : "الذهاب لتسجيل الدخول"
     },
 
     "otp": {
@@ -243,7 +244,8 @@
 
     "idFileRequired" : "ID is required! choose an image or PDF",
 
-    "addressLinkWrong" : "The Address Link is not valid !"
+    "addressLinkWrong" : "The Address Link is not valid !",
+    "retry" : "Retry"
 
   }
 

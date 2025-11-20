@@ -100,7 +100,9 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
       },
       child: Padding(
         padding:  EdgeInsets.symmetric(vertical: 12.r, horizontal: 8.r),
-        child: Column(
+        child: widget.isForAd? Center(
+          child: Icon(Icons.add_circle_outline, color: Color(0xff5F7698),),
+        ): Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(child: SizedBox.expand(child: SvgImage(svgPath: AppAssets.uploadIconSvg,))),

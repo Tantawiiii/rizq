@@ -11,6 +11,9 @@ final class ApiConstants {
   static const resetPasswordEndpoint = 'reset-password';
   static const refreshToken = 'refresh';
 
+  static const governoratesEndpoint = 'governorates';
+  static const categoriesEndpoint = 'categories';
+
   // static const String register = '/api/front/register';
   // static const String login = '/api/front/login';
   // static const String logout = '/api/front/logout';

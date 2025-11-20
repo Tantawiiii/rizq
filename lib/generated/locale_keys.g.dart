@@ -59,6 +59,7 @@ abstract class  LocaleKeys {
   static const Auth_register_whatsAppLink = 'Auth.register.whatsAppLink';
   static const Auth_register_theLink = 'Auth.register.theLink';
   static const Auth_register_commercialName = 'Auth.register.commercialName';
+  static const Auth_register_goLogin = 'Auth.register.goLogin';
   static const Auth_register = 'Auth.register';
   static const Auth_otp_weHaveSentCode = 'Auth.otp.weHaveSentCode';
   static const Auth_otp_resendCode = 'Auth.otp.resendCode';
@@ -188,6 +189,7 @@ abstract class  LocaleKeys {
   static const formErrors_passwordAreNotIdentical = 'formErrors.passwordAreNotIdentical';
   static const formErrors_idFileRequired = 'formErrors.idFileRequired';
   static const formErrors_addressLinkWrong = 'formErrors.addressLinkWrong';
+  static const formErrors_retry = 'formErrors.retry';
   static const formErrors = 'formErrors';
 
 }

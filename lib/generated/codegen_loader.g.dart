@@ -73,7 +73,8 @@ class CodegenLoader extends AssetLoader{
       "linkedinLink": "LinkedIn account link",
       "whatsAppLink": "WhatsApp number",
       "theLink": "The link",
-      "commercialName": "commercial Name"
+      "commercialName": "commercial Name",
+      "goLogin": "الذهاب لتسجيل الدخول"
     },
     "otp": {
       "weHaveSentCode": "We have sent a code to your email. Please enter it to verify your account.",
@@ -225,7 +226,8 @@ class CodegenLoader extends AssetLoader{
     "commercialActivityAddressRequired": "Please enter your commecial address !",
     "passwordAreNotIdentical": "Password are not identical !",
     "idFileRequired": "ID is required! choose an image or PDF",
-    "addressLinkWrong": "The Address Link is not valid !"
+    "addressLinkWrong": "The Address Link is not valid !",
+    "retry": "Retry"
   }
 };
 static const Map<String,dynamic> _ar = {
@@ -287,7 +289,8 @@ static const Map<String,dynamic> _ar = {
       "linkedinLink": "رابط حساب لينكد إن",
       "whatsAppLink": "رقم الواتساب",
       "theLink": "الرابط",
-      "commercialName": "الاسم التجارى"
+      "commercialName": "الاسم التجارى",
+      "goLogin": "الذهاب لتسجيل الدخول"
     },
     "otp": {
       "weHaveSentCode": "لقد قمنا بإرسال رمز إلي بريدك الإلكتروني برجاء ادخاله حتي تتمكن من تأكيد حسابك",
@@ -439,7 +442,8 @@ static const Map<String,dynamic> _ar = {
     "commercialActivityAddressRequired": "يرجى ادخال عنوانك التجارى !",
     "passwordAreNotIdentical": "كلمتا المرور غير متطابقتين !",
     "idFileRequired": "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF",
-    "addressLinkWrong": "رابط العنوان غير صحيح !"
+    "addressLinkWrong": "رابط العنوان غير صحيح !",
+    "retry": "اعادة المحاولة"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

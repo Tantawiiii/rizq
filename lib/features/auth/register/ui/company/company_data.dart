@@ -7,6 +7,8 @@ import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_text_field.dart';
 import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/core/shared_widgets/custom_skelton.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
@@ -37,190 +39,200 @@ class RegisterCompanyDataScreen extends StatelessWidget {
         builder: (context,state){
           var cubit = context.read<RegisterCubit>();
           return  AuthCustomScaffold(
-            body: Padding(
+            body: state is RegisterGotDataFailureState
+                ? CustomErrorWidget(
+              errorMessage: state.errorMessage,
+              onRefresh: () {
+                cubit.getCategories();
+              },
+            ) : Padding(
               padding:  EdgeInsets.symmetric(horizontal: AppTheme.defaultEdgePadding),
-              child: Form(
-                key: formKey,
-                child: Column(
-                  children: [
+              child: CustomSkelton(
+                enabled: state is RegisterGettingDataState,
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
 
-                    Image.asset(AppAssets.appLogoImage, width: 32.r, height: 37.r),
-                    10.vGap,
-                    Text.rich(
-                      TextSpan(
-                          children: [
-                            TextSpan(
-                              text: LocaleKeys.Auth_register_createCompanyAccountIn.tr(context: context),
-                              style: AppTextStyles.cairoTextStyle(
-                                size: 16,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.titleColor,
+                      Image.asset(AppAssets.appLogoImage, width: 32.r, height: 37.r),
+                      10.vGap,
+                      Text.rich(
+                        TextSpan(
+                            children: [
+                              TextSpan(
+                                text: LocaleKeys.Auth_register_createCompanyAccountIn.tr(context: context),
+                                style: AppTextStyles.cairoTextStyle(
+                                  size: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.titleColor,
+                                ),
                               ),
-                            ),
-                            TextSpan(text: ' '),
-                            TextSpan(
-                              text: LocaleKeys.appName.tr(context: context),
-                              style: AppTextStyles.cairoTextStyle(
-                                size: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Color(0xffFA843C),
+                              TextSpan(text: ' '),
+                              TextSpan(
+                                text: LocaleKeys.appName.tr(context: context),
+                                style: AppTextStyles.cairoTextStyle(
+                                  size: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xffFA843C),
+                                ),
                               ),
-                            ),
-                            TextSpan(text: ' '),
-                            TextSpan(
-                              text: '${LocaleKeys.Auth_register_now.tr(context: context)}...',
-                              style: AppTextStyles.cairoTextStyle(
-                                size: 16,
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.titleColor,
+                              TextSpan(text: ' '),
+                              TextSpan(
+                                text: '${LocaleKeys.Auth_register_now.tr(context: context)}...',
+                                style: AppTextStyles.cairoTextStyle(
+                                  size: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.titleColor,
+                                ),
                               ),
-                            ),
-                          ]
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    20.vGap,
-                    RegisterProgressCircles(
-                      phases: [
-                        LocaleKeys.Auth_register_companyOwnerData.tr(context: context),
-                        LocaleKeys.Auth_register_companyData.tr(context: context),
-                        LocaleKeys.Auth_register_verificationFiles.tr(context: context),
-                        LocaleKeys.Auth_register_socialMediaAccounts.tr(context: context),
-                      ],
-                      currentPhaseIndex: 1,
-                    ),
-                    35.vGap,
-                    Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: Text(
-                        LocaleKeys.Auth_register_sellerLogo.tr(),
-                        style: AppTextStyles.cairoTextStyle(
-                          size: 14,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.fieldTitleColor,
+                            ]
                         ),
+                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    15.vGap,
-                    //TODO: IMAGE PICKER
-                    Row(
-                      spacing: 20.r,
-                      children: [
-                        ImagePickWidget(
-                          onImagePicked: (f){
-                            cubit.shopLogoFilePath = f!.path;
-                          },
-                        ),
-                        Expanded(
-                          child: MediaConstraintsText(
-                              title: LocaleKeys.Auth_register_logoRqs.tr(context: context),
-                              constraints: [
-                                LocaleKeys.Auth_register_logoSizeReqs.tr(),
-                                LocaleKeys.Auth_register_logoCapacityReqs.tr(),
-                              ]
+                      20.vGap,
+                      RegisterProgressCircles(
+                        phases: [
+                          LocaleKeys.Auth_register_companyOwnerData.tr(context: context),
+                          LocaleKeys.Auth_register_companyData.tr(context: context),
+                          LocaleKeys.Auth_register_verificationFiles.tr(context: context),
+                          LocaleKeys.Auth_register_socialMediaAccounts.tr(context: context),
+                        ],
+                        currentPhaseIndex: 1,
+                      ),
+                      35.vGap,
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: Text(
+                          LocaleKeys.Auth_register_sellerLogo.tr(),
+                          style: AppTextStyles.cairoTextStyle(
+                            size: 14,
+                            fontWeight: FontWeight.w500,
+                            color: AppColors.fieldTitleColor,
                           ),
                         ),
-                      ],
-                    ),
-                    20.vGap,
+                      ),
+                      15.vGap,
+                      //TODO: IMAGE PICKER
+                      Row(
+                        spacing: 20.r,
+                        children: [
+                          ImagePickWidget(
+                            onImagePicked: (f){
+                              cubit.shopLogoFilePath = f!.path;
+                            },
+                          ),
+                          Expanded(
+                            child: MediaConstraintsText(
+                                title: LocaleKeys.Auth_register_logoRqs.tr(context: context),
+                                constraints: [
+                                  LocaleKeys.Auth_register_logoSizeReqs.tr(),
+                                  LocaleKeys.Auth_register_logoCapacityReqs.tr(),
+                                ]
+                            ),
+                          ),
+                        ],
+                      ),
+                      20.vGap,
 
 
-                    Column(
-                      spacing: 10.h,
-                      children: [
+                      Column(
+                        spacing: 10.h,
+                        children: [
 
-                        AppTextField(
-                          controller: cubit.shopNameController,
-                          validator: FormValidators.shopNameValidator,
-                          hint: LocaleKeys.Auth_name.tr(),
-                          title:  LocaleKeys.Auth_register_commercialName.tr(),
-                          keyboardType: TextInputType.name,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.shopIconSvg, color: AppColors.fieldHintColor,),
+                          AppTextField(
+                            controller: cubit.shopNameController,
+                            validator: FormValidators.shopNameValidator,
+                            hint: LocaleKeys.Auth_name.tr(),
+                            title:  LocaleKeys.Auth_register_commercialName.tr(),
+                            keyboardType: TextInputType.name,
+                            textInputAction: TextInputAction.next,
+                            prefixIcon: SvgImage(svgPath: AppAssets.shopIconSvg, color: AppColors.fieldHintColor,),
 
-                        ),
+                          ),
 
-                        CustomDropdownButton(
-                          title: LocaleKeys.Auth_register_commercialActivityType.tr(context: context),
-                          hint:  LocaleKeys.Auth_register_shortCommercialActivity.tr(context: context),
-                          onSaved: (s){},
+                          CustomDropdownButton(
+                            title: LocaleKeys.Auth_register_commercialActivityType.tr(context: context),
+                            hint:  LocaleKeys.Auth_register_shortCommercialActivity.tr(context: context),
 
-                          value: cubit.activityKey,
-                          onChanged: (s){
-                            if(s != null && s.isNotEmpty){
-                              cubit.activityKey = s;
-                            }
-                          },
-                          prefixIcon: SvgImage(svgPath: AppAssets.jobIconSvg,  color: AppColors.fieldHintColor, ),
-                          items: commercialActivityKeys,
-                          validator:FormValidators.commercialActivityValidator,
-                        ),
+                            value: cubit.categoryId == null ?null : cubit.categories.where((cat)=>cat.id == cubit.categoryId).first.name,
+                            onChanged: (s) {
+                              if (s != null && s.isNotEmpty) {
 
-                        // commercial activity ddown
+                                cubit.categoryId = cubit.categories.where((cat)=>cat.name == s).first.id;
+                              }
+                            },
 
-                        AppTextField(
-                          controller: cubit.commercialAddressController,
-                          validator: FormValidators.commercialActivityAddressValidator,
-                          hint: LocaleKeys.Auth_register_commercialAddress.tr(),
-                          title: LocaleKeys.Auth_register_commercialAddress.tr(),
-                          keyboardType: TextInputType.streetAddress,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.locationIconSvg, color: AppColors.fieldHintColor,),
-                        ),
+                            items: List.generate(cubit.categories.length, (i)=>cubit.categories[i].name),
+                            prefixIcon: SvgImage(svgPath: AppAssets.jobIconSvg,  color: AppColors.fieldHintColor, ),
+                            validator:FormValidators.commercialActivityValidator,
+                          ),
 
-                        AppTextField(
-                          controller: cubit.addressLinkController,
-                          validator: FormValidators.addressLinkValidator,
-                          hint: LocaleKeys.Auth_register_shortAddressOnMap.tr(),
-                          title: LocaleKeys.Auth_register_addressOnMap.tr(),
-                          keyboardType: TextInputType.streetAddress,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.linkIconSvg, color: AppColors.fieldHintColor,),
-                        ),
+                          // commercial activity ddown
 
-                        AppTextField(
-                          controller: cubit.registrationNoController,
-                          hint: LocaleKeys.Auth_register_shortRegistrationNumber.tr(),
-                          title: LocaleKeys.Auth_register_commercialRegistrationNumber.tr(),
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.commercialNumberIconSvg, color: AppColors.fieldHintColor,),
-                        ),
+                          AppTextField(
+                            controller: cubit.commercialAddressController,
+                            validator: FormValidators.commercialActivityAddressValidator,
+                            hint: LocaleKeys.Auth_register_commercialAddress.tr(),
+                            title: LocaleKeys.Auth_register_commercialAddress.tr(),
+                            keyboardType: TextInputType.streetAddress,
+                            textInputAction: TextInputAction.next,
+                            prefixIcon: SvgImage(svgPath: AppAssets.locationIconSvg, color: AppColors.fieldHintColor,),
+                          ),
 
-                        AppTextField(
-                          controller: cubit.webSiteLinkController,
-                          hint: LocaleKeys.Auth_register_shortWebsiteLink.tr(),
-                          title: LocaleKeys.Auth_register_websiteLink.tr(),
-                          keyboardType: TextInputType.url,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.linkIconSvg, color: AppColors.fieldHintColor,),
-                        ),
+                          AppTextField(
+                            controller: cubit.addressLinkController,
+                            validator: FormValidators.addressLinkValidator,
+                            hint: LocaleKeys.Auth_register_shortAddressOnMap.tr(),
+                            title: LocaleKeys.Auth_register_addressOnMap.tr(),
+                            keyboardType: TextInputType.streetAddress,
+                            textInputAction: TextInputAction.next,
+                            prefixIcon: SvgImage(svgPath: AppAssets.linkIconSvg, color: AppColors.fieldHintColor,),
+                          ),
+
+                          AppTextField(
+                            controller: cubit.registrationNoController,
+                            hint: LocaleKeys.Auth_register_shortRegistrationNumber.tr(),
+                            title: LocaleKeys.Auth_register_commercialRegistrationNumber.tr(),
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
+                            prefixIcon: SvgImage(svgPath: AppAssets.commercialNumberIconSvg, color: AppColors.fieldHintColor,),
+                          ),
+
+                          AppTextField(
+                            controller: cubit.webSiteLinkController,
+                            hint: LocaleKeys.Auth_register_shortWebsiteLink.tr(),
+                            title: LocaleKeys.Auth_register_websiteLink.tr(),
+                            keyboardType: TextInputType.url,
+                            textInputAction: TextInputAction.next,
+                            prefixIcon: SvgImage(svgPath: AppAssets.linkIconSvg, color: AppColors.fieldHintColor,),
+                          ),
 
 
-                        DescriptionTextField(
-                          controller: cubit.descriptionController,
-                          title: LocaleKeys.Auth_register_activityDescription.tr(context: context),
-                          hint: LocaleKeys.Auth_register_shortActivityDescription.tr(context: context),
-                          textInputAction: TextInputAction.done,
-                        )
-                      ],
-                    ),
-                    30.vGap,
+                          DescriptionTextField(
+                            controller: cubit.descriptionController,
+                            title: LocaleKeys.Auth_register_activityDescription.tr(context: context),
+                            hint: LocaleKeys.Auth_register_shortActivityDescription.tr(context: context),
+                            textInputAction: TextInputAction.done,
+                          )
+                        ],
+                      ),
+                      30.vGap,
 
-                    PrimaryButton(
-                      title: LocaleKeys.Auth_next.tr(context: context),
-                      disabledColor: AppColors.disabledColor,
-                      onPressed: (){
+                      PrimaryButton(
+                        title: LocaleKeys.Auth_next.tr(context: context),
+                        disabledColor: AppColors.disabledColor,
+                        onPressed: (){
 
-                        if(formKey.currentState!.validate()){
+                          if(formKey.currentState!.validate()){
 
-                          RouteManager.navigateTo(BlocProvider.value(value: cubit,child:  RegisterCompanyAdditionalInfoScreen()));
-                        }
-                      },
-                    ),
-                    25.vGap,
+                            RouteManager.navigateTransitionaly(BlocProvider.value(value: cubit,child:  RegisterCompanyAdditionalInfoScreen()));
+                          }
+                        },
+                      ),
+                      25.vGap,
 
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

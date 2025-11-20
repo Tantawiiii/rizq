@@ -9,6 +9,7 @@ import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/custom_text_button.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
+import 'package:rizq/core/shared_widgets/underline_text.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -104,25 +105,18 @@ class UserRoleSelectionScreen extends StatelessWidget {
                         ),
                       ),
                       5.hGap,
-
-                      CustomTextButton(
+                      UnderlineText(
+                          text: Text(
+                              LocaleKeys.Auth_Login_login.tr(),
+                              style: AppTextStyles.cairoTextStyle(
+                                size: 14,
+                                color: AppColors.titleColor,
+                                fontWeight: FontWeight.w500,
+                              )),
                         onPressed: (){
-                          RouteManager.navigateTo(LoginScreen());
+                            RouteManager.navigateTo(LoginScreen());
                         },
-                        child: Text(
-                          LocaleKeys.Auth_Login_login.tr(),
-                          style: AppTextStyles.cairoTextStyle(
-                            size: 14,
-                            color: AppColors.titleColor,
-                            fontWeight: FontWeight.w500,
-                          ).copyWith(
-                            decorationStyle: TextDecorationStyle.solid,
-                            decorationColor: AppColors.titleColor,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      ),
-
+                      )
                     ],
                   ),
 

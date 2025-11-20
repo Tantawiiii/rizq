@@ -6,6 +6,12 @@ final class AppAssets {
 
   static const String successfulRegistrationGif = 'assets/images/success_register.gif';
 
+  // lotties
+
+  static const String errorLottie = 'assets/lotties/error_lottie.json';
+  static const String connectionErrorLottie = 'assets/lotties/connection_error_lottie.json';
+
+
 
   // svg
   static const String authPatternSvg =  'assets/images/svg/auth_pattern.svg';

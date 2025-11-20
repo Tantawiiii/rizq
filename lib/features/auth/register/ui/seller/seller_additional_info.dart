@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
-import 'package:rizq/core/shared_widgets/liquid_progress_indicator.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
@@ -123,6 +122,7 @@ class RegisterSellerAdditionalInfoScreen extends StatelessWidget {
                           context: context,
                         ),
                       );
+                      return ;
                     } else {
                       cubit.registerUser();
                     }

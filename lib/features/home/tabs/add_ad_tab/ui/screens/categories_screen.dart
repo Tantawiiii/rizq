@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/data/category_model.dart';
+import 'package:rizq/features/auth/register/data/models/category_model.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/ui/widgets/category_item.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 class CategoriesScreen extends StatelessWidget {
@@ -21,7 +21,6 @@ class CategoriesScreen extends StatelessWidget {
               title: Text(LocaleKeys.createAd_addNewAd.tr(context: context)),
               pinned: false,
               floating: true,
-              
             ),
 
             SliverAppBar(
@@ -37,13 +36,15 @@ class CategoriesScreen extends StatelessWidget {
               sliver: SliverGrid(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: context.screenWidth * .2,
-                  mainAxisSpacing: 15,
+                  crossAxisSpacing: AppTheme.defaultEdgePadding,
+                  mainAxisSpacing: AppTheme.defaultEdgePadding,
+                  childAspectRatio: .8,
                 ),
                 delegate: SliverChildBuilderDelegate(
                       (context, index) {
                     return CategoryItem(
                       model: CategoryModel(
+                        id: 1,
                         name: 'الكترونيات',
                         imageUrl:
                         'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',

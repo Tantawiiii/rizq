@@ -8,6 +8,8 @@ import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_text_field.dart';
 import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/core/shared_widgets/custom_skelton.dart';
 import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
@@ -25,74 +27,104 @@ import 'package:rizq/main.dart';
 
 import 'company_data.dart';
 
-
 class RegisterCompanyOwnerData extends StatelessWidget {
-   RegisterCompanyOwnerData({super.key});
+  RegisterCompanyOwnerData({super.key});
 
-  final  formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context)=>sl<RegisterCubit>(),
+      create: (context) => sl<RegisterCubit>()..getGovernorates(),
       child: BlocBuilder<RegisterCubit, RegisterStates>(
-          builder: (context,state){
-            var cubit = context.read<RegisterCubit>();
-            return  AuthCustomScaffold(
-              body: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: AppTheme.defaultEdgePadding),
-                child: Form(
-                  key: formKey,
+        builder: (context, state) {
+          var cubit = context.read<RegisterCubit>();
+          return AuthCustomScaffold(
+            body:  state is RegisterGotDataFailureState
+                ? CustomErrorWidget(
+              errorMessage: state.errorMessage,
+              onRefresh: () {
+                cubit.getGovernorates();
+              },
+            ) : Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: AppTheme.defaultEdgePadding,
+              ),
+              child: Form(
+                key: formKey,
+                child: CustomSkelton(
+                  enabled: state is RegisterGettingDataState,
                   child: Column(
                     children: [
                       30.vGap,
                       Align(
-                          alignment: AlignmentDirectional.centerEnd,
-                          child: LangDropDown()),
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: LangDropDown(
+                          onLanguageChanged: (){
+                            cubit.getGovernorates();
+                          },
+                        ),
+                      ),
                       20.vGap,
-                      Image.asset(AppAssets.appLogoImage, width: 32.r, height: 37.r),
+                      Image.asset(
+                        AppAssets.appLogoImage,
+                        width: 32.r,
+                        height: 37.r,
+                      ),
                       10.vGap,
                       Text.rich(
                         TextSpan(
-                            children: [
-                              TextSpan(
-                                text: LocaleKeys.Auth_register_createCompanyAccountIn.tr(context: context),
-                                style: AppTextStyles.cairoTextStyle(
-                                  size: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.titleColor,
-                                ),
+                          children: [
+                            TextSpan(
+                              text:
+                                  LocaleKeys
+                                      .Auth_register_createCompanyAccountIn.tr(
+                                    context: context,
+                                  ),
+                              style: AppTextStyles.cairoTextStyle(
+                                size: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.titleColor,
                               ),
-                              TextSpan(text: ' '),
-                              TextSpan(
-                                text: LocaleKeys.appName.tr(context: context),
-                                style: AppTextStyles.cairoTextStyle(
-                                  size: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: Color(0xffFA843C),
-                                ),
+                            ),
+                            TextSpan(text: ' '),
+                            TextSpan(
+                              text: LocaleKeys.appName.tr(context: context),
+                              style: AppTextStyles.cairoTextStyle(
+                                size: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xffFA843C),
                               ),
-                              TextSpan(text: ' '),
-                              TextSpan(
-                                text: '${LocaleKeys.Auth_register_now.tr(context: context)}...',
-                                style: AppTextStyles.cairoTextStyle(
-                                  size: 16,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.titleColor,
-                                ),
+                            ),
+                            TextSpan(text: ' '),
+                            TextSpan(
+                              text:
+                                  '${LocaleKeys.Auth_register_now.tr(context: context)}...',
+                              style: AppTextStyles.cairoTextStyle(
+                                size: 16,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.titleColor,
                               ),
-                            ]
+                            ),
+                          ],
                         ),
                         textAlign: TextAlign.center,
                       ),
                       20.vGap,
                       RegisterProgressCircles(
                         phases: [
-                          LocaleKeys.Auth_register_companyOwnerData.tr(context: context),
-                          LocaleKeys.Auth_register_companyData.tr(context: context),
-                          LocaleKeys.Auth_register_verificationFiles.tr(context: context),
-                          LocaleKeys.Auth_register_socialMediaAccounts.tr(context: context),
-
+                          LocaleKeys.Auth_register_companyOwnerData.tr(
+                            context: context,
+                          ),
+                          LocaleKeys.Auth_register_companyData.tr(
+                            context: context,
+                          ),
+                          LocaleKeys.Auth_register_verificationFiles.tr(
+                            context: context,
+                          ),
+                          LocaleKeys.Auth_register_socialMediaAccounts.tr(
+                            context: context,
+                          ),
                         ],
                         currentPhaseIndex: 0,
                       ),
@@ -101,7 +133,6 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                       Column(
                         spacing: 10.h,
                         children: [
-
                           AppTextField(
                             controller: cubit.nameController,
                             validator: FormValidators.nameValidator,
@@ -109,8 +140,10 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                             title: LocaleKeys.Auth_userName.tr(context: context),
                             keyboardType: TextInputType.name,
                             textInputAction: TextInputAction.next,
-                            prefixIcon: SvgImage(svgPath: AppAssets.userIconSvg, color: AppColors.fieldHintColor,),
-
+                            prefixIcon: SvgImage(
+                              svgPath: AppAssets.userIconSvg,
+                              color: AppColors.fieldHintColor,
+                            ),
                           ),
 
                           AppTextField(
@@ -120,7 +153,10 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                             title: LocaleKeys.Auth_email.tr(context: context),
                             keyboardType: TextInputType.emailAddress,
                             textInputAction: TextInputAction.next,
-                            prefixIcon: SvgImage(svgPath: AppAssets.emailIconSvg, color: AppColors.fieldHintColor,),
+                            prefixIcon: SvgImage(
+                              svgPath: AppAssets.emailIconSvg,
+                              color: AppColors.fieldHintColor,
+                            ),
                           ),
 
                           AppTextField(
@@ -130,22 +166,37 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                             title: LocaleKeys.Auth_phone.tr(context: context),
                             keyboardType: TextInputType.phone,
                             textInputAction: TextInputAction.next,
-                            prefixIcon: SvgImage(svgPath: AppAssets.phoneIconSvg, color: AppColors.fieldHintColor,),
+                            prefixIcon: SvgImage(
+                              svgPath: AppAssets.phoneIconSvg,
+                              color: AppColors.fieldHintColor,
+                            ),
                           ),
 
                           CustomDropdownButton(
                             title: LocaleKeys.Auth_state.tr(context: context),
                             hint: LocaleKeys.Auth_state.tr(context: context),
-                            onSaved: (s){},
-                            value: cubit.governorateKey,
-                            onChanged: (s){
-                              if(s != null && s.isNotEmpty){
-                                cubit.governorateKey = s;
+                            value: cubit.governorateId == null
+                                ? null
+                                : cubit.governorates
+                                      .where(
+                                        (gov) => gov.id == cubit.governorateId,
+                                      )
+                                      .first
+                                      .name,
+                            onChanged: (s) {
+                              if (s != null && s.isNotEmpty) {
+                                cubit.governorateId = cubit.governorates
+                                    .where((gov) => gov.name == s)
+                                    .first
+                                    .id;
                               }
                             },
-                            prefixIcon: SvgImage(svgPath: AppAssets.stateIconSvg,  color: AppColors.fieldHintColor, ),
-                            items: syriaStatesKeys,
-                            validator:FormValidators.stateValidator,
+                            prefixIcon: SvgImage(
+                              svgPath: AppAssets.stateIconSvg,
+                              color: AppColors.fieldHintColor,
+                            ),
+                            items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                            validator: FormValidators.stateValidator,
                           ),
 
                           AppTextField(
@@ -155,18 +206,27 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                             title: LocaleKeys.Auth_password.tr(context: context),
                             keyboardType: TextInputType.visiblePassword,
                             textInputAction: TextInputAction.next,
-                            prefixIcon: SvgImage(svgPath: AppAssets.passwordIconSvg, color: AppColors.fieldHintColor,),
+                            prefixIcon: SvgImage(
+                              svgPath: AppAssets.passwordIconSvg,
+                              color: AppColors.fieldHintColor,
+                            ),
                           ),
-
 
                           AppTextField(
                             controller: cubit.passwordConfirmController,
                             validator: FormValidators.passwordValidator,
-                            hint: LocaleKeys.Auth_confirmPassword.tr(context: context),
-                            title: LocaleKeys.Auth_confirmPassword.tr(context: context),
+                            hint: LocaleKeys.Auth_confirmPassword.tr(
+                              context: context,
+                            ),
+                            title: LocaleKeys.Auth_confirmPassword.tr(
+                              context: context,
+                            ),
                             keyboardType: TextInputType.visiblePassword,
                             textInputAction: TextInputAction.done,
-                            prefixIcon: SvgImage(svgPath: AppAssets.passwordIconSvg, color: AppColors.fieldHintColor,),
+                            prefixIcon: SvgImage(
+                              svgPath: AppAssets.passwordIconSvg,
+                              color: AppColors.fieldHintColor,
+                            ),
                           ),
                         ],
                       ),
@@ -175,27 +235,35 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                       PrimaryButton(
                         title: LocaleKeys.Auth_next.tr(context: context),
                         disabledColor: AppColors.disabledColor,
-                        onPressed: (){
-                          if(formKey.currentState!.validate()){
-                            if(cubit.passwordController.text != cubit.passwordConfirmController.text){
-                              showCustomSnackBar(message: LocaleKeys.formErrors_passwordAreNotIdentical.tr(context: context));
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            if (cubit.passwordController.text !=
+                                cubit.passwordConfirmController.text) {
+                              showCustomSnackBar(
+                                message: LocaleKeys
+                                    .formErrors_passwordAreNotIdentical
+                                    .tr(context: context),
+                              );
                               return;
                             }
-                            RouteManager.navigateTo(BlocProvider.value(
-                                value: cubit,
-                                child: RegisterCompanyDataScreen()));
+                            RouteManager.navigateTransitionaly(
+                              BlocProvider.value(
+                                value: cubit..getCategories(),
+                                child: RegisterCompanyDataScreen(),
+                              ),
+                            );
                           }
-
                         },
                       ),
                       25.vGap,
-
                     ],
                   ),
                 ),
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }

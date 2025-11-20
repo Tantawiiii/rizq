@@ -21,4 +21,20 @@ final class LangHelper {
     };
   }
 
+
+
+  static String apiAcceptLanguageHeader = 'ar';
+  /// changes the app app language and API Accept-Language header
+  static void changeAppLanguage({required BuildContext context,})async{
+
+    var currentLocale = context.locale;
+
+    var newLocale = currentLocale == arabicLocale ? englishLocale : arabicLocale;
+
+    apiAcceptLanguageHeader = newLocale.languageCode;
+
+    await context.setLocale(newLocale);
+
+  }
+
 }

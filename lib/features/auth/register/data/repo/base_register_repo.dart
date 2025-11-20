@@ -11,3 +11,4 @@ abstract class BaseRegisterRepo {
 
   Future<Either<Failure, Response>> registerUser({required RegisterRequestModel registerRequestModel, void Function(int, int)? onSendProgress});
 }
+

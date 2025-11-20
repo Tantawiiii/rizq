@@ -36,19 +36,49 @@ class ServerFailure extends Failure {
         }
         return ServerFailure(LocaleKeys.apiErrors_apiGeneralError.tr());
       default:
-        return ServerFailure(LocaleKeys.apiErrors_apiGeneralError.tr());
+        return ServerFailure.fromResponse(
+            dioError.response?.statusCode, dioError.response?.data);
     }
   }
 
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
-    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response['message']);
-    } else if (statusCode == 404) {
-      return ServerFailure(LocaleKeys.apiErrors_api404Error.tr());
-    } else if ((statusCode?? 1) >= 500) {
+
+    if (statusCode == null) {
+      return ServerFailure(LocaleKeys.apiErrors_apiGeneralError.tr());
+    }
+
+    // never will be from success code 200 : 300
+    if (statusCode < 500) {
+      return ServerFailure(getErrorMessageFromResponse(response));
+    }
+    else if (statusCode >= 500) {
       return ServerFailure(LocaleKeys.apiErrors_api5xxError.tr());
     } else {
       return ServerFailure(LocaleKeys.apiErrors_apiGeneralError.tr());
     }
   }
+
+  static String getErrorMessageFromResponse(dynamic response) {
+    if(response is Map<String,dynamic>){
+      Map<String,dynamic> errors = response['errors'] ?? {};
+      if(errors.isNotEmpty){
+
+        for (var value in errors.values){
+          if(value is List && value.isNotEmpty){
+            return value[0];
+          }else if(value is String){
+            return value;
+          }
+        }
+
+      } else {
+        if (response['message'] is String && response['message'].isNotEmpty) {
+          return response['message'];
+        }
+      }
+    }
+    // can't find any message
+     return LocaleKeys.apiErrors_apiGeneralError.tr();
+  }
+
 }

@@ -123,8 +123,9 @@ class RegisterCompanyAdditionalInfoScreen extends StatelessWidget {
                           context: context,
                         ),
                       );
+                      return;
                     }
-                    RouteManager.navigateTo(BlocProvider.value(
+                    RouteManager.navigateTransitionaly(BlocProvider.value(
                         value: cubit,
                         child: RegisterCompanySocialMedia()));
                   },

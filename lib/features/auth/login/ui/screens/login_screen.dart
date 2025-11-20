@@ -11,6 +11,7 @@ import 'package:rizq/core/shared_widgets/custom_text_button.dart';
 import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/shared_widgets/svg_image.dart';
+import 'package:rizq/core/shared_widgets/underline_text.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -175,23 +176,18 @@ class LoginScreen extends StatelessWidget {
                         ),
                         5.hGap,
 
-                        CustomTextButton(
-                          child: Text(
+                        UnderlineText(text: Text(
                             LocaleKeys.Auth_Login_signUp.tr(),
                             style:
                             AppTextStyles.cairoTextStyle(
                               size: 14,
                               color: AppColors.titleColor,
                               fontWeight: FontWeight.w500,
-                            ).copyWith(
-                              decorationStyle: TextDecorationStyle.solid,
-                              decorationColor: AppColors.titleColor,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                          onPressed: () {
+                            )),
+                          onPressed: (){
                             RouteManager.navigateTo(UserRoleSelectionScreen());
                           },
+
                         ),
                       ],
                     ),

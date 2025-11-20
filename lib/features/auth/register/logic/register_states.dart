@@ -15,3 +15,12 @@ final class RegisterFailureState extends RegisterStates {
 
   RegisterFailureState(this.errorMessage);
 }
+
+// for getting governorates and categories
+final class RegisterGettingDataState extends RegisterStates {}
+final class RegisterGotDataSuccessState extends RegisterStates {}
+final class RegisterGotDataFailureState extends RegisterStates {
+  final String errorMessage;
+
+  RegisterGotDataFailureState(this.errorMessage);
+}

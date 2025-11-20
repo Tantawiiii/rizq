@@ -42,4 +42,33 @@ class RouteManager {
 
   static Route<dynamic> _materialPageRoute(Widget page) =>
       MaterialPageRoute(builder: (_) => page);
+
+
+  static void navigateTransitionaly(Widget page)=>navigatorKey.currentState!.push(_customPageRoute(page));
+
+  static Route<dynamic> _customPageRoute(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (_, animation, secondaryAnimation) => page,
+      transitionsBuilder: (_, animation, secondaryAnimation, child) {
+
+        const beginOffset = Offset(1.0, 0.0);
+        const endOffset = Offset.zero;
+        const curve = Curves.easeInOut;
+
+        var tween = Tween(begin: beginOffset, end: endOffset)
+            .chain(CurveTween(curve: curve));
+        var fadeTween = Tween(begin: 0.0, end: 1.0);
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: FadeTransition(
+            opacity: animation.drive(fadeTween),
+            child: child,
+          ),
+        );
+      },
+      transitionDuration: Duration(milliseconds: 400),
+    );
+  }
+
 }

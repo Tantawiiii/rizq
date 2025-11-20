@@ -12,7 +12,9 @@ import 'package:rizq/generated/locale_keys.g.dart';
 
 class LangDropDown extends StatefulWidget {
 
-  const LangDropDown({super.key});
+  final VoidCallback? onLanguageChanged;
+
+  const LangDropDown({super.key, this.onLanguageChanged});
 
   @override
   State<LangDropDown> createState() => _LangDropDownState();
@@ -58,12 +60,11 @@ class _LangDropDownState extends State<LangDropDown> {
           setState(() {
             selectedValue = key;
           });
-          if(context.locale.languageCode == LangHelper.arabicCode && key != LocaleKeys.Languages_arabic){
-            context.setLocale(LangHelper.englishLocale);
+          LangHelper.changeAppLanguage(context: context);
+          if(widget.onLanguageChanged != null){
+            widget.onLanguageChanged!();
           }
-          if(context.locale.languageCode == LangHelper.englishCode && key != LocaleKeys.Languages_english){
-            context.setLocale(LangHelper.arabicLocale);
-          }
+
         },
 
         //isExpanded: true,

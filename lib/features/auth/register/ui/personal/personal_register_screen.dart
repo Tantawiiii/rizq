@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
-import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_text_field.dart';
 import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/core/shared_widgets/custom_skelton.dart';
 import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
@@ -16,7 +16,6 @@ import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/auth/forget_password/ui/otp_screen.dart';
 import 'package:rizq/features/auth/register/logic/register_cubit.dart';
 import 'package:rizq/features/auth/register/logic/register_states.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
@@ -25,153 +24,219 @@ import 'package:rizq/generated/locale_keys.g.dart';
 import 'package:rizq/main.dart';
 
 
-class PersonalRegisterScreen extends StatelessWidget {
-   PersonalRegisterScreen({super.key});
+class PersonalRegisterScreen extends StatelessWidget{
+  PersonalRegisterScreen({super.key});
 
+  final formKey = GlobalKey<FormState>();
 
-   final formKey = GlobalKey<FormState>();
-
-
-   @override
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(create: (context)=>sl<RegisterCubit>(),
+    return BlocProvider(
+      create: (context) => sl<RegisterCubit>()..getGovernorates(),
 
-    child: BlocBuilder<RegisterCubit, RegisterStates>(
-        builder: (context,state){
+      child: BlocBuilder<RegisterCubit, RegisterStates>(
+        builder: (context, state) {
           var cubit = context.read<RegisterCubit>();
 
-         return  AuthCustomScaffold(
-            body: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: AppTheme.defaultEdgePadding),
-              child: Column(
-                children: [
-                  30.vGap,
-                  Align(
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: LangDropDown()),
-                  20.vGap,
-                  Image.asset(AppAssets.appLogoImage, width: 32.r, height: 37.r),
-                  10.vGap,
-                  Text(
-                    LocaleKeys.Auth_register_createYourAccountAndExplore.tr(context: context),
-                    style: AppTextStyles.cairoTextStyle(
-                      size: 16,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.titleColor,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-
-                  35.vGap,
-
-                  Form(
-                    key: formKey,
-                    child: Column(
-                      spacing: 10.h,
-                      children: [
-
-                        AppTextField(
-                          controller: cubit.nameController,
-                          validator: FormValidators.nameValidator,
-                          hint: LocaleKeys.Auth_name.tr(context: context),
-                          title: LocaleKeys.Auth_userName.tr(context: context),
-                          keyboardType: TextInputType.name,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.userIconSvg, color: AppColors.fieldHintColor,),
-
-                        ),
-
-                        AppTextField(
-
-                          controller: cubit.emailController,
-                          validator: FormValidators.emailValidator,
-                          hint: LocaleKeys.Auth_shortEmail.tr(context: context),
-                          title: LocaleKeys.Auth_email.tr(context: context),
-                          keyboardType: TextInputType.emailAddress,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.emailIconSvg, color: AppColors.fieldHintColor,),
-                        ),
-
-                        AppTextField(
-
-                          controller: cubit.phoneController,
-                          validator: FormValidators.phoneValidator,
-                          hint: LocaleKeys.Auth_phone.tr(context: context),
-                          title: LocaleKeys.Auth_phone.tr(context: context),
-                          keyboardType: TextInputType.phone,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.phoneIconSvg, color: AppColors.fieldHintColor,),
-                        ),
-                        //TODO: STATE
-                        CustomDropdownButton(
-                          validator: FormValidators.stateValidator,
-                          title: LocaleKeys.Auth_state.tr(context: context),
-                          hint: LocaleKeys.Auth_state.tr(context: context),
-                          onSaved: (s){},
-
-                          value: cubit.governorateKey,
-                          onChanged: (s){
-                            if(s != null && s.isNotEmpty){
-                              cubit.governorateKey = s;
-                            }
-
-                          },
-                          prefixIcon: SvgImage(svgPath: AppAssets.stateIconSvg,  color: AppColors.fieldHintColor, ),
-                          items: syriaStatesKeys,
-
-                        ),
-
-                        AppTextField(
-
-                          controller: cubit.passwordController,
-                          validator: FormValidators.passwordValidator,
-
-                          hint: LocaleKeys.Auth_password.tr(context: context),
-                          title: LocaleKeys.Auth_password.tr(context: context),
-                          keyboardType: TextInputType.visiblePassword,
-                          textInputAction: TextInputAction.next,
-                          prefixIcon: SvgImage(svgPath: AppAssets.passwordIconSvg, color: AppColors.fieldHintColor,),
-                        ),
-
-
-                        AppTextField(
-
-                          controller: cubit.passwordConfirmController,
-                          validator: FormValidators.passwordValidator,
-
-                          hint: LocaleKeys.Auth_confirmPassword.tr(context: context),
-                          title: LocaleKeys.Auth_confirmPassword.tr(context: context),
-                          keyboardType: TextInputType.visiblePassword,
-                          textInputAction: TextInputAction.done,
-                          prefixIcon: SvgImage(svgPath: AppAssets.passwordIconSvg, color: AppColors.fieldHintColor,),
-                        ),
-                      ],
-                    ),
-                  ),
-                  30.vGap,
-
-                  PrimaryButton(
-                    title: LocaleKeys.Auth_Login_signUp.tr(context: context),
-                    disabledColor: AppColors.primaryColor,
-                    isLoading:  state is RegisterLoadingState || state is RegisterUploadingStateChanged,
-                    onPressed: (){
-                      if(formKey.currentState!.validate()){
-                        if(cubit.passwordController.text != cubit.passwordConfirmController.text){
-                          showCustomSnackBar(message: LocaleKeys.formErrors_passwordAreNotIdentical.tr(context: context));
-                          return;
-                        }
-                        cubit.registerUser();
-
-                      }
+          return AuthCustomScaffold(
+            body: state is RegisterGotDataFailureState
+                ? CustomErrorWidget(
+                    errorMessage: state.errorMessage,
+                    onRefresh: () {
+                      cubit.getGovernorates();
                     },
-                  ),
-                  25.vGap,
+                  )
+                : Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppTheme.defaultEdgePadding,
+                    ),
+                    child: CustomSkelton(
+                      enabled: state is RegisterGettingDataState,
+                      child: Column(
+                        children: [
+                          30.vGap,
+                          Align(
+                            alignment: AlignmentDirectional.centerEnd,
+                            child: LangDropDown(
+                              onLanguageChanged: (){
+                                cubit.getGovernorates();
+                              },
+                            ),
+                          ),
+                          20.vGap,
+                          Image.asset(
+                            AppAssets.appLogoImage,
+                            width: 32.r,
+                            height: 37.r,
+                          ),
+                          10.vGap,
+                          Text(
+                            LocaleKeys
+                                .Auth_register_createYourAccountAndExplore.tr(
+                              context: context,
+                            ),
+                            style: AppTextStyles.cairoTextStyle(
+                              size: 16,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.titleColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
 
-                ],
-              ),
-            ),
+                          35.vGap,
+
+                          Form(
+                            key: formKey,
+                            child: Column(
+                              spacing: 10.h,
+                              children: [
+                                AppTextField(
+                                  controller: cubit.nameController,
+                                  validator: FormValidators.nameValidator,
+                                  hint: LocaleKeys.Auth_name.tr(
+                                    context: context,
+                                  ),
+                                  title: LocaleKeys.Auth_userName.tr(
+                                    context: context,
+                                  ),
+                                  keyboardType: TextInputType.name,
+                                  textInputAction: TextInputAction.next,
+                                  prefixIcon: SvgImage(
+                                    svgPath: AppAssets.userIconSvg,
+                                    color: AppColors.fieldHintColor,
+                                  ),
+                                ),
+
+                                AppTextField(
+                                  controller: cubit.emailController,
+                                  validator: FormValidators.emailValidator,
+                                  hint: LocaleKeys.Auth_shortEmail.tr(
+                                    context: context,
+                                  ),
+                                  title: LocaleKeys.Auth_email.tr(
+                                    context: context,
+                                  ),
+                                  keyboardType: TextInputType.emailAddress,
+                                  textInputAction: TextInputAction.next,
+                                  prefixIcon: SvgImage(
+                                    svgPath: AppAssets.emailIconSvg,
+                                    color: AppColors.fieldHintColor,
+                                  ),
+                                ),
+
+                                AppTextField(
+                                  controller: cubit.phoneController,
+                                  validator: FormValidators.phoneValidator,
+                                  hint: LocaleKeys.Auth_phone.tr(
+                                    context: context,
+                                  ),
+                                  title: LocaleKeys.Auth_phone.tr(
+                                    context: context,
+                                  ),
+                                  keyboardType: TextInputType.phone,
+                                  textInputAction: TextInputAction.next,
+                                  prefixIcon: SvgImage(
+                                    svgPath: AppAssets.phoneIconSvg,
+                                    color: AppColors.fieldHintColor,
+                                  ),
+                                ),
+                                //TODO: STATE
+                                CustomDropdownButton(
+                                  validator: FormValidators.stateValidator,
+                                  title: LocaleKeys.Auth_state.tr(
+                                    context: context,
+                                  ),
+                                  hint: LocaleKeys.Auth_state.tr(
+                                    context: context,
+                                  ),
+
+                                  value: cubit.governorateId == null ?null : cubit.governorates.where((gov)=>gov.id == cubit.governorateId).first.name,
+                                  items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                                  onChanged: (s) {
+                                    if (s != null && s.isNotEmpty) {
+
+                                      cubit.governorateId = cubit.governorates.where((gov)=>gov.name == s).first.id;
+                                    }
+                                  },
+
+                                  prefixIcon: SvgImage(
+                                    svgPath: AppAssets.stateIconSvg,
+                                    color: AppColors.fieldHintColor,
+                                  ),
+
+                                ),
+
+                                AppTextField(
+                                  controller: cubit.passwordController,
+                                  validator: FormValidators.passwordValidator,
+
+                                  hint: LocaleKeys.Auth_password.tr(
+                                    context: context,
+                                  ),
+                                  title: LocaleKeys.Auth_password.tr(
+                                    context: context,
+                                  ),
+                                  keyboardType: TextInputType.visiblePassword,
+                                  textInputAction: TextInputAction.next,
+                                  prefixIcon: SvgImage(
+                                    svgPath: AppAssets.passwordIconSvg,
+                                    color: AppColors.fieldHintColor,
+                                  ),
+                                ),
+
+                                AppTextField(
+                                  controller: cubit.passwordConfirmController,
+                                  validator: FormValidators.passwordValidator,
+
+                                  hint: LocaleKeys.Auth_confirmPassword.tr(
+                                    context: context,
+                                  ),
+                                  title: LocaleKeys.Auth_confirmPassword.tr(
+                                    context: context,
+                                  ),
+                                  keyboardType: TextInputType.visiblePassword,
+                                  textInputAction: TextInputAction.done,
+                                  prefixIcon: SvgImage(
+                                    svgPath: AppAssets.passwordIconSvg,
+                                    color: AppColors.fieldHintColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          30.vGap,
+
+                          PrimaryButton(
+                            title: LocaleKeys.Auth_Login_signUp.tr(
+                              context: context,
+                            ),
+                            disabledColor: AppColors.primaryColor,
+                            isLoading:
+                                state is RegisterLoadingState ||
+                                state is RegisterUploadingStateChanged,
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                if (cubit.passwordController.text !=
+                                    cubit.passwordConfirmController.text) {
+                                  showCustomSnackBar(
+                                    message: LocaleKeys
+                                        .formErrors_passwordAreNotIdentical
+                                        .tr(context: context),
+                                  );
+                                  return;
+                                }
+                                cubit.registerUser();
+                              }
+                            },
+                          ),
+                          25.vGap,
+                        ],
+                      ),
+                    ),
+                  ),
           );
-    }),
+        },
+      ),
     );
   }
 }

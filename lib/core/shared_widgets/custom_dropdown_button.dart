@@ -9,7 +9,6 @@ import 'package:rizq/core/utils/extension_methods.dart';
 class CustomDropdownButton extends StatefulWidget {
   final String title;
   final List<String> items;
-  final void Function(String? value) onSaved;
   final void Function(String? value)? onChanged;
   final String? Function(String? s)? validator;
   final String hint;
@@ -20,7 +19,6 @@ class CustomDropdownButton extends StatefulWidget {
     super.key,
     required this.title,
     required this.items,
-    required this.onSaved,
     this.validator,
     required this.hint,
     this.prefixIcon,
@@ -52,7 +50,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           items: widget.items
               .map(
                 (key) => DropdownMenuItem<String>(
-                  value: key,
+                  value: tr(key),
                   child: Container(
                     padding: EdgeInsets.all(8.r),
                     width: double.maxFinite,
@@ -63,7 +61,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                       ),
                     ),
                     child: Text(
-                      tr(key, context:context),
+                      tr(key),
                       style: AppTextStyles.cairoTextStyle(
                         size: 14,
                         color: AppColors.primaryColor,
@@ -74,9 +72,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
               )
               .toList(),
           onChanged: widget.onChanged,
-          onSaved: (s) {
-            widget.onSaved(s);
-          },
+
           isExpanded: true,
           isDense: true,
           alignment: AlignmentDirectional.centerStart,

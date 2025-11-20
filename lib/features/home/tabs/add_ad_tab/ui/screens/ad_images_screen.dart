@@ -80,8 +80,8 @@ class AdImagesScreen extends StatelessWidget {
                       },
                     ),
                     20.vGap,
-
-                    // BUTTON
+                    LinearProgressIndicator(value: .3, backgroundColor: Color(0xffEBEEF3), valueColor: AlwaysStoppedAnimation(Color(0xff00A2FF)),),
+                    20.vGap,
                     PrimaryButton(
                       title: LocaleKeys.Auth_next.tr(context: context),
                       disabledColor: AppColors.disabledColor,

@@ -7,12 +7,16 @@ import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/forget_password/ui/otp_screen.dart';
 import 'package:rizq/features/auth/outer_screens/ui/successful_register_screen.dart';
+import 'package:rizq/features/auth/register/data/models/category_model.dart';
+import 'package:rizq/features/auth/register/data/models/governorate_model.dart';
 import 'package:rizq/features/auth/register/data/models/register_request_model.dart';
 import 'package:rizq/features/auth/register/data/repo/base_register_repo.dart';
+import 'package:rizq/features/auth/register/data/repo/gov_cat_repo/base_gov_cat_repo.dart';
 import 'package:rizq/features/auth/register/logic/register_states.dart';
 
 final class RegisterCubit extends Cubit<RegisterStates> {
   final BaseRegisterRepo registerRepo;
+  final BaseGovCatRepo govCatRepo;
 
   final nameController = TextEditingController(text: kDebugMode ? 'ali' : '');
   final emailController = TextEditingController(
@@ -28,8 +32,8 @@ final class RegisterCubit extends Cubit<RegisterStates> {
     text: kDebugMode ? 'Aa123456' : '',
   );
 
-  String? governorateKey;
-  String? activityKey;
+  int? governorateId;
+  int? categoryId;
 
   final shopNameController = TextEditingController(
     text: kDebugMode ? "Rizq Store" : "",
@@ -68,7 +72,7 @@ final class RegisterCubit extends Cubit<RegisterStates> {
   String? idFilePath;
   String? ownershipFilePath;
 
-  RegisterCubit(this.registerRepo) : super(RegisterInitialState());
+  RegisterCubit({required this.registerRepo, required this.govCatRepo}) : super(RegisterInitialState());
 
   void registerUser() async {
     UserRole role = UserRole.getCachedUserRole();
@@ -81,8 +85,8 @@ final class RegisterCubit extends Cubit<RegisterStates> {
       phone: phoneController.text,
       password: passwordController.text,
       accountType: role.name,
-      governorateId: 1,
-      interestedCategoryId: role.isNormal ? null : 1,
+      governorateId: governorateId?? 1,
+      interestedCategoryId: role.isNormal ? null : categoryId,
       storeName: role.isNormal ? null : LocalizedName(ar: shopNameController.text, en: shopNameController.text),
       storeOrCompanyLogo: role.isNormal ? null : shopLogoFilePath,
       commercialRegisterNumber: role.isNormal ? null : idFilePath,
@@ -115,5 +119,34 @@ final class RegisterCubit extends Cubit<RegisterStates> {
         RouteManager.navigateTo(SuccessfulRegisterScreen());
       },
     );
+  }
+
+  List<GovernorateModel> governorates = [];
+  void getGovernorates()async{
+    emit(RegisterGettingDataState());
+
+    var result = await govCatRepo.getGovernorates();
+
+    result.fold((failure){
+      emit(RegisterGotDataFailureState(failure.errMessage));
+    }, (govs){
+      governorates = govs;
+      emit(RegisterGotDataSuccessState());
+    });
+  }
+
+  List<CategoryModel> categories = [];
+  void getCategories()async{
+    emit(RegisterGettingDataState());
+
+    var result = await govCatRepo.getCategories();
+
+    result.fold((failure){
+      emit(RegisterGotDataFailureState(failure.errMessage));
+    }, (cats){
+      categories = cats;
+      emit(RegisterGotDataSuccessState());
+    });
+
   }
 }

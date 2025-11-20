@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/bouquet_subscription_screen.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/categories_screen.dart';
-import 'package:rizq/features/splash/splash_screen.dart';
 
 import 'core/theme/theme.dart';
 import 'core/utils/lang_helper.dart';
@@ -47,7 +45,7 @@ class RizqApp extends StatelessWidget {
               localizationsDelegates: context.localizationDelegates,
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
-              home: LoginScreen(),
+              home: CategoriesScreen(),
             ),
           );
         },

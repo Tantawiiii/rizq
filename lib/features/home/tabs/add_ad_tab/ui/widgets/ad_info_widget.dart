@@ -12,6 +12,7 @@ import 'package:rizq/core/utils/lang_helper.dart';
 import 'package:rizq/features/auth/widgets/description_text_field.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_states.dart';
+import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/ad_images_screen.dart';
 import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/bouquet_subscription_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
@@ -55,7 +56,6 @@ class AdInfoWidget extends StatelessWidget {
                   CustomDropdownButton(
                     title: LocaleKeys.Auth_state.tr(context: context),
                     hint: LocaleKeys.Auth_state.tr(context: context),
-                    onSaved: (s){},
 
                     value: cubit.selectedState,
                     onChanged: (s){
@@ -77,7 +77,6 @@ class AdInfoWidget extends StatelessWidget {
                   CustomDropdownButton(
                     title: LocaleKeys.createAd_city.tr(context: context),
                     hint: LocaleKeys.createAd_city.tr(context: context),
-                    onSaved: (s){},
 
                     value: cubit.selectedState,
                     onChanged: (s){
@@ -106,8 +105,6 @@ class AdInfoWidget extends StatelessWidget {
                   CustomDropdownButton(
                     title: LocaleKeys.createAd_contactWay.tr(context: context),
                     hint: LocaleKeys.createAd_contactWay.tr(context: context),
-                    onSaved: (s){},
-
                     value: cubit.contactWay,
                     onChanged: (s){},
 
@@ -124,7 +121,6 @@ class AdInfoWidget extends StatelessWidget {
                   CustomDropdownButton(
                     title: LocaleKeys.createAd_typeOfPrice.tr(context: context),
                     hint: LocaleKeys.createAd_typeOfPrice.tr(context: context),
-                    onSaved: (s){},
 
                     value: cubit.priceType,
                     onChanged: (s){},
@@ -152,10 +148,10 @@ class AdInfoWidget extends StatelessWidget {
                   ),
 
                   PrimaryButton(
-                    title: LocaleKeys.createAd_publishAd.tr(context: context),
+                    title: LocaleKeys.Auth_next.tr(context: context),
                     disabledColor: AppColors.disabledColor,
                     onPressed: (){
-                      RouteManager.navigateTo(BouquetSubscriptionScreen());
+                      RouteManager.navigateTo(AdImagesScreen());
                     },
                   ),
                 ],

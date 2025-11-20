@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:rizq/core/network/api_constants.dart';
+import 'package:rizq/core/utils/lang_helper.dart';
 import 'base_api_service.dart';
 
 class ChildApiService extends BaseApiService {
@@ -17,17 +18,6 @@ class ChildApiService extends BaseApiService {
       BaseOptions(
         baseUrl: ApiConstants.baseUrl,
         receiveDataWhenStatusError: true,
-      ),
-    );
-    dio!.interceptors.add(
-      PrettyDioLogger(
-        requestHeader: true,
-        requestBody: true,
-        responseBody: true,
-        responseHeader: true,
-        error: true,
-        compact: true,
-        maxWidth: 90,
       ),
     );
 
@@ -45,6 +35,7 @@ class ChildApiService extends BaseApiService {
           // }
           options.headers['Content-Type'] = 'application/json';
           options.headers['Accept'] = "application/json";
+          options.headers['Accept-Language'] = LangHelper.apiAcceptLanguageHeader;
           // Do something before the request is sent (if needed)
           return handler.next(options); // Continue with the request
         },
@@ -99,6 +90,19 @@ class ChildApiService extends BaseApiService {
         },
       ),
     );
+
+    dio!.interceptors.add(
+      PrettyDioLogger(
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: true,
+        error: true,
+        compact: true,
+        maxWidth: 90,
+      ),
+    );
+
   }
 
   @override
