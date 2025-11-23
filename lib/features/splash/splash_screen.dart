@@ -3,6 +3,7 @@ import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
+import 'package:rizq/features/home/main_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4), // total animation time
+      duration: const Duration(seconds: 4),
     );
 
     // Use fractional offsets:
@@ -49,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       ),
     ]).animate(_controller);
 
-    _controller.forward().whenComplete(()=>RouteManager.navigateAndPopAll( LoginScreen()));
+    _controller.forward().whenComplete(()=>RouteManager.navigateAndPopAll( MainScreen()));
   }
 
   @override

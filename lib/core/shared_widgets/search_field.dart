@@ -1,10 +1,13 @@
+import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../features/home/tabs/home_tap/screens/map_filter_screen.dart';
 import '../constant/app_assets.dart';
 import '../constant/app_colors.dart';
 import '../constant/app_texts.dart';
+import '../router/route_manager.dart';
 import '../theme/app_text_styles.dart';
 
 class SearchField extends StatelessWidget {
@@ -52,7 +55,9 @@ class SearchField extends StatelessWidget {
             suffixIcon: showSuffixIcon
                 ? Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: SvgPicture.asset(AppAssets.locationPinSvg),
+                    child: Bounce(
+                        onTap: ()=>  RouteManager.navigateTo(const MapFilterScreen()),
+                        child: SvgPicture.asset(AppAssets.locationPinSvg)),
                   )
                 : null,
             hintText: hintText ?? AppTexts.search,

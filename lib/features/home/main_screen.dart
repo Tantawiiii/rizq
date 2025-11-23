@@ -21,7 +21,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   final PersistentTabController _controller = PersistentTabController(
-    initialIndex: 4,
+    initialIndex: 0,
   );
   final ScrollController _scrollController = ScrollController();
 
@@ -74,132 +74,30 @@ class _MainScreenState extends State<MainScreen> {
         animationSettings: const NavBarAnimationSettings(),
         navBarStyle: NavBarStyle.style16,
         navBarHeight: 70.h,
-        margin: EdgeInsets.symmetric( vertical: 2.h),
+        margin: EdgeInsets.symmetric(vertical: 2.h),
       ),
     );
   }
 
   List<Widget> _buildScreens() {
     return [
-      const ProfileTab(),
-      const ChatListScreen(),
-      const CategoriesScreen(),
-      const TasksTab(),
       HomeTab(scrollController: _scrollController),
+      const TasksTab(),
+      const CategoriesScreen(),
+      const ChatListScreen(),
+      const ProfileTab(),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
-
-      PersistentBottomNavBarItem(
-        icon: SvgPicture.asset(
-          AppAssets.userSvg,
-          width: 24.w,
-          height: 24.h,
-          colorFilter: ColorFilter.mode(
-            _controller.index == 0
-                ? AppColors.primaryColor
-                : AppColors.primaryColor,
-            BlendMode.srcIn,
-          ),
-        ),
-        inactiveIcon: SvgPicture.asset(
-          AppAssets.userSvg,
-          width: 24.w,
-          height: 24.h,
-          colorFilter: ColorFilter.mode(
-            AppColors.primaryColor,
-            BlendMode.srcIn,
-          ),
-        ),
-        title: "",
-        activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: AppColors.primaryColor,
-      ),
-
-      PersistentBottomNavBarItem(
-        icon: SvgPicture.asset(
-          AppAssets.chatSvg,
-          width: 24.w,
-          height: 24.h,
-          colorFilter: ColorFilter.mode(
-            _controller.index == 1
-                ? AppColors.primaryColor
-                : AppColors.primaryColor,
-            BlendMode.srcIn,
-          ),
-        ),
-        inactiveIcon: SvgPicture.asset(
-          AppAssets.chatSvg,
-          width: 24.w,
-          height: 24.h,
-          colorFilter: ColorFilter.mode(
-            AppColors.primaryColor,
-            BlendMode.srcIn,
-          ),
-        ),
-        title: "",
-        activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: AppColors.primaryColor,
-      ),
-
-      PersistentBottomNavBarItem(
-        icon: Center(
-          child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
-        ),
-        inactiveIcon: Center(
-          child: Container(
-            width: 40.w,
-            height: 40.h,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.sconderyColor,
-            ),
-            child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
-          ),
-        ),
-        title: "",
-        activeColorPrimary: AppColors.sconderyColor,
-        inactiveColorPrimary: AppColors.sconderyColor,
-        onPressed: (context) {
-          _controller.jumpToTab(1);
-        },
-      ),
-
-      PersistentBottomNavBarItem(
-        icon: SvgPicture.asset(
-          AppAssets.adsSvg,
-          width: 24.w,
-          height: 24.h,
-          colorFilter: ColorFilter.mode(
-            _controller.index == 3
-                ? AppColors.primaryColor
-                : AppColors.primaryColor,
-            BlendMode.srcIn,
-          ),
-        ),
-        inactiveIcon: SvgPicture.asset(
-          AppAssets.adsSvg,
-          width: 24.w,
-          height: 24.h,
-          colorFilter: ColorFilter.mode(
-            AppColors.primaryColor,
-            BlendMode.srcIn,
-          ),
-        ),
-        title: "",
-        activeColorPrimary: AppColors.primaryColor,
-        inactiveColorPrimary: AppColors.primaryColor,
-      ),
-
       PersistentBottomNavBarItem(
         icon: SvgPicture.asset(
           AppAssets.homeSvg,
           width: 24.w,
           height: 24.h,
           colorFilter: ColorFilter.mode(
-            _controller.index == 4
+            _controller.index == 0
                 ? AppColors.sconderyColor
                 : AppColors.primaryColor,
             BlendMode.srcIn,
@@ -216,6 +114,102 @@ class _MainScreenState extends State<MainScreen> {
         ),
         title: "",
         activeColorPrimary: AppColors.sconderyColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.adsSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 1
+                ? AppColors.primaryColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.adsSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
+      PersistentBottomNavBarItem(
+        icon: Center(
+          child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
+        ),
+        inactiveIcon: Center(
+          child: Container(
+            height: 90.h,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppColors.sconderyColor,
+            ),
+            child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.sconderyColor,
+        inactiveColorPrimary: AppColors.sconderyColor,
+        onPressed: (context) {
+          _controller.jumpToTab(2);
+        },
+      ),
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.chatSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 3
+                ? AppColors.primaryColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.chatSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.primaryColor,
+        inactiveColorPrimary: AppColors.primaryColor,
+      ),
+      PersistentBottomNavBarItem(
+        icon: SvgPicture.asset(
+          AppAssets.userSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            _controller.index == 4
+                ? AppColors.primaryColor
+                : AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        inactiveIcon: SvgPicture.asset(
+          AppAssets.userSvg,
+          width: 24.w,
+          height: 24.h,
+          colorFilter: ColorFilter.mode(
+            AppColors.primaryColor,
+            BlendMode.srcIn,
+          ),
+        ),
+        title: "",
+        activeColorPrimary: AppColors.primaryColor,
         inactiveColorPrimary: AppColors.primaryColor,
       ),
     ];

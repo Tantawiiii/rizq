@@ -92,4 +92,9 @@ final class AppTexts {
   static const String searchForRegion = "بحث عن منطقة";
   static const String numberOfKilometers = "عدد الكيلومترات";
   static const String km = "كم";
+  
+  // Notifications Screen
+  static const String markAsRead = "تمميز كمقروء";
+  static const String discountCoupon = "كوبون خصم";
+  static const String discountCouponDescription = "استخدم كوبون خصم flash10 للحصول علي خصم %40 علي إشتراكك التالي الكوبون صالحة لمدة يومين";
 }

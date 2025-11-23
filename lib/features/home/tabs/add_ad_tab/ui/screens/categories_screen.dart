@@ -17,10 +17,11 @@ class CategoriesScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           slivers: [
             SliverAppBar(
-              leading: const AppBarBackButton(),
+            //  leading: const AppBarBackButton(),
               title: Text(LocaleKeys.createAd_addNewAd.tr(context: context)),
               pinned: false,
               floating: true,
+              centerTitle: true,
             ),
             SliverAppBar(
               title: Text(LocaleKeys.createAd_chooseCategory.tr(context: context)),
