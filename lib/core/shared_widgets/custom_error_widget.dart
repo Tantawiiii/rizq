@@ -29,7 +29,6 @@ class CustomErrorWidget extends StatelessWidget {
             ),
           ),
           30.vGap,
-
           Container(
             width: double.infinity,
             padding: EdgeInsets.all(10.r),

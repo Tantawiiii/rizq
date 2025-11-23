@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 
+import '../../../../../core/router/route_manager.dart';
+import '../../../../notifications/ui/screens/notifications_screen.dart';
+
 Widget HeaderWidget() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -33,7 +36,7 @@ Widget HeaderWidget() {
           //   ),
           // ),
           Bounce(
-            onTap: () {},
+            onTap: () => RouteManager.navigateTo(const NotificationsScreen()),
             child: SvgPicture.asset(
               AppAssets.notificationSvg,
               width: 24.w,

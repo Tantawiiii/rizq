@@ -27,12 +27,7 @@ class HomeSearchAndCategories extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Bounce(
-          onTap: () {
-            RouteManager.navigateTo(const MapFilterScreen());
-          },
-          child: const SearchField(readOnly: true),
-        ),
+        const SearchField(),
         24.verticalSpace,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +36,7 @@ class HomeSearchAndCategories extends StatelessWidget {
               AppTexts.categories,
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
-                size: 20,
+                size: 16.sp,
                 fontWeight: FontWeight.w700,
               ),
             ),

@@ -6,6 +6,7 @@ import 'package:rizq/features/home/tabs/profile_tap/widgets/profile_menu_card.da
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/router/route_manager.dart';
+import '../../../../notifications/ui/screens/notifications_screen.dart';
 import 'personal_info_screen.dart';
 import 'wallet_screen.dart';
 
@@ -20,8 +21,16 @@ class ProfileTab extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           children: [
-            _buildHeader(context),
-            24.verticalSpace,
+            Text(
+              AppTexts.profile,
+              textAlign: TextAlign.center,
+              style: AppTextStyles.cairoTextStyle(
+                color: AppColors.primaryColor,
+                size: 16.sp,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            44.verticalSpace,
             ProfileMenuCard(
               title: AppTexts.infoProfileUser,
               leadingIcon: Icons.person_outline,
@@ -80,64 +89,41 @@ class ProfileTab extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context) {
-    return Row(
-      children: [
-        IconButton(
-          onPressed: () => Navigator.of(context).maybePop(),
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            size: 20.w,
-            color: AppColors.primaryColor,
-          ),
-        ),
-        Expanded(
-          child: Text(
-            AppTexts.profile,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.cairoTextStyle(
-              color: AppColors.primaryColor,
-              size: 20,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-        ),
-        SizedBox(width: 48.w),
-      ],
-    );
-  }
 
   Widget _buildNotificationRow() {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.overlayColor,
-        borderRadius: BorderRadius.circular(16.r),
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
-      child: Row(
-        children: [
-          Icon(
-            Icons.notifications_none,
-            color: AppColors.primaryColor,
-            size: 20.w,
-          ),
-          12.horizontalSpace,
-          Expanded(
-            child: Text(
-              AppTexts.notifications,
-              style: AppTextStyles.cairoTextStyle(
-                color: AppColors.primaryColor,
-                size: 16,
-                fontWeight: FontWeight.w600,
+    return GestureDetector(
+      onTap: () => RouteManager.navigateTo(const NotificationsScreen()),
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColors.overlayColor,
+          borderRadius: BorderRadius.circular(16.r),
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
+        child: Row(
+          children: [
+            Icon(
+              Icons.notifications_none,
+              color: AppColors.primaryColor,
+              size: 20.w,
+            ),
+            12.horizontalSpace,
+            Expanded(
+              child: Text(
+                AppTexts.notifications,
+                style: AppTextStyles.cairoTextStyle(
+                  color: AppColors.primaryColor,
+                  size: 16,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          Switch(
-            value: false,
-            onChanged: (_) {},
-            activeColor: AppColors.primaryColor,
-          ),
-        ],
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 16.w,
+              color: AppColors.primaryColor,
+            ),
+          ],
+        ),
       ),
     );
   }
