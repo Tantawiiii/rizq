@@ -168,11 +168,12 @@ class _OtpScreenState extends State<OtpScreen> {
                     25.vGap,
 
                     PrimaryButton(
-                        title: LocaleKeys.Auth_Login_signUp.tr(context: context),
-                      disabledColor: AppColors.disabledColor,
+                        title: LocaleKeys.Auth_otp_checkCode.tr(context: context),
+                      isLoading: state is ForgetPasswordLoadingState,
+                      disabledColor: AppColors.primaryColor,
                       onPressed: (){
                         if(formKey.currentState!.validate()){
-                          RouteManager.navigateTo(PasswordResetScreen(email: widget.email, otp: otpController.text,));
+                          cubit.verifyOtp(email: widget.email, otp: otpController.text,);
                         }
                         else{
                           setState(() {});

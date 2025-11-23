@@ -25,6 +25,26 @@ final class ForgetPasswordRepo extends BaseForgetPasswordRepo{
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, Response>> verifyOtp({required String email, required String otp})async{
+    try {
+      var response = await apiService.post(
+        ApiConstants.verifyOtpEndpoint,
+        body: FormData.fromMap({
+          'email':email,
+          'otp':otp,
+        }),
+      );
+
+      return right(response);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }
+  }
   @override
   Future<Either<Failure, Response>> resetPassword({required ResetPasswordRequestModel model})async{
     try {

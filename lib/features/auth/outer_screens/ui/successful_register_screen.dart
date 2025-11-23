@@ -8,6 +8,7 @@ import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
 import 'package:rizq/features/auth/outer_screens/ui/widgets/gif_player_widget.dart';
 import 'package:rizq/features/home/main_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
@@ -69,7 +70,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                     PrimaryButton(
                       title: LocaleKeys.Auth_register_goLogin.tr(context: context),
                       onPressed: (){
-                        RouteManager.navigateAndPopAll(MainScreen());
+                        RouteManager.navigateAndPopAll(LoginScreen());
                       },
                     )
 

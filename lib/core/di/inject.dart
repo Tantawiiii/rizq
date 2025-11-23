@@ -8,8 +8,8 @@ import 'package:rizq/features/auth/outer_screens/cubit/general_register_cubit.da
 import 'package:rizq/features/auth/register/data/repo/gov_cat_repo/gov_cat_repo.dart';
 import 'package:rizq/features/auth/register/data/repo/register_repo.dart';
 import 'package:rizq/features/auth/register/logic/register_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/payment_cubit/payment_cubit.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
+import 'package:rizq/features/plans/logic/payment_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -39,7 +39,7 @@ Future<void> init() async {
   sl.registerFactory(() => ForgetPasswordCubit(sl<ForgetPasswordRepo>()));
 
 
-  sl.registerFactory(()=>AddAdCubit());
+  sl.registerFactory(()=>CreateAdCubit(govCatRepo: sl<GovCatRepo>()));
   sl.registerFactory(()=>PaymentCubit());
 
   //repos

@@ -1,14 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:rizq/core/constant/app_assets.dart';
-import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/widgets/ad_info_widget.dart';
-import 'package:rizq/features/home/tabs/home_tap/model/adItem.dart';
-import 'package:rizq/features/home/tabs/home_tap/widgets/ad_card.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/ui/widgets/ad_info_widget.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class AdInfoScreen extends StatelessWidget {
@@ -73,7 +68,7 @@ class AdInfoScreen extends StatelessWidget {
             //
           ],
         ),
-      ),
+      )
     );
   }
 }

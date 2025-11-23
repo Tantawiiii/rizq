@@ -1,13 +1,14 @@
 import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/cached_net_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/features/auth/register/data/models/category_model.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/ad_images_screen.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/ad_info_screen.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/ad_info_screen.dart';
 
 class CategoryItem extends StatelessWidget {
 final CategoryModel model;
@@ -17,7 +18,9 @@ final CategoryModel model;
   Widget build(BuildContext context) {
     return Bounce(
       onTap: (){
-        RouteManager.navigateTo(AdInfoScreen());
+        RouteManager.navigateTo(BlocProvider.value(
+            value: context.read<CreateAdCubit>()..getGovernorates(),
+            child: AdInfoScreen()));
       },
       child: Container(
         clipBehavior: Clip.antiAlias,

@@ -81,4 +81,17 @@ final class FormValidators {
     return null;
   }
 
+  static String? contactWayValidator(String?s){
+    if(s == null || s.isEmpty ){
+      return LocaleKeys.formErrors_contactWayRequired.tr();
+    }
+    return null;
+  }
+
+  static String? priceTypeValidator(String?s){
+    if(s == null || s.isEmpty ){
+      return LocaleKeys.formErrors_priceTypeRequired.tr();
+    }
+    return null;
+  }
 }

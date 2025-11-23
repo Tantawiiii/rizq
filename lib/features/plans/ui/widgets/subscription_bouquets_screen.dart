@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/data/bouquet_model.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/widgets/bouquet_subscription_widgets/bouquet_widget.dart';
+import 'package:rizq/features/plans/data/models/bouquet_model.dart';
 
-class SubscriptionBouquetsTab extends StatelessWidget {
-  const SubscriptionBouquetsTab({super.key});
+
+import 'bouquet_widget.dart';
+
+
+class SubscriptionBouquetsScreen extends StatelessWidget {
+  const SubscriptionBouquetsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

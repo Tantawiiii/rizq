@@ -51,7 +51,7 @@
       "chooseFileFromDevice": "اختر الملف من الجهاز",
 
       "congrats": "تهانينا!",
-      "successfulRegistrationForNormal": "تم إنشاء الحساب بنجاح",
+      "successfulRegistration": "تم إنشاء الحساب بنجاح",
       "successfulRegistrationForSellerCompany": "تم إنشاء الحساب بنجاح. سيتم مراجعة بياناتك من قبل الإدارة والرد عليك في أقرب وقت ممكن.",
 
       "goHome": "التوجه إلى الرئيسية",
@@ -74,7 +74,8 @@
     },
     "otp": {
       "weHaveSentCode" : "لقد قمنا بإرسال رمز إلي بريدك الإلكتروني برجاء ادخاله حتي تتمكن من تأكيد حسابك" ,
-      "resendCode" : "إعادة الإرسال"
+      "resendCode" : "إعادة الإرسال",
+      "checkCode" : "تحقق من الكود"
     },
     "forgetPassword": {
       "enterEmailToSendCode" : "قم بإدخال بريدك الإلكتروني حتي تتمكن من إنشاء كلمة مرور جديدة",
@@ -140,6 +141,7 @@
     "subscribeInThisBouquet" : "الإشتراك في الباقة",
     "skip" : "تخطي",
     "confirmPayment" : "تأكيد الدفع",
+    "subscriptions" : "الاشتراكات",
 
     "paymentMethod" : "اختر طريقة الدفع",
     "paymentSummary" : "ملخص الشراء",
@@ -245,6 +247,8 @@
    "idFileRequired" : "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF",
 
    "addressLinkWrong" : "رابط العنوان غير صحيح !",
+   "contactWayRequired" : "طريقة التواصل مطلوبة !",
+   "priceTypeRequired" : "نوع السعر مطلوب !",
 
    "retry" : "اعادة المحاولة"
  }

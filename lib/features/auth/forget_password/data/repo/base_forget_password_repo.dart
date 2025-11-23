@@ -10,6 +10,7 @@ abstract class BaseForgetPasswordRepo {
   const BaseForgetPasswordRepo(this.apiService);
 
   Future<Either<Failure, Response>> sendForgetPasswordOtp({required String email});
+  Future<Either<Failure, Response>> verifyOtp({required String email, required String otp});
   Future<Either<Failure, Response>> resetPassword({required ResetPasswordRequestModel model});
 
 }

@@ -10,6 +10,7 @@ final class ApiConstants {
   static const sendResetPasswordOtpEndpoint = 'send-reset-password-otp';
   static const resetPasswordEndpoint = 'reset-password';
   static const refreshToken = 'refresh';
+  static const verifyOtpEndpoint = 'verify-otp';
 
   static const governoratesEndpoint = 'governorates';
   static const categoriesEndpoint = 'categories';

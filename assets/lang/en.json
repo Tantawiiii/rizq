@@ -73,7 +73,8 @@
 
     "otp": {
       "weHaveSentCode": "We have sent a code to your email. Please enter it to verify your account.",
-      "resendCode": "Resend code"
+      "resendCode": "Resend code",
+      "checkCode" : "check Code"
     },
 
     "forgetPassword": {
@@ -139,6 +140,7 @@
     "subscribeInThisBouquet": "Subscribe to this Package",
     "skip": "Skip",
     "confirmPayment": "Confirm Payment",
+    "subscriptions" : "Subscriptions",
 
     "paymentMethod" : "Choose payment method",
     "paymentSummary" : "Purchase summary",
@@ -245,6 +247,9 @@
     "idFileRequired" : "ID is required! choose an image or PDF",
 
     "addressLinkWrong" : "The Address Link is not valid !",
+
+    "contactWayRequired" : "Contact method is required !",
+    "priceTypeRequired" : "Price type is required !",
     "retry" : "Retry"
 
   }

@@ -30,6 +30,7 @@ final class AppTheme{
       centerTitle: false,
     ),
 
+
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: AppColors.primaryColor,
       strokeWidth: 3,

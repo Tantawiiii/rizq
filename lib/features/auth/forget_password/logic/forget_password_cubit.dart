@@ -5,6 +5,7 @@ import 'package:rizq/features/auth/forget_password/data/models/reser_password_re
 import 'package:rizq/features/auth/forget_password/data/repo/base_forget_password_repo.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_states.dart';
 import 'package:rizq/features/auth/forget_password/ui/otp_screen.dart';
+import 'package:rizq/features/auth/forget_password/ui/password_reset_screen.dart';
 import 'package:rizq/features/auth/forget_password/ui/successful_password_reset_screen.dart';
 
 final class ForgetPasswordCubit extends Cubit<ForgetPasswordStates> {
@@ -26,8 +27,26 @@ final class ForgetPasswordCubit extends Cubit<ForgetPasswordStates> {
     );
   }
 
-  void resetPassword({
+  void verifyOtp({
+    required String email,
+    required String otp,
+  }) async {
+    emit(ForgetPasswordLoadingState());
+    var result = await _repo.verifyOtp(email: email, otp: otp);
+    result.fold(
+      (failure) {
+        emit(ForgetPasswordFailureState(message: failure.errMessage));
+        showCustomSnackBar(message: failure.errMessage);
+      },
+      (response) {
+        emit(ForgetPasswordSuccessState());
+        RouteManager.navigateTo(PasswordResetScreen(email: email, otp: otp));
+      },
+    );
+  }
 
+
+  void resetPassword({
     required ResetPasswordRequestModel resetPasswordRequestModel,
   }) async {
     emit(ForgetPasswordLoadingState());

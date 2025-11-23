@@ -9,11 +9,10 @@ import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
-import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/data/payment_summary_model.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/payment_cubit/payment_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/payment_cubit/payment_states.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/successful_published_ad_screen.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/successful_published_ad_screen.dart';
+import 'package:rizq/features/plans/data/models/payment_summary_model.dart';
+import 'package:rizq/features/plans/logic/payment_cubit.dart';
+import 'package:rizq/features/plans/logic/payment_states.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class PaymentSummaryWidget extends StatelessWidget {

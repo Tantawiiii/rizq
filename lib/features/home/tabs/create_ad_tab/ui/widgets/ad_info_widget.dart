@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_text_field.dart';
 import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/core/shared_widgets/custom_skelton.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/utils/lang_helper.dart';
 import 'package:rizq/features/auth/widgets/description_text_field.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_cubit.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/logic/add_ad_cubit/add_ad_states.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/ad_images_screen.dart';
-import 'package:rizq/features/home/tabs/add_ad_tab/ui/screens/bouquet_subscription_screen.dart';
+import 'package:rizq/features/auth/widgets/form_validators.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_states.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/ad_images_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class AdInfoWidget extends StatelessWidget {
@@ -21,13 +21,16 @@ class AdInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context)=>sl<AddAdCubit>(),
-      child: BlocBuilder<AddAdCubit, AddAdStates>(
-          builder: (context,state){
-            var cubit = context.read<AddAdCubit>();
+    return BlocBuilder<CreateAdCubit, CreateAdStates>(
+        builder: (context,state){
+          var cubit = context.read<CreateAdCubit>();
 
-            return Container(
+
+          return state is CreateAdGetDataFailureState? CustomErrorWidget(errorMessage: state.errorMessage, onRefresh: (){
+            cubit.getGovernorates();
+          }):  CustomSkelton(
+            enabled: state is CreateAdGettingDataState,
+            child: Container(
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.r),
@@ -57,42 +60,29 @@ class AdInfoWidget extends StatelessWidget {
                     title: LocaleKeys.Auth_state.tr(context: context),
                     hint: LocaleKeys.Auth_state.tr(context: context),
 
-                    value: cubit.selectedState,
+                    value: cubit.selectedGov,
                     onChanged: (s){
                       if(s != null && s.isNotEmpty){
-                        cubit.stateChanged(s);
+                        cubit.selectedGov = s;;
                       }
 
                     },
-
-                    items: cubit.syriaStatesKeys,
-                    validator: (s){
-                      if(s == null || s.isEmpty){
-                        return 'State is requried';
-                      }
-                      return null;
-                    },
+                    items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                    validator: FormValidators.stateValidator,
                   ),
                   // city
                   CustomDropdownButton(
                     title: LocaleKeys.createAd_city.tr(context: context),
                     hint: LocaleKeys.createAd_city.tr(context: context),
 
-                    value: cubit.selectedState,
+                    value: cubit.selectedGov,
                     onChanged: (s){
                       if(s != null && s.isNotEmpty){
-                        cubit.stateChanged(s);
+                        cubit.selectedGov = s;;
                       }
-
                     },
-
-                    items: cubit.syriaStatesKeys,
-                    validator: (s){
-                      if(s == null || s.isEmpty){
-                        return 'State is requried';
-                      }
-                      return null;
-                    },
+                    items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                    validator: FormValidators.stateValidator,
                   ),
 
                   AppTextField(
@@ -106,15 +96,13 @@ class AdInfoWidget extends StatelessWidget {
                     title: LocaleKeys.createAd_contactWay.tr(context: context),
                     hint: LocaleKeys.createAd_contactWay.tr(context: context),
                     value: cubit.contactWay,
-                    onChanged: (s){},
-
-                    items: cubit.contactWayKeys,
-                    validator: (s){
-                      if(s == null || s.isEmpty){
-                        return 'State is requried';
+                    onChanged: (s){
+                      if(s != null && s.isNotEmpty){
+                        cubit.contactWay = s;;
                       }
-                      return null;
                     },
+                    items: cubit.contactWayKeys,
+                    validator: FormValidators.contactWayValidator
                   ),
 
                   // price type
@@ -123,15 +111,14 @@ class AdInfoWidget extends StatelessWidget {
                     hint: LocaleKeys.createAd_typeOfPrice.tr(context: context),
 
                     value: cubit.priceType,
-                    onChanged: (s){},
+                    onChanged: (s){
+                      if(s != null && s.isNotEmpty){
+                        cubit.priceType = s;
+                      }
+                    },
 
                     items: cubit.priceTypeKeys,
-                    validator: (s){
-                      if(s == null || s.isEmpty){
-                        return 'price type is requried';
-                      }
-                      return null;
-                    },
+                    validator: FormValidators.priceTypeValidator,
                   ),
 
                   AppTextField(
@@ -151,14 +138,16 @@ class AdInfoWidget extends StatelessWidget {
                     title: LocaleKeys.Auth_next.tr(context: context),
                     disabledColor: AppColors.disabledColor,
                     onPressed: (){
-                      RouteManager.navigateTo(AdImagesScreen());
+                      RouteManager.navigateTo(BlocProvider.value(
+                          value: context.read<CreateAdCubit>(),
+                          child: AdImagesScreen()));
                     },
                   ),
                 ],
               ),
-            );
-          }
-      ),
+            ),
+          );
+        }
     );
   }
 }

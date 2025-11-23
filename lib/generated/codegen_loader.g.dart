@@ -78,7 +78,8 @@ class CodegenLoader extends AssetLoader{
     },
     "otp": {
       "weHaveSentCode": "We have sent a code to your email. Please enter it to verify your account.",
-      "resendCode": "Resend code"
+      "resendCode": "Resend code",
+      "checkCode": "check Code"
     },
     "forgetPassword": {
       "enterEmailToSendCode": "Enter your email to be able to create a new password",
@@ -138,6 +139,7 @@ class CodegenLoader extends AssetLoader{
     "subscribeInThisBouquet": "Subscribe to this Package",
     "skip": "Skip",
     "confirmPayment": "Confirm Payment",
+    "subscriptions": "Subscriptions",
     "paymentMethod": "Choose payment method",
     "paymentSummary": "Purchase summary",
     "bouquetPrice": "Price of {}",
@@ -227,6 +229,8 @@ class CodegenLoader extends AssetLoader{
     "passwordAreNotIdentical": "Password are not identical !",
     "idFileRequired": "ID is required! choose an image or PDF",
     "addressLinkWrong": "The Address Link is not valid !",
+    "contactWayRequired": "Contact method is required !",
+    "priceTypeRequired": "Price type is required !",
     "retry": "Retry"
   }
 };
@@ -276,7 +280,7 @@ static const Map<String,dynamic> _ar = {
       "shortActivityDescription": "اكتب الوصف...",
       "chooseFileFromDevice": "اختر الملف من الجهاز",
       "congrats": "تهانينا!",
-      "successfulRegistrationForNormal": "تم إنشاء الحساب بنجاح",
+      "successfulRegistration": "تم إنشاء الحساب بنجاح",
       "successfulRegistrationForSellerCompany": "تم إنشاء الحساب بنجاح. سيتم مراجعة بياناتك من قبل الإدارة والرد عليك في أقرب وقت ممكن.",
       "goHome": "التوجه إلى الرئيسية",
       "createCompanyAccountIn": "قم بإنشاء حساب شركتك في",
@@ -294,7 +298,8 @@ static const Map<String,dynamic> _ar = {
     },
     "otp": {
       "weHaveSentCode": "لقد قمنا بإرسال رمز إلي بريدك الإلكتروني برجاء ادخاله حتي تتمكن من تأكيد حسابك",
-      "resendCode": "إعادة الإرسال"
+      "resendCode": "إعادة الإرسال",
+      "checkCode": "تحقق من الكود"
     },
     "forgetPassword": {
       "enterEmailToSendCode": "قم بإدخال بريدك الإلكتروني حتي تتمكن من إنشاء كلمة مرور جديدة",
@@ -354,6 +359,7 @@ static const Map<String,dynamic> _ar = {
     "subscribeInThisBouquet": "الإشتراك في الباقة",
     "skip": "تخطي",
     "confirmPayment": "تأكيد الدفع",
+    "subscriptions": "الاشتراكات",
     "paymentMethod": "اختر طريقة الدفع",
     "paymentSummary": "ملخص الشراء",
     "bouquetPrice": "ثمن {}",
@@ -443,6 +449,8 @@ static const Map<String,dynamic> _ar = {
     "passwordAreNotIdentical": "كلمتا المرور غير متطابقتين !",
     "idFileRequired": "بطاقة الهوية مطلوبة! اختر صورة او ملف PDF",
     "addressLinkWrong": "رابط العنوان غير صحيح !",
+    "contactWayRequired": "طريقة التواصل مطلوبة !",
+    "priceTypeRequired": "نوع السعر مطلوب !",
     "retry": "اعادة المحاولة"
   }
 };

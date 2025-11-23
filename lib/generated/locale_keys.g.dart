@@ -63,6 +63,7 @@ abstract class  LocaleKeys {
   static const Auth_register = 'Auth.register';
   static const Auth_otp_weHaveSentCode = 'Auth.otp.weHaveSentCode';
   static const Auth_otp_resendCode = 'Auth.otp.resendCode';
+  static const Auth_otp_checkCode = 'Auth.otp.checkCode';
   static const Auth_otp = 'Auth.otp';
   static const Auth_forgetPassword_enterEmailToSendCode = 'Auth.forgetPassword.enterEmailToSendCode';
   static const Auth_forgetPassword_sendCode = 'Auth.forgetPassword.sendCode';
@@ -120,6 +121,7 @@ abstract class  LocaleKeys {
   static const createAd_subscribeInThisBouquet = 'createAd.subscribeInThisBouquet';
   static const createAd_skip = 'createAd.skip';
   static const createAd_confirmPayment = 'createAd.confirmPayment';
+  static const createAd_subscriptions = 'createAd.subscriptions';
   static const createAd_paymentMethod = 'createAd.paymentMethod';
   static const createAd_paymentSummary = 'createAd.paymentSummary';
   static const createAd_bouquetPrice = 'createAd.bouquetPrice';
@@ -189,6 +191,8 @@ abstract class  LocaleKeys {
   static const formErrors_passwordAreNotIdentical = 'formErrors.passwordAreNotIdentical';
   static const formErrors_idFileRequired = 'formErrors.idFileRequired';
   static const formErrors_addressLinkWrong = 'formErrors.addressLinkWrong';
+  static const formErrors_contactWayRequired = 'formErrors.contactWayRequired';
+  static const formErrors_priceTypeRequired = 'formErrors.priceTypeRequired';
   static const formErrors_retry = 'formErrors.retry';
   static const formErrors = 'formErrors';
 
