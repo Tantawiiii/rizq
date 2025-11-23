@@ -28,8 +28,8 @@ import 'package:rizq/generated/locale_keys.g.dart';
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
 
-  final TextEditingController emailController =  TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController =  TextEditingController(text: 'ali@dev.com');
+  final TextEditingController passwordController = TextEditingController(text: 'Aa123456');
   final formKey = GlobalKey<FormState>();
 
 
