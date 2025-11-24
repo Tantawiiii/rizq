@@ -56,14 +56,16 @@ class BouquetSubscriptionScreen extends StatelessWidget {
                                   IconButton(onPressed: (){
                                     cubit.toggleSliverBarVisibility(false);
                                   }, icon: Icon(Icons.highlight_remove_outlined, color: AppColors.primaryColor,)),
-                                  Text(
-                                    LocaleKeys.createAd_wannaIncreaseAdMonthlyNo.tr(context: context),
-                                    style: AppTextStyles.cairoTextStyle(
-                                      size: 14,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.primaryColor,
+                                  Expanded(
+                                    child: Text(
+                                      LocaleKeys.createAd_wannaIncreaseAdMonthlyNo.tr(context: context),
+                                      style: AppTextStyles.cairoTextStyle(
+                                        size: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.primaryColor,
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
                                 ],
                               ),

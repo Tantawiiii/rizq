@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/features/plans/ui/bouquet_subscription_screen.dart';
+import 'package:rizq/features/splash/splash_screen.dart';
 import 'core/theme/theme.dart';
 import 'core/utils/lang_helper.dart';
 import 'features/home/tabs/create_ad_tab/ui/screens/categories_screen.dart';
@@ -45,7 +46,7 @@ class RizqApp extends StatelessWidget {
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
 
-              home: BouquetSubscriptionScreen(),
+              home: SplashScreen(),
 
             ),
           );
