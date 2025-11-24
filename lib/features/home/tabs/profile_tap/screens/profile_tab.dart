@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_texts.dart';
+import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/widgets/profile_menu_card.dart';
 
 import '../../../../../core/constant/app_colors.dart';
@@ -131,7 +132,7 @@ class ProfileTab extends StatelessWidget {
   Widget _buildLogoutCard(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Handle logout
+        RouteManager.navigateAndPopAll(LoginScreen());
       },
       child: Container(
         decoration: BoxDecoration(
