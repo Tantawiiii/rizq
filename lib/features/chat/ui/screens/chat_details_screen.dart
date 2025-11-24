@@ -115,7 +115,25 @@ class _MessageInput extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: Row(
+          spacing: 12.r,
           children: [
+            Container(
+              height: 48.w,
+              width: 48.w,
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+                borderRadius: BorderRadius.circular(16.r),
+              ),
+              child: Center(
+                child: SvgPicture.asset(
+                  AppAssets.sendSvg,
+                  width: 20.w,
+                  height: 20.h,
+                  colorFilter:
+                  const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                ),
+              ),
+            ),
             Expanded(
               child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 12.w),
@@ -139,7 +157,6 @@ class _MessageInput extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 12.w),
             Container(
               height: 48.w,
               width: 48.w,
@@ -148,12 +165,9 @@ class _MessageInput extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16.r),
               ),
               child: Center(
-                child: SvgPicture.asset(
-                  AppAssets.sendSvg,
-                  width: 20.w,
-                  height: 20.h,
-                  colorFilter:
-                      const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                child: Icon(
+                  Icons.camera_alt_outlined,
+                  color: AppColors.white,
                 ),
               ),
             ),
