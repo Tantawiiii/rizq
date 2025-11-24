@@ -33,6 +33,7 @@ class _LangDropDownState extends State<LangDropDown> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: context.screenWidth/3,
+
       child: DropdownButtonFormField2<String>(
         items:[
           LocaleKeys.Languages_arabic,

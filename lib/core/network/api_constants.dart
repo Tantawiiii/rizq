@@ -5,6 +5,7 @@ final class ApiConstants {
   static const String baseUrl = 'https://api.rizq.sy/api/';
 
   // API Endpoints
+  //auth
   static const loginEndpoint = 'login';
   static const registerEndpoint = 'register';
   static const sendResetPasswordOtpEndpoint = 'send-reset-password-otp';
@@ -12,27 +13,13 @@ final class ApiConstants {
   static const refreshToken = 'refresh';
   static const verifyOtpEndpoint = 'verify-otp';
 
+  // subscriptions bouquets
+   static const subscriptionBouquetsEndpoint = 'packages';
+
+   // general
+
   static const governoratesEndpoint = 'governorates';
   static const categoriesEndpoint = 'categories';
 
-  // static const String register = '/api/front/register';
-  // static const String login = '/api/front/login';
-  // static const String logout = '/api/front/logout';
-  // static const String refreshToken = '/api/front/refresh';
-  // static const String categories = '/api/front/categories';
-  // static const String cards = '/api/front/cards';
-  // static const String cart = '/api/front/cart';
-  // static const String createOrder = '/api/front/create-order';
-  // static const String favorite = '/api/front/favorite';
-  // static const String offers = '/api/front/offers';
-  // static const String updateProfile = '/api/front/update-profile';
-  // static const String contactUs = '/api/contacts';
-  // static const String checkAuth = '/api/front/check-auth';
-  //
-  // static String orderDetails(String orderNumber) => '/api/front/order/$orderNumber';
-  // static String deleteOrder(int orderId) => '/api/front/order/$orderId';
-  // static String orderChangeStatus(int orderId) => '/api/orders/change-status/$orderId';
-  // static String orderById(int orderId) => '/api/orders/$orderId';
-  // static const String deleteAccount = '/api/user/delete';
 }
 

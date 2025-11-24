@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/constant/app_texts.dart';
+import 'package:rizq/core/shared_widgets/primary_button.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
 
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/constant/app_texts.dart';
-import '../../../../../core/shared_widgets/primary_button.dart';
-import '../../../../../core/theme/app_text_styles.dart';
 
 class WalletRechargeScreen extends StatefulWidget {
   const WalletRechargeScreen({super.key});

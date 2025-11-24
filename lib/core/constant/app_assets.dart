@@ -45,6 +45,21 @@ final class AppAssets {
   static const String gmailIconSvg =  'assets/images/svg/gmail.svg';
   static const String arabicFlagIconSvg =  'assets/images/svg/arabic_flag.svg';
   static const String englishFlagIconSvg =  'assets/images/svg/english_flag.svg';
+  // settings svg
+  static const String walletIconSvg =  'assets/images/svg/wallet.svg';
+  static const String downloadIconSvg =  'assets/images/svg/download.svg';
+  static const String subscriptionsIconSvg =  'assets/images/svg/subscriptions.svg';
+  static const String pdfIconSvg =  'assets/images/svg/pdf.svg';
+  static const String languageIconSvg =  'assets/images/svg/language.svg';
+  static const String notificationIconSvg =  'assets/images/svg/wallet.svg';
+  static const String shopInfoIconSvg =  'assets/images/svg/shop_info.svg';
+  static const String savedAlertsIconSvg =  'assets/images/svg/saved_alerts.svg';
+
+  static const String logoutIconSvg =  'assets/images/svg/logout.svg';
+
+
+
+
 
 
 

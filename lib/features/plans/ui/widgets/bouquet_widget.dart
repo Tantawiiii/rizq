@@ -32,7 +32,7 @@ class BouquetWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            bouquet.bouquetName,
+            bouquet.name,
             style: AppTextStyles.cairoTextStyle(
               fontWeight: FontWeight.w600,
               size: 18,
@@ -46,7 +46,7 @@ class BouquetWidget extends StatelessWidget {
             TextSpan(
               text: LocaleKeys.createAd_distinguishAdPrice.tr(
                 context: context,
-                args: [bouquet.bouquetPrice.toString()],
+                args: [bouquet.price.toString()],
               ),
               style: AppTextStyles.cairoTextStyle(
                 color: Color(0xffF86317),
@@ -63,10 +63,10 @@ class BouquetWidget extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: LocaleKeys.createAd_time_month.plural(
-                    1,
+                  text: LocaleKeys.createAd_time_day.plural(
+                    bouquet.duration,
                     context: context,
-                    args: ['1'],
+                    args: [bouquet.duration.toString()],
                   ),
                   style: AppTextStyles.cairoTextStyle(
                     color: Color(0xffF86317),
@@ -77,19 +77,11 @@ class BouquetWidget extends StatelessWidget {
               ],
             ),
           ),
-          Divider(color: Colors.orangeAccent),
+
+          Divider(color: Color(0xffACB9CD), height: 40.r,indent: 0, endIndent: 0,),
 
           Text(
-            '${LocaleKeys.createAd_adsPerMonth.tr(context: context, args: [bouquet.noAdds.toString()])} ${LocaleKeys.createAd_time_month.plural(1, context: context, args: ['1'])}',
-
-            style: AppTextStyles.cairoTextStyle(
-              size: 14,
-              color: AppColors.titleColor,
-            ),
-          ),
-          10.vGap,
-          Text(
-            '${LocaleKeys.createAd_distinguishableAdsPerMonth.tr(context: context, args: [bouquet.noDistinguishableAds.toString()])} ${LocaleKeys.createAd_time_month.plural(1, context: context, args: ['1'])}',
+            '${LocaleKeys.createAd_adsPerMonth.tr(context: context, args: [bouquet.adLimit.toString()])} ${LocaleKeys.createAd_time_day.plural(bouquet.duration, context: context, args: [bouquet.duration.toString()])}',
 
             style: AppTextStyles.cairoTextStyle(
               size: 14,
@@ -98,7 +90,16 @@ class BouquetWidget extends StatelessWidget {
           ),
           10.vGap,
           Text(
-            '${LocaleKeys.createAd_marketAdFor.tr(context: context, args: [bouquet.noDaysToMarketAd.toString()])} ${LocaleKeys.createAd_time_month.plural(1, context: context, args: ['1'])}',
+            '${LocaleKeys.createAd_distinguishableAdsPerMonth.tr(context: context, args: [bouquet.adFeaturedLimit.toString()])} ${LocaleKeys.createAd_time_day.plural(bouquet.duration, context: context, args: [bouquet.duration.toString()])}',
+
+            style: AppTextStyles.cairoTextStyle(
+              size: 14,
+              color: AppColors.titleColor,
+            ),
+          ),
+          10.vGap,
+          Text(
+            '${LocaleKeys.createAd_marketAdFor.tr(context: context,)} ${LocaleKeys.createAd_time_day.plural(bouquet.promotionOptions ,context:context , args: [bouquet.promotionOptions.toString()])}',
 
             style: AppTextStyles.cairoTextStyle(
               size: 14,
@@ -115,8 +116,8 @@ class BouquetWidget extends StatelessWidget {
               RouteManager.navigateTo(
                 PaymentSummaryScreen(
                   paymentSummaryModel: PaymentSummaryModel(
-                    whatHeBought: bouquet.bouquetName,
-                    price: bouquet.bouquetPrice,
+                    whatHeBought: bouquet.name,
+                    price: bouquet.price,
                     serviceFee: 100,
                   ),
                 ),

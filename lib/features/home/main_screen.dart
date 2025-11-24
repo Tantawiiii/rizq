@@ -4,12 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:rizq/features/chat/ui/screens/chat_list_screen.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/categories_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/normal/normal_profile_tab.dart';
+
 
 import '../../core/constant/app_assets.dart';
 import '../../core/constant/app_colors.dart';
 import 'tabs/home_tap/widgets/filter_drawer.dart';
 import 'tabs/home_tap/screens/home_tab.dart';
-import 'tabs/profile_tap/screens/profile_tab.dart';
 import 'tabs/my_ads_tap/my_ads_tab.dart';
 
 class MainScreen extends StatefulWidget {
@@ -85,7 +86,7 @@ class _MainScreenState extends State<MainScreen> {
       const TasksTab(),
       const CategoriesScreen(),
       const ChatListScreen(),
-      const ProfileTab(),
+      const NormalProfileTab(),
     ];
   }
 

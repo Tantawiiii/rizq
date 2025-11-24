@@ -180,7 +180,24 @@
 
 },
 
-  "Settings": {},
+  "Settings": {
+    "profile": "Profile",
+    "profileInfo": "Profile Information",
+    "wallet": "Wallet",
+    "subscriptions": "Subscriptions",
+    "savedAlerts": "Saved Alerts",
+    "appLanguage": "App Language",
+    "notifications": "Notifications",
+    "logout": "Logout",
+    "changePassword": "Change Password",
+    "modify": "Edit",
+    "walletBalance": "Wallet Balance",
+    "rechargeWallet": "Recharge Wallet",
+    "enterAmountOfMoney": "Enter the amount you want to recharge",
+    "subscribeNow": "Subscribe Now",
+    "stopAlert": "Stop Alert",
+    "shopInfo": "Store Information"
+  },
   "Notifications": {},
   "Chatting": {},
   "Languages": {

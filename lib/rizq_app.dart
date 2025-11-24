@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/features/home/main_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/normal/normal_profile_tab.dart';
 import 'package:rizq/features/plans/ui/bouquet_subscription_screen.dart';
 import 'package:rizq/features/splash/splash_screen.dart';
 import 'core/theme/theme.dart';
@@ -46,7 +48,7 @@ class RizqApp extends StatelessWidget {
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
 
-              home: SplashScreen(),
+              home: MainScreen(),
 
             ),
           );

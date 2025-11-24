@@ -172,7 +172,24 @@ class CodegenLoader extends AssetLoader{
       }
     }
   },
-  "Settings": {},
+  "Settings": {
+    "profile": "Profile",
+    "profileInfo": "Profile Information",
+    "wallet": "Wallet",
+    "subscriptions": "Subscriptions",
+    "savedAlerts": "Saved Alerts",
+    "appLanguage": "App Language",
+    "notifications": "Notifications",
+    "logout": "Logout",
+    "changePassword": "Change Password",
+    "modify": "Edit",
+    "walletBalance": "Wallet Balance",
+    "rechargeWallet": "Recharge Wallet",
+    "enterAmountOfMoney": "Enter the amount you want to recharge",
+    "subscribeNow": "Subscribe Now",
+    "stopAlert": "Stop Alert",
+    "shopInfo": "Store Information"
+  },
   "Notifications": {},
   "Chatting": {},
   "Languages": {
@@ -392,7 +409,24 @@ static const Map<String,dynamic> _ar = {
       }
     }
   },
-  "Settings": {},
+  "Settings": {
+    "profile": "الملف الشخصى",
+    "profileInfo": "معلومات الملف الشخصي",
+    "wallet": "المحفظة",
+    "subscriptions": "الإشتراكات",
+    "savedAlerts": "التنبيهات المحفوظة",
+    "appLanguage": "لغة التطبيق",
+    "notifications": "الإشعارات",
+    "logout": "تسجيل الخروج",
+    "changePassword": "تغيير كلمة المرور",
+    "modify": "تعديل",
+    "walletBalance": "رصيد المحفظة",
+    "rechargeWallet": "شحن المحفظة",
+    "enterAmountOfMoney": "أدخل المبلغ الذي تريد شحنه",
+    "subscribeNow": "إشترك الآن",
+    "stopAlert": "إيقاف التنبيه",
+    "shopInfo": "بيانات المتجر"
+  },
   "Notifications": {},
   "Chatting": {},
   "Languages": {

@@ -9,6 +9,7 @@ import 'package:rizq/features/auth/register/data/repo/gov_cat_repo/gov_cat_repo.
 import 'package:rizq/features/auth/register/data/repo/register_repo.dart';
 import 'package:rizq/features/auth/register/logic/register_cubit.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
+import 'package:rizq/features/plans/data/repo/plans_repo.dart';
 import 'package:rizq/features/plans/logic/payment_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,6 +31,7 @@ Future<void> init() async {
   sl.registerLazySingleton(()=>RegisterRepo(sl<ChildApiService>()));
   sl.registerLazySingleton(()=>ForgetPasswordRepo(sl<ChildApiService>()));
   sl.registerLazySingleton(()=>GovCatRepo(sl<ChildApiService>()));
+  sl.registerLazySingleton(()=>PlansRepo(apiService: sl<ChildApiService>()));
 
 
   // cubits
@@ -38,9 +40,8 @@ Future<void> init() async {
   sl.registerFactory(() => RegisterCubit(registerRepo: sl<RegisterRepo>(), govCatRepo: sl<GovCatRepo>()));
   sl.registerFactory(() => ForgetPasswordCubit(sl<ForgetPasswordRepo>()));
 
-
   sl.registerFactory(()=>CreateAdCubit(govCatRepo: sl<GovCatRepo>()));
-  sl.registerFactory(()=>PaymentCubit());
+  sl.registerFactory(()=>PaymentCubit(sl<PlansRepo>()));
 
   //repos
 
