@@ -1,0 +1,185 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
+
+class PersonalInfoScreen extends StatelessWidget {
+  const PersonalInfoScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.whiteBackground,
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          children: [_Header(), 16.verticalSpace, _ProfileCard()],
+        ),
+      ),
+    );
+  }
+}
+
+class _Header extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton(
+          onPressed: () => Navigator.of(context).maybePop(),
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            size: 20.w,
+            color: AppColors.primaryColor,
+          ),
+        ),
+        Expanded(
+          child: Text(
+            LocaleKeys.Settings_profileInfo.tr(),
+            textAlign: TextAlign.center,
+            style: AppTextStyles.cairoTextStyle(
+              color: AppColors.primaryColor,
+              size: 20,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+        SizedBox(width: 48.w),
+      ],
+    );
+  }
+}
+
+class _ProfileCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors.overlayColor,
+        borderRadius: BorderRadius.circular(16.r),
+      ),
+      padding: EdgeInsets.all(16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 28.w,
+                backgroundImage: const AssetImage('assets/pngs/rizq_logo.png'),
+              ),
+              12.horizontalSpace,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'أحمد علي',
+                      style: AppTextStyles.cairoTextStyle(
+                        color: AppColors.primaryColor,
+                        size: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    4.verticalSpace,
+                    Text(
+                      'example@gmail.com',
+                      style: AppTextStyles.cairoTextStyle(
+                        color: AppColors.greyTextColor,
+                        size: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  LocaleKeys.Settings_modify.tr(),
+                  style: AppTextStyles.cairoTextStyle(
+                    color: AppColors.primaryColor,
+                    size: 14,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          16.verticalSpace,
+          Container(
+            decoration: BoxDecoration(
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            padding: EdgeInsets.all(12.w),
+            child: Column(
+              children: [
+                _KVRow(k: LocaleKeys.Settings_fullName.tr(), v: 'أحمد علي'),
+                const SizedBox(height: 8),
+                _KVRow(k: LocaleKeys.Settings_phoneNumber.tr(), v: '055000000'),
+                const SizedBox(height: 8),
+                _KVRow(
+                  k: LocaleKeys.Settings_activityType.tr(),
+                  v: LocaleKeys.Settings_seller.tr(),
+                ),
+                const SizedBox(height: 8),
+                _KVRow(k: LocaleKeys.Settings_governorate.tr(), v: 'الرياض'),
+                const SizedBox(height: 8),
+                _KVRow(
+                  k: LocaleKeys.Settings_address.tr(),
+                  v: 'الملز - الرياض',
+                ),
+              ],
+            ),
+          ),
+          12.verticalSpace,
+          Align(
+            alignment: AlignmentDirectional.centerStart,
+            child: Text(
+              LocaleKeys.Settings_changePassword.tr(),
+              style: AppTextStyles.cairoTextStyle(
+                color: Colors.red,
+                size: 14,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _KVRow extends StatelessWidget {
+  _KVRow({required this.k, required this.v});
+
+  final String k;
+  final String v;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          k,
+          style: AppTextStyles.cairoTextStyle(
+            color: AppColors.fieldTitleColor,
+            size: 14,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Text(
+          v,
+          style: AppTextStyles.cairoTextStyle(
+            color: AppColors.primaryColor,
+            size: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ],
+    );
+  }
+}

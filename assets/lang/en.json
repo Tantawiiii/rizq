@@ -1,11 +1,9 @@
 {
-  "appName" : "Rizq",
+  "appName": "Rizq",
   "Auth": {
-
     "Login": {
       "welcomeBack": "Welcome back!",
       "loginAndExploreApp": "Log in to explore our app",
-
       "googleSignIn": "Google",
       "or": "Or",
       "facebookSignIn": "Facebook",
@@ -13,7 +11,6 @@
       "noAccount": "Don't have an account?",
       "signUp": "Sign Up"
     },
-
     "register": {
       "chooseYourAccountType": "Choose your account type",
       "personalAccount": "Personal account",
@@ -22,41 +19,34 @@
       "alreadyHaveAccount": "Already have an account?",
       "chooseRegisterWay": "Choose your registration method",
       "createYourAccountAndExplore": "Create your account now to explore our app",
-
-      "createSellerAccountInRizq" : "Create your store account in",
-      "now" : "now",
-      "personalInfo" : "Personal Information",
-      "commercialInfo" : "Commercial Information",
+      "createSellerAccountInRizq": "Create your store account in",
+      "now": "now",
+      "personalInfo": "Personal Information",
+      "commercialInfo": "Commercial Information",
       "additionalInfo": "Additional Information",
-      "sellerLogo" : "Store Logo",
+      "sellerLogo": "Store Logo",
       "logoRqs": "Profile picture requirements:",
       "logoCapacityReqs": "Minimum dimensions: 400px * 400px",
       "logoSizeReqs": "File size must not exceed 2MB",
       "shopName": "Store Name",
-      "commercialActivityType" : "Type of Commercial Activity",
-      "commercialAddress" : "Commercial Address",
-      "addressOnMap" : "Address link on the map",
-      "commercialRegistrationNumber" : "Tax Registration Number",
-      "websiteLink" : "Website Link",
+      "commercialActivityType": "Type of Commercial Activity",
+      "commercialAddress": "Commercial Address",
+      "addressOnMap": "Address link on the map",
+      "commercialRegistrationNumber": "Tax Registration Number",
+      "websiteLink": "Website Link",
       "activityDescription": "Short Description of Activity",
-      "idImage" : "ID Image",
+      "idImage": "ID Image",
       "proveOfOwnership": "Proof of Ownership Document",
-
       "shortCommercialActivity": "Activity type",
       "shortAddressOnMap": "Address link",
       "shortRegistrationNumber": "Registration number",
       "shortWebsiteLink": "Link",
       "shortActivityDescription": "Write the description...",
-
-
       "chooseFileFromDevice": "Select file from the device",
-
       "congrats": "Congratulations!",
       "successfulRegistration": "Account created successfully",
       "successfulRegistrationForSellerCompany": "Your account has been created successfully. Your information will be reviewed by the administration and you will be contacted as soon as possible.",
-
       "goHome": "Go to Home",
-
       "createCompanyAccountIn": "Create your company account in",
       "companyOwnerData": "Company owner information",
       "companyData": "Company information",
@@ -67,16 +57,14 @@
       "linkedinLink": "LinkedIn account link",
       "whatsAppLink": "WhatsApp number",
       "theLink": "The link",
-      "commercialName" : "commercial Name",
-      "goLogin" : "الذهاب لتسجيل الدخول"
+      "commercialName": "commercial Name",
+      "goLogin": "الذهاب لتسجيل الدخول"
     },
-
     "otp": {
       "weHaveSentCode": "We have sent a code to your email. Please enter it to verify your account.",
       "resendCode": "Resend code",
-      "checkCode" : "check Code"
+      "checkCode": "check Code"
     },
-
     "forgetPassword": {
       "enterEmailToSendCode": "Enter your email to be able to create a new password",
       "sendCode": "Send code",
@@ -87,7 +75,6 @@
       "backToAuth": "Back to login",
       "confirmPassword": "Confirm password"
     },
-
     "email": "Email",
     "shortEmail": "Email",
     "password": "Password",
@@ -118,21 +105,17 @@
     "attatchements": "Accessories",
     "state": "Governorate / City",
     "city": "District",
-
     "typeOfPrice": "Select Price Type",
     "price": "Price",
     "staticPrice": "Fixed Price",
     "negotiatablePrice": "Negotiable Price",
     "auctionPrice": "Auction",
-
     "contactWay": "Contact Method",
     "phoneCall": "Phone Calls",
     "smsMessages": "SMS Messages",
-
     "contactNumber": "Contact Number",
     "adDescription": "Ad Description",
     "publishAd": "Publish Ad",
-
     "wannaIncreaseAdMonthlyNo": "Do you want to increase your monthly number of ads?",
     "subscribeInBouquetTitle": "Subscribe to our premium packages now, or upgrade your ad to reach more customers.",
     "subscribeInBouquet": "Subscribe to Package",
@@ -140,46 +123,39 @@
     "subscribeInThisBouquet": "Subscribe to this Package",
     "skip": "Skip",
     "confirmPayment": "Confirm Payment",
-    "subscriptions" : "Subscriptions",
-
-    "paymentMethod" : "Choose payment method",
-    "paymentSummary" : "Purchase summary",
-    "bouquetPrice" : "Price of {}",
-    "serviceMargin" : "Service fee",
-    "totalPrice" : "Total",
-
+    "subscriptions": "Subscriptions",
+    "paymentMethod": "Choose payment method",
+    "paymentSummary": "Purchase summary",
+    "bouquetPrice": "Price of {}",
+    "serviceMargin": "Service fee",
+    "totalPrice": "Total",
     "yourAdUnderSystemReview": "Your ad has been submitted. It will be reviewed by our team and you will be notified shortly.",
     "backToMyAdds": "Back to My Ads",
-
-  "adsPerMonth": "{} ads during",
-  "distinguishableAdsPerMonth": "{} featured ads during",
-  "marketAdFor": "Promote the ad for",
-  "distinguishAdPrice": "{} SYP",
-  "adIncreaseFactor": "Views up to x{} times",
-    "pricePerDay" : "{} per day",
-
-"time": {
-    "day": {
-      "zero": "0 days",
-      "one": "1 day",
-      "two": "2 days",
-      "few": "{} days",
-      "many": "{} days",
-      "other": "{} days"
-    },
-    "month": {
-      "zero": "0 months",
-      "one": "1 month",
-      "two": "2 months",
-      "few": "{} months",
-      "many": "{} months",
-      "other": "{} months"
+    "adsPerMonth": "{} ads during",
+    "distinguishableAdsPerMonth": "{} featured ads during",
+    "marketAdFor": "Promote the ad for",
+    "distinguishAdPrice": "{} SYP",
+    "adIncreaseFactor": "Views up to x{} times",
+    "pricePerDay": "{} per day",
+    "time": {
+      "day": {
+        "zero": "0 days",
+        "one": "1 day",
+        "two": "2 days",
+        "few": "{} days",
+        "many": "{} days",
+        "other": "{} days"
+      },
+      "month": {
+        "zero": "0 months",
+        "one": "1 month",
+        "two": "2 months",
+        "few": "{} months",
+        "many": "{} months",
+        "other": "{} months"
+      }
     }
-  }
-
-
-},
-
+  },
   "Settings": {
     "profile": "Profile",
     "profileInfo": "Profile Information",
@@ -197,6 +173,7 @@
     "subscribeNow": "Subscribe Now",
     "stopAlert": "Stop Alert",
     "shopInfo": "Store Information",
+<<<<<<< HEAD
 
     "youAreOnThisBouquetAndConsumed_N_Of_M_Adds": "You are currently subscribed to the {} plan and have posted {} ads out of a total of {} ads",
     "upgradeBouquet": "Upgrade Plan",
@@ -223,6 +200,49 @@
     "logout2" : "Logout"
 
 
+=======
+    "companyInfo": "Company Information",
+    "branchesAndWorkingHours": "Branches and Working Hours",
+    "fullName": "Full Name",
+    "phoneNumber": "Phone Number",
+    "activityType": "Activity Type",
+    "governorate": "Governorate",
+    "address": "Address",
+    "seller": "Seller",
+    "branches": "Branches",
+    "branchName": "Branch Name",
+    "workStartTime": "Work Start Time",
+    "workEndTime": "Work End Time",
+    "time": "Time",
+    "officialWorkingDays": "Official Working Days",
+    "holidayDays": "Holiday Days",
+    "companyName": "Company Name",
+    "commercialFileData": "Commercial File Data",
+    "documentation": "Documentation",
+    "socialMedia": "Social Media",
+    "taxCard": "Tax Card",
+    "professionalLicense": "Professional License",
+    "commercialRegister": "Commercial Register",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "commercialName": "Commercial Name",
+    "name": "Name",
+    "mainAddress": "Main Address",
+    "email": "Email",
+    "officialEmail": "Official Email",
+    "typeOfCommercialActivity": "Type of Commercial Activity",
+    "typeOfActivity": "Type of Activity",
+    "primaryPhoneNumber": "Primary Phone Number",
+    "sunday": "Sunday",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday"
+>>>>>>> 86873701a28527ec5bd84583a39ffa6cf914acec
   },
   "Notifications": {},
   "Chatting": {},
@@ -230,7 +250,6 @@
     "arabic": "Arabic",
     "english": "English"
   },
-
   "governorates": {
     "damascus": "Damascus",
     "rif_dimashq": "Rif Dimashq",
@@ -253,23 +272,19 @@
     "electronics": "Electronics",
     "clothes": "Clothes"
   },
-
   "apiErrors": {
     "connectionTimeout": "The connection to the server has timed out. Please check your internet connection!",
     "noInternetConnection": "You are not connected to the internet!",
-
     "api404Error": "Your request could not be found. Please try again later!",
     "api4xxError": "",
     "api5xxError": "The server is currently unavailable. Please try again later!",
     "apiGeneralError": "An unexpected error occurred. Please try again later!"
   },
-
   "formErrors": {
     "nameRequired": "Please enter the name!",
     "nameTooShort": "The name is too short!",
     "emailRequired": "Please enter your email!",
     "emailInvalidFormat": "Invalid email format!",
-
     "phoneRequired": "Please enter your phone number!",
     "passwordRequired": "Please enter your password!",
     "passwordTooShort": "The password is too short!",
@@ -278,26 +293,15 @@
     "shopNameRequired": "Please enter the shop name!",
     "commercialActivityRequired": "Please select the type of commercial activity!",
     "idRequired": "Please upload your ID photo!",
-
     "otpRequired": "Please enter the verification code!",
     "otpMissedDigits": "Please enter the 6 digits of the verification code!",
     "otpNotCorrect": "The code you entered is incorrect!",
-
-    "commercialActivityAddressRequired" : "Please enter your commecial address !",
-
-    "passwordAreNotIdentical" : "Password are not identical !",
-
-    "idFileRequired" : "ID is required! choose an image or PDF",
-
-    "addressLinkWrong" : "The Address Link is not valid !",
-
-    "contactWayRequired" : "Contact method is required !",
-    "priceTypeRequired" : "Price type is required !",
-    "retry" : "Retry"
-
+    "commercialActivityAddressRequired": "Please enter your commecial address !",
+    "passwordAreNotIdentical": "Password are not identical !",
+    "idFileRequired": "ID is required! choose an image or PDF",
+    "addressLinkWrong": "The Address Link is not valid !",
+    "contactWayRequired": "Contact method is required !",
+    "priceTypeRequired": "Price type is required !",
+    "retry": "Retry"
   }
-
-
-
-
 }

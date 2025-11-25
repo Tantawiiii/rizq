@@ -52,7 +52,6 @@ class CategoriesScreen extends StatelessWidget {
                           pinned: true,
                           floating: false,
                         ),
-
                         CustomSkelton(
                           isSliver: true,
                           enabled: state is CreateAdGettingDataState,

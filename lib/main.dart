@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rizq/rizq_app.dart';
@@ -8,37 +8,40 @@ import 'core/di/inject.dart';
 import 'features/notifications/services/notification_service.dart';
 import 'generated/locale_keys.g.dart';
 
-// Background message handler (must be top-level function)
-@pragma('vm:entry-point')
-Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
-  await Firebase.initializeApp();
-  print('Background message received: ${message.messageId}');
-}
+// // Background message handler (must be top-level function)
+// @pragma('vm:entry-point')
+// Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+//   await Firebase.initializeApp();
+//   print('Background message received: ${message.messageId}');
+// }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase
-  await Firebase.initializeApp();
+    // Initialize Firebase
+   // await Firebase.initializeApp();
 
-  // Initialize Easy Localization
-  await EasyLocalization.ensureInitialized();
+    // Initialize Easy Localization
+    await EasyLocalization.ensureInitialized();
 
-  // Initialize dependency injection
-  init();
+    // Initialize dependency injection
+    init();
+    //FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
-  // Set up background message handler
-  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
+    // Initialize notification service
+    // try {
+    //   await NotificationService().initialize();
+    // } catch (e) {
+    //   print('Error initializing NotificationService: $e');
+    //   // Continue even if notification service fails to initialize
+    // }
 
-  // Initialize notification service
-  await NotificationService().initialize();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
 
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-
-  runApp(const RizqApp());
+    runApp(const RizqApp());
 }
 
 List<String> syriaStatesKeys = [
