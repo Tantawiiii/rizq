@@ -196,7 +196,31 @@
     "enterAmountOfMoney" : "أدخل المبلغ الذي تريد شحنه",
     "subscribeNow" : "إشترك الآن",
     "stopAlert" : "إيقاف التنبيه",
-    "shopInfo" : "بيانات المتجر"
+    "shopInfo" : "بيانات المتجر",
+
+    "youAreOnThisBouquetAndConsumed_N_Of_M_Adds" : "أنت الآن مشترك في الباقة {} وقمت بنشر {} إعلانات من اجمالي {} إعلان",
+    "upgradeBouquet" : "ترقية الباقة",
+    "active" : "فعالة",
+    "ad": {
+      "zero": "٠ إعلان",
+      "one": "إعلان",
+      "two": "إعلانان",
+      "few": "{} إعلانات",
+      "many": "{} إعلان",
+      "other": "{} إعلان"
+    },
+    "totalMonthAds" : "عدد الإعلانات الشهرية",
+    "totalUsedAds" : "عدد الإعلانات المستخدمة",
+
+    "logoutQuestion" : "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+    "cancel" : "إلغاء",
+    "removeSearchAlert" : "حذف تنبيهات البحث",
+    "deleteSearchAlertQuestion" : "هل انت متاكد انك تريد حذف هذا البحث",
+    "confirm" : "تأكيد",
+    "stopAlerts" : "إيقاف التنبيهات" ,
+    "stopAlertsQuestion" : "هل انت متاكد انك تريد ايقاف التنبيهات المرتبطة بهذا البحث?",
+    "stop" : "إيقاف",
+    "logout2" : "خروج"
 
   },
   "Notifications": {},

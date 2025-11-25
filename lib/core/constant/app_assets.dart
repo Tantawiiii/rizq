@@ -56,6 +56,9 @@ final class AppAssets {
   static const String savedAlertsIconSvg =  'assets/images/svg/saved_alerts.svg';
 
   static const String logoutIconSvg =  'assets/images/svg/logout.svg';
+  static const String editIconSvg =  'assets/images/svg/edit.svg';
+  static const String trashIconSvg =  'assets/images/svg/trash.svg';
+
 
 
 

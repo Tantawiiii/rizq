@@ -6,13 +6,19 @@ import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
+import 'package:rizq/core/shared_widgets/dialogs/logout_dialog.dart';
+import 'package:rizq/core/shared_widgets/dialogs/show_dialog_method.dart';
 import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
 import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
-import 'package:rizq/features/home/tabs/profile_tap/ui/screens/personal_info_screen.dart';
-import 'package:rizq/features/home/tabs/profile_tap/ui/screens/wallet_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/data/models/subscription_model.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/personal_info_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/saved_alerts_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/subscriptions_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/wallet_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/custom_switch.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/forward_icon.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/language_menu_tile.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/profile_menu_card.dart';
@@ -64,7 +70,7 @@ class NormalProfileTab extends StatelessWidget {
                   title: LocaleKeys.Settings_subscriptions.tr(),
                   leadingSvgPath: AppAssets.subscriptionsIconSvg,
                   trailing: ForwardIcon(),
-                  onTap: (){},
+                  onTap: ()=>RouteManager.navigateTo(SubscriptionsScreen(subscriptionModel: SubscriptionModel(bouquetName: 'الباقة المميزة', totalAds: 30, usedAds: 5),)),
                 ),
 
 
@@ -72,7 +78,7 @@ class NormalProfileTab extends StatelessWidget {
                   title: LocaleKeys.Settings_savedAlerts.tr(),
                   leadingSvgPath: AppAssets.savedAlertsIconSvg,
                   trailing: ForwardIcon(),
-                  onTap: () {},
+                  onTap: ()=>RouteManager.navigateTo(SavedAlertsScreen()),
                 ),
 
 
@@ -81,7 +87,7 @@ class NormalProfileTab extends StatelessWidget {
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_notifications.tr(),
                   leadingSvgPath: AppAssets.notificationIconSvg,
-                  trailing: ForwardIcon(),
+                  trailing: CustomSwitch(initialValue: true, onChanged: (v){}),
                   onTap: () =>RouteManager.navigateTo(NotificationsScreen()),
                 ),
 
@@ -90,7 +96,9 @@ class NormalProfileTab extends StatelessWidget {
                   leadingSvgPath: AppAssets.logoutIconSvg,
                   trailing: ForwardIcon(),
                   isForLogout: true,
-                  onTap: () =>RouteManager.navigateAndPopAll(LoginScreen()),
+                  onTap: () {
+                    showCustomDialog(dialog: LogoutDialog(), context: context);
+                  },
                 ),
 
               ]
