@@ -47,7 +47,12 @@ class ProfileTab extends StatelessWidget {
       backgroundColor: AppColors.whiteBackground,
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.all(AppTheme.defaultEdgePadding),
+          padding:  EdgeInsets.fromLTRB(
+            AppTheme.defaultEdgePadding,
+            AppTheme.defaultEdgePadding,
+            AppTheme.defaultEdgePadding,
+            130.r
+          ),
           child: Column(
             spacing: 20.h,
               children: [
@@ -130,6 +135,7 @@ class ProfileTab extends StatelessWidget {
                     showCustomDialog(dialog: LogoutDialog(), context: context);
                   },
                 ),
+
 
               ]
 

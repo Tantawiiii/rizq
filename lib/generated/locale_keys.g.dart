@@ -126,6 +126,7 @@ abstract class  LocaleKeys {
   static const createAd_paymentSummary = 'createAd.paymentSummary';
   static const createAd_bouquetPrice = 'createAd.bouquetPrice';
   static const createAd_serviceMargin = 'createAd.serviceMargin';
+  static const createAd_amountCharge = 'createAd.amountCharge';
   static const createAd_totalPrice = 'createAd.totalPrice';
   static const createAd_yourAdUnderSystemReview = 'createAd.yourAdUnderSystemReview';
   static const createAd_backToMyAdds = 'createAd.backToMyAdds';
@@ -211,7 +212,6 @@ abstract class  LocaleKeys {
   static const Settings_thursday = 'Settings.thursday';
   static const Settings_friday = 'Settings.friday';
   static const Settings_saturday = 'Settings.saturday';
-
   static const Settings = 'Settings';
   static const Notifications = 'Notifications';
   static const Chatting = 'Chatting';

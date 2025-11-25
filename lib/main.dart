@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 // import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/rizq_app.dart';
 import 'core/di/inject.dart';
 import 'features/notifications/services/notification_service.dart';
@@ -40,6 +41,8 @@ void main() async {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    //TODO: JUST FOR TESTING
+    UserRole.company.cacheUserRole();
 
     runApp(const RizqApp());
 }
