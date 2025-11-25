@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
 
 class PersonalInfoScreen extends StatelessWidget {
   const PersonalInfoScreen({super.key});
@@ -13,11 +15,7 @@ class PersonalInfoScreen extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-          children: [
-            _Header(),
-            16.verticalSpace,
-            _ProfileCard(),
-          ],
+          children: [_Header(), 16.verticalSpace, _ProfileCard()],
         ),
       ),
     );
@@ -39,7 +37,7 @@ class _Header extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            'معلومات الملف الشخصي',
+            LocaleKeys.Settings_profileInfo.tr(),
             textAlign: TextAlign.center,
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
@@ -99,7 +97,7 @@ class _ProfileCard extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  'تعديل',
+                  LocaleKeys.Settings_modify.tr(),
                   style: AppTextStyles.cairoTextStyle(
                     color: AppColors.primaryColor,
                     size: 14,
@@ -117,16 +115,22 @@ class _ProfileCard extends StatelessWidget {
             ),
             padding: EdgeInsets.all(12.w),
             child: Column(
-              children: const [
-                _KVRow(k: 'الاسم كامل', v: 'أحمد علي'),
-                SizedBox(height: 8),
-                _KVRow(k: 'رقم الهاتف', v: '055000000'),
-                SizedBox(height: 8),
-                _KVRow(k: 'نوع النشاط', v: 'بائع'),
-                SizedBox(height: 8),
-                _KVRow(k: 'المحافظة', v: 'الرياض'),
-                SizedBox(height: 8),
-                _KVRow(k: 'العنوان', v: 'الملز - الرياض'),
+              children: [
+                _KVRow(k: LocaleKeys.Settings_fullName.tr(), v: 'أحمد علي'),
+                const SizedBox(height: 8),
+                _KVRow(k: LocaleKeys.Settings_phoneNumber.tr(), v: '055000000'),
+                const SizedBox(height: 8),
+                _KVRow(
+                  k: LocaleKeys.Settings_activityType.tr(),
+                  v: LocaleKeys.Settings_seller.tr(),
+                ),
+                const SizedBox(height: 8),
+                _KVRow(k: LocaleKeys.Settings_governorate.tr(), v: 'الرياض'),
+                const SizedBox(height: 8),
+                _KVRow(
+                  k: LocaleKeys.Settings_address.tr(),
+                  v: 'الملز - الرياض',
+                ),
               ],
             ),
           ),
@@ -134,7 +138,7 @@ class _ProfileCard extends StatelessWidget {
           Align(
             alignment: AlignmentDirectional.centerStart,
             child: Text(
-              'تغيير كلمة المرور',
+              LocaleKeys.Settings_changePassword.tr(),
               style: AppTextStyles.cairoTextStyle(
                 color: Colors.red,
                 size: 14,
@@ -149,7 +153,7 @@ class _ProfileCard extends StatelessWidget {
 }
 
 class _KVRow extends StatelessWidget {
-  const _KVRow({required this.k, required this.v});
+  _KVRow({required this.k, required this.v});
 
   final String k;
   final String v;
@@ -179,7 +183,3 @@ class _KVRow extends StatelessWidget {
     );
   }
 }
-
-
-
-

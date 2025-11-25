@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/company/branches_company_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/company/company_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/screens/personal_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/screens/wallet_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/forward_icon.dart';
@@ -19,7 +17,6 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/profile_menu_card
 import 'package:rizq/features/notifications/ui/screens/notifications_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-
 class NormalProfileTab extends StatelessWidget {
   const NormalProfileTab({super.key});
 
@@ -27,78 +24,87 @@ class NormalProfileTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: AppBarBackButton(),
+        //   leading: AppBarBackButton(),
+        centerTitle: true,
         title: Text(
-            LocaleKeys.Settings_profile.tr(context: context),
+          LocaleKeys.Settings_profile.tr(context: context),
           style: AppTextStyles.cairoTextStyle(
             color: AppColors.primaryColor,
             size: 18.sp,
             fontWeight: FontWeight.w600,
           ),
-
         ),
       ),
       backgroundColor: AppColors.whiteBackground,
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.all(AppTheme.defaultEdgePadding),
+          padding: EdgeInsets.all(AppTheme.defaultEdgePadding),
           child: Column(
-            spacing: 20.h,
-              children: [
+            spacing: 8.h,
+            children: [
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_profileInfo.tr(context: context),
+                leadingSvgPath: AppAssets.userIconSvg,
+                trailing: ForwardIcon(),
+                onTap: () =>
+                    RouteManager.navigateTo(const PersonalInfoScreen()),
+              ),
 
-                ProfileMenuCard(
-                  title: LocaleKeys.Settings_profileInfo.tr(context: context),
-                  leadingSvgPath: AppAssets.userIconSvg,
-                  trailing: ForwardIcon(),
-                  onTap: () => RouteManager.navigateTo(const PersonalInfoScreen()),
-                ),
-                ProfileMenuCard(
-                  title: LocaleKeys.Settings_wallet.tr(context: context),
-                  leadingSvgPath: AppAssets.walletIconSvg,
-                  trailing: ForwardIcon(),
-                  onTap: () => RouteManager.navigateTo(const WalletScreen()),
-                ),
+              //company
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_companyInfo.tr(),
+                leadingSvgPath: AppAssets.icinfoCompanySvg,
+                trailing: ForwardIcon(),
+                onTap: () => RouteManager.navigateTo(const CompanyInfoScreen()),
+              ),
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_branchesAndWorkingHours.tr(),
+                leadingSvgPath: AppAssets.icBramchesSvg,
+                trailing: ForwardIcon(),
+                onTap: () => RouteManager.navigateTo(const BranchesCompanyScreen()),
+              ),
 
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_wallet.tr(context: context),
+                leadingSvgPath: AppAssets.walletIconSvg,
+                trailing: ForwardIcon(),
+                onTap: () => RouteManager.navigateTo(const WalletScreen()),
+              ),
 
-                ProfileMenuCard(
-                  title: LocaleKeys.Settings_subscriptions.tr(),
-                  leadingSvgPath: AppAssets.subscriptionsIconSvg,
-                  trailing: ForwardIcon(),
-                  onTap: (){},
-                ),
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_subscriptions.tr(),
+                leadingSvgPath: AppAssets.subscriptionsIconSvg,
+                trailing: ForwardIcon(),
+                onTap: () {},
+              ),
 
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_savedAlerts.tr(),
+                leadingSvgPath: AppAssets.savedAlertsIconSvg,
+                trailing: ForwardIcon(),
+                onTap: () {},
+              ),
 
-                ProfileMenuCard(
-                  title: LocaleKeys.Settings_savedAlerts.tr(),
-                  leadingSvgPath: AppAssets.savedAlertsIconSvg,
-                  trailing: ForwardIcon(),
-                  onTap: () {},
-                ),
+              AppLanguageDropdown(),
 
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_notifications.tr(),
+                leadingSvgPath: AppAssets.notificationIconSvg,
+                trailing: ForwardIcon(),
+                onTap: () => RouteManager.navigateTo(NotificationsScreen()),
+              ),
 
-               AppLanguageDropdown(),
-
-                ProfileMenuCard(
-                  title: LocaleKeys.Settings_notifications.tr(),
-                  leadingSvgPath: AppAssets.notificationIconSvg,
-                  trailing: ForwardIcon(),
-                  onTap: () =>RouteManager.navigateTo(NotificationsScreen()),
-                ),
-
-                ProfileMenuCard(
-                  title: LocaleKeys.Settings_logout.tr(),
-                  leadingSvgPath: AppAssets.logoutIconSvg,
-                  trailing: ForwardIcon(),
-                  isForLogout: true,
-                  onTap: () =>RouteManager.navigateAndPopAll(LoginScreen()),
-                ),
-
-              ]
-
+              ProfileMenuCard(
+                title: LocaleKeys.Settings_logout.tr(),
+                leadingSvgPath: AppAssets.logoutIconSvg,
+                trailing: ForwardIcon(),
+                isForLogout: true,
+                onTap: () => RouteManager.navigateAndPopAll(LoginScreen()),
+              ),
+            ],
           ),
         ),
-      )
+      ),
     );
   }
-
 }
