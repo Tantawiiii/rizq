@@ -173,7 +173,6 @@
     "subscribeNow": "Subscribe Now",
     "stopAlert": "Stop Alert",
     "shopInfo": "Store Information",
-<<<<<<< HEAD
 
     "youAreOnThisBouquetAndConsumed_N_Of_M_Adds": "You are currently subscribed to the {} plan and have posted {} ads out of a total of {} ads",
     "upgradeBouquet": "Upgrade Plan",
@@ -197,10 +196,8 @@
     "stopAlerts": "Stop alerts",
     "stopAlertsQuestion": "Are you sure you want to stop the alerts associated with this search?",
     "stop": "Stop",
-    "logout2" : "Logout"
+    "logout2" : "Logout",
 
-
-=======
     "companyInfo": "Company Information",
     "branchesAndWorkingHours": "Branches and Working Hours",
     "fullName": "Full Name",
@@ -242,7 +239,6 @@
     "thursday": "Thursday",
     "friday": "Friday",
     "saturday": "Saturday"
->>>>>>> 86873701a28527ec5bd84583a39ffa6cf914acec
   },
   "Notifications": {},
   "Chatting": {},

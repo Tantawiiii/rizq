@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
 import 'package:rizq/core/shared_widgets/dialogs/logout_dialog.dart';
@@ -14,6 +15,8 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/personal_i
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/saved_alerts_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/subscriptions_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/wallet_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/company/branches_company_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/company/company_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/custom_switch.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/forward_icon.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/language_menu_tile.dart';
@@ -22,11 +25,12 @@ import 'package:rizq/features/notifications/ui/screens/notifications_screen.dart
 import 'package:rizq/generated/locale_keys.g.dart';
 
 
-class NormalProfileTab extends StatelessWidget {
-  const NormalProfileTab({super.key});
+class ProfileTab extends StatelessWidget {
+  const ProfileTab({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userRole = UserRole.getCachedUserRole();
     return Scaffold(
       appBar: AppBar(
         leading: AppBarBackButton(),
@@ -48,12 +52,40 @@ class NormalProfileTab extends StatelessWidget {
             spacing: 20.h,
               children: [
 
+                //personal info
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_profileInfo.tr(context: context),
                   leadingSvgPath: AppAssets.userIconSvg,
                   trailing: ForwardIcon(),
                   onTap: () => RouteManager.navigateTo(const PersonalInfoScreen()),
                 ),
+
+                // shop info
+                if(userRole == UserRole.seller)
+                  ProfileMenuCard(
+                    title: LocaleKeys.Settings_shopInfo.tr(context: context),
+                    leadingSvgPath: AppAssets.shopInfoIconSvg,
+                    trailing: ForwardIcon(),
+                    onTap: () {},
+                  ),
+                // company data
+                if(userRole == UserRole.company)
+                  ProfileMenuCard(
+                    title: LocaleKeys.Settings_companyInfo.tr(context: context),
+                    leadingSvgPath: AppAssets.shopInfoIconSvg,
+                    trailing: ForwardIcon(),
+                    onTap: () =>RouteManager.navigateTo(CompanyInfoScreen()),
+                  ),
+                // branches data
+                if(userRole == UserRole.company)
+                  ProfileMenuCard(
+                    title: LocaleKeys.Settings_branchesAndWorkingHours.tr(context: context),
+                    leadingSvgPath: AppAssets.companyIconSvg,
+                    trailing: ForwardIcon(),
+                    onTap: ()=>RouteManager.navigateTo(BranchesCompanyScreen()),
+                  ),
+
+                //wallet screen
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_wallet.tr(context: context),
                   leadingSvgPath: AppAssets.walletIconSvg,
@@ -61,7 +93,7 @@ class NormalProfileTab extends StatelessWidget {
                   onTap: () => RouteManager.navigateTo(const WalletScreen()),
                 ),
 
-
+                //subscriptions screen
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_subscriptions.tr(),
                   leadingSvgPath: AppAssets.subscriptionsIconSvg,
@@ -69,7 +101,7 @@ class NormalProfileTab extends StatelessWidget {
                   onTap: ()=>RouteManager.navigateTo(SubscriptionsScreen(subscriptionModel: SubscriptionModel(bouquetName: 'الباقة المميزة', totalAds: 30, usedAds: 5),)),
                 ),
 
-
+                // saved alerts screen
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_savedAlerts.tr(),
                   leadingSvgPath: AppAssets.savedAlertsIconSvg,
@@ -80,6 +112,7 @@ class NormalProfileTab extends StatelessWidget {
 
                AppLanguageDropdown(),
 
+                // notifications
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_notifications.tr(),
                   leadingSvgPath: AppAssets.notificationIconSvg,
@@ -87,6 +120,7 @@ class NormalProfileTab extends StatelessWidget {
                   onTap: () =>RouteManager.navigateTo(NotificationsScreen()),
                 ),
 
+                //logout
                 ProfileMenuCard(
                   title: LocaleKeys.Settings_logout.tr(),
                   leadingSvgPath: AppAssets.logoutIconSvg,

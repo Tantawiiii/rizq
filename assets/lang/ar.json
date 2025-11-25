@@ -169,11 +169,7 @@
     "modify": "تعديل",
     "walletBalance": "رصيد المحفظة",
     "rechargeWallet": "شحن المحفظة",
-<<<<<<< HEAD
-    "enterAmountOfMoney" : "أدخل المبلغ الذي تريد شحنه",
-    "subscribeNow" : "إشترك الآن",
-    "stopAlert" : "إيقاف التنبيه",
-    "shopInfo" : "بيانات المتجر",
+
 
     "youAreOnThisBouquetAndConsumed_N_Of_M_Adds" : "أنت الآن مشترك في الباقة {} وقمت بنشر {} إعلانات من اجمالي {} إعلان",
     "upgradeBouquet" : "ترقية الباقة",
@@ -197,9 +193,8 @@
     "stopAlerts" : "إيقاف التنبيهات" ,
     "stopAlertsQuestion" : "هل انت متاكد انك تريد ايقاف التنبيهات المرتبطة بهذا البحث?",
     "stop" : "إيقاف",
-    "logout2" : "خروج"
+    "logout2" : "خروج",
 
-=======
     "enterAmountOfMoney": "أدخل المبلغ الذي تريد شحنه",
     "subscribeNow": "إشترك الآن",
     "stopAlert": "إيقاف التنبيه",
@@ -245,7 +240,6 @@
     "thursday": "الخميس",
     "friday": "الجمعة",
     "saturday": "السبت"
->>>>>>> 86873701a28527ec5bd84583a39ffa6cf914acec
   },
   "Notifications": {},
   "Chatting": {},
