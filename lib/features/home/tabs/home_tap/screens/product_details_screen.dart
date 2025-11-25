@@ -193,6 +193,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         children: [
           PrimaryButton(
             title: AppTexts.contactSeller,
+            textStyle: AppTextStyles.cairoTextStyle(
+              color: AppColors.primaryColor,
+              size: 14,
+              fontWeight: FontWeight.w600,
+            ),
             backgroundColor: AppColors.scaffoldCyanColor,
             icon: SvgPicture.asset(
               _isFavorite ? AppAssets.heartSvg : AppAssets.heartSlashSvg,
@@ -208,18 +213,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               setState(() {
                 _isFavorite = !_isFavorite;
               });
-              // Handle contact seller
             },
           ),
           12.verticalSpace,
           GestureDetector(
             onTap: () {
-              // Handle notify when price drops
             },
             child: Text(
               AppTexts.notifyWhenPriceDrops,
               style: AppTextStyles.cairoTextStyle(
-                color: AppColors.errorBorderColor,
+                color: AppColors.primaryColor,
                 size: 14,
                 fontWeight: FontWeight.w600,
               ),

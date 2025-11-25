@@ -57,7 +57,7 @@ class SearchField extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Bounce(
                         onTap: ()=>  RouteManager.navigateTo(const MapFilterScreen()),
-                        child: SvgPicture.asset(AppAssets.locationPinSvg)),
+                        child: SvgPicture.asset(AppAssets.locationPinSvg, color: AppColors.sconderyColor,)),
                   )
                 : null,
             hintText: hintText ?? AppTexts.search,

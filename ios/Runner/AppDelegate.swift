@@ -1,8 +1,8 @@
 import Flutter
 import UIKit
 import GoogleMaps
-import FirebaseCore
-import UserNotifications
+// import FirebaseCore
+// import UserNotifications
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -11,7 +11,7 @@ import UserNotifications
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     // Initialize Firebase
-    FirebaseApp.configure()
+   // FirebaseApp.configure()
     
     // Initialize Google Maps SDK before Flutter engine
     GMSServices.provideAPIKey("AIzaSyADqzA9TBSpZsHA7N59QRfFbclhNLcl7AQ")
