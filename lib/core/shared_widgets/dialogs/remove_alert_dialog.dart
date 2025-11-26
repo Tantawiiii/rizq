@@ -44,7 +44,7 @@ class RemoveAlertDialog extends StatelessWidget {
             Text(
               LocaleKeys.Settings_deleteSearchAlertQuestion.tr(),
               style: AppTextStyles.cairoTextStyle(
-                size: 18,
+                size: 16,
                 fontWeight: FontWeight.w500,
                 color: AppColors.titleColor,
               ),

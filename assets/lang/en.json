@@ -225,6 +225,7 @@
     "telegram": "Telegram",
     "facebook": "Facebook",
     "instagram": "Instagram",
+    "linkedin" : "Linkedin",
     "commercialName": "Commercial Name",
     "name": "Name",
     "mainAddress": "Main Address",
@@ -248,7 +249,13 @@
     "changePersonalInfo" : "Edit Profile",
     "currentPassword" : "Current Password",
     "newPassword" : "New Password",
-    "forgetPassword" : "Forgot Password"
+    "forgetPassword" : "Forgot Password",
+
+    "shopInfoData" : "Business Profile Information",
+    "updateShopInfo" : "Edit Store Information",
+
+    "noSocialAccountsFound": "You have no social media links. Add links to increase credibility and improve your reach to customers."
+
 
   },
   "Notifications": {},

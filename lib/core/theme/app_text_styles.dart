@@ -15,6 +15,8 @@ final class AppTextStyles {
     fontSize: size.sp,
     fontWeight: fontWeight,
     fontFamily: 'Poppins',
-    fontFamilyFallback: ['Cairo'],
+    fontFamilyFallback: ['Changa'],
+
+    //fontFamilyFallback: ['Cairo'],
   );
 }

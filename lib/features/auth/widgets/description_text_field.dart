@@ -12,8 +12,9 @@ class DescriptionTextField extends StatelessWidget {
   final String title;
   final String hint;
   final TextInputAction textInputAction;
+  final bool isEnabled;
 
-  const DescriptionTextField({super.key, this.controller, required this.title, required this.hint, this.textInputAction = TextInputAction.done});
+  const DescriptionTextField({super.key, this.controller, required this.title, required this.hint, this.textInputAction = TextInputAction.done, this.isEnabled = true});
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +43,7 @@ class DescriptionTextField extends StatelessWidget {
           cursorWidth: 2,
           cursorRadius: Radius.circular(3),
           keyboardType: TextInputType.text,
+          enabled: isEnabled,
           style: AppTextStyles.cairoTextStyle(
             size: 14,
             color: AppColors.greyTextColor,
@@ -65,11 +67,19 @@ class DescriptionTextField extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
             filled: true,
-            fillColor: AppColors.white,
+            fillColor: isEnabled? AppColors.white : Color(0xffEBEEF3),
+
             isDense: true,
 
             contentPadding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 13.r),
             enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.r),
+              borderSide:  BorderSide(
+                color: AppColors.textFieldBorderColor,
+                width: 1.r,
+              ),
+            ),
+            disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
               borderSide:  BorderSide(
                 color: AppColors.textFieldBorderColor,

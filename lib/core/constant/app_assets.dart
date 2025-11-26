@@ -59,12 +59,16 @@ final class AppAssets {
 
   static const String editIconSvg =  'assets/images/svg/edit.svg';
   static const String trashIconSvg =  'assets/images/svg/trash.svg';
+  static const String facebookNotFilledIconSvg =  'assets/images/svg/facebook2.svg';
+  static const String imageIconSvg =  'assets/images/svg/image.svg';
 
   static const String icBramchesSvg =  'assets/svgs/ic_branches_workes.svg';
   static const String icinfoCompanySvg =  'assets/svgs/ic_info_company.svg';
   static const String icDownloadSvg =  'assets/svgs/ic_download.svg';
   static const String icPdfSvg =  'assets/svgs/ic_pdf.svg';
   static const String icTelegramSvg =  'assets/svgs/ic_telegram.svg';
+
+
 
 
 

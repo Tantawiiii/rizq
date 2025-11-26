@@ -42,7 +42,7 @@ void main() async {
       DeviceOrientation.portraitDown,
     ]);
     //TODO: JUST FOR TESTING
-    UserRole.company.cacheUserRole();
+    UserRole.seller.cacheUserRole();
 
     runApp(const RizqApp());
 }

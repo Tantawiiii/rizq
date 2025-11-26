@@ -238,6 +238,7 @@ class CodegenLoader extends AssetLoader{
     "telegram": "Telegram",
     "facebook": "Facebook",
     "instagram": "Instagram",
+    "linkedin": "Linkedin",
     "commercialName": "Commercial Name",
     "name": "Name",
     "mainAddress": "Main Address",
@@ -259,7 +260,10 @@ class CodegenLoader extends AssetLoader{
     "changePersonalInfo": "Edit Profile",
     "currentPassword": "Current Password",
     "newPassword": "New Password",
-    "forgetPassword": "Forgot Password"
+    "forgetPassword": "Forgot Password",
+    "shopInfoData": "Business Profile Information",
+    "updateShopInfo": "Edit Store Information",
+    "noSocialAccountsFound": "You have no social media links. Add links to increase credibility and improve your reach to customers."
   },
   "Notifications": {},
   "Chatting": {},
@@ -546,6 +550,7 @@ static const Map<String,dynamic> _ar = {
     "telegram": "تليجرام",
     "facebook": "فيسبوك",
     "instagram": "إنستجرام",
+    "linkedin": "لينكد ان",
     "commercialName": "الاسم التجاري",
     "name": "الاسم",
     "mainAddress": "العنوان الرئيسي",
@@ -567,7 +572,10 @@ static const Map<String,dynamic> _ar = {
     "changePersonalInfo": "تعديل الملف الشخصي",
     "currentPassword": "كلمة المرور الحالية",
     "newPassword": "كلمة المرور الجديدة",
-    "forgetPassword": "نسيت كلمة المرور"
+    "forgetPassword": "نسيت كلمة المرور",
+    "shopInfoData": "بيانات الملف التجاري",
+    "updateShopInfo": "تعديل بيانات المتجر",
+    "noSocialAccountsFound": "ليس لديك اى روبط على مواقع التواصل الاجتماعى. أضف روابط لزيادة الموثوقية ونسبة وصولك للعملاء."
   },
   "Notifications": {},
   "Chatting": {},

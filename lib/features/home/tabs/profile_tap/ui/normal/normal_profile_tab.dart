@@ -17,6 +17,7 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/subscripti
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/wallet_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/company/branches_company_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/company/company_info_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/seller/shop_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/custom_switch.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/forward_icon.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/language_menu_tile.dart';
@@ -25,12 +26,12 @@ import 'package:rizq/features/notifications/ui/screens/notifications_screen.dart
 import 'package:rizq/generated/locale_keys.g.dart';
 
 
-class ProfileTab extends StatelessWidget {
-  const ProfileTab({super.key});
+class NormalProfileTab extends StatelessWidget {
+  const NormalProfileTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final userRole = UserRole.getCachedUserRole();
+
     return Scaffold(
       appBar: AppBar(
         leading: AppBarBackButton(),
@@ -65,30 +66,30 @@ class ProfileTab extends StatelessWidget {
                   onTap: () => RouteManager.navigateTo(const PersonalInfoScreen()),
                 ),
 
-                // shop info
-                if(userRole == UserRole.seller)
-                  ProfileMenuCard(
-                    title: LocaleKeys.Settings_shopInfo.tr(context: context),
-                    leadingSvgPath: AppAssets.shopInfoIconSvg,
-                    trailing: ForwardIcon(),
-                    onTap: () {},
-                  ),
-                // company data
-                if(userRole == UserRole.company)
-                  ProfileMenuCard(
-                    title: LocaleKeys.Settings_companyInfo.tr(context: context),
-                    leadingSvgPath: AppAssets.shopInfoIconSvg,
-                    trailing: ForwardIcon(),
-                    onTap: () =>RouteManager.navigateTo(CompanyInfoScreen()),
-                  ),
-                // branches data
-                if(userRole == UserRole.company)
-                  ProfileMenuCard(
-                    title: LocaleKeys.Settings_branchesAndWorkingHours.tr(context: context),
-                    leadingSvgPath: AppAssets.companyIconSvg,
-                    trailing: ForwardIcon(),
-                    onTap: ()=>RouteManager.navigateTo(BranchesCompanyScreen()),
-                  ),
+                // // shop info
+                // if(userRole == UserRole.seller)
+                //   ProfileMenuCard(
+                //     title: LocaleKeys.Settings_shopInfo.tr(context: context),
+                //     leadingSvgPath: AppAssets.shopInfoIconSvg,
+                //     trailing: ForwardIcon(),
+                //     onTap: () =>RouteManager.navigateTo(ShopInfoScreen()),
+                //   ),
+                // // company data
+                // if(userRole == UserRole.company)
+                //   ProfileMenuCard(
+                //     title: LocaleKeys.Settings_companyInfo.tr(context: context),
+                //     leadingSvgPath: AppAssets.shopInfoIconSvg,
+                //     trailing: ForwardIcon(),
+                //     onTap: () =>RouteManager.navigateTo(CompanyInfoScreen()),
+                //   ),
+                // // branches data
+                // if(userRole == UserRole.company)
+                //   ProfileMenuCard(
+                //     title: LocaleKeys.Settings_branchesAndWorkingHours.tr(context: context),
+                //     leadingSvgPath: AppAssets.companyIconSvg,
+                //     trailing: ForwardIcon(),
+                //     onTap: ()=>RouteManager.navigateTo(BranchesCompanyScreen()),
+                //   ),
 
                 //wallet screen
                 ProfileMenuCard(

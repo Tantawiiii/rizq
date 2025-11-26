@@ -226,6 +226,7 @@
     "telegram": "تليجرام",
     "facebook": "فيسبوك",
     "instagram": "إنستجرام",
+    "linkedin" : "لينكد ان",
     "commercialName": "الاسم التجاري",
     "name": "الاسم",
     "mainAddress": "العنوان الرئيسي",
@@ -249,7 +250,13 @@
     "changePersonalInfo" : "تعديل الملف الشخصي",
     "currentPassword" : "كلمة المرور الحالية",
     "newPassword" : "كلمة المرور الجديدة",
-    "forgetPassword" : "نسيت كلمة المرور"
+    "forgetPassword" : "نسيت كلمة المرور",
+
+    "shopInfoData" : "بيانات الملف التجاري",
+    "updateShopInfo" : "تعديل بيانات المتجر",
+
+    "noSocialAccountsFound": "ليس لديك اى روبط على مواقع التواصل الاجتماعى. أضف روابط لزيادة الموثوقية ونسبة وصولك للعملاء."
+
   },
   "Notifications": {},
   "Chatting": {},

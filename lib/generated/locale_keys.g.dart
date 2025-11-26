@@ -197,6 +197,7 @@ abstract class  LocaleKeys {
   static const Settings_telegram = 'Settings.telegram';
   static const Settings_facebook = 'Settings.facebook';
   static const Settings_instagram = 'Settings.instagram';
+  static const Settings_linkedin = 'Settings.linkedin';
   static const Settings_commercialName = 'Settings.commercialName';
   static const Settings_name = 'Settings.name';
   static const Settings_mainAddress = 'Settings.mainAddress';
@@ -219,6 +220,9 @@ abstract class  LocaleKeys {
   static const Settings_currentPassword = 'Settings.currentPassword';
   static const Settings_newPassword = 'Settings.newPassword';
   static const Settings_forgetPassword = 'Settings.forgetPassword';
+  static const Settings_shopInfoData = 'Settings.shopInfoData';
+  static const Settings_updateShopInfo = 'Settings.updateShopInfo';
+  static const Settings_noSocialAccountsFound = 'Settings.noSocialAccountsFound';
   static const Settings = 'Settings';
   static const Notifications = 'Notifications';
   static const Chatting = 'Chatting';

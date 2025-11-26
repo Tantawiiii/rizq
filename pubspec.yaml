@@ -79,7 +79,7 @@ flutter:
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
-
+# cairo or changa will be removed (wait to select)
     - family: Cairo
       fonts:
 
@@ -92,6 +92,19 @@ flutter:
         - asset: assets/fonts/Cairo-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/Cairo-Bold.ttf
+          weight: 700
+
+    - family: Changa
+      fonts:
+        - asset: assets/fonts/changa/Changa-Light.ttf
+          weight: 300
+        - asset: assets/fonts/changa/Changa-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/changa/Changa-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/changa/Changa-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/changa/Changa-Bold.ttf
           weight: 700
 
 

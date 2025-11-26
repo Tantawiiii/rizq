@@ -41,6 +41,7 @@ class _FilePickingWidgetState extends State<FilePickingWidget> {
   Widget build(BuildContext context) {
 
     return Container(
+      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
 
         border: Border.all(
