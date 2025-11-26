@@ -1,3 +1,4 @@
+import 'package:bounce/bounce.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,11 +10,13 @@ class CompanyHeaderWidget extends StatelessWidget {
   const CompanyHeaderWidget({
     super.key,
     required this.title,
-    this.onModifyPressed,
+    required this.onModifyPressed,
+    this.actionText,
   });
 
   final String title;
   final VoidCallback? onModifyPressed;
+  final String? actionText;
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +41,21 @@ class CompanyHeaderWidget extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.primaryColor,
-            borderRadius: BorderRadius.circular(20.r),
-          ),
-          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
-          child: Text(
-            LocaleKeys.Settings_modify.tr(),
-            style: AppTextStyles.cairoTextStyle(
-              color: AppColors.white,
-              size: 14,
-              fontWeight: FontWeight.w700,
+        Bounce(
+          onTap: onModifyPressed,
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.primaryColor,
+              borderRadius: BorderRadius.circular(20.r),
+            ),
+            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+            child: Text(
+              actionText ?? LocaleKeys.Settings_modify.tr(),
+              style: AppTextStyles.cairoTextStyle(
+                color: AppColors.white,
+                size: 14,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
         ),
@@ -57,4 +63,3 @@ class CompanyHeaderWidget extends StatelessWidget {
     );
   }
 }
-

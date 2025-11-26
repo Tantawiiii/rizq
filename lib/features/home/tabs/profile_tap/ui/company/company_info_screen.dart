@@ -9,8 +9,15 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/company/widgets/commercia
 import 'package:rizq/features/home/tabs/profile_tap/ui/company/widgets/company_header_widget.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-class CompanyInfoScreen extends StatelessWidget {
+class CompanyInfoScreen extends StatefulWidget {
   const CompanyInfoScreen({super.key});
+
+  @override
+  State<CompanyInfoScreen> createState() => _CompanyInfoScreenState();
+}
+
+class _CompanyInfoScreenState extends State<CompanyInfoScreen> {
+  bool _isEditingCommercialData = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,44 +27,30 @@ class CompanyInfoScreen extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           children: [
-            CompanyHeaderWidget(title: LocaleKeys.Settings_companyInfo.tr()),
+            CompanyHeaderWidget(
+              title: LocaleKeys.Settings_companyInfo.tr(),
+              actionText: _isEditingCommercialData
+                  ? 'حفظ'
+                  : LocaleKeys.Settings_modify.tr(),
+              onModifyPressed: () {
+                setState(() {
+                  _isEditingCommercialData = !_isEditingCommercialData;
+                });
+              },
+            ),
             16.verticalSpace,
             _CompanyInfoCard(),
             12.verticalSpace,
-            CommercialFileDataCardWidget(
-              title: LocaleKeys.Settings_commercialFileData.tr(),
-              leftColumnFields: [
-                FieldData(
-                  label: LocaleKeys.Settings_typeOfCommercialActivity.tr(),
-                  value: 'rrrr',
-                ),
-                FieldData(
-                  label: LocaleKeys.Settings_typeOfActivity.tr(),
-                  value: 'ssss',
-                ),
-                FieldData(
-                  label: LocaleKeys.Settings_primaryPhoneNumber.tr(),
-                  value: '01234567890',
-                ),
-              ],
-              rightColumnFields: [
-                FieldData(
-                  label: LocaleKeys.Settings_commercialName.tr(),
-                  value: '',
-                ),
-                FieldData(label: LocaleKeys.Settings_name.tr(), value: ''),
-                FieldData(
-                  label: LocaleKeys.Settings_mainAddress.tr(),
-                  value: '',
-                ),
-                FieldData(label: LocaleKeys.Settings_address.tr(), value: ''),
-                FieldData(
-                  label: LocaleKeys.Settings_officialEmail.tr(),
-                  value: '',
-                ),
-                FieldData(label: LocaleKeys.Settings_email.tr(), value: ''),
-              ],
+            Text(
+              LocaleKeys.Settings_commercialFileData.tr(),
+              style: AppTextStyles.cairoTextStyle(
+                color: AppColors.primaryColor,
+                size: 16.sp,
+                fontWeight: FontWeight.w700,
+              ),
             ),
+            12.verticalSpace,
+            CommercialFileDataCardWidget(readOnly: !_isEditingCommercialData),
             12.verticalSpace,
             _DocumentationCard(),
             12.verticalSpace,
