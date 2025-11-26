@@ -6,8 +6,15 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/company/widgets/commercia
 import 'package:rizq/features/home/tabs/profile_tap/ui/company/widgets/company_header_widget.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-class BranchesCompanyScreen extends StatelessWidget {
+class BranchesCompanyScreen extends StatefulWidget {
   const BranchesCompanyScreen({super.key});
+
+  @override
+  State<BranchesCompanyScreen> createState() => _BranchesCompanyScreenState();
+}
+
+class _BranchesCompanyScreenState extends State<BranchesCompanyScreen> {
+  bool _isEditingBranchesData = false;
 
   @override
   Widget build(BuildContext context) {
@@ -17,37 +24,19 @@ class BranchesCompanyScreen extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
           children: [
-            CompanyHeaderWidget(title: LocaleKeys.Settings_branches.tr()),
-            12.verticalSpace,
-            CommercialFileDataCardWidget(
-              title: LocaleKeys.Settings_branchName.tr(),
-              leftColumnFields: [
-                FieldData(
-                  label: LocaleKeys.Settings_workStartTime.tr(),
-                  value: LocaleKeys.Settings_time.tr(),
-                ),
-                FieldData(
-                  label: LocaleKeys.Settings_address.tr(),
-                  value: LocaleKeys.Settings_address.tr(),
-                ),
-                FieldData(
-                  label: LocaleKeys.Settings_officialWorkingDays.tr(),
-                  value:
-                      '${LocaleKeys.Settings_sunday.tr()} , ${LocaleKeys.Settings_monday.tr()} , ${LocaleKeys.Settings_tuesday.tr()} , ${LocaleKeys.Settings_wednesday.tr()} , ${LocaleKeys.Settings_thursday.tr()}',
-                ),
-              ],
-              rightColumnFields: [
-                FieldData(
-                  label: LocaleKeys.Settings_workEndTime.tr(),
-                  value: LocaleKeys.Settings_time.tr(),
-                ),
-                FieldData(
-                  label: LocaleKeys.Settings_holidayDays.tr(),
-                  value:
-                      '${LocaleKeys.Settings_friday.tr()} , ${LocaleKeys.Settings_saturday.tr()}',
-                ),
-              ],
+            CompanyHeaderWidget(
+              title: LocaleKeys.Settings_branches.tr(),
+              actionText: _isEditingBranchesData
+                  ? 'حفظ'
+                  : LocaleKeys.Settings_modify.tr(),
+              onModifyPressed: () {
+                setState(() {
+                  _isEditingBranchesData = !_isEditingBranchesData;
+                });
+              },
             ),
+            12.verticalSpace,
+            CommercialFileDataCardWidget(readOnly: !_isEditingBranchesData),
           ],
         ),
       ),
