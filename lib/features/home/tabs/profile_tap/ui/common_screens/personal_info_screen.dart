@@ -1,12 +1,20 @@
+import 'package:bounce/bounce.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
+import 'package:rizq/core/shared_widgets/app_text_field.dart';
+import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/shared_widgets/underline_text.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/features/auth/widgets/form_validators.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/reset_password_screen.dart';
+import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/update_personal_info_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
 class PersonalInfoScreen extends StatelessWidget {
@@ -19,18 +27,21 @@ class PersonalInfoScreen extends StatelessWidget {
         leading: AppBarBackButton(),
         actionsPadding: EdgeInsets.symmetric(horizontal: 12.r),
         actions: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
-            decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(24.r),
-            ),
-            child: Text(
-              LocaleKeys.Settings_modify.tr(),
-              style: AppTextStyles.cairoTextStyle(
-                color: Colors.white,
-                size: 14,
-                fontWeight: FontWeight.w500,
+          Bounce(
+          onTap: ()=>RouteManager.navigateTo(UpdatePersonalInfoScreen()),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
+              decoration: BoxDecoration(
+                color: AppColors.primaryColor,
+                borderRadius: BorderRadius.circular(24.r),
+              ),
+              child: Text(
+                LocaleKeys.Settings_modify.tr(),
+                style: AppTextStyles.cairoTextStyle(
+                  color: Colors.white,
+                  size: 14,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           )
@@ -82,21 +93,65 @@ class PersonalInfoScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'تعديل',
-                      style: AppTextStyles.cairoTextStyle(
-                        color: AppColors.primaryColor,
-                        size: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
+
                 ],
               ),
               5.vGap,
-              _ProfileCard(),
+              AppTextField(
+                validator: FormValidators.nameValidator,
+                hint: LocaleKeys.Auth_name.tr(context: context),
+                title: LocaleKeys.Auth_userName.tr(context: context),
+                keyboardType: TextInputType.name,
+                textInputAction: TextInputAction.next,
+                prefixIcon: SvgImage(svgPath: AppAssets.userIconSvg, color: AppColors.fieldHintColor,),
+                isEnabled: false,
+
+              ),
+
+              AppTextField(
+                validator: FormValidators.emailValidator,
+                hint: LocaleKeys.Auth_shortEmail.tr(context: context),
+                title: LocaleKeys.Auth_email.tr(context: context),
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
+                prefixIcon: SvgImage(svgPath: AppAssets.emailIconSvg, color: AppColors.fieldHintColor,),
+                isEnabled: false,
+              ),
+
+              AppTextField(
+                validator: FormValidators.phoneValidator,
+                hint: LocaleKeys.Auth_phone.tr(context: context),
+                title: LocaleKeys.Auth_phone.tr(context: context),
+                keyboardType: TextInputType.phone,
+                textInputAction: TextInputAction.next,
+                prefixIcon: SvgImage(svgPath: AppAssets.phoneIconSvg, color: AppColors.fieldHintColor,),
+                isEnabled: false,
+              ),
+
+              AppTextField(
+                validator: FormValidators.stateValidator,
+                hint: LocaleKeys.Auth_state.tr(context: context),
+                title: LocaleKeys.Auth_state.tr(context: context),
+                keyboardType: TextInputType.text,
+                textInputAction: TextInputAction.next,
+                prefixIcon: SvgImage(svgPath: AppAssets.stateIconSvg, color: AppColors.fieldHintColor,),
+                isEnabled: false,
+              ),
+
+              // CustomDropdownButton(
+              //   title: LocaleKeys.Auth_state.tr(context: context),
+              //   hint: LocaleKeys.Auth_state.tr(context: context),
+              //
+              //   value: syriaStatesKeys[0],
+              //   items: syriaStatesKeys,
+              //   onChanged: (s) {
+              //
+              //   },
+              //
+              //   prefixIcon: SvgImage(svgPath: AppAssets.stateIconSvg,  color: AppColors.fieldHintColor, ),
+              //   validator: FormValidators.stateValidator,
+              // ),
+
               Align(
                 alignment: AlignmentDirectional.centerStart,
                 child: UnderlineText(
@@ -108,6 +163,7 @@ class PersonalInfoScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
+                  onPressed: ()=>RouteManager.navigateTo(ResetPasswordScreen()),
                 ),
               ),
             ],
@@ -117,67 +173,4 @@ class PersonalInfoScreen extends StatelessWidget {
     );
   }
 }
-
-
-class _ProfileCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.overlayColor,
-        borderRadius: BorderRadius.circular(16.r),
-      ),
-      padding: EdgeInsets.all(16.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _KVRow(k: 'الاسم كامل', v: 'أحمد علي'),
-          SizedBox(height: 8),
-          _KVRow(k: 'رقم الهاتف', v: '055000000'),
-          SizedBox(height: 8),
-          _KVRow(k: 'نوع النشاط', v: 'بائع'),
-          SizedBox(height: 8),
-          _KVRow(k: 'المحافظة', v: 'الرياض'),
-          SizedBox(height: 8),
-          _KVRow(k: 'العنوان', v: 'الملز - الرياض'),
-        ],
-      ),
-    );
-  }
-}
-
-class _KVRow extends StatelessWidget {
-  const _KVRow({required this.k, required this.v});
-
-  final String k;
-  final String v;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          k,
-          style: AppTextStyles.cairoTextStyle(
-            color: AppColors.fieldTitleColor,
-            size: 14,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        Text(
-          v,
-          style: AppTextStyles.cairoTextStyle(
-            color: AppColors.primaryColor,
-            size: 14,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-
-
 

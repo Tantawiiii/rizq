@@ -212,6 +212,13 @@ abstract class  LocaleKeys {
   static const Settings_thursday = 'Settings.thursday';
   static const Settings_friday = 'Settings.friday';
   static const Settings_saturday = 'Settings.saturday';
+  static const Settings_save = 'Settings.save';
+  static const Settings_change = 'Settings.change';
+  static const Settings_delete = 'Settings.delete';
+  static const Settings_changePersonalInfo = 'Settings.changePersonalInfo';
+  static const Settings_currentPassword = 'Settings.currentPassword';
+  static const Settings_newPassword = 'Settings.newPassword';
+  static const Settings_forgetPassword = 'Settings.forgetPassword';
   static const Settings = 'Settings';
   static const Notifications = 'Notifications';
   static const Chatting = 'Chatting';

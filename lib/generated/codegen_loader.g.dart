@@ -252,7 +252,14 @@ class CodegenLoader extends AssetLoader{
     "wednesday": "Wednesday",
     "thursday": "Thursday",
     "friday": "Friday",
-    "saturday": "Saturday"
+    "saturday": "Saturday",
+    "save": "Save",
+    "change": "Change",
+    "delete": "Delete",
+    "changePersonalInfo": "Edit Profile",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "forgetPassword": "Forgot Password"
   },
   "Notifications": {},
   "Chatting": {},
@@ -553,7 +560,14 @@ static const Map<String,dynamic> _ar = {
     "wednesday": "الأربعاء",
     "thursday": "الخميس",
     "friday": "الجمعة",
-    "saturday": "السبت"
+    "saturday": "السبت",
+    "save": "حفظ",
+    "change": "تغيير",
+    "delete": "حذف",
+    "changePersonalInfo": "تعديل الملف الشخصي",
+    "currentPassword": "كلمة المرور الحالية",
+    "newPassword": "كلمة المرور الجديدة",
+    "forgetPassword": "نسيت كلمة المرور"
   },
   "Notifications": {},
   "Chatting": {},

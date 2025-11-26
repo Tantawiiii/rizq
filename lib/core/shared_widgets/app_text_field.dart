@@ -20,6 +20,7 @@ class AppTextField extends StatefulWidget {
     this.prefixIcon,
     this.onFieldSubmitted,
     required this.title,
+    this.isEnabled = true,
   });
 
   final TextEditingController? controller;
@@ -34,7 +35,7 @@ class AppTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final ValueChanged<String>? onFieldSubmitted;
-
+  final bool isEnabled;
   @override
   State<AppTextField> createState() => _AppTextFieldState();
 }
@@ -70,6 +71,7 @@ class _AppTextFieldState extends State<AppTextField> {
           textInputAction: widget.textInputAction,
           obscureText: isPasswordShown,
           validator: widget.validator,
+          enabled: widget.isEnabled,
           onChanged: widget.onChanged,
           onFieldSubmitted: widget.onFieldSubmitted,
           style: AppTextStyles.cairoTextStyle(
@@ -90,7 +92,7 @@ class _AppTextFieldState extends State<AppTextField> {
               fontWeight: FontWeight.w400,
             ),
             filled: true,
-            fillColor: AppColors.white,
+            fillColor: widget.isEnabled? AppColors.white : Color(0xffEBEEF3),
             isDense: true,
             prefixIcon: Padding(
               padding:  EdgeInsetsGeometry.directional(start: 10.r),
@@ -122,6 +124,13 @@ class _AppTextFieldState extends State<AppTextField> {
                 : widget.suffixIcon,
             contentPadding: EdgeInsets.symmetric(horizontal: 15.r, vertical: 13.r),
             enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8.r),
+              borderSide:  BorderSide(
+                color: AppColors.textFieldBorderColor,
+                width: 1.r,
+              ),
+            ),
+            disabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.r),
               borderSide:  BorderSide(
                 color: AppColors.textFieldBorderColor,

@@ -240,7 +240,16 @@
     "wednesday": "الأربعاء",
     "thursday": "الخميس",
     "friday": "الجمعة",
-    "saturday": "السبت"
+    "saturday": "السبت",
+
+    "save" : "حفظ",
+    "change" : "تغيير",
+    "delete" : "حذف",
+
+    "changePersonalInfo" : "تعديل الملف الشخصي",
+    "currentPassword" : "كلمة المرور الحالية",
+    "newPassword" : "كلمة المرور الجديدة",
+    "forgetPassword" : "نسيت كلمة المرور"
   },
   "Notifications": {},
   "Chatting": {},
