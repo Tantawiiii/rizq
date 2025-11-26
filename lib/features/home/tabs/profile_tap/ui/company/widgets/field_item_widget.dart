@@ -49,8 +49,8 @@ class FieldItemWidget extends StatelessWidget {
           ),
           decoration: InputDecoration(
             isDense: true,
-            filled: true,
-            fillColor: AppColors.overlayColor,
+            filled:  true,
+            fillColor: AppColors.overlayColor ,
             contentPadding: EdgeInsets.symmetric(
               horizontal: 16.w,
               vertical: 16.h,
