@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/features/chat/ui/screens/chat_list_screen.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/categories_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/company/company_profile_tab.dart';
@@ -76,18 +77,24 @@ class _MainScreenState extends State<MainScreen> {
         animationSettings: const NavBarAnimationSettings(),
         navBarStyle: NavBarStyle.style16,
         navBarHeight: 70.h,
-        margin: EdgeInsets.symmetric(vertical: 2.h),
+       // TODO; remove the margin if still exist
       ),
     );
   }
 
   List<Widget> _buildScreens() {
+    print('role is ${UserRole.getCachedUserRole().name}');
+    var settingsTab = switch(UserRole.getCachedUserRole()){
+      UserRole.normal => NormalProfileTab(),
+      UserRole.seller => SellerProfileTab(),
+      _ => CompanyProfileTab(),
+    };
     return [
       HomeTab(scrollController: _scrollController),
       const TasksTab(),
       const CategoriesScreen(),
       const ChatListScreen(),
-      const CompanyProfileTab(),
+      settingsTab,
     ];
   }
 

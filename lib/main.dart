@@ -26,7 +26,7 @@ void main() async {
     await EasyLocalization.ensureInitialized();
 
     // Initialize dependency injection
-    init();
+    await init();
     //FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
     // Initialize notification service
@@ -42,7 +42,7 @@ void main() async {
       DeviceOrientation.portraitDown,
     ]);
     //TODO: JUST FOR TESTING
-    UserRole.seller.cacheUserRole();
+    UserRole.normal.cacheUserRole();
 
     runApp(const RizqApp());
 }
