@@ -59,8 +59,8 @@ class AdCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: AppColors.primaryColor,
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(26.r),
-                          bottomRight: Radius.circular(20.r),
+                          topRight: Radius.circular(26.r),
+                          bottomLeft: Radius.circular(20.r),
                         ),
                       ),
                       child: Center(
@@ -84,8 +84,8 @@ class AdCard extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: AppColors.discountCardColor,
                         borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(26.r),
-                          bottomLeft: Radius.circular(20.r),
+                          topLeft: Radius.circular(26.r),
+                          bottomRight: Radius.circular(20.r),
                         ),
                       ),
                       child: Center(

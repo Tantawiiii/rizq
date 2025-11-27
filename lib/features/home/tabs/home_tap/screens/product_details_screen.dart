@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rizq/core/shared_widgets/svg_image.dart';
 
 import '../../../../../core/constant/app_assets.dart';
 import '../../../../../core/constant/app_colors.dart';
@@ -191,29 +192,39 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         children: [
-          PrimaryButton(
-            title: AppTexts.contactSeller,
-            textStyle: AppTextStyles.cairoTextStyle(
-              color: AppColors.primaryColor,
-              size: 14,
-              fontWeight: FontWeight.w600,
-            ),
-            backgroundColor: AppColors.scaffoldCyanColor,
-            icon: SvgPicture.asset(
-              _isFavorite ? AppAssets.heartSvg : AppAssets.heartSlashSvg,
-              width: 20.w,
-              height: 20.h,
-              colorFilter: ColorFilter.mode(
-                AppColors.primaryColor,
-                BlendMode.srcIn,
+          Row(
+            spacing: 20.r,
+            children: [
+
+              Expanded(
+                child: PrimaryButton(
+                  title: AppTexts.contactSeller,
+                  textStyle: AppTextStyles.cairoTextStyle(
+                    color: AppColors.white,
+                    size: 14,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  backgroundColor: AppColors.primaryColor,
+                  onPressed: () {}
+                ),
               ),
-            ),
-            iconLeading: true,
-            onPressed: () {
-              setState(() {
-                _isFavorite = !_isFavorite;
-              });
-            },
+              IconButton(
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(AppColors.scaffoldCyanColor),
+                  overlayColor: WidgetStatePropertyAll(Colors.transparent),
+                ),
+                onPressed: (){
+                  setState(() {
+                    _isFavorite = !_isFavorite;
+                  });
+                }, icon: SvgImage(
+                svgPath: _isFavorite ? AppAssets.heartSvg : AppAssets.heartSlashSvg,
+                width: 20.w,
+                height: 20.h,
+                color: _isFavorite? Colors.red: AppColors.primaryColor,
+
+              ),),
+            ],
           ),
           12.verticalSpace,
           GestureDetector(

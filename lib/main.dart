@@ -41,8 +41,8 @@ void main() async {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    //TODO: JUST FOR TESTING
-    UserRole.normal.cacheUserRole();
+    // //TODO: JUST FOR TESTING
+    // UserRole.normal.cacheUserRole();
 
     runApp(const RizqApp());
 }

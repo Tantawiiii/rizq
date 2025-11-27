@@ -118,6 +118,8 @@ class LoginScreen extends StatelessWidget {
                     PrimaryButton(
                       title: LocaleKeys.Auth_Login_login.tr(),
                       isLoading: state is LoginLoadingState,
+                      backgroundColor: AppColors.primaryColor,
+                      disabledColor: AppColors.primaryColor,
                       onPressed: () {
                         if(formKey.currentState!.validate()){
                           cubit.login(loginModel: LoginRequestModel(email: emailController.text, password: passwordController.text));

@@ -34,7 +34,8 @@ class SellerProfileTab extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          leading: AppBarBackButton(),
+         // leading: AppBarBackButton(),
+          centerTitle: true,
           title: Text(
             LocaleKeys.Settings_profile.tr(context: context),
             style: AppTextStyles.cairoTextStyle(
