@@ -83,14 +83,14 @@ class _ExpandedBottomNav extends StatelessWidget {
               icon: AppAssets.userSvg,
               isActive: selectedIndex == 0,
               onTap: () => onItemSelected?.call(0),
-              activeColor: AppColors.primaryColor,
+              activeColor: AppColors.sconderyColor,
               inactiveColor: AppColors.primaryColor,
             ),
             _NavIcon(
               icon: AppAssets.chatSvg,
               isActive: selectedIndex == 1,
               onTap: () => onItemSelected?.call(1),
-              activeColor: AppColors.primaryColor,
+              activeColor: AppColors.sconderyColor,
               inactiveColor: AppColors.primaryColor,
             ),
             _AddButton(
@@ -100,7 +100,7 @@ class _ExpandedBottomNav extends StatelessWidget {
               icon: AppAssets.adsSvg,
               isActive: selectedIndex == 2,
               onTap: () => onItemSelected?.call(2),
-              activeColor: AppColors.primaryColor,
+              activeColor: AppColors.sconderyColor,
               inactiveColor: AppColors.primaryColor,
             ),
             _NavIcon(

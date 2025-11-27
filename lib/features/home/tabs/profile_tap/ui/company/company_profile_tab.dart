@@ -34,7 +34,8 @@ class CompanyProfileTab extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          leading: AppBarBackButton(),
+          centerTitle: true,
+        //  leading: AppBarBackButton(),
           title: Text(
             LocaleKeys.Settings_profile.tr(context: context),
             style: AppTextStyles.cairoTextStyle(

@@ -8,7 +8,6 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/company/company_profile_t
 import 'package:rizq/features/home/tabs/profile_tap/ui/normal/normal_profile_tab.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/seller/seller_profile_tab.dart';
 
-
 import '../../core/constant/app_assets.dart';
 import '../../core/constant/app_colors.dart';
 import 'tabs/home_tap/widgets/filter_drawer.dart';
@@ -88,7 +87,7 @@ class _MainScreenState extends State<MainScreen> {
       const TasksTab(),
       const CategoriesScreen(),
       const ChatListScreen(),
-      const CompanyProfileTab()
+      const CompanyProfileTab(),
     ];
   }
 
@@ -126,7 +125,7 @@ class _MainScreenState extends State<MainScreen> {
           height: 24.h,
           colorFilter: ColorFilter.mode(
             _controller.index == 1
-                ? AppColors.primaryColor
+                ? AppColors.sconderyColor
                 : AppColors.primaryColor,
             BlendMode.srcIn,
           ),
@@ -141,22 +140,12 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         title: "",
-        activeColorPrimary: AppColors.primaryColor,
+        activeColorPrimary: AppColors.sconderyColor,
         inactiveColorPrimary: AppColors.primaryColor,
       ),
       PersistentBottomNavBarItem(
         icon: Center(
           child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
-        ),
-        inactiveIcon: Center(
-          child: Container(
-            height: 90.h,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.sconderyColor,
-            ),
-            child: Icon(Icons.add, color: AppColors.white, size: 24.sp),
-          ),
         ),
         title: "",
         activeColorPrimary: AppColors.sconderyColor,
@@ -172,7 +161,7 @@ class _MainScreenState extends State<MainScreen> {
           height: 24.h,
           colorFilter: ColorFilter.mode(
             _controller.index == 3
-                ? AppColors.primaryColor
+                ? AppColors.sconderyColor
                 : AppColors.primaryColor,
             BlendMode.srcIn,
           ),
@@ -187,7 +176,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         title: "",
-        activeColorPrimary: AppColors.primaryColor,
+        activeColorPrimary: AppColors.sconderyColor,
         inactiveColorPrimary: AppColors.primaryColor,
       ),
       PersistentBottomNavBarItem(
@@ -197,7 +186,7 @@ class _MainScreenState extends State<MainScreen> {
           height: 24.h,
           colorFilter: ColorFilter.mode(
             _controller.index == 4
-                ? AppColors.primaryColor
+                ? AppColors.sconderyColor
                 : AppColors.primaryColor,
             BlendMode.srcIn,
           ),
@@ -212,7 +201,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
         title: "",
-        activeColorPrimary: AppColors.primaryColor,
+        activeColorPrimary: AppColors.sconderyColor,
         inactiveColorPrimary: AppColors.primaryColor,
       ),
     ];

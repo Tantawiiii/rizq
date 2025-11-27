@@ -42,7 +42,6 @@ class NormalProfileTab extends StatelessWidget {
             size: 18.sp,
             fontWeight: FontWeight.w600,
           ),
-
         ),
       ),
       backgroundColor: AppColors.whiteBackground,
