@@ -13,6 +13,7 @@ import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/register/logic/register_cubit.dart';
 import 'package:rizq/features/auth/register/logic/register_states.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
+import 'package:rizq/features/auth/widgets/progress_indicator_button.dart';
 import 'package:rizq/features/auth/widgets/register_progrss_circles/register_progress_circles.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
@@ -126,11 +127,13 @@ class RegisterCompanySocialMedia extends StatelessWidget {
                     ),
                     30.vGap,
 
+                    state is RegisterUploadingStateChanged?
+                    ProgressIndicatorButton(value: state.progress):
 
                     PrimaryButton(
                       title: LocaleKeys.Auth_next.tr(context: context),
                       disabledColor: AppColors.primaryColor,
-                      isLoading: state is RegisterLoadingState || state is RegisterUploadingStateChanged,
+                      isLoading: state is RegisterLoadingState,
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                           cubit.registerUser();

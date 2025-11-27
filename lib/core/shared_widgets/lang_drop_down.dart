@@ -32,7 +32,7 @@ class _LangDropDownState extends State<LangDropDown> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.screenWidth/3,
+      width: context.screenWidth/2.8,
 
       child: DropdownButtonFormField2<String>(
         items:[
