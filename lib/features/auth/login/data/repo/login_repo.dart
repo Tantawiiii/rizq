@@ -20,7 +20,9 @@ final class LoginRepo extends BaseLoginRepo{
           body: FormData.fromMap(model.toJson()),
       );
 
-      CacheHelper.setValue(key: CacheKeys.token, value: response.data['access_token']);
+      CacheHelper.setValue(key: CacheKeys.token, value: response.data['data']['token']);
+      CacheHelper.setValue(key: CacheKeys.userRole, value: response.data['data']['user']['account_guard']);
+
       return right(response);
     } catch (e) {
       if (e is DioException) {

@@ -139,11 +139,15 @@ abstract class  LocaleKeys {
   static const createAd_time_day = 'createAd.time.day';
   static const createAd_time_month = 'createAd.time.month';
   static const createAd_time = 'createAd.time';
-  static const createAd_deleteAllImage = 'createAd.deleteAllImage';
   static const createAd_uploadAdImages = 'createAd.uploadAdImages';
   static const createAd_youHaveUploadedNM = 'createAd.youHaveUploadedNM';
   static const createAd_uploadMore = 'createAd.uploadMore';
   static const createAd_youHaveUploadedAll = 'createAd.youHaveUploadedAll';
+  static const createAd_updateAdInfo = 'createAd.updateAdInfo';
+  static const createAd_updateAdImages = 'createAd.updateAdImages';
+  static const createAd_saveUpdates = 'createAd.saveUpdates';
+  static const createAd_deleteAllImage = 'createAd.deleteAllImage';
+  static const createAd_adUpdatedSuccessfully = 'createAd.adUpdatedSuccessfully';
   static const createAd = 'createAd';
   static const Settings_profile = 'Settings.profile';
   static const Settings_profileInfo = 'Settings.profileInfo';

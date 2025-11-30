@@ -16,17 +16,20 @@ import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/crea
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/successful_published_ad_screen.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/widgets/multiple_image_picker_widget.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/widgets/single_image_picker_widget.dart';
+import 'package:rizq/features/update_ad/logic/update_ad_cubit.dart';
+import 'package:rizq/features/update_ad/logic/update_ad_states.dart';
+import 'package:rizq/features/update_ad/ui/screens/successful_updated_ad_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-class AdImagesScreen extends StatelessWidget {
-  const AdImagesScreen({super.key});
+class UpdateAdImagesScreen extends StatelessWidget {
+  const UpdateAdImagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<CreateAdCubit, CreateAdStates>(
+      body: BlocBuilder<UpdateAdCubit, UpdateAdStates>(
           builder: (context,state){
-            var cubit = context.read<CreateAdCubit>();
+            var cubit = context.read<UpdateAdCubit>();
 
             return SafeArea(
               child: CustomScrollView(
@@ -34,7 +37,7 @@ class AdImagesScreen extends StatelessWidget {
                 slivers: [
                   SliverAppBar(
                     leading: const AppBarBackButton(),
-                    title: Text(LocaleKeys.createAd_addNewAd.tr(context: context)),
+                    title: Text(LocaleKeys.createAd_updateAdImages.tr(context: context)),
                     pinned: false,
                     floating: true,
                   ),
@@ -110,13 +113,11 @@ class AdImagesScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: PrimaryButton(
-                                  title: LocaleKeys.createAd_publishAd.tr(context: context),
+                                  title: LocaleKeys.createAd_saveUpdates.tr(context: context),
                                   disabledColor: AppColors.disabledColor,
                                   backgroundColor: AppColors.primaryColor,
                                   onPressed: cubit.adImages.length >= 2 ?(){
-                                    //TODO: CHECK THE WALLET HERE IF HAS A BOUQUET OR MONEY IN WALLET PUBLISH ADD
-                                    // TODO: IF NOT REDIRECT HIM TO SUBSRIBE IN BOUQUET IN PLANS SECTION
-                                    RouteManager.navigateTo(SuccessfulPublishedAdScreen());
+                                    RouteManager.navigateTo(SuccessfulUpdateAdScreen());
                                   } : null,
                                 ),
                               ),
@@ -155,6 +156,7 @@ class AdImagesScreen extends StatelessWidget {
                               cubit.assignNewImageList([]);
                             },
                           ),
+
 
                           35.vGap,
                         ],

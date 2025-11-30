@@ -172,11 +172,15 @@ class CodegenLoader extends AssetLoader{
         "other": "{} شهر"
       }
     },
-    "deleteAllImage": "حذف كل الصور",
     "uploadAdImages": "رفع صور الإعلان",
-    "youHaveUploadedNM": "لقد قمت برفع {} صور من اصل {}",
+    "youHaveUploadedNM": "لقد قمت برفع {} صور من اصل 6",
     "uploadMore": "رفع المزيد",
-    "youHaveUploadedAll": "لقد قمت برفع كل الصور المطلوبة"
+    "youHaveUploadedAll": "لقد قمت برفع كل الصور المطلوبة",
+    "updateAdInfo": "تعديل معلومات الإعلان",
+    "updateAdImages": "تعديل صور الاعلان",
+    "saveUpdates": "حفظ التعديل",
+    "deleteAllImage": "حذف كل الصور",
+    "adUpdatedSuccessfully": "تم تعديل معلومات الإعلان بنجاح"
   },
   "Settings": {
     "profile": "الملف الشخصى",
@@ -489,11 +493,15 @@ static const Map<String,dynamic> _en = {
         "other": "{} months"
       }
     },
-    "deleteAllImage": "delete all images",
     "uploadAdImages": "upload ad images",
-    "youHaveUploadedNM": "You have uploaded {} images out of {}",
+    "youHaveUploadedNM": "You have uploaded {} images out of 6",
     "uploadMore": "Upload more",
-    "youHaveUploadedAll": "You have uploaded all the required images"
+    "youHaveUploadedAll": "You have uploaded all the required images",
+    "updateAdInfo": "Edit Ad Information",
+    "updateAdImages": "Edit Ad Images",
+    "saveUpdates": "Save Updates",
+    "deleteAllImage": "Delete All Images",
+    "adUpdatedSuccessfully": "Ad information updated successfully"
   },
   "Settings": {
     "profile": "Profile",

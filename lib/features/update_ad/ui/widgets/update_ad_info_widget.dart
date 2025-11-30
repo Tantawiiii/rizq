@@ -16,22 +16,23 @@ import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/crea
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/ad_images_screen.dart';
 import 'package:rizq/features/update_ad/logic/update_ad_cubit.dart';
 import 'package:rizq/features/update_ad/logic/update_ad_states.dart';
+import 'package:rizq/features/update_ad/ui/screens/update_ad_images_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 
-class AdInfoWidget extends StatelessWidget {
-  const AdInfoWidget({super.key});
+class UpdateAdInfoWidget extends StatelessWidget {
+  const UpdateAdInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CreateAdCubit, CreateAdStates>(
+    return BlocBuilder<UpdateAdCubit, UpdateAdStates>(
         builder: (context,state){
-          var cubit = context.read<CreateAdCubit>();
+          var cubit = context.read<UpdateAdCubit>();
 
 
-          return state is CreateAdGetDataFailureState? CustomErrorWidget(errorMessage: state.errorMessage, onRefresh: (){
+          return state is UpdateAdGetDataFailureState? CustomErrorWidget(errorMessage: state.errorMessage, onRefresh: (){
             cubit.getGovernorates();
           }):  CustomSkelton(
-            enabled: state is CreateAdGettingDataState,
+            enabled: state is UpdateAdGettingDataState,
             child: Container(
               padding: EdgeInsets.all(12.r),
               decoration: BoxDecoration(
@@ -65,7 +66,7 @@ class AdInfoWidget extends StatelessWidget {
                     value: cubit.selectedGov,
                     onChanged: (s){
                       if(s != null && s.isNotEmpty){
-                        cubit.selectedGov = s;
+                        cubit.selectedGov = s;;
                       }
 
                     },
@@ -141,8 +142,8 @@ class AdInfoWidget extends StatelessWidget {
                     disabledColor: AppColors.disabledColor,
                     onPressed: (){
                       RouteManager.navigateTo(BlocProvider.value(
-                          value: context.read<CreateAdCubit>(),
-                          child: AdImagesScreen()));
+                          value: cubit,
+                          child: UpdateAdImagesScreen()));
                     },
                   ),
                 ],

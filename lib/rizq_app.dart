@@ -6,6 +6,7 @@ import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
 import 'package:rizq/features/home/main_screen.dart';
 import 'package:rizq/features/splash/splash_screen.dart';
+import 'package:rizq/features/update_ad/ui/screens/update_ad_info_screen.dart';
 
 import 'core/theme/theme.dart';
 import 'core/utils/lang_helper.dart';
@@ -47,7 +48,7 @@ class RizqApp extends StatelessWidget {
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
 
-              home: MainScreen(),
+              home: UpdateAdInfoScreen(),
 
             ),
           );

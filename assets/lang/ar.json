@@ -157,13 +157,18 @@
       }
     },
 
-    "deleteAllImage" : "حذف كل الصور",
 
 
     "uploadAdImages" : "رفع صور الإعلان",
     "youHaveUploadedNM" : "لقد قمت برفع {} صور من اصل 6",
     "uploadMore" : "رفع المزيد",
-    "youHaveUploadedAll" : "لقد قمت برفع كل الصور المطلوبة"
+    "youHaveUploadedAll" : "لقد قمت برفع كل الصور المطلوبة",
+
+    "updateAdInfo" : "تعديل معلومات الإعلان",
+    "updateAdImages" : "تعديل صور الاعلان",
+    "saveUpdates" : "حفظ التعديل",
+    "deleteAllImage" : "حذف كل الصور",
+    "adUpdatedSuccessfully" : "تم تعديل معلومات الإعلان بنجاح"
   },
   "Settings": {
     "profile": "الملف الشخصى",

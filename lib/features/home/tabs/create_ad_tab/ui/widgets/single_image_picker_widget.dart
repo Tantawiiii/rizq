@@ -3,11 +3,13 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/shared_widgets/cached_net_image.dart';
+import 'package:rizq/core/utils/extension_methods.dart';
 
 class SinglePickedImage extends StatelessWidget {
   final String imagePath;
   final VoidCallback onImageRemoved;
-  const SinglePickedImage({super.key, required this.imagePath, required this.onImageRemoved});
+  const SinglePickedImage({super.key, required this.imagePath, required this.onImageRemoved,});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class SinglePickedImage extends StatelessWidget {
 
               ClipRRect(
                   borderRadius: BorderRadius.circular(23.r),
-                  child: Image.file(
+                  child: imagePath.isValidUrl? CachedNetImage(imageUrl: imagePath, fit: BoxFit.cover,):Image.file(
                     File(imagePath),
                     fit: BoxFit.cover,
                   )),
