@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
@@ -8,14 +10,12 @@ import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/auth/widgets/media_picking/file_picking_widget.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_states.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/successful_published_ad_screen.dart';
-import 'package:rizq/features/home/tabs/create_ad_tab/ui/widgets/images_progress.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/ui/widgets/multiple_image_picker_widget.dart';
+import 'package:rizq/features/home/tabs/create_ad_tab/ui/widgets/single_image_picker_widget.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
-
-import 'ad_info_screen.dart';
 
 class AdImagesScreen extends StatelessWidget {
   const AdImagesScreen({super.key});
@@ -54,10 +54,15 @@ class AdImagesScreen extends StatelessWidget {
                             start: AppTheme.defaultEdgePadding,
                           ),
                           child: Text(
-                            LocaleKeys.createAd_addTo6Images.tr(context: context),
+                           cubit.adImages.isEmpty ? LocaleKeys.createAd_addTo6Images.tr(context: context):
+                            cubit.adImages.length == 6?
+                                LocaleKeys.createAd_youHaveUploadedAll.tr(context: context)
+                                :LocaleKeys.createAd_youHaveUploadedNM.tr(context:context, args: [
+                              cubit.adImages.length.toString()
+                            ]),
                             style: AppTextStyles.cairoTextStyle(
-                              size: 12,
-                              color: AppColors.primaryColor,
+                              size: 14,
+                              color: Color(0xffFA843C),
                             ),
                           ),
                         ),
@@ -71,38 +76,69 @@ class AdImagesScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           // GRID as a normal GridView
+
+                          if(cubit.adImages.isEmpty)
+                            MultipleImagePickerWidget(
+                              onImagesSelected: (imagePaths){
+                                cubit.assignNewImageList(imagePaths);
+                              },
+                            ),
+                          if(cubit.adImages.isNotEmpty)
                           GridView.builder(
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
-                            itemCount: 6,
+                            itemCount: cubit.adImages.length,
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               crossAxisSpacing: AppTheme.defaultEdgePadding,
                               mainAxisSpacing: AppTheme.defaultEdgePadding,
                             ),
                             itemBuilder: (context, index) {
-                              return FilePickingWidget(
-                                title:
-                                '${LocaleKeys.createAd_image.tr(context: context)} ${index + 1}',
-                                isForAd: true,
-                                onFileSelected: (f) {
-                                  cubit.changeAdImages(f!.path, index);
-                                },
+                              return SinglePickedImage(
+                                  imagePath: cubit.adImages[index],
+                                  onImageRemoved: (){
+                                    cubit.removeFromAdImages(index);
+                                  }
                               );
                             },
                           ),
-                          20.vGap,
-                          ImagesProgress(value: cubit.filledImagePercent()),
-                          20.vGap,
-                          PrimaryButton(
-                            title: LocaleKeys.Auth_next.tr(context: context),
-                            disabledColor: AppColors.disabledColor,
-                            onPressed: (){
-                              //TODO: CHECK THE WALLET HERE IF HAS A BOUQUET OR MONEY IN WALLET PUBLISH ADD
-                              // TODO: IF NOT REDIRECT HIM TO SUBSRIBE IN BOUQUET IN PLANS SECTION
-                              RouteManager.navigateTo(SuccessfulPublishedAdScreen());
-                            },
+
+                          30.vGap,
+                          Row(
+                            spacing: 20.r,
+                            children: [
+                              Expanded(
+                                child: PrimaryButton(
+                                  title: LocaleKeys.createAd_publishAd.tr(context: context),
+                                  disabledColor: AppColors.disabledColor,
+                                  backgroundColor: AppColors.primaryColor,
+                                  onPressed: cubit.adImages.length >= 2 ?(){
+                                    //TODO: CHECK THE WALLET HERE IF HAS A BOUQUET OR MONEY IN WALLET PUBLISH ADD
+                                    // TODO: IF NOT REDIRECT HIM TO SUBSRIBE IN BOUQUET IN PLANS SECTION
+                                    RouteManager.navigateTo(SuccessfulPublishedAdScreen());
+                                  } : null,
+                                ),
+                              ),
+
+                              if(cubit.adImages.isNotEmpty && cubit.adImages.length<6)
+                              Expanded(
+                                child: PrimaryButton(
+                                  title: LocaleKeys.createAd_uploadMore.tr(),
+                                  backgroundColor: AppColors.scaffoldCyanColor,
+                                  textStyle: AppTextStyles.cairoTextStyle(
+                                    size: 16,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.titleColor,
+                                  ),
+                                  onPressed: (){
+                                    cubit.pickImageAgain();
+                                  },
+
+                                ),
+                              ),
+                            ],
                           ),
+
 
                           35.vGap,
                         ],
@@ -110,27 +146,6 @@ class AdImagesScreen extends StatelessWidget {
                     ),
                   )
 
-                  // Grid inside CustomScrollView
-                  // SliverPadding(
-                  //   padding: EdgeInsets.all(
-                  //     AppTheme.defaultEdgePadding,),
-                  //   sliver: SliverGrid(
-                  //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  //       crossAxisCount: 2,
-                  //       crossAxisSpacing: AppTheme.defaultEdgePadding,
-                  //       mainAxisSpacing: AppTheme.defaultEdgePadding,
-                  //     ),
-                  //     delegate: SliverChildBuilderDelegate((context, index) {
-                  //       return FilePickingWidget(
-                  //         title:
-                  //             '${LocaleKeys.createAd_image.tr(context: context)} ${index + 1}',
-                  //         isForAd: true,
-                  //         onFileSelected: (f) {},
-                  //       );
-                  //     }, childCount: 6),
-                  //   ),
-                  // ),
-                  //
                 ],
               ),
             );
@@ -138,4 +153,5 @@ class AdImagesScreen extends StatelessWidget {
       ),
     );
   }
+
 }

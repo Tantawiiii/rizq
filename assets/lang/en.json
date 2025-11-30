@@ -155,7 +155,14 @@
         "many": "{} months",
         "other": "{} months"
       }
-    }
+    },
+    "deleteAllImage" : "delete all images",
+
+    "uploadAdImages" : "upload ad images",
+    "youHaveUploadedNM" : "You have uploaded {} images out of 6",
+    "uploadMore" : "Upload more",
+    "youHaveUploadedAll" : "You have uploaded all the required images"
+
   },
   "Settings": {
     "profile": "Profile",

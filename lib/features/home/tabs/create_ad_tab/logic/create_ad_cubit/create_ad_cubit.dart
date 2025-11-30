@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:rizq/features/auth/register/data/models/category_model.dart';
 import 'package:rizq/features/auth/register/data/models/governorate_model.dart';
 import 'package:rizq/features/auth/register/data/repo/gov_cat_repo/gov_cat_repo.dart';
@@ -16,7 +17,6 @@ final class CreateAdCubit extends Cubit<CreateAdStates>{
 
 
   List<CategoryModel> categories = [];
-  static bool isTopSliverShown = true;
 
  List<GovernorateModel> governorates = [];
  String? selectedGov;
@@ -61,17 +61,28 @@ final class CreateAdCubit extends Cubit<CreateAdStates>{
   // TODO: AD IMAGES
 
   // ad images management will be here
- List<String> adImages = List.generate(6, (i)=>'');
+ List<String> adImages = [];
 
-  void changeAdImages(String imagePath, int index){
-    adImages[index] = imagePath;
+  void removeFromAdImages(int index){
+    adImages.removeAt(index);
+
    emit(CreateAdChangedImagesState());
   }
 
-  double filledImagePercent(){
-    int filledImagesCount = adImages.where((imagePath) => imagePath.isNotEmpty).length;
-    return (filledImagesCount / adImages.length);
+  void assignNewImageList(List<String> imagePaths){
+
+    adImages = imagePaths.take(6).toList();
+    emit(CreateAdChangedImagesState());
   }
-  
+
+  void pickImageAgain()async{
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+    );
+    if (result != null) {
+      adImages.add(result.paths.first!);
+      emit(CreateAdChangedImagesState());
+    }
+  }
 
 }

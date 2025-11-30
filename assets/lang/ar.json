@@ -155,7 +155,15 @@
         "many": "{} شهراً",
         "other": "{} شهر"
       }
-    }
+    },
+
+    "deleteAllImage" : "حذف كل الصور",
+
+
+    "uploadAdImages" : "رفع صور الإعلان",
+    "youHaveUploadedNM" : "لقد قمت برفع {} صور من اصل 6",
+    "uploadMore" : "رفع المزيد",
+    "youHaveUploadedAll" : "لقد قمت برفع كل الصور المطلوبة"
   },
   "Settings": {
     "profile": "الملف الشخصى",

@@ -126,8 +126,8 @@ abstract class  LocaleKeys {
   static const createAd_paymentSummary = 'createAd.paymentSummary';
   static const createAd_bouquetPrice = 'createAd.bouquetPrice';
   static const createAd_serviceMargin = 'createAd.serviceMargin';
-  static const createAd_amountCharge = 'createAd.amountCharge';
   static const createAd_totalPrice = 'createAd.totalPrice';
+  static const createAd_amountCharge = 'createAd.amountCharge';
   static const createAd_yourAdUnderSystemReview = 'createAd.yourAdUnderSystemReview';
   static const createAd_backToMyAdds = 'createAd.backToMyAdds';
   static const createAd_adsPerMonth = 'createAd.adsPerMonth';
@@ -139,6 +139,11 @@ abstract class  LocaleKeys {
   static const createAd_time_day = 'createAd.time.day';
   static const createAd_time_month = 'createAd.time.month';
   static const createAd_time = 'createAd.time';
+  static const createAd_deleteAllImage = 'createAd.deleteAllImage';
+  static const createAd_uploadAdImages = 'createAd.uploadAdImages';
+  static const createAd_youHaveUploadedNM = 'createAd.youHaveUploadedNM';
+  static const createAd_uploadMore = 'createAd.uploadMore';
+  static const createAd_youHaveUploadedAll = 'createAd.youHaveUploadedAll';
   static const createAd = 'createAd';
   static const Settings_profile = 'Settings.profile';
   static const Settings_profileInfo = 'Settings.profileInfo';
@@ -152,10 +157,6 @@ abstract class  LocaleKeys {
   static const Settings_modify = 'Settings.modify';
   static const Settings_walletBalance = 'Settings.walletBalance';
   static const Settings_rechargeWallet = 'Settings.rechargeWallet';
-  static const Settings_enterAmountOfMoney = 'Settings.enterAmountOfMoney';
-  static const Settings_subscribeNow = 'Settings.subscribeNow';
-  static const Settings_stopAlert = 'Settings.stopAlert';
-  static const Settings_shopInfo = 'Settings.shopInfo';
   static const Settings_youAreOnThisBouquetAndConsumed_N_Of_M_Adds = 'Settings.youAreOnThisBouquetAndConsumed_N_Of_M_Adds';
   static const Settings_upgradeBouquet = 'Settings.upgradeBouquet';
   static const Settings_active = 'Settings.active';
@@ -171,6 +172,10 @@ abstract class  LocaleKeys {
   static const Settings_stopAlertsQuestion = 'Settings.stopAlertsQuestion';
   static const Settings_stop = 'Settings.stop';
   static const Settings_logout2 = 'Settings.logout2';
+  static const Settings_enterAmountOfMoney = 'Settings.enterAmountOfMoney';
+  static const Settings_subscribeNow = 'Settings.subscribeNow';
+  static const Settings_stopAlert = 'Settings.stopAlert';
+  static const Settings_shopInfo = 'Settings.shopInfo';
   static const Settings_companyInfo = 'Settings.companyInfo';
   static const Settings_branchesAndWorkingHours = 'Settings.branchesAndWorkingHours';
   static const Settings_fullName = 'Settings.fullName';
