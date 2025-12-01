@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rizq/core/theme/theme.dart';
+import 'package:rizq/core/utils/extension_methods.dart';
 
 import '../../../../core/constant/app_assets.dart';
 import '../../../../core/constant/app_colors.dart';
@@ -17,21 +19,24 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final align = message.isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start;
+    final align = message.isMe ? CrossAxisAlignment.start : CrossAxisAlignment.end;
     final bubbleColor = message.isMe ? AppColors.primaryColor : AppColors.accentColor;
     final textColor = message.isMe ? AppColors.white : AppColors.fieldTitleColor;
     final borderRadius = BorderRadius.only(
       topLeft: Radius.circular(18.r),
       topRight: Radius.circular(18.r),
-      bottomLeft: Radius.circular(message.isMe ? 18.r : 4.r),
-      bottomRight: Radius.circular(message.isMe ? 4.r : 18.r),
+      bottomLeft: Radius.circular(message.isMe ? 18.r : 0),
+      bottomRight: Radius.circular(message.isMe ? 0 : 18.r),
     );
 
     return Column(
       crossAxisAlignment: align,
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+          constraints: BoxConstraints(
+            maxWidth: context.screenWidth * 0.75,
+          ),
+          padding: EdgeInsets.symmetric(horizontal: 16.r, vertical: 12.r),
           decoration: BoxDecoration(
             color: bubbleColor,
             borderRadius: borderRadius,

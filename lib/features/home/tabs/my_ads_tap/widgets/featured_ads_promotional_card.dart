@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/shared_widgets/primary_button.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
 
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/app_texts.dart';
@@ -15,14 +17,14 @@ class FeaturedAdsPromotionalCard extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.scaffoldCyanColor,
         borderRadius: BorderRadius.circular(24.r),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            AppTexts.sellWhatYouDontNeed,
+            LocaleKeys.sellWhatYouDontNeed.tr(context: context),
             textAlign: TextAlign.center,
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
@@ -56,7 +58,7 @@ class _DiscountBanner extends StatelessWidget {
     return Container(
       height: 200.h,
       decoration: BoxDecoration(
-        color: const Color(0xffF5F5F5),
+        color: Color(0xfff2f1e9),
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Stack(
@@ -71,7 +73,7 @@ class _DiscountBanner extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.r),
               ),
               child: Text(
-                AppTexts.limitedOffer,
+                LocaleKeys.limitedOffer.tr(),
                 style: AppTextStyles.cairoTextStyle(
                   color: AppColors.white,
                   size: 10,
@@ -82,7 +84,7 @@ class _DiscountBanner extends StatelessWidget {
           ),
           Center(
             child: Text(
-              AppTexts.discountPercent,
+              LocaleKeys.discountPercent.tr(),
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.blackTextColor,
                 size: 48,
@@ -102,7 +104,7 @@ class _DiscountBanner extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
-                  AppTexts.sitewide,
+                  LocaleKeys.sitewide.tr(),
                   style: AppTextStyles.cairoTextStyle(
                     color: AppColors.white,
                     size: 12,
@@ -124,10 +126,10 @@ class _BenefitsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final benefits = [
-      AppTexts.benefitDiscountPackage,
-      AppTexts.benefitMoreAdsFaster,
-      AppTexts.benefitMoreBuyers,
-      AppTexts.benefitBestPrices,
+      LocaleKeys.benefitDiscountPackage.tr(),
+      LocaleKeys.benefitMoreAdsFaster.tr(),
+      LocaleKeys.benefitMoreBuyers.tr(),
+      LocaleKeys.benefitBestPrices.tr(),
     ];
 
     return Column(
@@ -138,7 +140,6 @@ class _BenefitsList extends StatelessWidget {
               padding: EdgeInsets.only(bottom: 16.h),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                textDirection: TextDirection.rtl,
                 children: [
                   Container(
                     margin: EdgeInsets.only(top: 6.h, left: 12.w),
@@ -153,9 +154,9 @@ class _BenefitsList extends StatelessWidget {
                     child: Text(
                       benefit,
                       style: AppTextStyles.cairoTextStyle(
-                        color: AppColors.primaryColor,
-                        size: 16,
-                        fontWeight: FontWeight.w600,
+                        color: AppColors.titleColor,
+                        size: 14,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),

@@ -1,19 +1,22 @@
 import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/shared_widgets/svg_image.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
 
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../model/ad_stat_item.dart';
 
 class AdStatCard extends StatelessWidget {
-  const AdStatCard({required this.item});
-  final AdStatItem item;
+  const AdStatCard({ required this.name, required this.svgPath, required this.number, required this.onPressed});
+  final String name;
+  final String svgPath;
+  final int number;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return Bounce(
-      onTap: item.onTap ?? () {},
+      onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
           color: AppColors.overlayColor,
@@ -23,35 +26,36 @@ class AdStatCard extends StatelessWidget {
         child: SizedBox(
           height: 144.h,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(item.icon, size: 28.w, color: AppColors.primaryColor),
+              SvgImage(svgPath:  svgPath, width: 28.r, height: 28.r, color: AppColors.primaryColor),
               12.verticalSpace,
               Text(
-                item.title,
+                name,
                 textAlign: TextAlign.start,
                 style: AppTextStyles.cairoTextStyle(
-                  color: AppColors.primaryColor,
+                  color: AppColors.titleColor,
                   size: 16,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const Spacer(),
               Row(
                 children: [
-                  Icon(
-                    Icons.chevron_left,
-                    size: 18.w,
-                    color: AppColors.primaryColor,
-                  ),
-                  const Spacer(),
+
                   Text(
-                    '${item.count}',
+                    number.toString(),
                     style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
-                      size: 22,
-                      fontWeight: FontWeight.w800,
+                      size: 20,
+                      fontWeight: FontWeight.w600,
                     ),
+                  ),
+                  Spacer(),
+                  Icon(
+                    Icons.keyboard_arrow_left,
+                    size: 18.w,
+                    color: AppColors.primaryColor,
                   ),
                 ],
               ),

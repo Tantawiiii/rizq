@@ -48,7 +48,7 @@ class RizqApp extends StatelessWidget {
               navigatorKey: navigatorKey,
               scaffoldMessengerKey: scaffoldMessengerKey,
 
-              home: UpdateAdInfoScreen(),
+              home: MainScreen(),
 
             ),
           );

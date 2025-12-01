@@ -2,19 +2,18 @@ import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/shared_widgets/cached_net_image.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/adItem.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/product_details.dart';
+import 'package:rizq/features/home/tabs/home_tap/screens/product_details_screen.dart';
 
-import '../../../../../core/constant/app_assets.dart';
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/router/route_manager.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../model/adItem.dart';
-import '../model/product_details.dart';
-import '../screens/product_details_screen.dart';
-
-class AdCard extends StatelessWidget {
-  const AdCard({super.key, required this.item,});
+class NewAdCard extends StatelessWidget {
+  const NewAdCard({super.key, required this.item,});
 
   final AdItem item;
 
@@ -32,11 +31,11 @@ class AdCard extends StatelessWidget {
           color: AppColors.overlayColor,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height:170.h,
-              child: Stack(
+            Expanded(
+              flex: 2,
+              child: Stack (
                 fit: StackFit.expand,
                 children: [
                   Positioned.fill(child: ClipRRect(
@@ -94,47 +93,49 @@ class AdCard extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(8.r),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    item.title,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppTextStyles.cairoTextStyle(
-                      color: AppColors.primaryColor,
-                      size: 14,
-                      fontWeight: FontWeight.w500,
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(8.r),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      item.title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyles.cairoTextStyle(
+                        color: AppColors.primaryColor,
+                        size: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
 
-                  10.vGap,
+                    10.vGap,
 
-                  Row(
+                    Row(
 
-                    children: [
-                      Text(
-                        item.oldPrice,
-                        style: AppTextStyles.cairoTextStyle(
-                          color: Color(0xffF86317),
-                          size: 12,
-                          fontWeight: FontWeight.w400,
-                        ).copyWith(decoration: TextDecoration.lineThrough),
-                      ),
-                      8.horizontalSpace,
-                      Text(
-                        item.price,
-                        style: AppTextStyles.cairoTextStyle(
-                          color: AppColors.titleColor,
-                          size: 12,
-                          fontWeight: FontWeight.w600,
+                      children: [
+                        Text(
+                          item.oldPrice,
+                          style: AppTextStyles.cairoTextStyle(
+                            color: Color(0xffF86317),
+                            size: 12,
+                            fontWeight: FontWeight.w400,
+                          ).copyWith(decoration: TextDecoration.lineThrough),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        8.horizontalSpace,
+                        Text(
+                          item.price,
+                          style: AppTextStyles.cairoTextStyle(
+                            color: AppColors.titleColor,
+                            size: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -153,7 +154,7 @@ class AdCard extends StatelessWidget {
       currentPrice: item.price,
       oldPrice: item.oldPrice,
       description:
-          'يأتي بشاشة Super Retina XDR بحجم 6.1 بوصة، مع معالج A15 Bionic. نظام كاميرا مزدوجة بدقة 12 ميجابكسل يدعم تقنية 5G لتجربة اتصال أسرع. لون الأسود بطارية 91% ووتر بروف مش مغير اجزاء ضمان شهر مع البوكس.',
+      'يأتي بشاشة Super Retina XDR بحجم 6.1 بوصة، مع معالج A15 Bionic. نظام كاميرا مزدوجة بدقة 12 ميجابكسل يدعم تقنية 5G لتجربة اتصال أسرع. لون الأسود بطارية 91% ووتر بروف مش مغير اجزاء ضمان شهر مع البوكس.',
       seller: const SellerInfo(
         name: 'محمد محمود',
         role: 'بائع',

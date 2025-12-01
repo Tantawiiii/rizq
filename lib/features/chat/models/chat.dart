@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Chat {
+
+  final String id;
+  final String contactName;
+  final String lastMessage;
+  final TimeOfDay lastMessageTime;
+  final String productTitle;
+  final int unreadCount;
+  final ChatCategory category;
+  final ImageProvider<Object>? avatar;
+  final List<ChatMessage> messages;
+
   const Chat({
     required this.id,
     required this.contactName,
@@ -13,15 +24,6 @@ class Chat {
     this.messages = const [],
   });
 
-  final String id;
-  final String contactName;
-  final String lastMessage;
-  final TimeOfDay lastMessageTime;
-  final String productTitle;
-  final int unreadCount;
-  final ChatCategory category;
-  final ImageProvider<Object>? avatar;
-  final List<ChatMessage> messages;
 
   String get initials {
     final parts = contactName

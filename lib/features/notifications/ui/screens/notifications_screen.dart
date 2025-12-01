@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/constant/app_colors.dart';
-import '../../../../core/constant/app_texts.dart';
-import '../../../../core/router/route_manager.dart';
-import '../../../../core/theme/app_text_styles.dart';
-import '../../models/notification_model.dart';
-import '../widgets/notification_item.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/constant/app_texts.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/shared_widgets/svg_image.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/core/theme/theme.dart';
+import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/features/notifications/models/notification_model.dart';
+import 'package:rizq/features/notifications/ui/widgets/notification_item.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({super.key});
@@ -23,7 +28,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       description: AppTexts.discountCouponDescription,
       timestamp: '2:58 PM',
       avatarUrl:
-          'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
+      'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
       actionButtonText: AppTexts.subscribtions,
       isRead: false,
     ),
@@ -33,7 +38,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       description: AppTexts.discountCouponDescription,
       timestamp: '2:58 PM',
       avatarUrl:
-          'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
+      'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
       actionButtonText: AppTexts.subscribtions,
       isRead: false,
     ),
@@ -43,7 +48,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       description: AppTexts.discountCouponDescription,
       timestamp: '2:58 PM',
       avatarUrl:
-          'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
+      'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
       actionButtonText: AppTexts.subscribtions,
       isRead: false,
     ),
@@ -52,115 +57,93 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Header
-            _buildHeader(),
-            // Mark as Read Button
-            _buildMarkAsReadButton(),
-            // Notifications List
-            Expanded(
-              child: _buildNotificationsList(),
-            ),
-          ],
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => RouteManager.pop(),
+            icon: Icon(Icons.arrow_back_ios)),
+        actions: [
+          if (_notifications.isNotEmpty)
+            GestureDetector(
+              onTap: _markAllAsRead,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
+                decoration: BoxDecoration(
+                  color: Color(0xffDCF1FF),
+                  borderRadius: BorderRadius.circular(8.r),
+                ),
+                child: Text(
+                  LocaleKeys.markAsRead.tr(context: context),
+                  style: AppTextStyles.cairoTextStyle(
+                    color: AppColors.titleColor,
+                    size: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            )
+        ],
+        actionsPadding:
+        EdgeInsetsDirectional.only(end: AppTheme.defaultEdgePadding),
+        title: Text(
+          LocaleKeys.notifications.tr(context: context),
+          textAlign: TextAlign.center,
+          style: AppTextStyles.cairoTextStyle(
+            color: AppColors.primaryColor,
+            size: 18,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
-    );
-  }
-
-  Widget _buildHeader() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-      child: Row(
+      backgroundColor: AppColors.white,
+      body: Column(
         children: [
-          // Back Button
-          IconButton(
-            onPressed: () => RouteManager.pop(),
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              size: 20.w,
-              color: AppColors.primaryColor,
-            ),
-          ),
-          // Title
           Expanded(
-            child: Text(
-              AppTexts.notifications,
-              textAlign: TextAlign.center,
-              style: AppTextStyles.cairoTextStyle(
-                color: AppColors.primaryColor,
-                size: 20,
-                fontWeight: FontWeight.w700,
+            child: _notifications.isEmpty
+                ? Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgImage(
+                    svgPath: AppAssets.noNotificationIconSvg,
+                    width: 70.r,
+                    height: 70.r,
+                  ),
+                  20.vGap,
+                  Text(
+                    LocaleKeys.noNotifications.tr(context: context),
+                    style: AppTextStyles.cairoTextStyle(
+                      fontWeight: FontWeight.w600,
+                      size: 20,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
+                  15.vGap,
+                  Text(
+                    LocaleKeys.weWillNotifyYou.tr(context: context),
+                    style: AppTextStyles.cairoTextStyle(
+                      size: 14,
+                      color: AppColors.titleColor,
+                    ),
+                  )
+                ],
               ),
+            )
+                : ListView.builder(
+              padding: EdgeInsets.all(AppTheme.defaultEdgePadding),
+              itemCount: _notifications.length,
+              itemBuilder: (context, index) {
+                return NotificationItem(
+                  notification: _notifications[index],
+                  onTap: () {},
+                  onMenuTap: () {},
+                  onActionTap: () {},
+                );
+              },
             ),
           ),
-          // Spacer to balance the back button
-          SizedBox(width: 48.w),
         ],
       ),
-    );
-  }
-
-  Widget _buildMarkAsReadButton() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-      child: Align(
-        alignment: Alignment.centerRight,
-        child: GestureDetector(
-          onTap: _markAllAsRead,
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-            decoration: BoxDecoration(
-              color: AppColors.accentColor,
-              borderRadius: BorderRadius.circular(20.r),
-            ),
-            child: Text(
-              AppTexts.markAsRead,
-              style: AppTextStyles.cairoTextStyle(
-                color: AppColors.primaryColor,
-                size: 14,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildNotificationsList() {
-    if (_notifications.isEmpty) {
-      return Center(
-        child: Text(
-          'لا توجد إشعارات',
-          style: AppTextStyles.cairoTextStyle(
-            color: AppColors.greyTextColor,
-            size: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-      itemCount: _notifications.length,
-      itemBuilder: (context, index) {
-        return NotificationItem(
-          notification: _notifications[index],
-          onTap: () {
-            // Handle notification tap
-          },
-          onMenuTap: () {
-            // Handle menu tap
-          },
-          onActionTap: () {
-            // Handle action button tap
-          },
-        );
-      },
     );
   }
 
@@ -170,8 +153,5 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         notification.isRead = true;
       }
     });
-    // Show snackbar or perform action
   }
 }
-
-

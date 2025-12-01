@@ -1,11 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/features/chat/ui/screens/chat_details_screen.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/features/chat/models/chat.dart';
+import 'package:rizq/features/chat/ui/screens/chat_details_screen.dart';
 import 'package:rizq/features/chat/ui/widgets/chat_card.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
 
 class ChatListScreen extends StatefulWidget {
   const ChatListScreen({super.key});
@@ -30,22 +32,18 @@ class _ChatListScreenState extends State<ChatListScreen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          AppTexts.chats,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+          LocaleKeys.chats.tr(context: context),
+          style: AppTextStyles.cairoTextStyle(
+            size: 18,
+            fontWeight: FontWeight.w600,
             color: AppColors.primaryColor,
-            fontWeight: FontWeight.w700,
-            fontSize: 20.sp,
-          ),
+          )
         ),
-        // leading: IconButton(
-        //   icon: const Icon(Icons.arrow_back_ios_new_rounded),
-        //   color: AppColors.primaryColor,
-        //   onPressed: RouteManager.pop,
-        // ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _FilterRow(
               selected: _selectedFilter,
@@ -153,37 +151,35 @@ class _FilterRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6.w),
+      padding: EdgeInsets.all(6.r),
       decoration: BoxDecoration(
-        color: AppColors.scaffoldCyanColor,
+        color: Color(0xffDCF1FF),
         borderRadius: BorderRadius.circular(24.r),
       ),
       child: Row(
+        spacing: 12.r,
+        mainAxisSize: MainAxisSize.min,
         children: ChatCategory.values.map((filter) {
           final isSelected = filter == selected;
-          return Expanded(
-            child: GestureDetector(
-              onTap: () => onSelected(filter),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
-                decoration: BoxDecoration(
-                  color: isSelected
-                      ? AppColors.primaryColor
-                      : Colors.transparent,
-                  borderRadius: BorderRadius.circular(20.r),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  _label(filter),
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: isSelected
-                        ? AppColors.white
-                        : AppColors.fieldTitleColor,
-                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                    fontSize: 13.sp,
-                  ),
-                ),
+          return GestureDetector(
+            onTap: () => onSelected(filter),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: EdgeInsets.symmetric(horizontal: 12.r, vertical: 8.r),
+              decoration: BoxDecoration(
+                color: isSelected
+                    ? AppColors.primaryColor
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(24.r),
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                _label(filter),
+                style: AppTextStyles.cairoTextStyle(
+                  fontWeight: FontWeight.w500,
+                  color: isSelected? Colors.white : AppColors.titleColor,
+                  size: 14,
+                )
               ),
             ),
           );
@@ -195,13 +191,13 @@ class _FilterRow extends StatelessWidget {
   String _label(ChatCategory filter) {
     switch (filter) {
       case ChatCategory.all:
-        return 'الكل';
+        return LocaleKeys.chat_all.tr();
       case ChatCategory.sales:
-        return 'البيع';
+        return LocaleKeys.chat_sales.tr();
       case ChatCategory.purchases:
-        return 'الشراء';
+        return LocaleKeys.chat_purchases.tr();
       case ChatCategory.unread:
-        return 'غير مقروءة';
+        return LocaleKeys.chat_unread.tr();
     }
   }
 }

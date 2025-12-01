@@ -2,6 +2,7 @@ import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rizq/core/shared_widgets/svg_image.dart';
 
 import '../../features/home/tabs/home_tap/screens/map_filter_screen.dart';
 import '../constant/app_assets.dart';
@@ -57,9 +58,12 @@ class SearchField extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Bounce(
                         onTap: ()=>  RouteManager.navigateTo(const MapFilterScreen()),
-                        child: SvgPicture.asset(AppAssets.locationPinSvg, color: AppColors.sconderyColor,)),
+                        child: SvgImage(svgPath: AppAssets.locationPinSvg, color: AppColors.sconderyColor,)
+
+                    ),
                   )
                 : null,
+
             hintText: hintText ?? AppTexts.search,
             hintStyle: AppTextStyles.cairoTextStyle(
               color: AppColors.greyTextColor,

@@ -72,6 +72,15 @@ final class AppAssets {
   static const String icWebSiteSvg =  'assets/svgs/ic_website.svg';
   static const String icNameStoreSvg =  'assets/svgs/name_store.svg';
   static const String icTypeCompanySvg =  'assets/svgs/type_company.svg';
+  static const String noNotificationIconSvg =  'assets/images/svg/no_notifications.svg';
+
+  static const String cameraIconSvg =  'assets/images/svg/camera.svg';
+
+  static const String favIconSvg =  'assets/images/svg/heart.svg';
+  static const String badgeIconSvg =  'assets/images/svg/badge.svg';
+  static const String draftIconSvg =  'assets/images/svg/draft.svg';
+  static const String checkIconSvg =  'assets/images/svg/check.svg';
+
 
 
 

@@ -1,11 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/core/theme/theme.dart';
+import 'package:rizq/features/home/tabs/my_ads_tap/screens/draft_ads_screen.dart';
 import 'package:rizq/features/home/tabs/my_ads_tap/screens/favorites_ads_screen.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
 
-import '../../../../core/constant/app_colors.dart';
-import '../../../../core/constant/app_texts.dart';
-import '../../../../core/router/route_manager.dart';
-import 'model/ad_stat_item.dart';
 import 'screens/active_ads_screen.dart';
 import 'screens/featured_ads_screen.dart';
 import 'widgets/ad_stat_card.dart';
@@ -15,72 +18,55 @@ class TasksTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = <AdStatItem>[
-      AdStatItem(
-        title: AppTexts.featuredAds,
-        count: 0,
-        icon: Icons.verified_outlined,
-        onTap: () => RouteManager.navigateTo(const FeaturedAdsScreen()),
-      ),
-      AdStatItem(
-        title: AppTexts.activeAds,
-        count: 1,
-        icon: Icons.check_circle_outline,
-        onTap: () => RouteManager.navigateTo(const ActiveAdsScreen()),
-      ),
-      const AdStatItem(
-        title: AppTexts.drafts,
-        count: 0,
-        icon: Icons.inbox_outlined,
-      ),
-      AdStatItem(
-        title: AppTexts.favoriteAds,
-        count: 127,
-        icon: Icons.favorite_border,
-        onTap: () => RouteManager.navigateTo(const FavoritesAdsScreen()),
-      ),
-    ];
-
     return Scaffold(
       backgroundColor: AppColors.whiteBackground,
       appBar: AppBar(
-        title: Text(AppTexts.myAds),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: _StatsGrid(items: items),
+        title: Text(
+          LocaleKeys.myAds.tr(context: context),
+          style: AppTextStyles.cairoTextStyle(
+            fontWeight: FontWeight.w600,
+            color: AppColors.primaryColor,
+            size: 18,
+          ),
         ),
       ),
-    );
-  }
-}
+      body: GridView(
+        padding: EdgeInsets.all(AppTheme.defaultEdgePadding),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: AppTheme.defaultEdgePadding,
+          crossAxisSpacing: AppTheme.defaultEdgePadding,
+        ),
 
-class _StatsGrid extends StatelessWidget {
-  const _StatsGrid({required this.items});
-  final List<AdStatItem> items;
-
-  @override
-  Widget build(BuildContext context) {
-    final spacing = 16.w;
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final cardWidth = (constraints.maxWidth - spacing) / 2;
-        return Wrap(
-          spacing: spacing,
-          runSpacing: spacing,
-          children: items
-              .map(
-                (it) => SizedBox(
-                  width: cardWidth,
-                  child: AdStatCard(item: it),
-                ),
-              )
-              .toList(),
-        );
-      },
+        physics: BouncingScrollPhysics(),
+        children: [
+          AdStatCard(
+            name: LocaleKeys.activeAds.tr(),
+            svgPath: AppAssets.checkIconSvg,
+            number: 10,
+            onPressed: () => RouteManager.navigateTo(const ActiveAdsScreen()),
+          ),
+          AdStatCard(
+            name: LocaleKeys.featuredAds.tr(),
+            svgPath: AppAssets.badgeIconSvg,
+            number: 10,
+            onPressed: () => RouteManager.navigateTo(FeaturedAdsScreen()),
+          ),
+          AdStatCard(
+            name: LocaleKeys.drafts.tr(),
+            svgPath: AppAssets.draftIconSvg,
+            number: 10,
+            onPressed: () =>RouteManager.navigateTo(DraftsAdsScreen()),
+          ),
+          AdStatCard(
+            name: LocaleKeys.favoriteAds.tr(),
+            svgPath: AppAssets.favIconSvg,
+            number: 10,
+            onPressed: () =>
+                RouteManager.navigateTo(const FavoritesAdsScreen()),
+          ),
+        ],
+      ),
     );
   }
 }

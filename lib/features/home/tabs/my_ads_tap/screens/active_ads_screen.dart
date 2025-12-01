@@ -1,5 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/core/theme/theme.dart';
+import 'package:rizq/core/utils/extension_methods.dart';
+import 'package:rizq/features/home/tabs/my_ads_tap/widgets/newAdCard.dart';
+import 'package:rizq/generated/locale_keys.g.dart';
 
 import '../../../../../core/constant/app_assets.dart';
 import '../../../../../core/constant/app_colors.dart';
@@ -14,81 +20,69 @@ class ActiveAdsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        backgroundColor: AppColors.whiteBackground,
-        endDrawer: const FilterDrawer(),
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight),
-          child: Container(
-            color: Colors.transparent,
-            child: SafeArea(
-              child: Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios_new_rounded),
-                    color: AppColors.primaryColor,
-                    onPressed: RouteManager.pop,
-                  ),
-                  Expanded(
-                    child: Text(
-                      'الإعلانات الفعالة',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 20.sp,
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 48.w),
-                ],
+    return Scaffold(
+      backgroundColor: AppColors.whiteBackground,
+      endDrawer: const FilterDrawer(),
+
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              actions: [
+                //to hide end drawer icon
+                SizedBox.shrink(),
+              ],
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                color: AppColors.primaryColor,
+                onPressed: RouteManager.pop,
+              ),
+              title: Text(
+                LocaleKeys.activeAds.tr(),
+                style: AppTextStyles.cairoTextStyle(
+                  size: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.primaryColor,
+                ),
+              ),
+              pinned: false,
+              floating: true,
+            ),
+            SliverAppBar(
+              pinned: true,
+              automaticallyImplyLeading: false,
+              actions: [SizedBox.shrink()],
+              flexibleSpace: FlexibleSpaceBar(
+                background: Padding(
+                  padding:  EdgeInsets.symmetric(horizontal:  AppTheme.defaultEdgePadding),
+                  child: SearchBarRow(),
+                ),
               ),
             ),
-          ),
-        ),
-        body: SafeArea(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-                child: const SearchBarRow(),
+            SliverPadding(
+              padding: EdgeInsetsGeometry.all(AppTheme.defaultEdgePadding),
+              sliver: SliverGrid.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: .7,
+                    crossAxisSpacing: AppTheme.defaultEdgePadding,
+                    mainAxisSpacing: AppTheme.defaultEdgePadding,
+                      
+                  ),
+                  itemCount: _mockAds.length,
+                  itemBuilder: (context,index){
+                    return NewAdCard(item: _mockAds[index],);
+                  }
               ),
-              Expanded(child: _buildAdsGrid()),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAdsGrid() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final spacing = 16.w;
-        final cardWidth = (constraints.maxWidth - spacing * 3) / 2;
-
-        return ListView(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-          children: [
-            Wrap(
-              spacing: spacing,
-              runSpacing: spacing,
-              children: _mockAds
-                  .map(
-                    (ad) => SizedBox(
-                      width: cardWidth,
-                      child: AdCard(item: ad),
-                    ),
-                  )
-                  .toList(),
-            ),
+            )
           ],
-        );
-      },
+        ),
+      )
+
     );
   }
+
 
   static final List<AdItem> _mockAds = [
     const AdItem(
