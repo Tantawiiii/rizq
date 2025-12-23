@@ -9,17 +9,15 @@ import 'package:pinput/pinput.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
-import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_cubit.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_states.dart';
-import 'package:rizq/features/auth/forget_password/ui/password_reset_screen.dart';
 import 'package:rizq/features/auth/forget_password/ui/widgets/otp_resend_button.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class OtpScreen extends StatefulWidget {
 

@@ -5,14 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
-import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
-import 'package:rizq/core/shared_widgets/custom_skelton.dart';
-import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
-import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
+import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -23,10 +16,14 @@ import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
 import 'package:rizq/features/auth/widgets/form_validators.dart';
 import 'package:rizq/features/auth/widgets/register_progrss_circles/register_progress_circles.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
-import 'package:rizq/main.dart';
-
-import '../../../../../core/router/route_manager.dart' show RouteManager;
-
+import 'package:rizq/shared_widgets/app_text_field.dart';
+import 'package:rizq/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/shared_widgets/custom_skelton.dart';
+import 'package:rizq/shared_widgets/custom_snack_bar.dart';
+import 'package:rizq/shared_widgets/lang_drop_down.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 class RegisterSellerPersonalInfoScreen extends StatelessWidget {
    RegisterSellerPersonalInfoScreen({super.key});
@@ -59,11 +56,7 @@ class RegisterSellerPersonalInfoScreen extends StatelessWidget {
                         30.vGap,
                         Align(
                             alignment: AlignmentDirectional.centerEnd,
-                            child: LangDropDown(
-                              onLanguageChanged: (){
-                                cubit.getGovernorates();
-                              },
-                            )),
+                            child: LangDropDown()),
                         20.vGap,
                         Image.asset(AppAssets.appLogoImage, width: 32.r, height: 37.r),
                         10.vGap,
@@ -152,12 +145,12 @@ class RegisterSellerPersonalInfoScreen extends StatelessWidget {
                               title: LocaleKeys.Auth_state.tr(context: context),
                               hint: LocaleKeys.Auth_state.tr(context: context),
 
-                              value: cubit.governorateId == null ?null : cubit.governorates.where((gov)=>gov.id == cubit.governorateId).first.name,
-                              items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                              value: cubit.governorateId == null ?null : cubit.governorates.where((gov)=>gov.id == cubit.governorateId).first.name.getNameInCurrentLocale(context),
+                              items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name.getNameInCurrentLocale(context)),
                               onChanged: (s) {
                                 if (s != null && s.isNotEmpty) {
 
-                                  cubit.governorateId = cubit.governorates.where((gov)=>gov.name == s).first.id;
+                                  cubit.governorateId = cubit.governorates.where((gov)=>gov.name.getNameInCurrentLocale(context) == s).first.id;
                                 }
                               },
 

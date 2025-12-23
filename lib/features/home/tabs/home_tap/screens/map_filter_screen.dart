@@ -4,12 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bounce/bounce.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/shared_widgets/search_field.dart';
 
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/constant/app_texts.dart';
-import '../../../../../core/shared_widgets/search_field.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/router/route_manager.dart';
 
 
 class MapFilterScreen extends StatefulWidget {
@@ -179,7 +178,7 @@ class _MapFilterScreenState extends State<MapFilterScreen> {
                 Expanded(
                   child: SearchField(
                     controller: _searchController,
-                    hintText: AppTexts.searchForRegion,
+                    hintText: 'search for region',
                     showSuffixIcon: false,
                     onChanged: (value) {},
                   ),
@@ -210,7 +209,7 @@ class _MapFilterScreenState extends State<MapFilterScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${AppTexts.numberOfKilometers} : ${_radiusKm.toInt()} ${AppTexts.km}',
+                    '${'no KM :'} : ${_radiusKm.toInt()}',
                     style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 16,

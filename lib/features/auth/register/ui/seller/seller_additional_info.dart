@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
+import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -16,6 +15,8 @@ import 'package:rizq/features/auth/widgets/media_picking/file_picking_widget.dar
 import 'package:rizq/features/auth/widgets/progress_indicator_button.dart';
 import 'package:rizq/features/auth/widgets/register_progrss_circles/register_progress_circles.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/custom_snack_bar.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class RegisterSellerAdditionalInfoScreen extends StatelessWidget {
   const RegisterSellerAdditionalInfoScreen({super.key});
@@ -127,7 +128,7 @@ class RegisterSellerAdditionalInfoScreen extends StatelessWidget {
                       );
                       return ;
                     } else {
-                      cubit.registerUser();
+                      cubit.registerUser(role: UserRole.seller);
                     }
                   },
                 ),

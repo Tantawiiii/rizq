@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rizq/core/constant/app_texts.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 import '../../../core/constant/app_assets.dart';
 import '../../../core/constant/app_colors.dart';
@@ -34,7 +33,7 @@ class HomeBottomNavigation extends StatelessWidget {
                 key: const ValueKey('collapsed_bottom_nav'),
                 backgroundColor: AppColors.sconderyColor,
                 onPressed: onAddPressed ?? () => onItemSelected?.call(1),
-                title: AppTexts.chats,
+                title: 'AppTexts.chats',
               icon: Icon( Icons.chat_bubble_outline,color: AppColors.white,),
               ),
           )

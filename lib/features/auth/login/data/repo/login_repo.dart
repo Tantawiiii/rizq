@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:dio/src/response.dart';
 import 'package:rizq/core/error/failure.dart';
-import 'package:rizq/core/network/api_constants.dart';
-import 'package:rizq/core/utils/cache_helper.dart';
+import 'package:rizq/core/api_service/endpoints.dart';
+import 'package:rizq/core/locale_storage/cache_helper.dart';
+import 'package:rizq/core/locale_storage/cache_keys.dart';
 import 'package:rizq/features/auth/login/data/models/login_request_model.dart';
 import 'package:rizq/features/auth/login/data/repo/base_login_repo.dart';
 
@@ -16,11 +16,11 @@ final class LoginRepo extends BaseLoginRepo{
 
     try {
       var response = await apiService.post(
-          ApiConstants.loginEndpoint,
+          Endpoints.loginEndpoint,
           body: FormData.fromMap(model.toJson()),
       );
 
-      CacheHelper.setValue(key: CacheKeys.token, value: response.data['access_token']);
+      CacheHelper.put(key: CacheKeys.accessToken, value: response.data['access_token']);
       return right(response);
     } catch (e) {
       if (e is DioException) {

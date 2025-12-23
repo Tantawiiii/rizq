@@ -4,11 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class CustomErrorWidget extends StatelessWidget {
   final String errorMessage;
@@ -22,7 +22,8 @@ class CustomErrorWidget extends StatelessWidget {
       padding: EdgeInsets.all(AppTheme.defaultEdgePadding),
       child: Column(
         children: [
-          Expanded(
+          SizedBox(
+            height: context.screenHeight * 0.65,
             child: Lottie.asset(
               AppAssets.errorLottie,
               repeat: true,

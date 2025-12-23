@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -11,6 +10,7 @@ import 'package:rizq/features/plans/data/models/bouquet_model.dart';
 import 'package:rizq/features/plans/data/models/payment_summary_model.dart';
 import 'package:rizq/features/plans/ui/payment_summary_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class BouquetWidget extends StatelessWidget {
   final BouquetModel bouquet;

@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/shared_widgets/cached_net_image.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
+import 'package:rizq/shared_widgets/cached_net_image.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
+
 
 class ImagePickWidget extends StatefulWidget {
   final String? initialImageUrl;

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/adItem.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/product_details.dart';
+import 'package:rizq/features/home/tabs/home_tap/widgets/ad_card.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
-import '../../../../../core/constant/app_assets.dart';
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/constant/app_texts.dart';
-import '../../../../../core/router/route_manager.dart';
-import '../../../../../core/shared_widgets/primary_button.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../model/adItem.dart';
-import '../model/product_details.dart';
-import '../widgets/ad_card.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
   const ProductDetailsScreen({super.key, required this.product});
@@ -198,7 +196,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
               Expanded(
                 child: PrimaryButton(
-                  title: AppTexts.contactSeller,
+                  title: 'AppTexts.contactSeller',
                   textStyle: AppTextStyles.cairoTextStyle(
                     color: AppColors.white,
                     size: 14,
@@ -231,7 +229,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             onTap: () {
             },
             child: Text(
-              AppTexts.notifyWhenPriceDrops,
+             ' AppTexts.notifyWhenPriceDrops',
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 14,
@@ -251,7 +249,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.generalTips,
+            'AppTexts.generalTips',
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
@@ -259,7 +257,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ),
           ),
           16.verticalSpace,
-          ...AppTexts.generalTipsList.map(
+          ...[
+     "قم بمقابلة البائع في مكان مفتوح يوجد به الكثير من الناس",
+     "لا تقم بتحويل ثمن المنتج للبائع قبل الفحص والتأكد من سلامته",
+     "قم بفحص المنتج جيدا قبل استلامه",
+   ].map(
             (tip) => Padding(
               padding: EdgeInsets.only(bottom: 12.h),
               child: Row(
@@ -300,7 +302,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.sellerInfo,
+            'AppTexts.sellerInfo',
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
@@ -342,7 +344,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                     4.verticalSpace,
                     Text(
-                      '${AppTexts.memberSince} ${widget.product.seller.memberSince}',
+                      '${'AppTexts.memberSince'} ${widget.product.seller.memberSince}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyles.cairoTextStyle(
@@ -384,7 +386,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.locationOnMap,
+            'AppTexts.locationOnMap',
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
@@ -433,7 +435,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.productDescription,
+            'AppTexts.productDescription',
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
@@ -457,17 +459,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget _buildSpecificationsTable() {
     final specs = widget.product.specifications;
     final items = [
-      _SpecItem(AppTexts.model, specs.model),
-      _SpecItem(AppTexts.brand, specs.brand),
-      _SpecItem(AppTexts.color, specs.color),
-      _SpecItem(AppTexts.storageCapacity, specs.storageCapacity),
-      _SpecItem(AppTexts.batteryHealth, specs.batteryHealth),
-      _SpecItem(AppTexts.condition, specs.condition),
-      _SpecItem(AppTexts.subCategory, specs.subCategory),
-      _SpecItem(AppTexts.mainCategory, specs.mainCategory),
-      _SpecItem(AppTexts.neighborhood, specs.neighborhood),
-      _SpecItem(AppTexts.city, specs.city),
-      _SpecItem(AppTexts.accessories, specs.accessories),
+      _SpecItem('AppTexts.model', specs.model),
+      _SpecItem('AppTexts.brand', specs.brand),
+      _SpecItem('AppTexts.color', specs.color),
+      _SpecItem('AppTexts.storageCapacity', specs.storageCapacity),
+      _SpecItem('AppTexts.batteryHealth', specs.batteryHealth),
+      _SpecItem('AppTexts.condition', specs.condition),
+      _SpecItem('AppTexts.subCategory', specs.subCategory),
+      _SpecItem('AppTexts.mainCategory', specs.mainCategory),
+      _SpecItem('AppTexts.neighborhood', specs.neighborhood),
+      _SpecItem('AppTexts.city', specs.city),
+      _SpecItem('AppTexts.accessories', specs.accessories),
     ];
 
     return Padding(
@@ -476,7 +478,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.information,
+            'AppTexts.information',
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
@@ -555,7 +557,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppTexts.relatedAds,
+            'AppTexts.relatedAds',
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
               size: 18,
@@ -598,7 +600,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: PrimaryButton(
-        title: AppTexts.seeMore,
+        title: 'AppTexts.seeMore',
         backgroundColor: AppColors.primaryColor,
         onPressed: () {},
       ),

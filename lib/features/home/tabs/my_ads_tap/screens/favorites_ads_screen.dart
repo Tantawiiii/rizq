@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/adItem.dart';
+import 'package:rizq/features/home/tabs/home_tap/widgets/ad_card.dart';
+import 'package:rizq/features/home/tabs/home_tap/widgets/filter_drawer.dart';
+import 'package:rizq/shared_widgets/search_bar_row.dart';
 
-import '../../../../../core/constant/app_assets.dart';
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/constant/app_texts.dart';
-import '../../../../../core/router/route_manager.dart';
-import '../../../../../core/shared_widgets/search_bar_row.dart';
-import '../../home_tap/model/adItem.dart';
-import '../../home_tap/widgets/ad_card.dart';
-import '../../home_tap/widgets/filter_drawer.dart';
 
 class FavoritesAdsScreen extends StatelessWidget {
   const FavoritesAdsScreen({super.key});
@@ -34,7 +33,7 @@ class FavoritesAdsScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      AppTexts.favoriteAds,
+                      'favorites',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.primaryColor,

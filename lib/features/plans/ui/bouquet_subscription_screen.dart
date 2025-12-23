@@ -5,9 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
-import 'package:rizq/core/shared_widgets/custom_skelton.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/plans/data/models/bouquet_model.dart';
@@ -15,6 +12,9 @@ import 'package:rizq/features/plans/logic/payment_cubit.dart';
 import 'package:rizq/features/plans/logic/payment_states.dart';
 import 'package:rizq/features/plans/ui/widgets/bouquet_widget.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/app_bar_backbutton.dart';
+import 'package:rizq/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/shared_widgets/custom_skelton.dart';
 
 class BouquetSubscriptionScreen extends StatelessWidget {
   const BouquetSubscriptionScreen({super.key});

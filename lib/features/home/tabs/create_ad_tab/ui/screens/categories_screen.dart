@@ -2,14 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rizq/core/di/inject.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
-import 'package:rizq/core/shared_widgets/custom_skelton.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/features/auth/register/data/models/category_model.dart';
+import 'package:rizq/features/auth/register/data/models/register_request_model.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_states.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/shared_widgets/custom_skelton.dart';
 
 import '../widgets/category_item.dart';
 
@@ -73,12 +73,7 @@ class CategoriesScreen extends StatelessWidget {
                                 (context, index) {
                                   return CategoryItem(
                                     model: state is CreateAdGettingDataState
-                                        ? CategoryModel(
-                                            id: 1,
-                                            name: 'الكترونيات',
-                                            imageUrl:
-                                                'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
-                                          )
+                                        ? dummyCategoryModel
                                         : cubit.categories[index],
                                   );
                                 },
@@ -98,3 +93,13 @@ class CategoriesScreen extends StatelessWidget {
     );
   }
 }
+
+var dummyCategoryModel = CategoryModel(
+    id: 1,
+    name: LocalizedName(ar: 'ar', en: 'en'),
+    status: 1,
+    position: 1,
+    children: [],
+    categoryFields: [],
+    brands: []
+);

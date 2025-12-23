@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
-
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/constant/app_texts.dart';
-import '../../../../../core/theme/app_text_styles.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class FeaturedAdsPromotionalCard extends StatelessWidget {
   const FeaturedAdsPromotionalCard({super.key});
@@ -22,7 +20,7 @@ class FeaturedAdsPromotionalCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            AppTexts.sellWhatYouDontNeed,
+            'sell what you need',
             textAlign: TextAlign.center,
             style: AppTextStyles.cairoTextStyle(
               color: AppColors.primaryColor,
@@ -36,7 +34,7 @@ class FeaturedAdsPromotionalCard extends StatelessWidget {
           const _BenefitsList(),
           32.verticalSpace,
           PrimaryButton(
-            title: AppTexts.subscribeNow,
+            title: 'subscribe now',
             backgroundColor: AppColors.primaryColor,
             onPressed: () {
 
@@ -71,7 +69,7 @@ class _DiscountBanner extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.r),
               ),
               child: Text(
-                AppTexts.limitedOffer,
+                'limited time offer',
                 style: AppTextStyles.cairoTextStyle(
                   color: AppColors.white,
                   size: 10,
@@ -82,7 +80,7 @@ class _DiscountBanner extends StatelessWidget {
           ),
           Center(
             child: Text(
-              AppTexts.discountPercent,
+              'discountPercent',
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.blackTextColor,
                 size: 48,
@@ -102,7 +100,7 @@ class _DiscountBanner extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
-                  AppTexts.sitewide,
+                  'AppTexts.sitewide',
                   style: AppTextStyles.cairoTextStyle(
                     color: AppColors.white,
                     size: 12,
@@ -124,10 +122,10 @@ class _BenefitsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final benefits = [
-      AppTexts.benefitDiscountPackage,
-      AppTexts.benefitMoreAdsFaster,
-      AppTexts.benefitMoreBuyers,
-      AppTexts.benefitBestPrices,
+      'AppTexts.benefitDiscountPackage',
+      'AppTexts.benefitMoreAdsFaster',
+      'AppTexts.benefitMoreBuyers',
+      'AppTexts.benefitBestPrices',
     ];
 
     return Column(

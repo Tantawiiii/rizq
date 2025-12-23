@@ -9,6 +9,6 @@ abstract class BaseRegisterRepo {
   final BaseApiService apiService;
   const BaseRegisterRepo(this.apiService);
 
-  Future<Either<Failure, Response>> registerUser({required RegisterRequestModel registerRequestModel, void Function(int, int)? onSendProgress});
+  Future<Either<Failure, Response>> registerUser({required RegisterRequestModel registerRequestModel, ProgressCallback? onSendProgress});
 }
 

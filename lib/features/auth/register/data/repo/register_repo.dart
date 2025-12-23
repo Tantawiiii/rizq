@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:rizq/core/error/failure.dart';
-import 'package:rizq/core/network/api_constants.dart';
+import 'package:rizq/core/api_service/endpoints.dart';
 import 'package:rizq/features/auth/register/data/models/register_request_model.dart';
 import 'package:rizq/features/auth/register/data/repo/base_register_repo.dart';
 
@@ -9,11 +9,11 @@ final class RegisterRepo extends BaseRegisterRepo{
   const RegisterRepo(super.apiService);
 
   @override
-  Future <Either<Failure, Response>>registerUser({required RegisterRequestModel registerRequestModel,void Function(int, int)? onSendProgress}) async {
+  Future <Either<Failure, Response>>registerUser({required RegisterRequestModel registerRequestModel,ProgressCallback? onSendProgress}) async {
     try {
       var response = await apiService.post(
-        ApiConstants.registerEndpoint,
-        body: registerRequestModel.toFrmData(),
+        Endpoints.registerEndpoint,
+        body: registerRequestModel.toFormData(),
         onSendProgress: onSendProgress
       );
 

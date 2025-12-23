@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/features/chat/ui/screens/chat_details_screen.dart';
 import 'package:rizq/features/chat/models/chat.dart';
@@ -30,7 +29,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          AppTexts.chats,
+          'chats',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
             color: AppColors.primaryColor,
             fontWeight: FontWeight.w700,

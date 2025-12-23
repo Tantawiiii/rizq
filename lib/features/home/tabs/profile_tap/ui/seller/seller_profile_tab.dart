@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/dialogs/logout_dialog.dart';
-import 'package:rizq/core/shared_widgets/dialogs/show_dialog_method.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/features/home/tabs/profile_tap/data/models/subscription_model.dart';
@@ -15,8 +11,6 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/personal_i
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/saved_alerts_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/subscriptions_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/wallet_screen.dart';
-import 'package:rizq/features/home/tabs/profile_tap/ui/company/branches_company_screen.dart';
-import 'package:rizq/features/home/tabs/profile_tap/ui/company/company_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/seller/shop_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/custom_switch.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/forward_icon.dart';
@@ -24,6 +18,8 @@ import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/language_menu_til
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/profile_menu_card.dart';
 import 'package:rizq/features/notifications/ui/screens/notifications_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/dialogs/logout_dialog.dart';
+import 'package:rizq/shared_widgets/dialogs/show_dialog_method.dart';
 
 
 class SellerProfileTab extends StatelessWidget {

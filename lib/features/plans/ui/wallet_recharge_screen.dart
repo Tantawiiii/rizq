@@ -5,16 +5,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/enums/enums.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/features/plans/logic/payment_cubit.dart';
 import 'package:rizq/features/plans/ui/widgets/payment_widget.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/app_bar_backbutton.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 
 class WalletRechargeScreen extends StatefulWidget {
@@ -73,7 +72,7 @@ class _WalletRechargeScreenState extends State<WalletRechargeScreen> {
                       _buildPurchaseSummary(),
 
                       PrimaryButton(
-                        title: AppTexts.confirmPayment,
+                        title: 'AppTexts.confirmPayment',
                         backgroundColor: AppColors.primaryColor,
                         onPressed: () {
                           // TODO: PASS AMOUNT TO CHARGE AND FEE TO PAYMENT CUBIT

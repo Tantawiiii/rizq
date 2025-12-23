@@ -2,7 +2,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:rizq/core/network/api_constants.dart';
+import 'package:rizq/core/api_service/endpoints.dart';
 import 'package:rizq/core/utils/lang_helper.dart';
 import 'base_api_service.dart';
 
@@ -16,7 +16,7 @@ class ChildApiService extends BaseApiService {
 
     dio = Dio(
       BaseOptions(
-        baseUrl: ApiConstants.baseUrl,
+        baseUrl: Endpoints.baseUrl,
         receiveDataWhenStatusError: true,
       ),
     );

@@ -1,10 +1,9 @@
-final class ApiConstants {
-  ApiConstants._();
+final class Endpoints {
+  Endpoints._();
 
   // Base URL
   static const String baseUrl = 'https://api.rizq.sy/api/';
 
-  // API Endpoints
   //auth
   static const loginEndpoint = 'login';
   static const registerEndpoint = 'register';
@@ -18,8 +17,8 @@ final class ApiConstants {
 
    // general
 
-  static const governoratesEndpoint = 'governorates';
-  static const categoriesEndpoint = 'categories';
+  static const governoratesEndpoint = 'look-up/governorates';
+  static const categoriesEndpoint = 'look-up/categories';
 
 }
 

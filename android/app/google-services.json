@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "YOUR_PROJECT_NUMBER",
-    "project_id": "YOUR_PROJECT_ID",
-    "storage_bucket": "YOUR_STORAGE_BUCKET"
+    "project_number": "82890871280",
+    "project_id": "rizq-f5f9b",
+    "storage_bucket": "rizq-f5f9b.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "YOUR_MOBILE_SDK_APP_ID",
+        "mobilesdk_app_id": "1:82890871280:android:954f7fcbb27056f9398d35",
         "android_client_info": {
           "package_name": "com.rar.rizq"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "YOUR_API_KEY"
+          "current_key": "AIzaSyCH5WvihwWqObZHwokrMbLpkQSrslhqTmA"
         }
       ],
       "services": {
@@ -27,5 +27,3 @@
   ],
   "configuration_version": "1"
 }
-
-

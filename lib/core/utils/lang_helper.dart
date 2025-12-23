@@ -21,6 +21,10 @@ final class LangHelper {
     };
   }
 
+  static bool isCurrentLanguageArabic({required BuildContext context}){
+    return context.locale == arabicLocale;
+  }
+
 
 
   static String apiAcceptLanguageHeader = 'ar';

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/features/notifications/models/notification_model.dart';
+import 'package:rizq/features/notifications/ui/widgets/notification_item.dart';
 
-import '../../../../core/constant/app_colors.dart';
-import '../../../../core/constant/app_texts.dart';
-import '../../../../core/router/route_manager.dart';
-import '../../../../core/theme/app_text_styles.dart';
-import '../../models/notification_model.dart';
-import '../widgets/notification_item.dart';
 
 class NotificationsScreen extends StatefulWidget {
   const NotificationsScreen({super.key});
@@ -19,32 +18,32 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   final List<NotificationModel> _notifications = [
     NotificationModel(
       id: '1',
-      title: AppTexts.discountCoupon,
-      description: AppTexts.discountCouponDescription,
+      title: 'AppTexts.discountCoupon',
+      description: 'AppTexts.discountCouponDescription',
       timestamp: '2:58 PM',
       avatarUrl:
           'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
-      actionButtonText: AppTexts.subscribtions,
+      actionButtonText: 'AppTexts.subscribtions',
       isRead: false,
     ),
     NotificationModel(
       id: '2',
-      title: AppTexts.discountCoupon,
-      description: AppTexts.discountCouponDescription,
+      title: 'AppTexts.discountCoupon',
+      description: 'AppTexts.discountCouponDescription',
       timestamp: '2:58 PM',
       avatarUrl:
           'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
-      actionButtonText: AppTexts.subscribtions,
+      actionButtonText: 'AppTexts.subscribtions',
       isRead: false,
     ),
     NotificationModel(
       id: '3',
-      title: AppTexts.discountCoupon,
-      description: AppTexts.discountCouponDescription,
+      title: 'AppTexts.discountCoupon',
+      description: 'AppTexts.discountCouponDescription',
       timestamp: '2:58 PM',
       avatarUrl:
           'https://fastly.picsum.photos/id/48/5000/3333.jpg?hmac=y3_1VDNbhii0vM_FN6wxMlvK27vFefflbUSH06z98so',
-      actionButtonText: AppTexts.subscribtions,
+      actionButtonText: 'AppTexts.subscribtions',
       isRead: false,
     ),
   ];
@@ -87,7 +86,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           // Title
           Expanded(
             child: Text(
-              AppTexts.notifications,
+              'AppTexts.notifications',
               textAlign: TextAlign.center,
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
@@ -117,7 +116,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Text(
-              AppTexts.markAsRead,
+              'AppTexts.markAsRead',
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 14,

@@ -3,7 +3,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:rizq/core/error/failure.dart';
-import 'package:rizq/core/network/api_constants.dart';
+import 'package:rizq/core/api_service/endpoints.dart';
 import 'package:rizq/features/auth/register/data/models/category_model.dart';
 import 'package:rizq/features/auth/register/data/models/governorate_model.dart';
 
@@ -16,13 +16,14 @@ final class GovCatRepo extends BaseGovCatRepo{
   Future<Either<Failure, List<GovernorateModel>>> getGovernorates() async {
     try {
       var response = await apiService.get(
-        ApiConstants.governoratesEndpoint,
+        Endpoints.governoratesEndpoint,
       );
 
       List<GovernorateModel> governorates = (response.data['data'] as List).map((e) => GovernorateModel.fromJson(e)).toList();
 
       return right(governorates);
     } catch (e) {
+      print('error in gov repo: $e');
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
@@ -34,7 +35,7 @@ final class GovCatRepo extends BaseGovCatRepo{
   Future<Either<Failure, List<CategoryModel>>> getCategories() async {
     try {
       var response = await apiService.get(
-        ApiConstants.categoriesEndpoint,
+        Endpoints.categoriesEndpoint,
       );
 
       List<CategoryModel> categories = (response.data['data'] as List).map((e) => CategoryModel.fromJson(e)).toList();

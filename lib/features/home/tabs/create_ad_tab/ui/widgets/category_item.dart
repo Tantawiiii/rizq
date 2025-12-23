@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/cached_net_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/features/auth/register/data/models/category_model.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/ad_info_screen.dart';
+import 'package:rizq/shared_widgets/cached_net_image.dart';
 
 class CategoryItem extends StatelessWidget {
 final CategoryModel model;
@@ -35,7 +35,7 @@ final CategoryModel model;
               flex: 3,
               child: SizedBox.expand(
                 child: CachedNetImage(
-                  imageUrl: model.imageUrl,
+                  imageUrl: model.image?? "",
                   fit: BoxFit.cover,
                 ),
               ),
@@ -44,7 +44,7 @@ final CategoryModel model;
               flex: 1,
               child: Center(
                 child: Text(
-                  model.name,
+                  model.name.getNameInCurrentLocale(context),
                   textAlign: TextAlign.center,
                   style: AppTextStyles.cairoTextStyle(
                     size: 16,

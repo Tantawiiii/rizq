@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/constant/app_texts.dart';
 import 'package:rizq/core/router/route_manager.dart';
 import 'package:rizq/features/chat/models/chat.dart';
 import 'package:rizq/features/chat/ui/widgets/message_bubble.dart';
@@ -146,7 +145,7 @@ class _MessageInput extends StatelessWidget {
                 ),
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: AppTexts.writeMessHere,
+                    hintText: 'هنا اكتب رسالة ',
                     border: InputBorder.none,
                     hintStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: AppColors.fieldHintColor,

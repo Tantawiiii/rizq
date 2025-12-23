@@ -5,21 +5,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
-import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
+
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/forget_password/data/models/reser_password_request_model.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_cubit.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_states.dart';
-import 'package:rizq/features/auth/forget_password/ui/successful_password_reset_screen.dart';
 import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
 import 'package:rizq/features/auth/widgets/form_validators.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/app_text_field.dart';
+import 'package:rizq/shared_widgets/custom_snack_bar.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 class PasswordResetScreen extends StatelessWidget {
   final String email;

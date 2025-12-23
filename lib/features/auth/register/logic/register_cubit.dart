@@ -3,9 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
-import 'package:rizq/features/auth/forget_password/ui/otp_screen.dart';
 import 'package:rizq/features/auth/outer_screens/ui/successful_register_screen.dart';
 import 'package:rizq/features/auth/register/data/models/category_model.dart';
 import 'package:rizq/features/auth/register/data/models/governorate_model.dart';
@@ -13,6 +11,7 @@ import 'package:rizq/features/auth/register/data/models/register_request_model.d
 import 'package:rizq/features/auth/register/data/repo/base_register_repo.dart';
 import 'package:rizq/features/auth/register/data/repo/gov_cat_repo/base_gov_cat_repo.dart';
 import 'package:rizq/features/auth/register/logic/register_states.dart';
+import 'package:rizq/shared_widgets/custom_snack_bar.dart';
 
 final class RegisterCubit extends Cubit<RegisterStates> {
   final BaseRegisterRepo registerRepo;
@@ -74,8 +73,7 @@ final class RegisterCubit extends Cubit<RegisterStates> {
 
   RegisterCubit({required this.registerRepo, required this.govCatRepo}) : super(RegisterInitialState());
 
-  void registerUser() async {
-    UserRole role = UserRole.getCachedUserRole();
+  void registerUser({required UserRole role}) async {
 
     emit(RegisterLoadingState());
 
@@ -116,7 +114,7 @@ final class RegisterCubit extends Cubit<RegisterStates> {
       },
       (response) {
         emit(RegisterSuccessState());
-        RouteManager.navigateTo(SuccessfulRegisterScreen());
+        RouteManager.navigateTo(SuccessfulRegisterScreen(registeredRole: role,));
       },
     );
   }
@@ -128,6 +126,8 @@ final class RegisterCubit extends Cubit<RegisterStates> {
     var result = await govCatRepo.getGovernorates();
 
     result.fold((failure){
+      print('got failure: ${failure.errMessage}');
+
       emit(RegisterGotDataFailureState(failure.errMessage));
     }, (govs){
       governorates = govs;

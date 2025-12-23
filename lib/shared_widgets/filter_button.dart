@@ -2,9 +2,9 @@ import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
 
-import '../constant/app_assets.dart';
-import '../constant/app_colors.dart';
 
 class FilterButton extends StatelessWidget {
   const FilterButton({super.key});

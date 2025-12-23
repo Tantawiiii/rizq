@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/dialogs/remove_alert_dialog.dart';
-import 'package:rizq/core/shared_widgets/dialogs/show_dialog_method.dart';
-import 'package:rizq/core/shared_widgets/dialogs/stop_alert_dialog.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/app_bar_backbutton.dart';
+import 'package:rizq/shared_widgets/dialogs/remove_alert_dialog.dart';
+import 'package:rizq/shared_widgets/dialogs/show_dialog_method.dart';
+import 'package:rizq/shared_widgets/dialogs/stop_alert_dialog.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 class SavedAlertsScreen extends StatelessWidget {
   const SavedAlertsScreen({super.key});

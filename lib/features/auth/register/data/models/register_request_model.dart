@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:rizq/core/utils/lang_helper.dart';
 
 final class RegisterRequestModel {
   String username;
@@ -39,7 +41,7 @@ final class RegisterRequestModel {
     this.identityDocumentFilePath,
   });
 
-  FormData toFrmData() {
+  FormData toFormData() {
     return FormData.fromMap({
       'name': username,
       'email': email,
@@ -47,7 +49,7 @@ final class RegisterRequestModel {
       'phone': phone,
       'governorate_id': governorateId,
       'account_guard': accountType,
-      if (storeName != null) 'store_name': storeName!.toMap(),
+      if (storeName != null) 'store_name': storeName!.toJson(),
       if (interestedCategoryId != null) 'category_id': interestedCategoryId,
       if (storeOrCompanyLogo != null)
         'logo': MultipartFile.fromFileSync(
@@ -58,7 +60,7 @@ final class RegisterRequestModel {
       if (longitude != null) 'longitude': longitude,
       if (commercialRegisterNumber != null)
         'commercial_register': commercialRegisterNumber,
-      if (businessAddress != null) 'business_address': businessAddress!.toMap(),
+      if (businessAddress != null) 'business_address': businessAddress!.toJson(),
       if (websiteLink != null) 'website': websiteLink,
       if (proofOfOwnershipFilePath != null)
         'proof_of_ownership_document': MultipartFile.fromFileSync(
@@ -77,12 +79,21 @@ final class RegisterRequestModel {
 }
 
 final class LocalizedName {
-  String ar;
-  String en;
+  final String ar;
+  final String en;
 
   LocalizedName({required this.ar, required this.en});
 
-  Map<String, dynamic> toMap() {
+  factory LocalizedName.fromJson({required Map<String,dynamic> json}){
+    return LocalizedName(ar: json['ar'], en : json['en'],);
+  }
+
+  Map<String, dynamic> toJson() {
     return {'ar': ar, 'en': en};
   }
+
+  String getNameInCurrentLocale(BuildContext context) {
+    return LangHelper.isCurrentLanguageArabic(context: context) ? ar : en;
+  }
 }
+

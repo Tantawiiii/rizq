@@ -1,4 +1,7 @@
-import 'package:rizq/core/utils/cache_helper.dart';
+
+
+import 'package:rizq/core/locale_storage/cache_helper.dart';
+import 'package:rizq/core/locale_storage/cache_keys.dart';
 
 enum UserRole{
   normal,
@@ -6,12 +9,11 @@ enum UserRole{
   company;
 
   void cacheUserRole() {
-    CacheHelper.setValue(key: CacheKeys.userRole, value: name);
+    CacheHelper.put(key: CacheKeys.userRole, value: name);
   }
 
   static UserRole getCachedUserRole() {
-
-    String role = CacheHelper.getString(key: CacheKeys.userRole)?? normal.name;
+    String role = CacheHelper.get<String>(key: CacheKeys.userRole)?? normal.name;
     return UserRole.values.firstWhere((v)=>v.name == role);
   }
 

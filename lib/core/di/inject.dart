@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:rizq/core/api_service/api_service.dart';
+import 'package:rizq/core/locale_storage/cache_helper.dart';
 import 'package:rizq/features/auth/forget_password/data/repo/forget_password_repo.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_cubit.dart';
 import 'package:rizq/features/auth/login/cubit/login_cubit.dart';
@@ -19,8 +20,7 @@ final sl = GetIt.instance;
 
 Future<void> init() async {
   // External
-  final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => sharedPreferences);
+  await CacheHelper.init();
 
   //services
 

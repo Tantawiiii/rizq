@@ -1,15 +1,12 @@
 import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rizq/core/constant/app_texts.dart';
-
-import '../../../../../core/constant/app_assets.dart';
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/shared_widgets/search_field.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/router/route_manager.dart';
-import '../screens/category_products_screen.dart';
-import '../screens/map_filter_screen.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/features/home/tabs/home_tap/screens/category_products_screen.dart';
+import 'package:rizq/shared_widgets/search_field.dart';
 import 'category_item.dart';
 
 class HomeSearchAndCategories extends StatelessWidget {
@@ -33,7 +30,7 @@ class HomeSearchAndCategories extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              AppTexts.categories,
+              'AppTexts.categories',
               style: AppTextStyles.cairoTextStyle(
                 color: AppColors.primaryColor,
                 size: 16.sp,
@@ -44,7 +41,7 @@ class HomeSearchAndCategories extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    AppTexts.seeMore,
+                    'AppTexts.seeMore',
                     style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 16,

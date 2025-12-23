@@ -4,17 +4,17 @@ import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/enums/enums.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/login/ui/screens/login_screen.dart';
 import 'package:rizq/features/auth/outer_screens/ui/widgets/gif_player_widget.dart';
-import 'package:rizq/features/home/main_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class SuccessfulRegisterScreen extends StatelessWidget {
-  const SuccessfulRegisterScreen({super.key});
+  final UserRole registeredRole;
+  const SuccessfulRegisterScreen({super.key, required this.registeredRole});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class SuccessfulRegisterScreen extends StatelessWidget {
                         color: AppColors.primaryColor,
                       ),
                     ),
-                    UserRole.getCachedUserRole().isNormal?
+                    registeredRole.isNormal?
                     Text(
                       LocaleKeys.Auth_register_successfulRegistration.tr(context: context),
                       textAlign: TextAlign.center,

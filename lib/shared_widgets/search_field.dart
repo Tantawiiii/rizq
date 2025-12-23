@@ -2,13 +2,11 @@ import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../features/home/tabs/home_tap/screens/map_filter_screen.dart';
-import '../constant/app_assets.dart';
-import '../constant/app_colors.dart';
-import '../constant/app_texts.dart';
-import '../router/route_manager.dart';
-import '../theme/app_text_styles.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/router/route_manager.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/features/home/tabs/home_tap/screens/map_filter_screen.dart';
 
 class SearchField extends StatelessWidget {
   const SearchField({
@@ -60,7 +58,7 @@ class SearchField extends StatelessWidget {
                         child: SvgPicture.asset(AppAssets.locationPinSvg, color: AppColors.sconderyColor,)),
                   )
                 : null,
-            hintText: hintText ?? AppTexts.search,
+            hintText: hintText ?? 'AppTexts.search',
             hintStyle: AppTextStyles.cairoTextStyle(
               color: AppColors.greyTextColor,
               size: 16,

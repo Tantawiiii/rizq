@@ -5,12 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
-import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
-import 'package:rizq/core/shared_widgets/custom_skelton.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -24,7 +18,12 @@ import 'package:rizq/features/auth/widgets/media_picking/image_pick_widget.dart'
 import 'package:rizq/features/auth/widgets/media_picking/media_constraints_text.dart';
 import 'package:rizq/features/auth/widgets/register_progrss_circles/register_progress_circles.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
-import 'package:rizq/main.dart';
+import 'package:rizq/shared_widgets/app_text_field.dart';
+import 'package:rizq/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/shared_widgets/custom_skelton.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 
 class RegisterCompanyDataScreen extends StatelessWidget {
@@ -154,15 +153,15 @@ class RegisterCompanyDataScreen extends StatelessWidget {
                             title: LocaleKeys.Auth_register_commercialActivityType.tr(context: context),
                             hint:  LocaleKeys.Auth_register_shortCommercialActivity.tr(context: context),
 
-                            value: cubit.categoryId == null ?null : cubit.categories.where((cat)=>cat.id == cubit.categoryId).first.name,
+                            value: cubit.categoryId == null ?null : cubit.categories.where((cat)=>cat.id == cubit.categoryId).first.name.getNameInCurrentLocale(context),
                             onChanged: (s) {
                               if (s != null && s.isNotEmpty) {
 
-                                cubit.categoryId = cubit.categories.where((cat)=>cat.name == s).first.id;
+                                cubit.categoryId = cubit.categories.where((cat)=>cat.name.getNameInCurrentLocale(context) == s).first.id;
                               }
                             },
 
-                            items: List.generate(cubit.categories.length, (i)=>cubit.categories[i].name),
+                            items: List.generate(cubit.categories.length, (i)=>cubit.categories[i].name.getNameInCurrentLocale(context)),
                             prefixIcon: SvgImage(svgPath: AppAssets.jobIconSvg,  color: AppColors.fieldHintColor, ),
                             validator:FormValidators.commercialActivityValidator,
                           ),

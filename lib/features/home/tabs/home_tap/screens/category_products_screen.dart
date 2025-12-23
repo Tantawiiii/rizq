@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rizq/core/constant/app_texts.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/adItem.dart';
+import 'package:rizq/features/home/tabs/home_tap/widgets/ad_card.dart';
+import 'package:rizq/features/home/tabs/home_tap/widgets/filter_drawer.dart';
+import 'package:rizq/shared_widgets/filter_button.dart';
+import 'package:rizq/shared_widgets/search_field.dart';
 
-import '../../../../../core/constant/app_assets.dart';
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/shared_widgets/filter_button.dart';
-import '../../../../../core/shared_widgets/search_field.dart';
-import '../model/adItem.dart';
-import '../widgets/ad_card.dart';
-import '../widgets/filter_drawer.dart';
 
 class CategoryProductsScreen extends StatefulWidget {
   const CategoryProductsScreen({super.key, required this.initialCategory});
@@ -169,7 +168,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   @override
   void initState() {
     super.initState();
-    _filters = _filtersByCategory[widget.initialCategory] ?? const [AppTexts.all];
+    _filters = _filtersByCategory[widget.initialCategory] ?? const ['all'];
     _selectedFilter = _filters.first;
     _allProducts = _productsByCategory[widget.initialCategory] ?? const [];
   }
@@ -210,7 +209,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
                           padding: EdgeInsets.only(top: 48.h),
                           child: Center(
                             child: Text(
-                              AppTexts.noProductsInSearch,
+                              'dummy text',
                               style: AppTextStyles.cairoTextStyle(
                                 color: AppColors.greyTextColor,
                                 size: 14,
@@ -331,7 +330,7 @@ class _CategoryProductsScreenState extends State<CategoryProductsScreen> {
   List<AdItem> get _filteredProducts {
     return _allProducts
         .where(
-          (item) => _selectedFilter == AppTexts.all || item.filter == _selectedFilter,
+          (item) => _selectedFilter == 'all' || item.filter == _selectedFilter,
         )
         .where(
           (item) =>

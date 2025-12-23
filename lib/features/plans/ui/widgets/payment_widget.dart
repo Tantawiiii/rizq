@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/enums/enums.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/features/plans/logic/payment_cubit.dart';
 import 'package:rizq/features/plans/logic/payment_states.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 class PaymentWidget extends StatelessWidget {
   final String svgImagePath;

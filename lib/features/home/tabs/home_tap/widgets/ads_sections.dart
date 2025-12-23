@@ -1,13 +1,11 @@
 import 'package:bounce/bounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:rizq/core/constant/app_texts.dart';
+import 'package:rizq/core/constant/app_assets.dart';
+import 'package:rizq/core/constant/app_colors.dart';
+import 'package:rizq/core/theme/app_text_styles.dart';
+import 'package:rizq/features/home/tabs/home_tap/model/adItem.dart';
 
-import '../../../../../core/constant/app_assets.dart';
-import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../model/adItem.dart';
 import 'ad_card.dart';
 
 class HomeAdsSections extends StatelessWidget {
@@ -112,17 +110,17 @@ class HomeAdsSections extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children:  [
         _AdsSection(
-          title: AppTexts.specialAds,
+          title: 'AppTexts.specialAds',
           items: _featuredAds,
         ),
         SizedBox(height: 24),
         _AdsSection(
-          title: AppTexts.newestAds,
+          title: 'AppTexts.newestAds',
           items: _latestAds,
         ),
         SizedBox(height: 24),
         _AdsSection(
-          title: AppTexts.underFiveThousandAds,
+          title: 'AppTexts.underFiveThousandAds',
           items: _underFiveThousandAds,
         ),
       ],
@@ -159,7 +157,7 @@ class _AdsSection extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    AppTexts.seeMore,
+                    'AppTexts.seeMore',
                     style: AppTextStyles.cairoTextStyle(
                       color: AppColors.primaryColor,
                       size: 16,

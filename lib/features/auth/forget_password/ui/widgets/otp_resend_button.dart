@@ -4,10 +4,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rizq/core/constant/app_colors.dart';
-import 'package:rizq/core/shared_widgets/custom_text_button.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/features/auth/forget_password/logic/forget_password_cubit.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/custom_text_button.dart';
 
 
 class OtpResendButton extends StatefulWidget {
@@ -67,8 +67,10 @@ class _OtpResendButtonState extends State<OtpResendButton> {
         if(noSeconds < 120){
           return;
         }
-        context.read<ForgetPasswordCubit>().sendOtp(email: widget.email);
+
         startTimer();
+        context.read<ForgetPasswordCubit>().resendOtp(email: widget.email);
+
       },
     );
   }

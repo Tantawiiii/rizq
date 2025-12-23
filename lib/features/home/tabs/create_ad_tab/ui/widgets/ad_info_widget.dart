@@ -4,17 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
-import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
-import 'package:rizq/core/shared_widgets/custom_skelton.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
 import 'package:rizq/features/auth/widgets/description_text_field.dart';
 import 'package:rizq/features/auth/widgets/form_validators.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_cubit.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/logic/create_ad_cubit/create_ad_states.dart';
 import 'package:rizq/features/home/tabs/create_ad_tab/ui/screens/ad_images_screen.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
+import 'package:rizq/shared_widgets/app_text_field.dart';
+import 'package:rizq/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/shared_widgets/custom_skelton.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
 
 class AdInfoWidget extends StatelessWidget {
   const AdInfoWidget({super.key});
@@ -67,7 +67,7 @@ class AdInfoWidget extends StatelessWidget {
                       }
 
                     },
-                    items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                    items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name.getNameInCurrentLocale(context)),
                     validator: FormValidators.stateValidator,
                   ),
                   // city
@@ -81,7 +81,7 @@ class AdInfoWidget extends StatelessWidget {
                         cubit.selectedGov = s;;
                       }
                     },
-                    items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                    items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name.getNameInCurrentLocale(context)),
                     validator: FormValidators.stateValidator,
                   ),
 

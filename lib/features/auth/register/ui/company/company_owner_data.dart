@@ -6,14 +6,6 @@ import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/di/inject.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
-import 'package:rizq/core/shared_widgets/custom_error_widget.dart';
-import 'package:rizq/core/shared_widgets/custom_skelton.dart';
-import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
-import 'package:rizq/core/shared_widgets/lang_drop_down.dart';
-import 'package:rizq/core/shared_widgets/primary_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
@@ -23,7 +15,14 @@ import 'package:rizq/features/auth/widgets/auth_custom_scaffold.dart';
 import 'package:rizq/features/auth/widgets/form_validators.dart';
 import 'package:rizq/features/auth/widgets/register_progrss_circles/register_progress_circles.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
-import 'package:rizq/main.dart';
+import 'package:rizq/shared_widgets/app_text_field.dart';
+import 'package:rizq/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/shared_widgets/custom_error_widget.dart';
+import 'package:rizq/shared_widgets/custom_skelton.dart';
+import 'package:rizq/shared_widgets/custom_snack_bar.dart';
+import 'package:rizq/shared_widgets/lang_drop_down.dart';
+import 'package:rizq/shared_widgets/primary_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 import 'company_data.dart';
 
@@ -182,11 +181,11 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                                         (gov) => gov.id == cubit.governorateId,
                                       )
                                       .first
-                                      .name,
+                                      .name.getNameInCurrentLocale(context),
                             onChanged: (s) {
                               if (s != null && s.isNotEmpty) {
                                 cubit.governorateId = cubit.governorates
-                                    .where((gov) => gov.name == s)
+                                    .where((gov) => gov.name.getNameInCurrentLocale(context) == s)
                                     .first
                                     .id;
                               }
@@ -195,7 +194,7 @@ class RegisterCompanyOwnerData extends StatelessWidget {
                               svgPath: AppAssets.stateIconSvg,
                               color: AppColors.fieldHintColor,
                             ),
-                            items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name),
+                            items: List.generate(cubit.governorates.length, (i)=>cubit.governorates[i].name.getNameInCurrentLocale(context)),
                             validator: FormValidators.stateValidator,
                           ),
 

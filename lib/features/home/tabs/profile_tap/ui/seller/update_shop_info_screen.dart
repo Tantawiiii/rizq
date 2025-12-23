@@ -5,19 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rizq/core/constant/app_assets.dart';
 import 'package:rizq/core/constant/app_colors.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/app_bar_backbutton.dart';
-import 'package:rizq/core/shared_widgets/app_text_field.dart';
-import 'package:rizq/core/shared_widgets/custom_dropdown_button.dart';
-import 'package:rizq/core/shared_widgets/svg_image.dart';
 import 'package:rizq/core/theme/app_text_styles.dart';
 import 'package:rizq/core/theme/theme.dart';
 import 'package:rizq/core/utils/extension_methods.dart';
 import 'package:rizq/features/auth/widgets/description_text_field.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/common_screens/update_personal_info_screen.dart';
 import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/docs_card.dart';
-import 'package:rizq/features/home/tabs/profile_tap/ui/widgets/social_media_card.dart';
 import 'package:rizq/generated/locale_keys.g.dart';
 import 'package:rizq/main.dart';
+import 'package:rizq/shared_widgets/app_bar_backbutton.dart';
+import 'package:rizq/shared_widgets/app_text_field.dart';
+import 'package:rizq/shared_widgets/custom_dropdown_button.dart';
+import 'package:rizq/shared_widgets/svg_image.dart';
 
 class UpdateShopInfoScreen extends StatelessWidget {
   const UpdateShopInfoScreen({super.key});

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:rizq/core/router/route_manager.dart';
-import 'package:rizq/core/shared_widgets/custom_snack_bar.dart';
 import 'package:rizq/features/auth/login/data/models/login_request_model.dart';
 import 'package:rizq/features/auth/login/data/repo/base_login_repo.dart';
 import 'package:rizq/features/home/main_screen.dart';
+import 'package:rizq/shared_widgets/custom_snack_bar.dart';
 
 import 'login_states.dart';
 

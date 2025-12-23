@@ -50,6 +50,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       ),
     ]).animate(_controller);
 
+    //TODO: HERE'S WHERE YOU SHOULD DECIDE WHERE TO NAVIGATE NEXT BASED ON AUTH STATUS
     _controller.forward().whenComplete(()=>RouteManager.navigateAndPopAll( LoginScreen()));
   }
 
